@@ -12,7 +12,7 @@ NOTE: If commit doesn't go please check your code for eslint errors, resolve the
 
 #### 3. Create `Pull Request` and send link to mentor.
 
-#### 4. After getting approve make `Squash and merge` when merging the Pull Request.
+#### 4. After getting approve make `Merge pull request` when merging the Pull Request.
 
 ## Development server
 
