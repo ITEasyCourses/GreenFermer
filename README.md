@@ -14,6 +14,8 @@ NOTE: If commit doesn't go please check your code for eslint errors, resolve the
 
 #### 4. After getting approve make `Merge pull request` when merging the Pull Request.
 
+#### 5. Delete your branch.
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`.
