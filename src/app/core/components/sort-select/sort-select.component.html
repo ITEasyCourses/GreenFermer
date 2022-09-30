@@ -1,18 +1,11 @@
 <select
-  [class.padding]="textDecoration"
+  [class.padding]="placeholder"
   class="select"
   [formControl]="sortType"
   (change)="sendSortType()"
 >
-  <option
-    class="option"
-    *ngIf="textDecoration"
-    disabled
-    selected
-    hidden
-    value=""
-  >
-    {{ textDecoration }}
+  <option class="option" *ngIf="placeholder" disabled selected hidden value="">
+    {{ placeholder }}
   </option>
   <option
     class="option"
