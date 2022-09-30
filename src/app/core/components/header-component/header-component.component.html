@@ -1,0 +1,36 @@
+<div class="header">
+  <div class="header-logo">
+    <img
+      src="../../../../assets/images/header-logo/home-page-logo.png"
+      alt="logo"
+    />
+  </div>
+  <div class="header-select"><p>каталог</p></div>
+  <div class="header-language"></div>
+  <div class="header-basket">
+    <app-cart></app-cart>
+  </div>
+  <div class="header-button">
+    <app-button [buttonText]="'Вхід/Реєстрація'"></app-button>
+  </div>
+</div>
+
+<ng-template #activeSession>
+  <div class="header-menu"><p>menu</p></div>
+  <div class="header-comment">
+    <i-feather name="message-circle"></i-feather>
+  </div>
+  <div class="header-like">
+    <i-feather class="header-like__size" name="heart"></i-feather>
+  </div>
+  <div class="header-basket">
+    <app-cart></app-cart>
+  </div>
+  <div class="header-avatar">
+    <div class="header-avatar-user">
+      <img class="header-avatar-user__img" src="" alt="avatar" />
+      <p class="header-avatar-user__text">Иван</p>
+    </div>
+    <app-button [buttonText]="'Додати'"></app-button>
+  </div>
+</ng-template>

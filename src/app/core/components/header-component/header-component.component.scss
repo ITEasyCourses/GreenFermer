@@ -1,0 +1,120 @@
+@import "src/assets/styles/vars";
+@import "src/assets/styles/mixins";
+
+.header {
+  @include font-base(15px, 600, 24px);
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+  width: 1440px;
+  height: 60px;
+  background: linear-gradient(180deg, #FFFFFF 0%, rgba(245, 245, 245, 0) 100%);
+
+  &-logo {
+    position: absolute;
+    height: 32.00044250488281px;
+    width: 190px;
+    left: 100px;
+    top: 14px;
+    border-radius: 0;
+  }
+
+  &-select {
+    position: absolute;
+    width: 96px;
+    height: 27px;
+    left: 340px;
+    top: 18px;
+  }
+
+  &-basket{
+    position: absolute;
+    width: 36px;
+    height: 36px;
+    left: 1077px;
+    top: 12px;
+  }
+
+  &-button {
+    position: absolute;
+    width: 187px;
+    height: 40px;
+    left: 1153px;
+    top: 10px;
+  }
+
+  &-menu {
+    position: absolute;
+    width: 77px;
+    height: 27px;
+    left: 456px;
+    top: 12px !important;
+  }
+
+  &-comment, &-menu, &-like, &-basket{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    top: 12px;
+    cursor: pointer;
+  }
+
+  &-comment {
+    left: 896px;
+  }
+
+  &-like {
+    left: 942px;
+
+    &__size {
+
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  &-basket {
+    left: 989px;
+  }
+
+  &-avatar {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0;
+    gap: 12px;
+    width: 311px;
+    height: 40px;
+    right: 75px;
+    top: 10px;
+
+    &-user {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      &__img {
+        width: 32px;
+        height: 32px;
+        left: 0;
+        top: 4px;
+        margin-right: 12px;
+        border-radius: 50%;
+
+      }
+
+    }
+
+    & :last-child {
+      display: flex;
+      justify-content: right;
+    }
+  }
+}
