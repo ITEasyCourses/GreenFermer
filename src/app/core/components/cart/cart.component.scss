@@ -1,0 +1,40 @@
+@import "src/assets/styles/vars";
+@import "src/assets/styles/mixins";
+
+.component-container {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 36px;
+  height: 36px;
+  padding-top: 10px;
+  cursor: pointer;
+
+  &__counter {
+    position: absolute;
+    top: 0;
+    left: 13px;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20px;
+    width: 20px;
+    border-radius: 12.5px;
+    background: $main-yellow;
+    text-align: center;
+
+    & .counter-number{
+      @include font-base(10px, 600, 10px);
+    }
+  }
+
+  &__cart {
+    width: 20px;
+
+    & .shopping-cart {
+      width: 100%;
+    }
+  }
+}
