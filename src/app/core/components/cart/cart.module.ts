@@ -12,6 +12,6 @@ const icons = {
 @NgModule({
   declarations: [CartComponent],
   exports: [CartComponent],
-  imports: [CommonModule, FeatherModule, FeatherModule.pick(icons)]
+  imports: [CommonModule, FeatherModule.pick(icons)]
 })
 export class CartModule {}

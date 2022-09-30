@@ -7,7 +7,6 @@ import { environment } from '../environments/environment';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CartModule } from './core/components/cart/cart.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -15,8 +14,7 @@ import { CartModule } from './core/components/cart/cart.module';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    AngularFireModule.initializeApp(environment.firebase),
-    CartModule
+    AngularFireModule.initializeApp(environment.firebase)
   ],
   providers: [],
   bootstrap: [AppComponent]
