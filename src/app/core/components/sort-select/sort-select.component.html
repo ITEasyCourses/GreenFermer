@@ -1,0 +1,24 @@
+<select
+  [class.padding]="textDecoration"
+  class="select"
+  [formControl]="sortType"
+  (change)="sendSortType()"
+>
+  <option
+    class="option"
+    *ngIf="textDecoration"
+    disabled
+    selected
+    hidden
+    value=""
+  >
+    {{ textDecoration }}
+  </option>
+  <option
+    class="option"
+    [value]="[item.value]"
+    *ngFor="let item of mockSortTypes"
+  >
+    {{ item.viewValue }}
+  </option>
+</select>
