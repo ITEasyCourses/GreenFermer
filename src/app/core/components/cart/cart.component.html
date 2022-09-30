@@ -1,7 +1,7 @@
-<div class="component-container" (click)="cartEmit()">
-  <div class="component-container__counter">
+<div class="component-container">
+  <div class="component-container__counter" *ngIf="counter">
     <div class="counter-number">
-      <p>{{ counter }}</p>
+      <p>{{ counter > 99 ? '99+' : counter }}</p>
     </div>
   </div>
   <div class="component-container__cart">
