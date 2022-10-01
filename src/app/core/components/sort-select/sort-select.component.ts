@@ -18,6 +18,7 @@ import { SortTypeInterface } from '../../interfaces/sort-type.interface';
 export class SortSelectComponent {
   @Input() public sortType: FormControl = new FormControl('');
   @Input() public placeholder!: string;
+
   @Output() public sortString: EventEmitter<string> =
     new EventEmitter<string>();
 
