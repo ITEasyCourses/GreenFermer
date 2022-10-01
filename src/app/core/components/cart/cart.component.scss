@@ -22,10 +22,17 @@
     height: 20px;
     width: 20px;
     border-radius: 12.5px;
-    background: $main-yellow;
     text-align: center;
 
-    & .counter-number{
+    &.yellow {
+      background: $main-yellow;
+    }
+
+    &.white {
+      background: #ffffff;
+    }
+
+    & .counter-number {
       @include font-base(10px, 600, 10px);
     }
   }

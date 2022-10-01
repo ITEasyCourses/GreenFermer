@@ -8,4 +8,5 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 })
 export class CartComponent {
   @Input() counter = 6;
+  @Input() color = 'yellow';
 }
