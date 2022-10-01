@@ -8,7 +8,7 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 })
 export class ButtonComponent {
   @Input() buttonText!: string;
-  @Input() buttonNoColor = false;
+  @Input() buttonColor!: string;
   @Input() isDisabled = false;
   @Input() addIcon = false;
 }
