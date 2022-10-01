@@ -1,0 +1,17 @@
+@import "src/assets/styles/vars";
+@import "src/assets/styles/mixins";
+
+.select {
+  @include font-base(15px, 600, 24px);
+
+  border: 2px solid $gray1;
+  border-radius: 8px;
+
+  & .option {
+    @include font-base(15px, 600, 24px);
+  }
+
+  &.padding {
+    padding-right: 68px;
+  }
+}

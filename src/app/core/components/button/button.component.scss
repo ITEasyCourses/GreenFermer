@@ -1,0 +1,47 @@
+@import "src/assets/styles/vars";
+@import "src/assets/styles/mixins";
+
+.btn {
+  @include font-base(15px, 600, 24px );
+
+  padding: 8px 30px;
+  background: $main-yellow;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  letter-spacing: 0.0125em;
+  transition: background .2s linear;
+
+  &:hover {
+    background: $light-yellow;
+    transition: background .2s linear;
+  }
+
+  &:active {
+    transform: translateY(1px);
+    transition: transform .2s linear;
+  }
+
+  &.transparent {
+    background: transparent;
+    border: 1px solid $main-yellow;
+
+    &:hover {
+      border: 1px solid $light-yellow;
+      color: $gray1;
+      transition: all .2s linear;
+    }
+  }
+
+  &.disabled {
+    opacity: .7;
+
+    &:hover {
+      background: $main-yellow;
+    }
+
+    &:active {
+      transform: none;
+    }
+  }
+}
