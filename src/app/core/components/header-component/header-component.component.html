@@ -1,36 +1,65 @@
-<div class="header">
-  <div class="header-logo">
-    <img
-      src="../../../../assets/images/header-logo/home-page-logo.png"
-      alt="logo"
-    />
-  </div>
-  <div class="header-select"><p>каталог</p></div>
-  <div class="header-language"></div>
-  <div class="header-basket">
-    <app-cart></app-cart>
-  </div>
-  <div class="header-button">
-    <app-button [buttonText]="'Вхід/Реєстрація'"></app-button>
+<div class="header-wrapper">
+  <div
+    class="header"
+    [ngClass]="router.url === '/home' ? 'transparent' : 'yellow'"
+  >
+    <div class="header-left">
+      <div class="header-left-logo">
+        <img
+          src="../../../../assets/images/header-logo/home-page-logo.png"
+          alt="logo"
+        />
+      </div>
+      <div class="header-left-select"><p>каталог</p></div>
+      <div *ngIf="sessionUser?.isAuthentication" class="header-menu">
+        <p>menu</p>
+      </div>
+    </div>
+    <div class="header-right">
+      <ng-container
+        [ngTemplateOutlet]="
+          sessionUser?.isAuthentication
+            ? activeAuthenticationSession
+            : notAuthenticationSession
+        "
+      ></ng-container>
+    </div>
   </div>
 </div>
 
-<ng-template #activeSession>
-  <div class="header-menu"><p>menu</p></div>
-  <div class="header-comment">
+<ng-template #activeAuthenticationSession>
+  <div class="header-right-auth__language">ua/eu</div>
+  <div class="header-right-auth-comment">
     <i-feather name="message-circle"></i-feather>
   </div>
-  <div class="header-like">
-    <i-feather class="header-like__size" name="heart"></i-feather>
+  <div class="header-right-auth-like">
+    <i-feather class="header-right-auth-like__size" name="heart"></i-feather>
   </div>
-  <div class="header-basket">
+  <div class="header-right-auth__basket">
     <app-cart></app-cart>
   </div>
-  <div class="header-avatar">
-    <div class="header-avatar-user">
-      <img class="header-avatar-user__img" src="" alt="avatar" />
-      <p class="header-avatar-user__text">Иван</p>
+  <div class="header-right-auth-avatar">
+    <div class="header-right-auth-avatar-user">
+      <img
+        class="header-right-auth-avatar-user__img"
+        [src]="sessionUser?.avatar"
+        alt="avatar"
+      />
+      <p class="header-right-auth-avatar-user__text">{{ sessionUser?.name }}</p>
     </div>
-    <app-button [buttonText]="'Додати'"></app-button>
+    <app-button
+      class="header-right-auth-avatar-user__button"
+      [buttonText]="'Додати'"
+    ></app-button>
+  </div>
+</ng-template>
+
+<ng-template #notAuthenticationSession>
+  <div class="header-right__language">UA/EU</div>
+  <div class="header-right__basket">
+    <app-cart></app-cart>
+  </div>
+  <div class="header-right__button">
+    <app-button [buttonText]="'Вхід/Реєстрація'"></app-button>
   </div>
 </ng-template>

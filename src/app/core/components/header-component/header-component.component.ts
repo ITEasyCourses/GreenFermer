@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
+
+import { IAuthenticationUser } from '../../interfaces/i-authentication-user';
 
 @Component({
   selector: 'app-header-component',
@@ -6,5 +9,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./header-component.component.scss']
 })
 export class HeaderComponentComponent {
-  constructor() {}
+  @Input() sessionUser?: IAuthenticationUser;
+  constructor(public router: Router) {}
 }
