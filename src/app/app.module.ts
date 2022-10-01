@@ -7,6 +7,7 @@ import { environment } from '../environments/environment';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { SearchModule } from './core/components/search/search.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -14,7 +15,8 @@ import { AppComponent } from './app.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    AngularFireModule.initializeApp(environment.firebase)
+    AngularFireModule.initializeApp(environment.firebase),
+    SearchModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,28 @@
+<div class="home-page">
+  <div class="search-wrapper">
+    <button class="btn">
+      <span class="button text">Знайти</span>
+    </button>
+    <div class="search">
+      <div class="input-search">
+        <input class="my-input" type="text" [formControl]="searchProducts" />
+
+      </div>
+      <div class="my-select">
+        <div class="icon-location">
+          <div class="location-and-map">
+
+          </div>
+        </div>
+        <select class="my-select" name="" id="" [formControl]="citySort">
+          <option
+            *ngFor="let SearchCity of sortCity"
+            [value]="SearchCity.value"
+          >
+            {{ SearchCity.viewValue }}
+          </option>
+        </select>
+      </div>
+    </div>
+  </div>
+</div>
