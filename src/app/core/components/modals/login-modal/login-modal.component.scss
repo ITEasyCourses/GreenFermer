@@ -64,6 +64,7 @@ h1 {
             height: 40px;
 
             & app-button{
+              display: flex;
               width: 100%;
             }
           }
