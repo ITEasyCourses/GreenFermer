@@ -1,0 +1,24 @@
+<mat-radio-group
+  (change)="radioAnswer($event)"
+  [ngClass]="{
+    radioGroupHorizontal: position === 'Horizontal',
+    radioGroupVertical: position === 'Vertical'
+  }"
+>
+  <mat-radio-button
+    [ngClass]="{
+      radioGroupHorizontal__radioButtonHorizontal: position === 'Horizontal',
+      radioGroupVertical__radioButtonVertical: position === 'Vertical'
+    }"
+    value="1"
+    >{{ radioText1 }}</mat-radio-button
+  >
+  <mat-radio-button
+    [ngClass]="{
+      radioGroupHorizontal__radioButtonHorizontal: position === 'Horizontal',
+      radioGroupVertical__radioButtonVertical: position === 'Vertical'
+    }"
+    value="2"
+    >{{ radioText2 }}</mat-radio-button
+  >
+</mat-radio-group>

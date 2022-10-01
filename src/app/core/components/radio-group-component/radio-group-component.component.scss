@@ -1,0 +1,63 @@
+@import "/src/assets/styles/vars";
+
+::ng-deep .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element {
+  background-color: $main-yellow;
+}
+
+::ng-deep .mat-radio-button.mat-accent:active .mat-radio-persistent-ripple {
+  background-color: $main-yellow
+}
+
+::ng-deep .mat-radio-button.mat-accent .mat-radio-inner-circle {
+  background-color: $main-yellow;
+}
+
+::ng-deep .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element {
+  background-color: $main-yellow !important;
+}
+
+::ng-deep.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+  border-color: $main-yellow;
+}
+
+::ng-deep .mat-radio-container {
+  height: 26px;
+}
+
+.radioGroupVertical {
+  display: flex;
+  flex-direction: column;
+
+  &__radioButtonVertical {
+    font-family: $font-base;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 27px;
+    letter-spacing: 0.005em;
+
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+  }
+}
+
+.radioGroupHorizontal {
+  display: flex;
+
+  &__radioButtonHorizontal {
+    font-family: $font-base;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 27px;
+    letter-spacing: 0.005em;
+
+    &:not(:last-child) {
+      margin-right: 50px;
+    }
+  }
+}
+
+
+
