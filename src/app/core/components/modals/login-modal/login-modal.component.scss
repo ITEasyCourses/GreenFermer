@@ -62,6 +62,10 @@ h1 {
           &-bottom {
             width: 196px;
             height: 40px;
+
+            & app-button{
+              width: 100%;
+            }
           }
         }
 
