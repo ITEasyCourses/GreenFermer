@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-checkbox',
@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./checkbox.component.scss']
 })
 export class CheckboxComponent {
+  @Input() isChecked!: boolean;
   constructor() {}
 }

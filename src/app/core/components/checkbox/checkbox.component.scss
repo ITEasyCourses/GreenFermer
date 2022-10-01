@@ -1,6 +1,16 @@
 @import "src/assets/styles/vars";
+@import "src/assets/styles/mixins";
 
 :host::ng-deep{
+  & .mat-checkbox-layout .mat-checkbox-label{
+    @include font-base(17px, 400, 27px)
+  }
+
+  & .mat-checkbox-inner-container{
+    width: 24px;
+    height: 24px;
+  }
+
   & .mat-ripple-element {
     opacity: 0.03 !important;
     background-color: $main-yellow!important;
