@@ -7,7 +7,7 @@ import {
 } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
-import { SortTypeInterface } from '../../interfaces/sort-type.interface';
+import { SortOption } from '../../interfaces/sort-option';
 
 @Component({
   selector: 'app-sort-select',
@@ -16,19 +16,19 @@ import { SortTypeInterface } from '../../interfaces/sort-type.interface';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SortSelectComponent {
-  @Input() public sortType: FormControl = new FormControl('');
+  @Input() public sortControl: FormControl = new FormControl('');
   @Input() public placeholder!: string;
 
   @Output() public sortString: EventEmitter<string> =
     new EventEmitter<string>();
 
-  public mockSortTypes: SortTypeInterface[] = [
+  public mockSortTypes: SortOption[] = [
     { value: 'fruits', viewValue: 'Фруткты' },
     { value: 'vegetables', viewValue: 'Овощи' },
     { value: 'all', viewValue: 'Всё' }
   ];
 
   public sendSortType(): void {
-    this.sortString.emit(this.sortType.value);
+    this.sortString.emit(this.sortControl.value);
   }
 }

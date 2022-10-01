@@ -1,4 +1,4 @@
-export interface SortTypeInterface {
+export interface SortOption {
   value: string;
   viewValue: string;
 }

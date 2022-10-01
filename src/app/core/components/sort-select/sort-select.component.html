@@ -1,7 +1,7 @@
 <select
   [class.padding]="placeholder"
   class="select"
-  [formControl]="sortType"
+  [formControl]="sortControl"
   (change)="sendSortType()"
 >
   <option class="option" *ngIf="placeholder" disabled selected hidden value="">
