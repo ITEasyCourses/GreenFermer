@@ -25,6 +25,7 @@
   &.transparent {
     background: transparent;
     border: 1px solid $main-yellow;
+    transition: color .2s linear;
 
     &:hover {
       border: 1px solid $light-yellow;
@@ -43,5 +44,18 @@
     &:active {
       transform: none;
     }
+  }
+
+  &-title-con {
+    display: flex;
+    gap: 10px;
+
+    & .icon {
+      width: 24px;
+    }
+  }
+
+  &.padding-10 {
+    padding: 8px 10px;
   }
 }

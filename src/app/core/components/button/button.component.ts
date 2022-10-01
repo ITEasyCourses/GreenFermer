@@ -10,4 +10,5 @@ export class ButtonComponent {
   @Input() buttonText!: string;
   @Input() buttonNoColor = false;
   @Input() isDisabled = false;
+  @Input() addIcon = false;
 }
