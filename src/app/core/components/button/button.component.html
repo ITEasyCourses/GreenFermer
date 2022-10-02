@@ -1,7 +1,13 @@
 <button
-  [class.transparent]="buttonNoColor"
-  [class.disabled]="isDisabled"
   class="btn"
+  [classList]="{
+    disabled: isDisabled,
+    padding_10: addIcon
+  }"
+  [ngClass]="buttonColor"
 >
-  {{ buttonText }}
+  <div class="btn-title">
+    <i-feather *ngIf="addIcon" class="icon" name="plus"></i-feather>
+    {{ buttonText }}
+  </div>
 </button>
