@@ -5,7 +5,7 @@
 .price-card{
   width: 400px;
   height: 411px;
-  background-color:($gray5);
+  background-color:$gray5;
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
 
@@ -17,13 +17,15 @@
       margin: 34px 0 0 30px;
 
       &_name{
-        margin-bottom: 18px;
         @include font-base(15px, 500, 24px);
+
+        margin-bottom: 18px;
       }
 
       &_boldName{
-        margin: 16px 0;
         @include font-base(17px, 600, 27px);
+
+        margin: 16px 0;
       }
 
       &_boldName2{
@@ -31,8 +33,9 @@
       }
 
       &_boldName1{
-        margin: 36px 0;
         @include font-base(17px, 600, 27px);
+
+        margin: 36px 0;
       }
     }
 
@@ -41,12 +44,14 @@
       padding-right:22px;
 
       &_name1{
-        margin-bottom: 12px;
         @include font-base(21px, 600, 33px);
+
+        margin-bottom: 12px;
       }
 
       &_name2{
         @include font-base(17px, 600, 27px);
+
         margin-bottom: 14px;
       }
 
@@ -58,7 +63,6 @@
         margin: 31.87px 0 35.88px 0;
         display: flex;
         justify-content: space-between;
-        flex-direction: row;
         width: 95px;
 
         &_tools{
@@ -69,6 +73,7 @@
 
       &_boldName{
         @include font-base(17px, 600, 27px);
+        
         margin-bottom: 16px;
 
         &_number{
