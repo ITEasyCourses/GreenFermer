@@ -1,0 +1,15 @@
+<button mat-button [matMenuTriggerFor]="menu" class="select-btn">
+  {{ label }}
+  <i-feather name="chevron-down" class="select-btn-chevron"></i-feather>
+</button>
+
+<mat-menu #menu="matMenu" yPosition="below">
+  <button
+    mat-menu-item
+    *ngFor="let option of options"
+    (click)="selectOption(option.value)"
+    class="option"
+  >
+    <b> {{ option.viewValue }}</b>
+  </button>
+</mat-menu>

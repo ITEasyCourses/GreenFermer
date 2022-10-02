@@ -1,0 +1,38 @@
+@import "src/assets/styles/mixins";
+
+.select-btn {
+  @include font-base(17px, 600, 27px );
+
+  height: 27px;
+  padding: 0;
+
+  &-chevron {
+    width: 20px;
+    height: 20px;
+    margin-top: 5px;
+  }
+}
+
+.select-btn.mat-button, .mat-icon-button, .mat-stroked-button, .mat-flat-button {
+  padding: 0;
+  min-width: unset;
+}
+
+::ng-deep .cdk-overlay-connected-position-bounding-box {
+  margin-top: 20px;
+
+  .cdk-overlay-pane {
+    max-height: 90%;
+  }
+}
+
+.option {
+  @include font-base();
+
+  height: 36px;
+}
+
+
+
+
+
