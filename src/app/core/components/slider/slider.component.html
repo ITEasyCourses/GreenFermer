@@ -1,0 +1,29 @@
+<swiper
+  [slidesPerView]="3"
+  [spaceBetween]="50"
+  (swiper)="onSwiper($event)"
+  (slideChange)="onSlideChange()"
+  [navigation]="true"
+  [pagination]="{ clickable: true }"
+  [scrollbar]="{ draggable: true }"
+  class="swipeer"
+>
+  <ng-container *swiperSlide>
+    <div class="sw">qwerty</div>
+  </ng-container>
+  <ng-container *swiperSlide>
+    <div class="sw">asdfgh</div>
+  </ng-container>
+  <ng-container *swiperSlide>
+    <div class="sw">zxcvbn</div>
+  </ng-container>
+  <ng-container *swiperSlide>
+    <div class="sw">1234567</div>
+  </ng-container>
+  <ng-container *swiperSlide>
+    <div class="sw">poiuyt</div>
+  </ng-container>
+  <ng-container *swiperSlide>
+    <div class="sw">';lkjhgf</div>
+  </ng-container>
+</swiper>
