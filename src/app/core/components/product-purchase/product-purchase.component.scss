@@ -11,61 +11,71 @@
   &_main{
     display: flex;
     justify-content: space-between;
+
     &_naming{
       margin: 34px 0 0 30px;
+
       &_name{
         margin-bottom: 18px;
         @include font-base(15px, 500, 24px);
       }
+
       &_boldName{
         margin: 16px 0;
         @include font-base(17px, 600, 27px);
       }
+
       &_boldName2{
         @include font-base(17px, 600, 27px);
       }
+
       &_boldName1{
         margin: 36px 0;
         @include font-base(17px, 600, 27px);
       }
     }
+
     &_number{
       margin: 30px 22px 0 0;
       padding-right:22px;
+
       &_name1{
         margin-bottom: 12px;
         @include font-base(21px, 600, 33px);
       }
+
       &_name2{
         @include font-base(17px, 600, 27px);
         margin-bottom: 14px;
       }
+
       &_name{
         @include font-base(17px, 600, 27px);
       }
+
       &_boldName1{
         margin: 31.87px 0 35.88px 0;
         display: flex;
         justify-content: space-between;
         flex-direction: row;
         width: 95px;
+
         &_tools{
           cursor: pointer;
           transition: all 0.2s;
-          &.active{
-            transition: all 0.2s;
-            color: $main-yellow;
-          }
         }
 
 
       }
+
       &_boldName{
         @include font-base(17px, 600, 27px);
         margin-bottom: 16px;
+
         &_number{
           margin: 0 10px;
         }
+
         &_plus{
           cursor:pointer;
           transition: all 1s;
@@ -73,6 +83,7 @@
       }
     }
   }
+
   &_button-block{
     display: flex;
     justify-content: space-between;
