@@ -13,7 +13,7 @@ const icons = {
 
 @NgModule({
   declarations: [FooterComponent],
-  imports: [CommonModule, FeatherModule, FeatherModule.pick(icons)],
+  imports: [CommonModule, FeatherModule.pick(icons)],
   exports: [FooterComponent]
 })
 export class FooterModule {}

@@ -1,3 +1,6 @@
+@import "src/assets/styles/mixins";
+@import "src/assets/styles/vars";
+
 .sr-only {
   position: absolute;
   width: 1px;
@@ -10,8 +13,9 @@
   clip: rect(0 0 0 0);
   overflow: hidden;
 }
+
 .footer{
-  font-family: "Saira", sans-serif;
+  @include font-base();
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   padding: 50px 0 30px;
   position: relative;
@@ -19,7 +23,7 @@
   &::before{
     content: "";
     position: absolute;
-    background-image: url(~src/assets/images/footer/bg.png);
+    background-image: url(~src/assets/images/footer/bg.svg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: top center;
@@ -34,12 +38,6 @@
     list-style: none;
   }
 
-  .container{
-    max-width: 1240px;
-    margin: 0 auto;
-    padding: 0 15px;
-  }
-
 &__wrapper{
   display: flex;
   justify-content: space-between;
@@ -52,8 +50,7 @@
 
   &__logo{
     display: block;
-    width: 252px;
-    height: 43px;
+    max-height: 43px;
     margin-bottom: 40px;
     outline-color: transparent;
     border-radius: 10px;
@@ -70,15 +67,16 @@
     &:focus{
       opacity: 0.5;
     }
+
+    &-img{
+      width: 100%;
+    }
   }
 
   &__title{
-    font-weight: 600;
+    @include font-base(17px, 600, 1.6);
     letter-spacing: 0.0015em;
-    font-size: 17px;
-    line-height: 1.6;
     margin-bottom: 5px;
-    font-style: normal;
   }
 
   &__link{
@@ -92,24 +90,24 @@
     transition: color 0.2s,  border-color 0.2s, box-shadow 0.2s ;
 
     &:hover{
-      color: #ffffff;
+      color: $white;
     }
 
     &:active{
-      border-color: #fff;
+      border-color: $white;
       box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
     }
 
     &:focus{
-      border-color: #fff;
+      border-color: $white;
       box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
     }
   }
 
   &__link-wrapper{
-    & .footer__list:not(:last-child){
-      margin-bottom: 27px;
-    }
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 27px 108px;
   }
 
   &__app-wrapper{
@@ -135,7 +133,7 @@
     align-items: center;
     width: 46px;
     height: 46px;
-    background-color: #fff;
+    background-color: $white;
     border-radius: 50%;
     position: relative;
     outline-color: transparent;
@@ -147,7 +145,7 @@
       width: 22px;
       height: 22px;
       border-radius: 50%;
-      background-color: #FFD345;
+      background-color: $main-yellow;
       top: 8px;
       left: 5px;
     }
@@ -171,7 +169,7 @@
   }
 
   &__app-icon{
-    color: #000000;
+    color: $main-black;
     z-index: 1;
   }
 

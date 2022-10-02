@@ -15,48 +15,17 @@
         </p>
       </div>
       <div class="footer__link-wrapper">
-        <h3 class="footer__title">Як продавати й купувати?</h3>
-        <ul class="footer__list">
-          <li class="footer__item">
-            <a class="footer__link" href="#">Карта сайту</a>
-          </li>
-          <li class="footer__item">
-            <a class="footer__link" href="#">Правила безпеки</a>
-          </li>
-          <li class="footer__item">
-            <a class="footer__link" href="#">Популярні запити</a>
-          </li>
-        </ul>
-        <h3 class="footer__title">Оплата й доставка</h3>
-        <ul class="footer__list">
-          <li class="footer__item">
-            <a class="footer__link" href="#">Допомога</a>
-          </li>
-          <li class="footer__item">
-            <a class="footer__link" href="#"> Зворотній звязок</a>
-          </li>
-        </ul>
+        <div class="footer__render" *ngFor="let obj of footerConfig">
+          <h3 class="footer__title">{{ obj.title }}</h3>
+          <ul class="footer__list">
+            <li class="footer__item" *ngFor="let objBody of obj.body">
+              <a class="footer__link" [href]="objBody.href">{{
+                objBody.name
+              }}</a>
+            </li>
+          </ul>
+        </div>
       </div>
-      <address class="footer__contacts-wrapper">
-        <h3 class="footer__title">Контакти</h3>
-        <ul class="footer__list">
-          <li class="footer__item">
-            <a class="footer__link" href="tel:+380933697315962"
-              >(093) 369-731-5962</a
-            >
-          </li>
-          <li class="footer__item">
-            <a class="footer__link" href="tel:+380933697315962"
-              >(093) 369-731-5962</a
-            >
-          </li>
-          <li class="footer__item">
-            <a class="footer__link" href="mailto:rinok@gmail.com"
-              >Rinok@gmail.com</a
-            >
-          </li>
-        </ul>
-      </address>
       <div class="footer__app-wrapper">
         <h3 class="footer__title">Завантажуй додаток</h3>
         <ul class="footer__app-list">
