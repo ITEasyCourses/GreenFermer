@@ -1,7 +1,10 @@
-<mat-radio-button
-  *ngFor="let text of textRadioBtn"
-  (change)="radioAnswer(text)"
-  [class.vertical]="positionVertical"
-  class="position"
-  >{{ text }}</mat-radio-button
->
+<mat-radio-group [value]="textRadioBtn">
+  <mat-radio-button
+    *ngFor="let text of textRadioBtn"
+    (change)="radioAnswer(text)"
+    [class.vertical]="positionVertical === true"
+    [class.horizontal]="positionVertical === false"
+    class="position"
+    >{{ text }}</mat-radio-button
+  >
+</mat-radio-group>
