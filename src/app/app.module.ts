@@ -8,6 +8,7 @@ import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SearchModule } from './core/components/search/search.module';
+import { SortSelectModule } from './core/components/sort-select/sort-select.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -16,7 +17,8 @@ import { SearchModule } from './core/components/search/search.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebase),
-    SearchModule
+    SearchModule,
+    SortSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

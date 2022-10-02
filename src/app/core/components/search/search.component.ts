@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 import { SearchCity } from '../../interfaces/search-city';
@@ -8,11 +8,16 @@ import { SearchCity } from '../../interfaces/search-city';
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.scss']
 })
-export class SearchComponent {
-  @Input() public citySort: FormControl = new FormControl();
-  @Input() public searchProducts: FormControl = new FormControl();
+export class SearchComponent implements OnInit {
+  @Input() public citySort: FormControl = new FormControl('');
+  @Input() public searchProducts: FormControl = new FormControl('');
+  @Input() public placeholder!: string;
+
+  @Output() public sortUkraine: EventEmitter<string> =
+    new EventEmitter<string>();
 
   public sortCity: SearchCity[] = [
+    { value: 'ukraine', viewValue: 'Вся Україна' },
     { value: 'kharkov', viewValue: 'Харків' },
     { value: 'kiev', viewValue: 'Київ' },
     { value: 'odessa', viewValue: 'Одеса' },
@@ -25,4 +30,14 @@ export class SearchComponent {
     { value: 'chernovtsi', viewValue: 'Чернівці' },
     { value: 'rovno', viewValue: 'Рівне' }
   ];
+
+  public ngOnInit(): void {
+    this.citySort.setValue(this.sortCity[0].viewValue);
+  }
+
+  public sendSortType(): void {
+    this.sortUkraine.emit(this.citySort.value);
+  }
+
+  productSearch() {}
 }

@@ -1,25 +1,39 @@
 <div class="home-page">
   <div class="search-wrapper">
-    <button class="btn">
-      <span class="button text">Знайти</span>
-    </button>
+    <app-button [buttonText]="'Знайти'" class="btn"></app-button>
     <div class="search">
       <div class="input-search">
         <input class="my-input" type="text" [formControl]="searchProducts" />
-        <i-feather name="search"></i-feather>
+        <div (click)="productSearch()" class="position-icon">
+          <i-feather class="icon-search" name="search"></i-feather>
+        </div>
       </div>
       <div class="my-select">
         <div class="icon-location">
-          <div class="location-and-map">
-
-          </div>
+          <i-feather class="map-icons" name="map-pin"></i-feather>
         </div>
-        <select class="my-select" name="" id="" [formControl]="citySort">
+        <select
+          [class.padding]="placeholder"
+          class="my-selected"
+          [formControl]="citySort"
+          (change)="sendSortType()"
+        >
           <option
-            *ngFor="let SearchCity of sortCity"
-            [value]="SearchCity.value"
+            class="option"
+            *ngIf="placeholder"
+            disabled
+            selected
+            hidden
+            value=""
           >
-            {{ SearchCity.viewValue }}
+            {{ placeholder }}
+          </option>
+          <option
+            class="my-option"
+            *ngFor="let searchCity of sortCity"
+            [value]="searchCity.viewValue"
+          >
+            {{ searchCity.viewValue }}
           </option>
         </select>
       </div>
