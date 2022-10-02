@@ -24,7 +24,7 @@ h1 {
     height: 60px;
     background-color: $main-yellow;
 
-    & .close{
+    & .close {
       position: absolute;
       right: 19.88px;
       top: 19.88px;
@@ -35,7 +35,7 @@ h1 {
 
   &-content {
     display: flex;
-    //justify-content: space-between;
+    justify-content: space-between;
     //align-items: center;
     width: 100%;
     height: 422px;
@@ -43,6 +43,7 @@ h1 {
     &-left {
       display: block;
       padding: 16px 40px 40px 40px;
+      margin-right: 40px;
 
       & .element-text, .element-email, .element-password {
         width: 422px;
@@ -72,7 +73,7 @@ h1 {
             width: 196px;
             height: 40px;
 
-            & app-button{
+            & app-button {
               display: flex;
               width: 100%;
             }
@@ -124,6 +125,44 @@ h1 {
         width: 1px;
         height: 40%;
         background: $gray3;
+      }
+    }
+
+    & .login-modal-content-right {
+      display: block;
+      padding: 91px 40px 177px 80px;
+
+      & p {
+        @include font-base(17px, 400, 26.76px);
+      }
+
+      & .label-google, .label-facebook {
+        width: 360px;
+        height: 47px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid $main-yellow;
+        margin-bottom: 20px;
+        border-radius: 10px;
+        padding: 4px 0;
+        cursor: pointer;
+
+        & p {
+          @include font-base(25px, 400, 39.35px);
+        }
+
+        & .facebook-img {
+          width: 11px;
+          height: 21px;
+          margin-right: 16px;
+        }
+
+        & .google-img {
+          width: 21px;
+          height: 21px;
+          margin-right: 10px;
+        }
       }
     }
   }
