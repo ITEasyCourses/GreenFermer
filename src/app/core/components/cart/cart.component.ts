@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
-import { CartColorsType } from '../../types/cart-colors/cart-colors-type';
+import { CartColorsType } from '../../types/cart-colors-type';
 
 @Component({
   selector: 'app-cart',
