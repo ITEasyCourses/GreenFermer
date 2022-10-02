@@ -20,6 +20,11 @@
 
 }
 ::ng-deep.mat-chip.mat-standard-chip{
+  &.white{
+    background: $white;
+    cursor: pointer;
+    font-family: $font-base;
+  }
   &.yellow{
     background: $main-yellow;
     cursor: pointer;
