@@ -7,7 +7,6 @@ import { environment } from '../environments/environment';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CheckboxModule } from './core/components/checkbox/checkbox.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -15,8 +14,7 @@ import { CheckboxModule } from './core/components/checkbox/checkbox.module';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    AngularFireModule.initializeApp(environment.firebase),
-    CheckboxModule
+    AngularFireModule.initializeApp(environment.firebase)
   ],
   providers: [],
   bootstrap: [AppComponent]
