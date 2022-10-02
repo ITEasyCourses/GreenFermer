@@ -1,5 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
+import { FooterInterfaceConfig } from '../../interfaces/footer-interface';
+
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
@@ -7,16 +9,13 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FooterComponent {
-  public footerConfig: {
-    title: string;
-    body: { name: string; routerLink: string; href: string }[];
-  }[] = [
+  public footerConfig: FooterInterfaceConfig[] = [
     {
       title: 'Як продавати й купувати?',
       body: [
-        { name: 'Карта сайту', routerLink: '', href: '#' },
-        { name: 'Правила безпеки', routerLink: '', href: '#' },
-        { name: 'Популярні запити', routerLink: '', href: '#' }
+        { name: 'Карта сайту', href: '#' },
+        { name: 'Правила безпеки', href: '#' },
+        { name: 'Популярні запити', href: '#' }
       ]
     },
     {
@@ -24,17 +23,14 @@ export class FooterComponent {
       body: [
         {
           name: '(093) 369-731-5962',
-          routerLink: '',
           href: 'tel:+380933697315962'
         },
         {
           name: '(093) 369-731-5962',
-          routerLink: '',
           href: 'tel:+380933697315962'
         },
         {
           name: 'Rinok@gmail.com',
-          routerLink: '',
           href: 'mailto:rinok@gmail.com'
         }
       ]
@@ -42,8 +38,51 @@ export class FooterComponent {
     {
       title: 'Оплата й доставка',
       body: [
-        { name: 'Допомога', routerLink: '', href: '#' },
-        { name: 'Зворотній звязок', routerLink: '', href: '#' }
+        { name: 'Допомога', href: '#' },
+        { name: 'Зворотній звязок', href: '#' }
+      ]
+    }
+  ];
+
+  public footerConfigApp: FooterInterfaceConfig[] = [
+    {
+      title: 'Завантажуй додаток',
+      body: [
+        {
+          href: '#',
+          name: 'Android',
+          srOnly: 'Додаток для Android',
+          imgSrc: './assets/images/footer/android.svg'
+        },
+        {
+          href: '#',
+          name: 'Apple',
+          srOnly: 'Додаток для Apple',
+          imgSrc: './assets/images/footer/apple.svg'
+        }
+      ]
+    },
+    {
+      title: 'Соціальні мережі',
+      body: [
+        {
+          href: '#',
+          name: 'Instagram',
+          srOnly: 'Наш Instagram',
+          imgSrc: './assets/images/footer/inst.svg'
+        },
+        {
+          href: '#',
+          name: 'Twitter',
+          srOnly: 'Наш Twitter',
+          imgSrc: './assets/images/footer/twitter.svg'
+        },
+        {
+          href: '#',
+          name: 'Facebook',
+          srOnly: 'Наш Facebook',
+          imgSrc: './assets/images/footer/facebook.svg'
+        }
       ]
     }
   ];

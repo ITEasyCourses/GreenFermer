@@ -16,6 +16,7 @@
 
 .footer{
   @include font-base();
+
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   padding: 50px 0 30px;
   position: relative;
@@ -50,7 +51,6 @@
 
   &__logo{
     display: block;
-    max-height: 43px;
     margin-bottom: 40px;
     outline-color: transparent;
     border-radius: 10px;
@@ -69,12 +69,13 @@
     }
 
     &-img{
-    @include sizeImg(252, 43, 150, 26)
+      @include sizeImg(252, 43, 150, 26)
     }
   }
 
   &__title{
-    @include font-base(17px, 600, 1.6);
+    @include font-base(17px, 600, 27px);
+
     letter-spacing: 0.0015em;
     margin-bottom: 5px;
   }
@@ -111,13 +112,16 @@
   }
 
   &__app-wrapper{
+
+    & .footer__app-render{
+      &:not(:last-child){
+        margin-bottom: 20px;
+      }
+    }
+
     & .footer__app-list{
       display: flex;
       align-items: center;
-
-      &:not(:last-child){
-        margin-bottom: 35px;
-      }
 
       & .footer__app-item{
         &:not(:last-child){
@@ -167,10 +171,4 @@
       opacity: 0.5;
     }
   }
-
-  &__app-icon{
-    color: $main-black;
-    z-index: 1;
-  }
-
 }

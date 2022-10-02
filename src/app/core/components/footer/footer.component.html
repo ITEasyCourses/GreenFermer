@@ -27,50 +27,21 @@
         </div>
       </div>
       <div class="footer__app-wrapper">
-        <h3 class="footer__title">Завантажуй додаток</h3>
-        <ul class="footer__app-list">
-          <li class="footer__app-item">
-            <a class="footer__app-link" href="#">
-              <span class="sr-only"> App for android </span>
-              <img
-                class="footer__app-img"
-                src="./assets/images/footer/android.svg"
-                alt="android"
-              />
-            </a>
-          </li>
-          <li class="footer__app-item">
-            <a href="#" class="footer__app-link">
-              <span class="sr-only"> App for Apple </span>
-              <img
-                class="footer__app-img"
-                src="./assets/images/footer/apple.svg"
-                alt="apple"
-              />
-            </a>
-          </li>
-        </ul>
-        <h3 class="footer__title">Соціальні мережі</h3>
-        <ul class="footer__app-list">
-          <li class="footer__app-item">
-            <a href="#" class="footer__app-link">
-              <span class="sr-only"> Ours Instagram </span>
-              <i-feather class="footer__app-icon" name="instagram"></i-feather>
-            </a>
-          </li>
-          <li class="footer__app-item">
-            <a href="#" class="footer__app-link">
-              <span class="sr-only"> Ours Twitter </span>
-              <i-feather class="footer__app-icon" name="twitter"></i-feather>
-            </a>
-          </li>
-          <li class="footer__app-item">
-            <a href="#" class="footer__app-link">
-              <span class="sr-only"> Ours Facebook </span>
-              <i-feather class="footer__app-icon" name="facebook"></i-feather>
-            </a>
-          </li>
-        </ul>
+        <div class="footer__app-render" *ngFor="let obj of footerConfigApp">
+          <h3 class="footer__title">{{ obj.title }}</h3>
+          <ul class="footer__app-list">
+            <li class="footer__app-item" *ngFor="let objBody of obj.body">
+              <a class="footer__app-link" [href]="objBody.href">
+                <span class="sr-only"> {{ objBody.srOnly }} </span>
+                <img
+                  class="footer__app-img"
+                  [src]="objBody.imgSrc"
+                  [alt]="objBody.name"
+                />
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
