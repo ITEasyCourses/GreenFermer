@@ -1,53 +1,40 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+
+import { ProductPurchase } from '../../interfaces/product-purchase.interface';
 
 @Component({
   selector: 'app-product-purchase',
   templateUrl: './product-purchase.component.html',
-  styleUrls: ['./product-purchase.component.scss']
+  styleUrls: ['./product-purchase.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProductPurchaseComponent {
-  public cash = false;
-  public card = false;
-  public product: any = [
-    {
-      cost: 23,
-      optcost: 19,
-      optvalue: 20,
-      minvalue: 3,
-      all: 69,
-      kolvo: 3
-    }
-  ];
+  @Input() product: ProductPurchase = {
+    cost: 20,
+    wholesalecost: 18,
+    wholesaleAmount: 5,
+    minamount: 2,
+    amount: 2,
+    sum: 40
+  };
 
-  constructor() {}
-
-  minusproduct() {
-    if (this.product[0].kolvo > this.product[0].minvalue) {
-      this.product[0].kolvo = this.product[0].kolvo - 1;
-      this.product[0].all = this.product[0].kolvo * this.product[0].cost;
+  public minusproduct(): void {
+    if (this.product.amount > this.product.minamount) {
+      this.product.amount = this.product.amount - 1;
+      if (this.product.amount < this.product.wholesaleAmount) {
+        this.product.sum = this.product.amount * this.product.cost;
+      } else {
+        this.product.sum = this.product.amount * this.product.wholesalecost;
+      }
     }
   }
 
-  plusproduct() {
-    this.product[0].kolvo = this.product[0].kolvo + 1;
-    this.product[0].all = this.product[0].kolvo * this.product[0].cost;
-  }
-
-  cardOrCash() {
-    if (this.cash === false) {
-      this.card = !this.card;
+  public plusproduct(): void {
+    this.product.amount = this.product.amount + 1;
+    if (this.product.amount < this.product.wholesaleAmount) {
+      this.product.sum = this.product.amount * this.product.cost;
     } else {
-      this.cash = !this.cash;
-      this.card = !this.card;
-    }
-  }
-
-  cashOrCard() {
-    if (this.card === false) {
-      this.cash = !this.cash;
-    } else {
-      this.card = !this.card;
-      this.cash = !this.cash;
+      this.product.sum = this.product.amount * this.product.wholesalecost;
     }
   }
 }
