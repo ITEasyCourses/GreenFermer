@@ -6,13 +6,15 @@
     <div class="header-left">
       <div class="header-left-logo">
         <img
-          src="../../../../assets/images/header-logo/home-page-logo.png"
+          [src]="router.url === '/home' ? logo.transparent : logo.yellow"
           alt="logo"
         />
       </div>
-      <div class="header-left-select"><p>каталог</p></div>
+      <div class="header-left-select">
+        <app-select></app-select>
+      </div>
       <div *ngIf="sessionUser?.isAuthentication" class="header-menu">
-        <p>menu</p>
+        <app-select [label]="asd"></app-select>
       </div>
     </div>
     <div class="header-right">
@@ -36,7 +38,7 @@
     <i-feather class="header-right-auth-like__size" name="heart"></i-feather>
   </div>
   <div class="header-right-auth__basket">
-    <app-cart></app-cart>
+    <app-cart [color]="router.url === '/home' ? 'yellow' : 'white'"></app-cart>
   </div>
   <div class="header-right-auth-avatar">
     <div class="header-right-auth-avatar-user">
@@ -49,7 +51,9 @@
     </div>
     <app-button
       class="header-right-auth-avatar-user__button"
-      [buttonText]="'Додати'"
+      [buttonText]="'Додати товар '"
+      [buttonColor]="router.url === '/home' ? 'yellow' : 'white'"
+      [addIcon]="true"
     ></app-button>
   </div>
 </ng-template>
@@ -57,9 +61,13 @@
 <ng-template #notAuthenticationSession>
   <div class="header-right__language">UA/EU</div>
   <div class="header-right__basket">
-    <app-cart></app-cart>
+    <app-cart [color]="router.url === '/home' ? 'yellow' : 'white'"></app-cart>
   </div>
   <div class="header-right__button">
-    <app-button [buttonText]="'Вхід/Реєстрація'"></app-button>
+    <app-button
+      [buttonColor]="router.url === '/home' ? 'yellow' : 'white'"
+      [buttonText]="'Вхід/Реєстрація'"
+    >
+    </app-button>
   </div>
 </ng-template>

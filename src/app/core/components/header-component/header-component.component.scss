@@ -26,6 +26,8 @@
       background: linear-gradient(180deg, #FFFFFF 0%, rgba(245, 245, 245, 0) 100%);
     }
 
+
+
     &-right,
     &-left {
       display: flex;
@@ -69,6 +71,7 @@
           top: 12px;
           cursor: pointer;
         }
+
 
         &__language{
           width: 58px;
@@ -117,6 +120,8 @@
               border-radius: 50%;
             }
           }
+
+
 
           & :last-child {
             display: flex;
