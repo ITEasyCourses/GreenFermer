@@ -25,9 +25,6 @@
 
 .position{
   @include font-base(17px, 400, 26.76px);
-  &.horizontal{
-
-  }
   &.vertical {
     display: flex;
   }
