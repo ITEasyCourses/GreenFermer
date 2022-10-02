@@ -15,7 +15,7 @@ const icons = {
 
 @NgModule({
   declarations: [ProductPurchaseComponent],
-  exports: [ProductPurchaseComponent, FeatherModule],
+  exports: [ProductPurchaseComponent],
   imports: [CommonModule, FeatherModule.pick(icons), ButtonModule]
 })
 export class ProductPurchaseModule {}

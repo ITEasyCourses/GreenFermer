@@ -1,8 +1,8 @@
 export interface ProductPurchase {
   cost: number;
-  wholesalecost: number;
+  wholesaleCost: number;
   wholesaleAmount: number;
-  minamount: number;
+  minAmount: number;
   amount: number;
   sum: number;
 }

@@ -3,14 +3,11 @@
 
 
 .price-card{
-  --main-bg-color:#FFFFFF;;
   width: 400px;
   height: 411px;
-  background-color:(--main-bg-color);
+  background-color:($gray5);
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
-
-
   &_main{
     display: flex;
     justify-content: space-between;
@@ -75,13 +72,10 @@
         }
       }
     }
-
   }
   &_button-block{
     display: flex;
     justify-content: space-between;
     margin: 30px 43.5px 0 30px;
   }
-
-
 }

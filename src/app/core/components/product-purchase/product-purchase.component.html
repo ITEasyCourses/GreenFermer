@@ -11,9 +11,9 @@
     <div class="price-card_main_number">
       <h5 class="price-card_main_number_name1">{{ product.cost }} ₴/кг</h5>
       <h5 class="price-card_main_number_name2">
-        {{ product.wholesalecost }} ₴/від {{ product.wholesaleAmount }} кг
+        {{ product.wholesaleCost }} ₴/від {{ product.wholesaleAmount }} кг
       </h5>
-      <h5 class="price-card_main_number_name">{{ product.minamount }} кг</h5>
+      <h5 class="price-card_main_number_name">{{ product.minAmount }} кг</h5>
       <h5 class="price-card_main_number_boldName1">
         <i-feather
           name="credit-card"
@@ -27,7 +27,7 @@
       <div class="price-card_main_number_boldName">
         <span
           class="price-card_main_number_boldName_plus"
-          (click)="minusproduct()"
+          (click)="minusProduct()"
           >-</span
         >
         <span class="price-card_main_number_boldName_number">{{
@@ -35,12 +35,12 @@
         }}</span>
         <span
           class="price-card_main_number_boldName_plus"
-          (click)="plusproduct()"
+          (click)="plusProduct()"
           >+</span
         >
       </div>
       <h5 class="price-card_main_number_boldName">
-        {{ product.sum}} ₴ / за {{ product.amount }} кг
+        {{ product.sum }} ₴ / за {{ product.amount }} кг
       </h5>
     </div>
   </div>

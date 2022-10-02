@@ -10,31 +10,31 @@ import { ProductPurchase } from '../../interfaces/product-purchase.interface';
 })
 export class ProductPurchaseComponent {
   @Input() product: ProductPurchase = {
-    cost: 20,
-    wholesalecost: 18,
+    cost: 25,
+    wholesaleCost: 20,
     wholesaleAmount: 5,
-    minamount: 2,
+    minAmount: 2,
     amount: 2,
     sum: 40
   };
 
-  public minusproduct(): void {
-    if (this.product.amount > this.product.minamount) {
+  public minusProduct(): void {
+    if (this.product.amount > this.product.minAmount) {
       this.product.amount = this.product.amount - 1;
-      if (this.product.amount < this.product.wholesaleAmount) {
-        this.product.sum = this.product.amount * this.product.cost;
-      } else {
-        this.product.sum = this.product.amount * this.product.wholesalecost;
-      }
+      this.wholesale();
     }
   }
 
-  public plusproduct(): void {
+  public plusProduct(): void {
     this.product.amount = this.product.amount + 1;
+    this.wholesale();
+  }
+
+  private wholesale(): void {
     if (this.product.amount < this.product.wholesaleAmount) {
-      this.product.sum = this.product.amount * this.product.cost;
+      this.product.sum = this.product.cost * this.product.amount;
     } else {
-      this.product.sum = this.product.amount * this.product.wholesalecost;
+      this.product.sum = this.product.wholesaleCost * this.product.amount;
     }
   }
 }
