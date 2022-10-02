@@ -1,5 +1,7 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
+import { CartColorsType } from '../../types/cart-colors/cart-colors-type';
+
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
@@ -8,5 +10,5 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 })
 export class CartComponent {
   @Input() counter = 6;
-  @Input() color = 'yellow';
+  @Input() color: CartColorsType = 'yellow';
 }
