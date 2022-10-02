@@ -12,4 +12,8 @@ export class LoginModalComponent implements OnInit {
   public ngOnInit(): void {
     this.dialogRef.addPanelClass('login-modal');
   }
+
+  public closeModal(): void {
+    this.dialogRef.close();
+  }
 }
