@@ -3,8 +3,9 @@ import {
   Input,
   Output,
   EventEmitter,
-  ChangeDetectionStrategy
+  ChangeDetectionStrategy,
 } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-radio-group-component',
@@ -13,11 +14,15 @@ import {
   styleUrls: ['./radio-group-component.component.scss']
 })
 export class RadioGroupComponentComponent {
-  @Input() textRadioBtn: string[] = ['фермер', 'покупець', 'карта', 'кошелек'];
+  @Input() textRadioBtn: string[] = ['собака', 'покупець', 'карта', 'кошелек'];
   @Input() positionHorizontal = false;
-  @Output() radioGroupResult = new EventEmitter<any>();
+  @Output() radioGroupResult = new EventEmitter<string>();
+  public defaultValue = this.textRadioBtn[0];
+  public radioGroupControl: FormControl = new FormControl(
+    `${this.defaultValue}`
+  );
 
-  public radioAnswer(event: string): void {
-    this.radioGroupResult.emit(event);
+  public radioAnswer(): void {
+    this.radioGroupResult.emit(this.radioGroupControl.value);
   }
 }
