@@ -1,0 +1,11 @@
+<div class="card">
+  <div class="card-wrap">
+    <img src="{{ card.image }}" class="card-img" alt="product foto" />
+    <div class="card-wrap-basket" (click)='addToBasket()'>
+      <i-feather name="shopping-cart" class="card-wrap-basket-bsk"></i-feather>
+    </div>
+    <div class="card-name">{{ card.name }}</div>
+    <i-feather class="card-heart" name="heart"></i-feather>
+    <div class="card-price">{{ card.price }}</div>
+  </div>
+</div>

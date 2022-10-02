@@ -1,0 +1,78 @@
+@import "src/assets/styles/vars";
+@import "src/assets/styles/mixins";
+
+.card{
+  @include font-base(15px, 600, 24px);
+  position: relative;
+  height: 326px;
+  width: 224px;
+  left: 0px;
+  top: 0px;
+  border-radius: 10px;
+  background: #FFFFFF;
+  box-shadow: 0px 5px 15px rgba(116, 116, 116, 0.15);
+  &-heart{
+    position: absolute;
+    right:26px;
+    bottom: 60px;
+    cursor: pointer;
+
+  }
+  &-price{
+    @include font-base(15px, 500, 24px);
+    position: absolute;
+    left: 4.46%;
+    right: 25%;
+    top: 88.96%;
+    bottom: 3.07%;
+    letter-spacing: 0.001em;
+  }
+  &-name{
+    @include font-base(15px, 600, 17px);
+    position: absolute;
+    left: 4.46%;
+    right: 25.89%;
+    top: 70.55%;
+    bottom: 14.11%;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.0015em;
+  }
+  &-img{
+    height: 220px;
+    width: 224px;
+    border-radius: 10px;
+    position: absolute;
+    left: 0%;
+    right: 0%;
+    top: 0%;
+    bottom: 32.52%;
+    background: black;
+  }
+  &-wrap{
+    &-basket{
+      cursor: pointer;
+      height: 47.999996185302734px;
+      width: 48px;
+      position: absolute;
+      right: 4.46%;
+      bottom: 35.58%;
+      background: #FFFFFF;
+      left: 166px;
+      top: 162px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      &-bsk{
+        height: 18.368358612060547px;
+        width: 16.514535903930664px;
+        left: 3.21044921875px;
+        top: 1.8346710205078125px;
+      }
+
+    }
+
+  }
+
+}
