@@ -1,5 +1,5 @@
 <div class="component-container">
-  <div class="component-container__counter" *ngIf="counter">
+  <div class="component-container__counter" [ngClass]="color" *ngIf="counter">
     <div class="counter-number">
       <p>{{ counter > 99 ? '99+' : counter }}</p>
     </div>
