@@ -2,7 +2,8 @@
   <mat-radio-button
     *ngFor="let text of textRadioBtn"
     (change)="radioAnswer(text)"
-    [class.vertical]="positionVertical"
+    [class.vertical]="positionVertical === true"
+    [class.horizontal]="positionVertical === false"
     class="position"
     >{{ text }}</mat-radio-button
   >
