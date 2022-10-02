@@ -14,8 +14,8 @@ import {
 })
 export class RadioGroupComponentComponent {
   @Input() textRadioBtn: string[] = ['фермер', 'покупець', 'карта', 'кошелек'];
-  @Input() positionVertical = false;
-  @Output() radioGroupResult = new EventEmitter<string>();
+  @Input() positionHorizontal = false;
+  @Output() radioGroupResult = new EventEmitter<any>();
 
   public radioAnswer(event: string): void {
     this.radioGroupResult.emit(event);
