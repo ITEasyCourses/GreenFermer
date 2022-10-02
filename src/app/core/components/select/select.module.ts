@@ -13,7 +13,7 @@ const icons = {
 
 @NgModule({
   declarations: [SelectComponent],
-  exports: [SelectComponent, FeatherModule],
+  exports: [SelectComponent],
   imports: [
     CommonModule,
     MatButtonModule,
