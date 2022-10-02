@@ -7,7 +7,7 @@ import {
   Output
 } from '@angular/core';
 
-import { CATEGORIES, LABEL_CATALOG } from '../../constants/mock-select';
+import { CATEGORIES, LABEL_CATALOG } from '../../constants/select.constants';
 import { SortOption } from '../../interfaces/sort-option';
 
 @Component({
@@ -22,8 +22,6 @@ export class SelectComponent implements OnInit {
 
   @Output() public selectedOption: EventEmitter<string> =
     new EventEmitter<string>();
-
-  constructor() {}
 
   ngOnInit() {
     this.label = LABEL_CATALOG;
