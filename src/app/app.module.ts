@@ -7,7 +7,6 @@ import { environment } from '../environments/environment';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CatalogPageModule } from './pages/catalog-page/catalog-page.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -16,7 +15,6 @@ import { CatalogPageModule } from './pages/catalog-page/catalog-page.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebase),
-    CatalogPageModule
   ],
   providers: [],
   bootstrap: [AppComponent]

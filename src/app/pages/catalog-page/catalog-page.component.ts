@@ -1,11 +1,11 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
   selector: 'app-catalog-page',
   templateUrl: './catalog-page.component.html',
-  styleUrls: ['./catalog-page.component.scss']
+  styleUrls: ['./catalog-page.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CatalogPageComponent {
-  constructor(private router: Router) {}
+  constructor() {}
 }
