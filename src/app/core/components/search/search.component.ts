@@ -1,4 +1,11 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output
+} from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 import { SearchCity } from '../../interfaces/search-city';
@@ -6,7 +13,8 @@ import { SearchCity } from '../../interfaces/search-city';
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
-  styleUrls: ['./search.component.scss']
+  styleUrls: ['./search.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SearchComponent implements OnInit {
   @Input() public citySort: FormControl = new FormControl('');
@@ -39,5 +47,5 @@ export class SearchComponent implements OnInit {
     this.sortUkraine.emit(this.citySort.value);
   }
 
-  productSearch() {}
+  public productSearch(): void {}
 }

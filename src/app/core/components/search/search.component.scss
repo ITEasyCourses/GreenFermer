@@ -103,31 +103,31 @@
 }
 
 .my-select {
-  width: 608px;
+  width: 59%;
   height: 40px;
   position: absolute;
   margin-top: -32px;
   left: 41.05%;
 }
 .my-selected {
+  @include font-base( 15px, 600);
   width: 85%;
   height: 100%;
   border: none;
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
   appearance: none;
-  @include font-base( 15px, 600);
   padding-left: 40px;
   cursor: pointer;
 }
 .ukraine-my {
+  @include font-base( 15px, 600);
   width: 85%;
   height: 100%;
   border: none;
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
   appearance: none;
-  @include font-base( 15px, 600);
   padding-left: 40px;
   cursor: pointer;
 }
