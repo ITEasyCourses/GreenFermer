@@ -1,3 +1,3 @@
-export enum Routes {
+export enum ERoutes {
   HOME = ''
 }
