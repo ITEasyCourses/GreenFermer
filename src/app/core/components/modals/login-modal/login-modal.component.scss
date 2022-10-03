@@ -132,8 +132,12 @@ h1 {
       display: block;
       padding: 91px 40px 177px 80px;
 
-      & p {
-        @include font-base(17px, 400, 26.76px);
+      //& p {
+      //  @include font-base(17px, 400, 26.76px);
+      //}
+
+      &-label {
+        margin-bottom: 13px;
       }
 
       & .label-google, .label-facebook {
