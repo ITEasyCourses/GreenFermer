@@ -21,7 +21,7 @@
   font-family: $font-base;
   background: none;
   font-size: $font-size-base;
-  &.btn:focus{
+  &.active{
     background: $main-yellow;
   }
 }

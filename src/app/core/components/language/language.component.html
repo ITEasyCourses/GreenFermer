@@ -1,8 +1,22 @@
 <div class="container">
   <div class="container-main">
     <div class="container-button">
-      <button class="btn" [ngClass]="ActiveLang" (click)="button()">EN</button>
-      <button class="btn" [ngClass]="ActiveLang!" (click)="button()">UA</button>
+      <button
+        class="btn"
+        [class.active]="!isActive"
+        [ngClass]="ActiveLang"
+        (click)="button()"
+      >
+        EN
+      </button>
+      <button
+        class="btn"
+        [class.active]="isActive"
+        [ngClass]="ActiveLang"
+        (click)="button()"
+      >
+        UA
+      </button>
     </div>
   </div>
 </div>

@@ -8,7 +8,10 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 })
 export class LanguageComponent {
   @Input() ActiveLang!: string;
+  public isActive: Boolean = true;
   constructor() {}
 
-  public button(): void {}
+  public button(): void {
+    this.isActive = !this.isActive;
+  }
 }
