@@ -32,7 +32,11 @@
 </div>
 
 <ng-template #activeAuthenticationSession>
-  <div class="header-right-auth__language">ua/eu</div>
+  <div class="header-right-auth__language">
+    <app-language
+      [activeLang]="router.url === '/home' ? 'yellow' : 'white'"
+    ></app-language>
+  </div>
   <div class="header-right-auth-comment">
     <i-feather name="message-circle"></i-feather>
   </div>
@@ -61,7 +65,11 @@
 </ng-template>
 
 <ng-template #notAuthenticationSession>
-  <div class="header-right__language">UA/EU</div>
+  <div class="header-right__language">
+    <app-language
+      [activeLang]="router.url === '/home' ? 'yellow' : 'white'"
+    ></app-language>
+  </div>
   <div class="header-right__basket">
     <app-cart [color]="router.url === '/home' ? 'yellow' : 'white'"></app-cart>
   </div>

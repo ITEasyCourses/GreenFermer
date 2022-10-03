@@ -20,14 +20,18 @@ import { IHeaderBackground } from '../../interfaces/i-heder-background';
 export class HeaderComponentComponent implements OnInit {
   @Input() public sessionUser?: IAuthenticationUser;
   public logo!: IHeaderBackground;
+  public scrollStartPoint = 0;
   public isBottom!: boolean;
+
   constructor(public router: Router) {
     this.isBottom = true;
   }
 
   @HostListener('window:scroll', [])
   public onScroll(): void {
-    window.scrollY > 0 ? (this.isBottom = true) : (this.isBottom = false);
+    window.scrollY > this.scrollStartPoint
+      ? (this.isBottom = true)
+      : (this.isBottom = false);
   }
 
   public ngOnInit(): void {

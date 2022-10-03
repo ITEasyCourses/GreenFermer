@@ -132,6 +132,14 @@
 
       &__language{
         margin-right: 96px;
+
+        &::ng-deep .btn{
+          @include font-base(17px, 600, 24px);
+        }
+
+        &::ng-deep .active.white{
+          background: $white;
+        }
       }
 
       &__basket{
@@ -146,5 +154,6 @@
     }
   }
 }
+
 
 
