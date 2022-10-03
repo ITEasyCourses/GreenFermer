@@ -1,12 +1,14 @@
 <div class="header-wrapper">
   <div
     class="header"
-    [ngClass]="router.url === '/home' ? 'transparent' : 'yellow'"
+    [ngClass]="router.url === '/home' && isBottom ? 'transparent' : 'yellow'"
   >
     <div class="header-left">
       <div class="header-left-logo">
         <img
-          [src]="router.url === '/home' ? logo.transparent : logo.yellow"
+          [src]="
+            router.url === '/home' && isBottom ? logo.transparent : logo.yellow
+          "
           alt="logo"
         />
       </div>
@@ -14,7 +16,7 @@
         <app-select></app-select>
       </div>
       <div *ngIf="sessionUser?.isAuthentication" class="header-menu">
-        <app-select [label]="asd"></app-select>
+        <app-select></app-select>
       </div>
     </div>
     <div class="header-right">

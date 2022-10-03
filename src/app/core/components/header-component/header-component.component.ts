@@ -1,6 +1,7 @@
 import {
   ChangeDetectionStrategy,
   Component,
+  HostListener,
   Input,
   OnInit
 } from '@angular/core';
@@ -18,9 +19,16 @@ import { IHeaderBackground } from '../../interfaces/i-heder-background';
 })
 export class HeaderComponentComponent implements OnInit {
   @Input() public sessionUser?: IAuthenticationUser;
-  public asd = 'asdad';
   public logo!: IHeaderBackground;
-  constructor(public router: Router) {}
+  public isBottom!: boolean;
+  constructor(public router: Router) {
+    this.isBottom = true;
+  }
+
+  @HostListener('window:scroll', [])
+  public onScroll(): void {
+    window.scrollY > 0 ? (this.isBottom = true) : (this.isBottom = false);
+  }
 
   public ngOnInit(): void {
     this.logo = HEADER_LOGO;
