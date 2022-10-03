@@ -1,0 +1,51 @@
+<div class="price-card">
+  <div class="price-card_main">
+    <div class="price-card_main_naming">
+      <p class="price-card_main_naming_name">Ціна</p>
+      <p class="price-card_main_naming_name">Ціна оптова</p>
+      <p class="price-card_main_naming_name">Мінімальний об’єм</p>
+      <h5 class="price-card_main_naming_boldName1">Способи оплати:</h5>
+      <h5 class="price-card_main_naming_boldName">Кількість:</h5>
+      <h5 class="price-card_main_naming_boldName2">Загалом:</h5>
+    </div>
+    <div class="price-card_main_number">
+      <h5 class="price-card_main_number_name1">{{ product.cost }} ₴/кг</h5>
+      <h5 class="price-card_main_number_name2">
+        {{ product.wholesaleCost }} ₴/від {{ product.wholesaleAmount }} кг
+      </h5>
+      <h5 class="price-card_main_number_name">{{ product.minAmount }} кг</h5>
+      <h5 class="price-card_main_number_boldName1">
+        <i-feather
+          name="credit-card"
+          class="price-card_main_number_boldName1_tools"
+        ></i-feather>
+        <i-feather
+          name="dollar-sign"
+          class="price-card_main_number_boldName1_tools"
+        ></i-feather>
+      </h5>
+      <div class="price-card_main_number_boldName">
+        <span
+          class="price-card_main_number_boldName_plus"
+          (click)="minusProduct()"
+          >-</span
+        >
+        <span class="price-card_main_number_boldName_number">{{
+          product.amount
+        }}</span>
+        <span
+          class="price-card_main_number_boldName_plus"
+          (click)="plusProduct()"
+          >+</span
+        >
+      </div>
+      <h5 class="price-card_main_number_boldName">
+        {{ product.sum }} ₴ / за {{ product.amount }} кг
+      </h5>
+    </div>
+  </div>
+  <div class="price-card_button-block">
+    <app-button [buttonText]="'Додати до кошика'"></app-button>
+    <i-feather name="message-circle"></i-feather>
+  </div>
+</div>
