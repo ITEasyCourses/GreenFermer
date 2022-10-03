@@ -1,18 +1,8 @@
 <div class="container">
   <div class="container-main">
-    <mat-chip-list class="container-button" aria-label="Fish selection">
-      <mat-chip
-        class="btn"
-        [ngClass]="!check ? color : 'transparent'"
-        (click)="button()"
-        >EN</mat-chip
-      >
-      <mat-chip
-        class="btn1"
-        [ngClass]="check ? color : 'transparent'"
-        (click)="button()"
-        >UA</mat-chip
-      >
-    </mat-chip-list>
+    <div class="container-button">
+      <button class="btn" [ngClass]="ActiveLang" (click)="button()">EN</button>
+      <button class="btn" [ngClass]="ActiveLang!" (click)="button()">UA</button>
+    </div>
   </div>
 </div>

@@ -1,20 +1,14 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-language',
   templateUrl: './language.component.html',
-  styleUrls: ['./language.component.scss']
+  styleUrls: ['./language.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class LanguageComponent implements OnInit {
-  @Input() isYellow = true;
-  @Input() check = true;
-  public color = 'yellow';
+export class LanguageComponent {
+  @Input() ActiveLang!: string;
   constructor() {}
-  ngOnInit() {
-    this.color = this.isYellow ? 'yellow' : 'white';
-  }
 
-  public button(): void {
-    this.check = !this.check;
-  }
+  public button(): void {}
 }

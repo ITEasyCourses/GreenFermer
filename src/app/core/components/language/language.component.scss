@@ -2,51 +2,28 @@
 @import "src/assets/styles/mixins";
 
 .container{
-  height: 50px;
-  width: 80px;
-  margin-left: 600px;
-  border-radius: 0;
+  Width: 64px;
+  Height: 32px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  &-main{
-
-  }
-}
-
-::ng-deep.mat-chip-list-wrapper {
-
-}
-::ng-deep.mat-chip.mat-standard-chip{
-  &.white{
-    background: $white;
-    cursor: pointer;
-    font-family: $font-base;
-  }
-  &.yellow{
-    background: $main-yellow;
-    cursor: pointer;
-    font-family: $font-base;
-  }
-  &.transparent{
-    background: none;
-    cursor: pointer;
-    font-family: $font-base;
-  }
-  &.mat-chip.mat-standard-chip::after{
-    background: none;
-  }
 }
 .btn{
-  height: 32px;
   width: 32px;
+  height: 32px;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  border-radius: 25px;
+  cursor: pointer;
+  border: none;
+  font-family: $font-base;
+  background: none;
+  font-size: $font-size-base;
+  &.btn:focus{
+    background: $main-yellow;
+  }
 }
-.btn1{
-   height: 32px;
-   width: 32px;
- }
-.mat-standard-chip {
-  padding: 3px 7px;
-}
+
+
