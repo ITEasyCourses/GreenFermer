@@ -54,38 +54,41 @@ h1 {
 
       & .element-footer {
         display: flex;
+        flex-direction: column;
         width: 422px;
         height: 95px;
-        border: 1px solid #000;
-
-        &-left {
-          display: flex;
-          flex-direction: column;
-          width: 50%;
-          border: 1px solid #000;
 
           &-top {
-            height: 27px;
             width: 100%;
+            height: 24px;
+            display: flex;
+            justify-content: flex-start;
+            margin-bottom: 30px;
+
+            & .checkbox {
+              width: 185px;
+              margin-right: 37px;
+            }
+
+            & p {
+              @include font-base(15px, 600, 23.61px);
+
+              margin-top: 2px;
+              cursor: pointer;
+            }
           }
 
           &-bottom {
-            width: 196px;
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
             height: 40px;
 
-            & app-button {
-              display: flex;
-              width: 100%;
+            & .button{
+              width: 196px;
             }
           }
-        }
 
-        &-right {
-          display: flex;
-          flex-direction: column;
-          width: 50%;
-          border: 1px solid #000;
-        }
       }
 
       & .element-email-text, .element-password-text {
