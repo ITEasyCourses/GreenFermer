@@ -3,10 +3,11 @@
 .container{
 
   &_toggle{
-    color:$light-black;
+    color: $gray2;
+    cursor: pointer;
 
     &.active{
-      color:$gray2;
+      color: $light-black;
     }
   }
 

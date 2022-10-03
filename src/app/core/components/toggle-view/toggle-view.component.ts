@@ -1,4 +1,9 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Output
+} from '@angular/core';
 
 @Component({
   selector: 'app-toggle-view',
@@ -7,23 +12,25 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ToggleViewComponent {
-  @Input() menu = false;
-  @Input() grid = true;
+  @Output() isMenuMode: EventEmitter<boolean> = new EventEmitter<boolean>();
+  public isMenuToggle = true;
+  public isGridToggle = false;
 
   public clickMenu(): void {
-    if (this.menu) {
+    if (!this.isMenuToggle) {
       this.transfer();
     }
   }
 
   public clickGrid(): void {
-    if (this.grid) {
+    if (!this.isGridToggle) {
       this.transfer();
     }
   }
 
   public transfer(): void {
-    this.menu = !this.menu;
-    this.grid = !this.grid;
+    this.isGridToggle = !this.isGridToggle;
+    this.isMenuToggle = !this.isMenuToggle;
+    this.isMenuMode.emit(this.isMenuToggle);
   }
 }
