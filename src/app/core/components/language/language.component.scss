@@ -21,8 +21,9 @@
   font-family: $font-base;
   background: none;
   font-size: $font-size-base;
-  &.active{
-    background: $main-yellow;
+
+    &.active{
+      background: $main-yellow;
   }
 }
 

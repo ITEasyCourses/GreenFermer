@@ -4,7 +4,7 @@
       <button
         class="btn"
         [class.active]="!isActive"
-        [ngClass]="ActiveLang"
+        [ngClass]="activeLang"
         (click)="button()"
       >
         EN
@@ -12,7 +12,7 @@
       <button
         class="btn"
         [class.active]="isActive"
-        [ngClass]="ActiveLang"
+        [ngClass]="activeLang"
         (click)="button()"
       >
         UA

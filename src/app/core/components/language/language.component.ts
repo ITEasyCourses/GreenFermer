@@ -7,9 +7,8 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LanguageComponent {
-  @Input() ActiveLang!: string;
+  @Input() activeLang!: string;
   public isActive: Boolean = true;
-  constructor() {}
 
   public button(): void {
     this.isActive = !this.isActive;
