@@ -7,7 +7,11 @@ import { environment } from '../environments/environment';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
 import { SortSelectModule } from './core/components/sort-select/sort-select.module';
+=======
+import { RadioGroupComponentModule } from './core/components/radio-group-component/radio-group-component.module';
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -16,7 +20,11 @@ import { SortSelectModule } from './core/components/sort-select/sort-select.modu
     AppRoutingModule,
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebase),
+
     SortSelectModule
+=======
+    RadioGroupComponentModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
