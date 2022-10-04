@@ -1,13 +1,13 @@
 <div class="header-wrapper">
   <div
     class="header"
-    [ngClass]="router.url === '/home' && isBottom ? 'transparent' : 'yellow'"
+    [ngClass]="router.url === '/' && isBottom ? 'transparent' : 'yellow'"
   >
     <div class="header-left">
       <div class="header-left-logo">
         <img
           [src]="
-            router.url === '/home' && isBottom ? logo.transparent : logo.yellow
+            router.url === '/' && isBottom ? logo.transparent : logo.yellow
           "
           alt="logo"
         />
@@ -34,7 +34,7 @@
 <ng-template #activeAuthenticationSession>
   <div class="header-right-auth__language">
     <app-language
-      [activeLang]="router.url === '/home' ? 'yellow' : 'white'"
+      [activeLang]="router.url === '/' ? 'yellow' : 'white'"
     ></app-language>
   </div>
   <div class="header-right-auth-comment">
@@ -44,7 +44,7 @@
     <i-feather class="header-right-auth-like__size" name="heart"></i-feather>
   </div>
   <div class="header-right-auth__basket">
-    <app-cart [color]="router.url === '/home' ? 'yellow' : 'white'"></app-cart>
+    <app-cart [color]="router.url === '/' ? 'yellow' : 'white'"></app-cart>
   </div>
   <div class="header-right-auth-avatar">
     <div class="header-right-auth-avatar-user">
@@ -58,7 +58,7 @@
     <app-button
       class="header-right-auth-avatar-user__button"
       [buttonText]="'Додати товар '"
-      [buttonColor]="router.url === '/home' ? 'yellow' : 'white'"
+      [buttonColor]="router.url === '/' ? 'yellow' : 'white'"
       [addIcon]="true"
     ></app-button>
   </div>
@@ -67,15 +67,15 @@
 <ng-template #notAuthenticationSession>
   <div class="header-right__language">
     <app-language
-      [activeLang]="router.url === '/home' ? 'yellow' : 'white'"
+      [activeLang]="router.url === '/' ? 'yellow' : 'white'"
     ></app-language>
   </div>
   <div class="header-right__basket">
-    <app-cart [color]="router.url === '/home' ? 'yellow' : 'white'"></app-cart>
+    <app-cart [color]="router.url === '/' ? 'yellow' : 'white'"></app-cart>
   </div>
   <div class="header-right__button">
     <app-button
-      [buttonColor]="router.url === '/home' ? 'yellow' : 'white'"
+      [buttonColor]="router.url === '/' ? 'yellow' : 'white'"
       [buttonText]="'Вхід/Реєстрація'"
     >
     </app-button>
