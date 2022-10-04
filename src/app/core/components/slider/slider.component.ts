@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import Swiper, { Navigation, A11y, SwiperOptions, Mousewheel } from 'swiper';
+import SwiperCore, { Navigation, A11y, Mousewheel } from 'swiper';
 
-Swiper.use([Navigation, A11y, Mousewheel]);
+SwiperCore.use([Navigation, A11y, Mousewheel]);
 
 @Component({
   selector: 'app-slider',
@@ -10,7 +10,7 @@ Swiper.use([Navigation, A11y, Mousewheel]);
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SliderComponent {
-  config: SwiperOptions = {
+  config = {
     slidesPerView: 6,
     spaceBetween: 30,
     navigation: {
@@ -21,5 +21,4 @@ export class SliderComponent {
       sensitivity: 3
     }
   };
-
 }
