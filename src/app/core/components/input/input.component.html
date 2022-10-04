@@ -1,4 +1,11 @@
 <div class="input-wrapper">
   <p class="input-lable">{{ inputLable }}</p>
-  <input class="input" type="text" [formControl]="inputFormControl" required />
+  <input
+    class="input"
+    [ngClass]="
+      inputFormControl.errors && inputFormControl.touched ? 'error' : 'input'
+    "
+    type="text"
+    [formControl]="inputFormControl"
+  />
 </div>

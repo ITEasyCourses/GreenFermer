@@ -1,7 +1,7 @@
 @import "src/assets/styles/_mixins.scss";
 @import "src/assets/styles/_vars.scss";
 .input-wrapper{
-margin-top: 100px;
+
   & .input-lable{
     @include font-base( 17px, 400);
     margin-bottom: 10px;
@@ -10,17 +10,24 @@ margin-top: 100px;
     line-height: 27px;
     vertical-align: top;
   }
+
   & .input{
-    height: 40px;
-    width: 422px;
-    border-radius: 10px;
-    padding: 6px 10px 6px 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 6px 10px;
+    gap: 10px;
+    background: #FFFFFF;
     border: 2px solid #747474;
+    border-radius: 10px;
   }
+
   & .input[type="text"] {
     @include font-base( 17px, 400);
   }
-  & .input:invalid {
+
+  & .error {
     border: 2px solid red;
   }
 }
+
