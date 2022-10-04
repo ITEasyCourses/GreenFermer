@@ -5,7 +5,7 @@ import { AbstractControl, FormControl } from '@angular/forms';
   name: 'getControl'
 })
 export class GetControlPipe implements PipeTransform {
-  transform(control: AbstractControl): unknown {
+  transform(control: AbstractControl | null): FormControl {
     return control as FormControl;
   }
 }

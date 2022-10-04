@@ -1,4 +1,10 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  Output
+} from '@angular/core';
 
 @Component({
   selector: 'app-checkbox',
@@ -7,6 +13,12 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CheckboxComponent {
-  @Input() isChecked = false;
+  @Output() checkEmitter: EventEmitter<any> = new EventEmitter<any>();
   @Input() label!: string;
+  private isChecked = false;
+
+  public check(): void {
+    this.isChecked = !this.isChecked;
+    this.checkEmitter.emit(this.isChecked);
+  }
 }

@@ -7,24 +7,31 @@
       <h1 class="element-text">Вхід</h1>
       <div class="element-email">
         <div class="element-email-input">
-          <input value="ddd" />
+          <input [formControl]="loginFormGroup.get('email') | getControl" />
         </div>
       </div>
       <div class="element-password">
         <div class="element-password-input">
-          <input value="ddd" />
+          <input
+            value="ddd"
+            [formControl]="loginFormGroup.get('password') | getControl"
+          />
         </div>
       </div>
       <div class="element-footer">
         <div class="element-footer-top">
           <div class="checkbox">
-            <app-checkbox [label]="'Запам’ятати мене'"></app-checkbox>
+            <app-checkbox
+              (checkEmitter)="setRememberUser($event)"
+              [label]="'Запам’ятати мене'"
+            ></app-checkbox>
           </div>
           <p>Нагадати пароль</p>
         </div>
         <div class="element-footer-bottom">
           <div class="button sign-in">
-            <app-button [buttonText]="'Увійти'"></app-button>
+            <app-button [buttonText]="'Увійти'" (click)="loginForm()">
+            </app-button>
           </div>
           <div class="button sign-up">
             <app-button

@@ -1,6 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators
+} from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
+
+import { LoginRegexService } from '../../../services/login-regex.service';
 
 @Component({
   selector: 'app-login-modal',
@@ -9,10 +16,13 @@ import { MatDialogRef } from '@angular/material/dialog';
 })
 export class LoginModalComponent implements OnInit {
   public loginFormGroup!: FormGroup;
+  public rememberUser = false;
+  private test!: any;
 
   constructor(
     private dialogRef: MatDialogRef<LoginModalComponent>,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private loginRegexService: LoginRegexService
   ) {}
 
   public ngOnInit(): void {
@@ -20,15 +30,32 @@ export class LoginModalComponent implements OnInit {
     this.initLoginGroup();
   }
 
+  public loginForm(): void {
+    if (this.loginFormGroup.valid) {
+      const login = {
+        email: this.loginFormGroup.get('email')?.value,
+        password: this.loginFormGroup.get('password')?.value,
+        rememberUser: this.rememberUser
+      };
+      /* Место для дальнейшей отправки данных с контролов. Сейчас данные присваиваются в переменную test для обхода esLint */
+      this.test = login;
+    }
+  }
+
   public initLoginGroup(): void {
     this.loginFormGroup = this.fb.group({
-      email: new FormControl('', []),
-      password: new FormControl('', []),
-      rememberUserCheckBox: new FormControl(false)
+      email: new FormControl('', [
+        Validators.pattern(this.loginRegexService.EMAIL_PATTERN)
+      ]),
+      password: new FormControl('', [])
     });
   }
 
   public closeModal(): void {
     this.dialogRef.close();
+  }
+
+  public setRememberUser(event: boolean): void {
+    this.rememberUser = event;
   }
 }
