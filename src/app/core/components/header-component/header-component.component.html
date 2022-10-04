@@ -1,13 +1,13 @@
 <div class="header-wrapper">
   <div
     class="header"
-    [ngClass]="router.url === '/' && !isBottom ? 'transparent' : 'yellow'"
+    [ngClass]="checkRoutAndScrollOptions ? 'transparent' : 'yellow'"
   >
     <div class="header-left">
       <div class="header-left-logo">
         <img
           [src]="
-            router.url === '/' && !isBottom ? logo.transparent : logo.yellow
+            checkRoutAndScrollOptions ? logo.transparent : logo.yellow
           "
           alt="logo"
         />
@@ -15,7 +15,7 @@
       <div class="header-left-select">
         <app-select></app-select>
       </div>
-      <div *ngIf="!sessionUser?.isAuthentication" class="header-menu">
+      <div *ngIf="sessionUser?.isAuthentication" class="header-menu">
         <app-select></app-select>
       </div>
     </div>
@@ -31,10 +31,63 @@
   </div>
 </div>
 
+<div>
+  <p>qeqweqewqwe</p>
+  <p>qeqweqewqwe</p>
+  <p>qeqweqewqwe</p>
+  <p>qeqweqewqwe</p>
+  <p>qeqweqewqwe</p>
+  <p>qeqweqewqwe</p>
+  <p>qeqweqewqwe</p>
+  <p>qeqweqewqwe</p>
+  <p>qeqweqewqwe</p>
+  <p>qeqweqewqwe</p>
+  <p>qeqweqewqwe</p>
+  <p>qeqweqewqwe</p>
+  <p>qeqweqewqwe</p>
+  <p>qeqweqewqwe</p>
+  <p>qeqweqewqwe</p>
+  <p>qeqweqewqwe</p>
+  <p>qeqweqewqwe</p>
+  <p>qeqweqewqwe</p>
+  <p>qeqweqewqwe</p>
+  <p>qeqweqewqwe</p>
+  <p>qeqweqewqwe</p>
+  <p>qeqweqewqwe</p>
+  <p>qeqweqewqwe</p>
+  <p>qeqweqewqwe</p>
+  <p>qeqweqewqwe</p>
+  <p>qeqweqewqwe</p>
+  <p>qeqweqewqwe</p>
+  <p>qeqweqewqwe</p>
+  <p>qeqweqewqwe</p>
+  <p>qeqweqewqwe</p>
+  <p>qeqweqewqwe</p>
+  <p>qeqweqewqwe</p>
+  <p>qeqweqewqwe</p>
+  <p>qeqweqewqwe</p>
+  <p>qeqweqewqwe</p>
+  <p>qeqweqewqwe</p>
+  <p>qeqweqewqwe</p>
+  <p>qeqweqewqwe</p>
+  <p>qeqweqewqwe</p>
+  <p>qeqweqewqwe</p>
+  <p>qeqweqewqwe</p>
+  <p>qeqweqewqwe</p>
+  <p>qeqweqewqwe</p>
+  <p>qeqweqewqwe</p>
+  <p>qeqweqewqwe</p>
+  <p>qeqweqewqwe</p>
+  <p>qeqweqewqwe</p>
+  <p>qeqweqewqwe</p>
+  <p>qeqweqewqwe</p>
+  <p>qeqweqewqwe</p>
+</div>
+
 <ng-template #activeAuthenticationSession>
   <div class="header-right-auth__language">
     <app-language
-      [activeLang]="router.url === '/' && !isBottom ? 'yellow' : 'white'"
+      [activeLang]="checkRoutAndScrollOptions ? 'yellow' : 'white'"
     ></app-language>
   </div>
   <div class="header-right-auth-comment">
@@ -45,7 +98,7 @@
   </div>
   <div class="header-right-auth__basket">
     <app-cart
-      [color]="router.url === '/' && !isBottom ? 'yellow' : 'white'"
+      [color]="checkRoutAndScrollOptions ? 'yellow' : 'white'"
     ></app-cart>
   </div>
   <div class="header-right-auth-avatar">
@@ -60,7 +113,7 @@
     <app-button
       class="header-right-auth-avatar-user__button"
       [buttonText]="'Додати товар '"
-      [buttonColor]="router.url === '/' && !isBottom ? 'yellow' : 'white'"
+      [buttonColor]="checkRoutAndScrollOptions ? 'yellow' : 'white'"
       [addIcon]="true"
     ></app-button>
   </div>
@@ -69,17 +122,17 @@
 <ng-template #notAuthenticationSession>
   <div class="header-right__language">
     <app-language
-      [activeLang]="router.url === '/' && !isBottom ? 'yellow' : 'white'"
+      [activeLang]="checkRoutAndScrollOptions ? 'yellow' : 'white'"
     ></app-language>
   </div>
   <div class="header-right__basket">
     <app-cart
-      [color]="router.url === '/' && !isBottom ? 'yellow' : 'white'"
+      [color]="checkRoutAndScrollOptions ? 'yellow' : 'white'"
     ></app-cart>
   </div>
   <div class="header-right__button">
     <app-button
-      [buttonColor]="router.url === '/' && !isBottom ? 'yellow' : 'white'"
+      [buttonColor]="checkRoutAndScrollOptions ? 'yellow' : 'white'"
       [buttonText]="'Вхід/Реєстрація'"
     >
     </app-button>

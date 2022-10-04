@@ -19,6 +19,7 @@ import { IHeaderBackground } from '../../interfaces/i-heder-background';
 })
 export class HeaderComponentComponent implements OnInit {
   @Input() public sessionUser?: IAuthenticationUser;
+
   public logo!: IHeaderBackground;
   public scrollStartPoint = 0;
   public isBottom!: boolean;
@@ -27,11 +28,13 @@ export class HeaderComponentComponent implements OnInit {
     this.isBottom = false;
   }
 
+  public get checkRoutAndScrollOptions(): boolean {
+    return this.router.url === '/' && !this.isBottom;
+  }
+
   @HostListener('window:scroll', [])
   public onScroll(): void {
-    window.scrollY > this.scrollStartPoint
-      ? (this.isBottom = true)
-      : (this.isBottom = false);
+    this.isBottom = window.scrollY > this.scrollStartPoint;
   }
 
   public ngOnInit(): void {
