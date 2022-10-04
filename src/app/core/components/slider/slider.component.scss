@@ -3,7 +3,6 @@
 .slider{
   display: flex;
   width: 1210px;
-  margin: 0 auto;
   align-items: center;
 
   &_button{
@@ -13,16 +12,17 @@
     border: none;
     border-radius: 4px;
 
-
     &_next{
       margin-left: 23px;
     }
+
     &_prev{
       margin-right: 23px;
     }
   }
 
   &_swiper{
+
     &_box{
       width: 160px;
       height: 200px;
