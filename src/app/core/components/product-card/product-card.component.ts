@@ -1,5 +1,7 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
+import { ProductCardInterface } from '../../interfaces/product-card.interface';
+
 @Component({
   selector: 'app-product-card',
   templateUrl: './product-card.component.html',
@@ -7,8 +9,8 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProductCardComponent {
-  @Input() productCardImg =
-    '../../../../assets/images/categories/Category%20icons=icon%20fruit.png';
-
-  @Input() productCardTitle = 'Фрукти';
+  @Input() productCard: ProductCardInterface = {
+    img: '../../../../assets/images/categories/Category%20icons=icon%20cheese.png',
+    title: 'Фрукти'
+  };
 }
