@@ -1,8 +1,10 @@
 import {
   ChangeDetectionStrategy,
   Component,
+  EventEmitter,
   Input,
-  OnInit
+  OnInit,
+  Output
 } from '@angular/core';
 
 @Component({
@@ -12,22 +14,35 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProductPurchaseCardComponent implements OnInit {
+  @Output() totalPriceInCents: EventEmitter<number> =
+    new EventEmitter<number>();
+
+  @Output() deleteCardEmitter: EventEmitter<any> = new EventEmitter<any>();
+
   @Input() productName!: string;
   @Input() price!: string;
+  @Input() imgUrl!: string;
+  @Input() productCard!: any;
   public counter = 1;
   public totalPrice!: string;
 
   public countPrice(operator: number): void {
     const uah = +this.price.split('.')[0];
-    const cents = +this.price.split('.')[1];
+    const cent = +this.price.split('.')[1];
     if (this.price) {
       if (operator === 0) {
         if (this.counter !== 1) {
           this.counter--;
         } else this.counter = 1;
       } else this.counter++;
-      this.totalPrice = `${uah}.${cents}`;
+      const result = (uah * 100 + cent) * this.counter;
+      this.totalPrice = (result / 100).toFixed(2);
+      this.totalPriceInCents.emit(result);
     }
+  }
+
+  public deleteCard(): void {
+    this.deleteCardEmitter.emit(this.productCard);
   }
 
   public ngOnInit(): void {

@@ -2,10 +2,7 @@
   <! --960x140-->
   <div class="product-img">
     <! --140x140-->
-    <img
-      src="https://bipbap.ru/wp-content/uploads/2017/04/0_7c779_5df17311_orig.jpg"
-      alt="product-img"
-    />
+    <img src="{{ imgUrl }}" alt="product-img" />
   </div>
   <div class="interface-row">
     <! --780x54-->
@@ -34,7 +31,11 @@
       ></i-feather>
     </div>
 
-    <i-feather class="icon-trash" name="trash"></i-feather>
+    <i-feather
+      class="icon-trash"
+      name="trash"
+      (click)="deleteCard()"
+    ></i-feather>
 
     <! --18x20-->
     <div class="interface-row-price">
