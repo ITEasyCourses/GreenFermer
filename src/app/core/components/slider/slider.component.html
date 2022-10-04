@@ -3,26 +3,11 @@
     <i-feather name="chevron-left"></i-feather>
   </button>
   <swiper [config]="config" class="slider_swiper">
-    <ng-template swiperSlide>
-      <div class="slider_swiper_box">1</div>
-    </ng-template>
-    <ng-template swiperSlide>
-      <div class="slider_swiper_box">2</div>
-    </ng-template>
-    <ng-template swiperSlide>
-      <div class="slider_swiper_box">3</div>
-    </ng-template>
-    <ng-template swiperSlide>
-      <div class="slider_swiper_box">4</div>
-    </ng-template>
-    <ng-template swiperSlide>
-      <div class="slider_swiper_box">5</div>
-    </ng-template>
-    <ng-template swiperSlide>
-      <div class="slider_swiper_box">6</div>
-    </ng-template>
-    <ng-template swiperSlide>
-      <div class="slider_swiper_box">7</div>
+    <ng-template swiperSlide *ngFor="let greg of sergey">
+      <div class="slider_swiper_box">
+        <h1>{{ greg.number }}</h1>
+        <p>{{ greg.text }}</p>
+      </div>
     </ng-template>
   </swiper>
   <button class="slider_button slider_button_next">
