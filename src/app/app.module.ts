@@ -16,7 +16,6 @@ import { AppComponent } from './app.component';
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebase),
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
