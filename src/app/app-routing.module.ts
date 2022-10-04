@@ -18,15 +18,15 @@ const routes: Routes = [
       )
   },
   {
-    path: '**',
-    redirectTo: ERoutes.HOME
-  },
-  {
     path: RoutingPath.catalogPage,
     loadChildren: () =>
       import('./pages/catalog-page/catalog-page.module').then(
         (m) => m.CatalogPageModule
       )
+  },
+  {
+    path: '**',
+    redirectTo: ERoutes.HOME
   }
 ];
 
