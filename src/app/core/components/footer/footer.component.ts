@@ -1,9 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
-import {
-  FOOTER_CONSTANTS_APP_CONFIG,
-  FOOTER_CONSTANTS_CONFIG
-} from '../../constants/footer.constants';
+import { FOOTER_CONSTANTS } from '../../constants/footer.constants';
 import { FooterInterfaceConfig } from '../../interfaces/footer-interface';
 
 @Component({
@@ -13,6 +10,9 @@ import { FooterInterfaceConfig } from '../../interfaces/footer-interface';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FooterComponent {
-  public footerConfig: FooterInterfaceConfig[] = FOOTER_CONSTANTS_CONFIG;
-  public footerConfigApp: FooterInterfaceConfig[] = FOOTER_CONSTANTS_APP_CONFIG;
+  public footerConfig: FooterInterfaceConfig[] =
+    FOOTER_CONSTANTS.footerConstArr;
+
+  public footerConfigApp: FooterInterfaceConfig[] =
+    FOOTER_CONSTANTS.footerConstAppArr;
 }
