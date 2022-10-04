@@ -5,12 +5,7 @@ import {
   Input,
   Output
 } from '@angular/core';
-import SwiperCore, {
-  Navigation,
-  A11y,
-  Mousewheel,
-  SwiperOptions
-} from 'swiper';
+import SwiperCore, { Navigation, A11y, Mousewheel } from 'swiper';
 
 SwiperCore.use([Navigation, A11y, Mousewheel]);
 
@@ -25,7 +20,7 @@ export class SliderComponent {
 
   @Output() changeCategori: EventEmitter<any> = new EventEmitter<any>();
 
-  config: SwiperOptions = {
+  config: any = {
     slidesPerView: 6,
     spaceBetween: 30,
     navigation: {
