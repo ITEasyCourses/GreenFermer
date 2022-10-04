@@ -9,6 +9,13 @@ const routes: Routes = [
       import('./pages/home-page/home-page.module').then((m) => m.HomePageModule)
   },
   {
+    path: 'product-detail',
+    loadChildren: () =>
+      import('./pages/product-detail-page/product-detail-page.module').then(
+        (m) => m.ProductDetailPageModule
+      )
+  },
+  {
     path: '**',
     redirectTo: ERoutes.HOME
   }
