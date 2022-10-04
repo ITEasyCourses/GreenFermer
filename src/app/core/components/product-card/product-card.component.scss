@@ -1,3 +1,4 @@
+
 @import "../../../../assets/styles/vars";
 @import "../../../../assets/styles/mixins";
 
@@ -45,4 +46,93 @@ img {
   width: 60px;
   height: 60px;
   object-fit: contain;
+
+@import "src/assets/styles/vars";
+@import "src/assets/styles/mixins";
+
+.card{
+  @include font-base(15px, 600, 24px);
+
+  display: flex;
+  height: 326px;
+  width: 224px;
+  border-radius: 10px;
+  background: $white;
+  box-shadow: 0 5px 15px rgba(116, 116, 116, 0.15);
+
+  &-wrap{
+
+    &-basket {
+      cursor: pointer;
+      height: 48px;
+      width: 48px;
+      position: absolute;
+      right: 10px;
+      bottom: 10px;
+      background: $white;
+      left: 166px;
+      top: 162px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      &-bsk{
+        height: 18.4px;
+        width: 16.5px;
+        left: 3.2px;
+        top: 1.8px;
+      }
+
+    }
+
+    &-img{
+      display: flex;
+      height: 220px;
+      width: 224px;
+      border-radius: 10px;
+      background: black;
+    }
+
+    &-text{
+
+      &-first {
+        display: flex;
+        flex-direction: row;
+
+        &-heart {
+          margin-right: 26px;
+          margin-top: 26px;
+          cursor: pointer;
+
+          &.yellow{
+            color: $light-yellow;
+            fill: $light-yellow;
+          }
+        }
+
+        &-name {
+          @include font-base(15px, 600, 17px);
+
+          height: 50px;
+          width: 156px;
+          margin-left: 10px;
+          margin-top: 10px;
+          margin-right: 12px;
+          display: flex;
+          align-items: center;
+          letter-spacing: 0.0015em;
+        }
+      }
+
+      &-price {
+        @include font-base(15px, 500, 24px);
+
+        margin-left: 10px;
+        margin-bottom: 46px;
+        letter-spacing: 0.001em;
+      }
+    }
+  }
+
 }
