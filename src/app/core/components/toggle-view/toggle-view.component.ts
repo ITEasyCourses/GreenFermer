@@ -13,23 +13,10 @@ import {
 })
 export class ToggleViewComponent {
   @Output() isMenuMode: EventEmitter<boolean> = new EventEmitter<boolean>();
+
   public isMenuToggle = true;
-  public isGridToggle = false;
 
-  public clickMenu(): void {
-    if (!this.isMenuToggle) {
-      this.transfer();
-    }
-  }
-
-  public clickGrid(): void {
-    if (!this.isGridToggle) {
-      this.transfer();
-    }
-  }
-
-  public transfer(): void {
-    this.isGridToggle = !this.isGridToggle;
+  public switch(): void {
     this.isMenuToggle = !this.isMenuToggle;
     this.isMenuMode.emit(this.isMenuToggle);
   }

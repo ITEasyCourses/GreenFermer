@@ -2,13 +2,13 @@
   <i-feather
     name="grid"
     class="container_toggle"
-    [class.active]="isGridToggle"
-    (click)="clickGrid()"
+    [class.active]="!isMenuToggle"
+    (click)="switch()"
   ></i-feather>
   <i-feather
     name="menu"
     class="container_toggle"
     [class.active]="isMenuToggle"
-    (click)="clickMenu()"
+    (click)="switch()"
   ></i-feather>
 </div>
