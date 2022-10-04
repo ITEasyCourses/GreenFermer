@@ -11,21 +11,34 @@
     <! --780x54-->
     <div class="interface-row-description">
       <! --305x54-->
-      <p>{{ 'asd' }}</p>
-      <p>{{ 'asd' }} ₴ / кг</p>
+      <p>{{ productName }}</p>
+      <p>{{ price }} ₴ / кг</p>
     </div>
     <div class="interface-row-counter">
       <! --115x30-->
-      <div class="interface-row-counter-minus"></div>
+
+      <i-feather
+        class="icon minus"
+        name="minus"
+        (click)="countPrice(0)"
+      ></i-feather>
+
       <div class="interface-row-counter-window">
-        <p>{{ 'asd' }} кг</p>
+        <p>{{ counter }} кг</p>
       </div>
-      <div class="interface-row-counter-plus"></div>
+
+      <i-feather
+        class="icon plus"
+        name="plus"
+        (click)="countPrice(1)"
+      ></i-feather>
     </div>
-    <div class="interface-row-remove"></div>
+
+    <i-feather class="icon-trash" name="trash"></i-feather>
+
     <! --18x20-->
     <div class="interface-row-price">
-      <p>{{ 'asd' }} ₴</p>
+      <p>{{ totalPrice }} ₴</p>
     </div>
   </div>
 </div>

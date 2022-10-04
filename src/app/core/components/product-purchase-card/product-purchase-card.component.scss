@@ -1,3 +1,11 @@
+@import "src/assets/styles/mixins";
+@import "src/assets/styles/vars";
+
+
+p {
+  @include font-base(17px, 600, 26.76px)
+}
+
 .container {
   width: 960px;
   height: 140px;
@@ -17,10 +25,59 @@
   }
 
   & .interface-row {
+    position: relative;
     width: 780px;
     height: 54px;
     display: flex;
     justify-content: space-between;
-    margin-top: 6px;
+    align-items: center;
+
+    &-description {
+      width: 305px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+
+      & p {
+        @include font-base(17px, 400, 26.75px)
+      }
+    }
+
+    &-counter {
+      position: absolute;
+      top: 12px;
+      left: 329px;
+      width: 115px;
+      height: 30px;
+      display: flex;
+      justify-content: space-between;
+
+      &-minus {
+
+      }
+
+      &-window {
+        width: 60px;
+        height: 30px;
+        border: 1px solid $gray3;
+        border-radius: 6px;
+        text-align: center;
+      }
+
+      & .icon {
+        width: 16px;
+        margin-top: 7px;
+        cursor: pointer;
+      }
+    }
+
+    & .icon-trash {
+      position: absolute;
+      top: 17px;
+      left: 573px;
+      width: 20px;
+      cursor: pointer;
+    }
   }
 }
