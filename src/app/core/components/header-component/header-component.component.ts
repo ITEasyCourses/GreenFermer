@@ -24,7 +24,7 @@ export class HeaderComponentComponent implements OnInit {
   public isBottom!: boolean;
 
   constructor(public router: Router) {
-    this.isBottom = true;
+    this.isBottom = false;
   }
 
   @HostListener('window:scroll', [])
