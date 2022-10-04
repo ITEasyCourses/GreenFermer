@@ -1,0 +1,17 @@
+<select
+  [class.padding]="placeholder"
+  class="select"
+  [formControl]="sortControl"
+  (change)="sendSortType()"
+>
+  <option class="option" *ngIf="placeholder" disabled selected hidden value="">
+    {{ placeholder }}
+  </option>
+  <option
+    class="option"
+    [value]="[item.value]"
+    *ngFor="let item of mockSortTypes"
+  >
+    {{ item.viewValue }}
+  </option>
+</select>
