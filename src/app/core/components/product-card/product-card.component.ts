@@ -14,18 +14,22 @@ import { IProductCard } from '../../interfaces/i-product-card';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProductCardComponent {
-  @Output() public addToBasketEvent: EventEmitter<IProductCard> =
-    new EventEmitter<IProductCard>();
+  @Output() public addToBasketEvent: EventEmitter<void> =
+    new EventEmitter<void>();
+
+  public heart = false;
 
   public card: IProductCard = {
     name: 'Малина',
-    price: '23.00 грн/кг',
+    price: 23.01,
     image: ''
   };
 
-  constructor() {}
-
   public addToBasket(): void {
     this.addToBasketEvent.emit();
+  }
+
+  public like(): void {
+    this.heart = !this.heart;
   }
 }

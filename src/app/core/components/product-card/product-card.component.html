@@ -1,11 +1,20 @@
 <div class="card">
   <div class="card-wrap">
-    <img src="{{ card.image }}" class="card-img" alt="product foto" />
-    <div class="card-wrap-basket" (click)='addToBasket()'>
+    <img [src]="card.image" class="card-wrap-img" alt="product foto" />
+    <div class="card-wrap-basket" (click)="addToBasket()">
       <i-feather name="shopping-cart" class="card-wrap-basket-bsk"></i-feather>
     </div>
-    <div class="card-name">{{ card.name }}</div>
-    <i-feather class="card-heart" name="heart"></i-feather>
-    <div class="card-price">{{ card.price }}</div>
+    <div class="card-wrap-text">
+      <div class="card-wrap-text-first">
+        <div class="card-wrap-text-first-name">{{ card.name }}</div>
+        <i-feather
+          [ngClass]="heart ? 'yellow' : 'transparent'"
+          class="card-wrap-text-first-heart"
+          (click)="like()"
+          name="heart"
+        ></i-feather>
+      </div>
+      <div class="card-wrap-text-price">{{ card.price }} ₴/кг</div>
+    </div>
   </div>
 </div>
