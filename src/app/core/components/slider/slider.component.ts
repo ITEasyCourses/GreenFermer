@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
+import Swiper, { Navigation, A11y, SwiperOptions, Mousewheel } from 'swiper';
 
-SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
+Swiper.use([Navigation, A11y, Mousewheel]);
 
 @Component({
   selector: 'app-slider',
@@ -9,4 +9,17 @@ SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
   styleUrls: ['./slider.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class SliderComponent {}
+export class SliderComponent {
+  config: SwiperOptions = {
+    slidesPerView: 6,
+    spaceBetween: 30,
+    navigation: {
+      nextEl: '.slider_button_next',
+      prevEl: '.slider_button_prev'
+    },
+    mousewheel: {
+      sensitivity: 3
+    }
+  };
+
+}
