@@ -1,0 +1,24 @@
+@import "/src/assets/styles/vars";
+@import "/src/assets/styles/mixins";
+
+::ng-deep {
+  & .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element {
+    background-color: $main-yellow;
+  }
+
+  & .mat-radio-button.mat-accent:active .mat-radio-persistent-ripple {
+    background-color: $main-yellow
+  }
+
+  & .mat-radio-button.mat-accent .mat-radio-inner-circle {
+    background-color: $main-yellow;
+  }
+
+  & .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element {
+    background-color: $main-yellow !important;
+  }
+
+  & .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+    border-color: $main-yellow;
+  }
+}

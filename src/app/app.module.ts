@@ -7,6 +7,7 @@ import { environment } from '../environments/environment';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { DeliveryPaymentModule } from './core/components/delivery-payment/delivery-payment.module';
 import { RadioGroupComponentModule } from './core/components/radio-group-component/radio-group-component.module';
 
 @NgModule({
@@ -16,7 +17,8 @@ import { RadioGroupComponentModule } from './core/components/radio-group-compone
     AppRoutingModule,
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebase),
-    RadioGroupComponentModule
+    RadioGroupComponentModule,
+    DeliveryPaymentModule
   ],
   providers: [],
   bootstrap: [AppComponent]

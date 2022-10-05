@@ -1,0 +1,92 @@
+<div class="wrapper">
+  <div class="wrapper-delivery">
+    <mat-radio-group aria-label="Select an option" [(ngModel)]="deliveryType">
+      <h3 class="title">Доставка</h3>
+      <div class="delivery">
+        <app-radio-button [checked]="true" [value]="'self'"
+          >Самовівоз</app-radio-button
+        >
+        <div class="delivery-selects" *ngIf="deliveryType === 'self'">
+          <ng-container *ngTemplateOutlet="city"></ng-container>
+          <app-sort-select
+            (sortString)="deliveryPostOffice($event)"
+            [placeholderGray]="'Оберіть пунк видачі товара'"
+            [selectItems]="deliveryCities"
+            class="app-select"
+          ></app-sort-select>
+        </div>
+        <app-radio-button [value]="'newpost'">Нова Пошта</app-radio-button>
+        <div class="delivery-selects" *ngIf="deliveryType === 'newpost'">
+          <ng-container *ngTemplateOutlet="city"></ng-container>
+          <app-sort-select
+            (sortString)="deliveryPostOffice($event)"
+            [placeholderGray]="'Оберіть відділення нової пошти'"
+            [selectItems]="deliveryCities"
+            class="app-select"
+          ></app-sort-select>
+        </div>
+        <app-radio-button [value]="'ukrpost'">УкрПошта</app-radio-button>
+        <div class="delivery-selects" *ngIf="deliveryType === 'ukrpost'">
+          <ng-container *ngTemplateOutlet="city"></ng-container>
+          <app-sort-select
+            (sortString)="deliveryPostOffice($event)"
+            [placeholderGray]="'Оберіть відділення укр пошти'"
+            [selectItems]="deliveryCities"
+            class="app-select"
+          ></app-sort-select>
+        </div>
+        <app-radio-button [value]="'courer'">Кур’єр</app-radio-button>
+        <div class="delivery-selects" *ngIf="deliveryType === 'courer'">
+          <ng-container *ngTemplateOutlet="city"></ng-container>
+        </div>
+      </div>
+    </mat-radio-group>
+  </div>
+
+  <div class="wrapper-payment">
+    <mat-radio-group aria-label="Select an option" [(ngModel)]="paymentType">
+      <h3 class="title">Оплата</h3>
+      <div class="payment">
+        <app-radio-button [checked]="true" [value]="'cash'">
+          <span class="cash">
+            <i-feather name="folder"></i-feather>Готівка</span
+          >
+        </app-radio-button>
+        <app-radio-button [value]="'credit'">
+          <span class="credit">
+            <i-feather name="credit-card"></i-feather>
+            Картою на сайті
+          </span>
+        </app-radio-button>
+
+        <mat-radio-group
+          class="credit-type"
+          *ngIf="paymentType === 'credit'"
+          (change)="credit($event)"
+        >
+          <app-radio-button (change)="credit($event)" [value]="'apppay'">
+            <span class="credit-wallet">
+              <img src="assets/images/credit-wallets/apppay.png" alt="" />
+              Pay
+            </span>
+          </app-radio-button>
+          <app-radio-button (change)="credit($event)" [value]="'gpay'">
+            <span class="credit-wallet">
+              <img src="assets/images/credit-wallets/apppay.png" alt="" />
+              Pay
+            </span>
+          </app-radio-button>
+        </mat-radio-group>
+      </div>
+    </mat-radio-group>
+  </div>
+</div>
+
+<ng-template #city>
+  <app-sort-select
+    (sortString)="cityDelivery($event)"
+    [placeholderGray]="'Оберіть ваш населенній пункт'"
+    [selectItems]="deliveryCities"
+    class="app-select"
+  ></app-sort-select>
+</ng-template>
