@@ -2,10 +2,13 @@ import {
   ChangeDetectionStrategy,
   Component,
   EventEmitter,
+  Input,
   Output
 } from '@angular/core';
 
 import { IProductCard } from '../../interfaces/i-product-card';
+
+// import { IProductCard } from '../../interfaces/i-product-card';
 
 @Component({
   selector: 'app-product-card',
@@ -14,16 +17,17 @@ import { IProductCard } from '../../interfaces/i-product-card';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProductCardComponent {
+  @Input() product: any;
   @Output() public addToBasketEvent: EventEmitter<void> =
     new EventEmitter<void>();
 
   public heart = false;
 
-  public card: IProductCard = {
-    name: 'Малина',
-    price: 23.01,
-    image: ''
-  };
+  // public card: IProductCard = {
+  //   name: 'Малина',
+  //   price: 23.01,
+  //   image: ''
+  // };
 
   public addToBasket(): void {
     this.addToBasketEvent.emit();

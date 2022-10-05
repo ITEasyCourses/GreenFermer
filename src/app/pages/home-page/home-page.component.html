@@ -1,1 +1,8 @@
-<p>home-page works!</p>
+<p class="title">Популярні продукти</p>
+<div class="product">
+  <div class="product_wrap">
+    <div class="product_wrap_carts" *ngFor="let product of productList">
+      <app-product-card [product]="product"></app-product-card>
+    </div>
+  </div>
+</div>
