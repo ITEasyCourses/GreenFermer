@@ -1,0 +1,81 @@
+<div class="wrapper">
+  <header class="card">
+    <div class="card-header">
+      <div class="card-header-order">
+        <div class="card-header-oder-group">
+          <p class="card-header-oder-group__number">Zmavlen9 #1313</p>
+          <p class="card-header-oder-group__status">Obrobluets9</p>
+        </div>
+        <label class="card-header-oder__date">den' zamovlen9: segodn9</label>
+      </div>
+      <div class="card-header-direction">
+        <i-feather
+          class="card-header-direction__location"
+          name="disc"
+        ></i-feather>
+        <p class="card-header-direction__from">Harciv</p>
+        <i-feather
+          class="card-header-direction__arrow"
+          name="arrow-right"
+        ></i-feather>
+        <p class="card-header-direction__to">Oleksandriy</p>
+      </div>
+    </div>
+  </header>
+  <main class="card-main">
+    <div class="card-main-name">
+      <p class="card-main-name__text">9bluka ma4enie</p>
+    </div>
+    <div class="card-maine-purchase">
+      <div class="card-maine-purchase-price">
+        <p class="card-maine-purchase-price__text">15 ₴/kg</p>
+      </div>
+      <div class="card-maine-purchase-x">
+        <p class="">x</p>
+      </div>
+      <div class="card-maine-purchase-amount">
+        <p class="card-maine-purchase-amount__text">1 kg</p>
+      </div>
+      <div class="card-maine-purchase-sum">
+        <p class="card-maine-purchase-sum">15.00 ₴/kg</p>
+      </div>
+    </div>
+  </main>
+  <div class="card-sum">
+    <p class="card-sum__text">456 grn/kg</p>
+  </div>
+  <footer class="card-footer">
+    <ng-container
+      *ngTemplateOutlet="isDane ? doneGroup : inProgressGroup"
+    ></ng-container>
+  </footer>
+</div>
+
+<ng-template #inProgressGroup>
+  <div class="card-footer-btns">
+    <div class="card-footer-btns__left">
+      <app-button></app-button>
+    </div>
+    <div class="card-footer-btns__right">
+      <app-button></app-button>
+    </div>
+  </div>
+  <div class="card-footer-btn">
+    <div class="card-footer-btn__container">
+      <app-button></app-button>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #doneGroup>
+  <div class="card-footer-reviews">
+    <div class="card-footer-reviews__container">
+      <app-button></app-button>
+    </div>
+  </div>
+  <div class="card-footer-detail">
+    <div class="card-footer-detail__container">
+      <app-button></app-button>
+    </div>
+  </div>
+</ng-template>
