@@ -1,9 +1,6 @@
 import { FooterInterfaceConfig } from '../interfaces/footer-interface';
 
-export const FOOTER_CONSTANTS: {
-  footerConstArr: FooterInterfaceConfig[];
-  footerConstAppArr: FooterInterfaceConfig[];
-} = {
+export const FOOTER_CONSTANTS: Record<string, FooterInterfaceConfig[]> = {
   footerConstArr: [
     {
       title: 'Як продавати й купувати?',

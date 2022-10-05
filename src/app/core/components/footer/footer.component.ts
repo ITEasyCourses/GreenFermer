@@ -11,8 +11,8 @@ import { FooterInterfaceConfig } from '../../interfaces/footer-interface';
 })
 export class FooterComponent {
   public footerConfig: FooterInterfaceConfig[] =
-    FOOTER_CONSTANTS.footerConstArr;
+    FOOTER_CONSTANTS['footerConstArr'];
 
   public footerConfigApp: FooterInterfaceConfig[] =
-    FOOTER_CONSTANTS.footerConstAppArr;
+    FOOTER_CONSTANTS['footerConstAppArr'];
 }
