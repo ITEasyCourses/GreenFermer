@@ -16,6 +16,13 @@ const routes: Routes = [
       )
   },
   {
+    path: 'category',
+    loadChildren: () =>
+      import('./pages/category-page/category-page.module').then(
+        (m) => m.CategoryPageModule
+      )
+  },
+  {
     path: '**',
     redirectTo: ERoutes.HOME
   }
