@@ -1,30 +1,32 @@
-<div class="header-wrapper">
-  <div
-    class="header"
-    [ngClass]="checkRoutAndScrollOptions ? 'transparent' : 'yellow'"
-  >
-    <div class="header-left">
-      <div class="header-left-logo">
-        <img
-          [src]="checkRoutAndScrollOptions ? logo.transparent : logo.yellow"
-          alt="logo"
-        />
+<div class="container">
+  <div class="header-wrapper">
+    <div
+      class="header"
+      [ngClass]="checkRoutAndScrollOptions ? 'transparent' : 'yellow'"
+    >
+      <div class="header-left">
+        <div class="header-left-logo">
+          <img
+            [src]="checkRoutAndScrollOptions ? logo.transparent : logo.yellow"
+            alt="logo"
+          />
+        </div>
+        <div class="header-left-select">
+          <app-select></app-select>
+        </div>
+        <div *ngIf="!sessionUser?.isAuthentication" class="header-menu">
+          <app-select></app-select>
+        </div>
       </div>
-      <div class="header-left-select">
-        <app-select></app-select>
+      <div class="header-right">
+        <ng-container
+          [ngTemplateOutlet]="
+            !sessionUser?.isAuthentication
+              ? activeAuthenticationSession
+              : notAuthenticationSession
+          "
+        ></ng-container>
       </div>
-      <div *ngIf="sessionUser?.isAuthentication" class="header-menu">
-        <app-select></app-select>
-      </div>
-    </div>
-    <div class="header-right">
-      <ng-container
-        [ngTemplateOutlet]="
-          sessionUser?.isAuthentication
-            ? activeAuthenticationSession
-            : notAuthenticationSession
-        "
-      ></ng-container>
     </div>
   </div>
 </div>
@@ -36,7 +38,10 @@
     ></app-language>
   </div>
   <div class="header-right-auth-comment">
-    <i-feather name="message-circle"></i-feather>
+    <i-feather
+      class="header-right-auth-comment__size"
+      name="message-circle"
+    ></i-feather>
   </div>
   <div class="header-right-auth-like">
     <i-feather class="header-right-auth-like__size" name="heart"></i-feather>
@@ -53,14 +58,16 @@
         [src]="sessionUser?.avatar"
         alt="avatar"
       />
-      <p class="header-right-auth-avatar-user__text">{{ sessionUser?.name }}</p>
+      <p class="header-right-auth-avatar-user__text">123456789</p>
     </div>
-    <app-button
-      class="header-right-auth-avatar-user__button"
-      [buttonText]="'Додати товар '"
-      [buttonColor]="checkRoutAndScrollOptions ? 'yellow' : 'white'"
-      [addIcon]="true"
-    ></app-button>
+    <div class="header-right-auth-avatar-button">
+      <app-button
+        class="header-right-auth-avatar-button__size"
+        [buttonText]="'Додатитовар'"
+        [buttonColor]="checkRoutAndScrollOptions ? 'yellow' : 'white'"
+        [addIcon]="true"
+      ></app-button>
+    </div>
   </div>
 </ng-template>
 
@@ -76,10 +83,12 @@
     ></app-cart>
   </div>
   <div class="header-right__button">
-    <app-button
-      [buttonColor]="checkRoutAndScrollOptions ? 'yellow' : 'white'"
-      [buttonText]="'Вхід/Реєстрація'"
-    >
-    </app-button>
+    <div class="header-right__button wrapper">
+      <app-button
+        [buttonColor]="checkRoutAndScrollOptions ? 'yellow' : 'white'"
+        [buttonText]="'Вхід/Реєстрація'"
+      >
+      </app-button>
+    </div>
   </div>
 </ng-template>

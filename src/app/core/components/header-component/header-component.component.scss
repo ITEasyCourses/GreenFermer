@@ -1,37 +1,44 @@
 @import "src/assets/styles/vars";
 @import "src/assets/styles/mixins";
 
-.header-wrapper{
-  position: fixed;
+.container {
+  position: sticky;
   top: 0;
-  width: 100%;
-  height: 60px;
-  margin: 0;
 
-  .header {
-    @include font-base(15px, 600, 24px);
-
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
+  & .header-wrapper {
     width: 100%;
-    height: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-    &.yellow{
+    & .header {
+      width: 100%;
+      height: 100%;
+    }
+
+    & .yellow,
+    & .transparent {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+    }
+
+    & .yellow {
       background: $main-yellow;
     }
 
-    &.transparent {
+    & .transparent {
       background: linear-gradient(180deg, #FFFFFF 0%, rgba(245, 245, 245, 0) 100%);
     }
 
-    &-right,
-    &-left {
+    @include font-base(15px, 600, 24px);
+
+    & .header-right,
+    & .header-left {
       display: flex;
       flex-direction: row;
       align-items: center;
-
 
       &-logo {
         height: 32px;
@@ -52,14 +59,17 @@
       }
     }
 
-    &-right {
+    & .header-right {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
 
-      &-auth{
+      &-auth {
         display: flex;
         flex-direction: row;
         align-items: center;
 
-        &-comment, &-like, &-basket{
+        &-comment, &-like, &-basket {
           display: flex;
           align-items: center;
           justify-content: center;
@@ -68,16 +78,27 @@
           cursor: pointer;
         }
 
-        &__language{
+        &__language {
           width: 58px;
           height: 32px;
           margin-right: 96px;
+          &::ng-deep app-language {
+
+            .btn {
+              @include font-base(15px, 600, 24px);
+            }
+
+            .active.white {
+              background: $white;
+            }
+          }
         }
 
-        &__basket{
-          margin-right: 30px;
-          width: 36px;
-          height: 36px;
+        &-comment {
+          &__size {
+            width: 21px;
+            height: 21px;
+          }
         }
 
         &-like {
@@ -87,6 +108,12 @@
           }
         }
 
+        &__basket {
+          margin-right: 30px;
+          width: 36px;
+          height: 36px;
+        }
+
         &-avatar {
 
           display: flex;
@@ -94,9 +121,24 @@
           align-items: center;
           justify-content: space-between;
           padding: 0;
-          gap: 12px;
+          //gap: 12px;
           width: 311px;
           height: 40px;
+
+          &-button {
+            width: 168px;
+            height: 40px;
+            //display: flex;
+            //justify-content: flex-end;
+            font-size: 15px;
+            margin: 0;
+
+            //&__size {
+            //  width: 100%;
+            //  height: 100%;
+            //}
+
+          }
 
           &-user {
             display: flex;
@@ -109,34 +151,48 @@
               margin-right: 12px;
               border-radius: 50%;
             }
+
+            &__text{
+              width: 87px;
+              height: 27px;
+              margin-right: 12px;
+
+            }
           }
 
-          & :last-child {
-            display: flex;
-            justify-content: flex-end;
-          }
+
         }
       }
 
-      &__language{
+      &__language {
         margin-right: 96px;
 
-        &::ng-deep app-language{
+        &::ng-deep app-language {
 
-          .btn{
+          .btn {
             @include font-base(17px, 600, 24px);
           }
 
-          .active.white{
+          .active.white {
             background: $white;
           }
         }
       }
 
-      &__basket{
+      &__basket {
         margin-right: 43.5px;
         width: 36px;
         height: 36px;
+      }
+
+      &__button {
+        width: 187px;
+        height: 40px;
+
+        &wrapper {
+          width: 100%;
+          height: 100%;
+        }
       }
     }
   }
