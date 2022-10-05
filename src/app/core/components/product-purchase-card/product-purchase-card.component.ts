@@ -14,15 +14,15 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProductPurchaseCardComponent implements OnInit {
-  @Output() totalPriceInCents: EventEmitter<number> =
-    new EventEmitter<number>();
-
-  @Output() deleteCardEmitter: EventEmitter<any> = new EventEmitter<any>();
-
   @Input() productName!: string;
   @Input() price!: string;
   @Input() imgUrl!: string;
   @Input() productCard!: any;
+
+  @Output() totalPriceInCents: EventEmitter<number> =
+    new EventEmitter<number>();
+
+  @Output() deleteCardEmitter: EventEmitter<any> = new EventEmitter<any>();
   public counter = 1;
   public totalPrice!: string;
 
@@ -34,6 +34,8 @@ export class ProductPurchaseCardComponent implements OnInit {
         if (this.counter !== 1) {
           this.counter--;
         } else this.counter = 1;
+      } else if (this.counter === 1000) {
+        this.counter = 1000;
       } else this.counter++;
       const result = (uah * 100 + cent) * this.counter;
       this.totalPrice = (result / 100).toFixed(2);

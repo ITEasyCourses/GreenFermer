@@ -1,21 +1,15 @@
 <div class="container">
-  <! --960x140-->
   <div class="product-img">
-    <! --140x140-->
     <img src="{{ imgUrl }}" alt="product-img" />
   </div>
   <div class="interface-row">
-    <! --780x54-->
     <div class="interface-row-description">
-      <! --305x54-->
       <p>{{ productName }}</p>
       <p>{{ price }} ₴ / кг</p>
     </div>
     <div class="interface-row-counter">
-      <! --115x30-->
-
       <i-feather
-        class="icon minus"
+        [class]="counter !== 1 ? 'icon minus' : 'icon minus-disabled'"
         name="minus"
         (click)="countPrice(0)"
       ></i-feather>
@@ -26,6 +20,7 @@
 
       <i-feather
         class="icon plus"
+        [class]="counter !== 1000 ? 'icon plus' : 'icon plus-disabled'"
         name="plus"
         (click)="countPrice(1)"
       ></i-feather>
@@ -37,7 +32,6 @@
       (click)="deleteCard()"
     ></i-feather>
 
-    <! --18x20-->
     <div class="interface-row-price">
       <p>{{ totalPrice }} ₴</p>
     </div>
