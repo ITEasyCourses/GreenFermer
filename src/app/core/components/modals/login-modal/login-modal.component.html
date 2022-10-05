@@ -30,7 +30,11 @@
         </div>
         <div class="element-footer-bottom">
           <div class="button sign-in">
-            <app-button [buttonText]="'Увійти'" (click)="loginForm()">
+            <app-button
+              [buttonText]="'Увійти'"
+              [isDisabled]="loginFormGroup.invalid"
+              (click)="loginFormGroup.valid ? loginForm() : null"
+            >
             </app-button>
           </div>
           <div class="button sign-up">

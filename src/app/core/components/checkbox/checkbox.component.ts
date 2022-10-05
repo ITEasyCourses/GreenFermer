@@ -15,10 +15,4 @@ import {
 export class CheckboxComponent {
   @Output() checkEmitter: EventEmitter<any> = new EventEmitter<any>();
   @Input() label!: string;
-  private isChecked = false;
-
-  public check(): void {
-    this.isChecked = !this.isChecked;
-    this.checkEmitter.emit(this.isChecked);
-  }
 }

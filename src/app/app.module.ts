@@ -7,7 +7,6 @@ import { environment } from '../environments/environment';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginModalModule } from './core/components/modals/login-modal/login-modal.module'; /* Удалить перед коммитом*/
 
 @NgModule({
   declarations: [AppComponent],
@@ -15,8 +14,7 @@ import { LoginModalModule } from './core/components/modals/login-modal/login-mod
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    AngularFireModule.initializeApp(environment.firebase),
-    LoginModalModule
+    AngularFireModule.initializeApp(environment.firebase)
   ],
   providers: [],
   bootstrap: [AppComponent]

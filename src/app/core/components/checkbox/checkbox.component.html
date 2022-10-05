@@ -1,3 +1,5 @@
-<mat-checkbox class="example-margin" (change)="check()">{{
-  label
-}}</mat-checkbox>
+<mat-checkbox
+  class="example-margin"
+  (change)="checkEmitter.emit($event.checked)"
+  >{{ label }}</mat-checkbox
+>
