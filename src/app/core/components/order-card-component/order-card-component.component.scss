@@ -1,0 +1,19 @@
+@import "src/assets/styles/mixins";
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 24px 32px 24px 24px;
+
+  & .card {
+    @include font-base(17px 600 24px);
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+
+  }
+
+}
