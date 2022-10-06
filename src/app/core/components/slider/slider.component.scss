@@ -2,14 +2,17 @@
 
 .slider{
   display: flex;
-  width: 1210px;
   align-items: center;
+  margin: 0 111px;
 
   &_button{
     width: 30px;
     height: 28px;
-    background: $gray5;
+    background: #FFFFFF;
+    backdrop-filter: blur(2px);
     border: none;
+    display: flex;
+    padding-top: 2px;
     border-radius: 4px;
 
     &_next{

@@ -1,4 +1,4 @@
-import { NgForOf } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FeatherModule } from 'angular-feather';
 import { ChevronLeft, ChevronRight } from 'angular-feather/icons';
@@ -14,6 +14,6 @@ const icons = {
 @NgModule({
   declarations: [SliderComponent],
   exports: [SliderComponent],
-  imports: [SwiperModule, FeatherModule.pick(icons), NgForOf]
+  imports: [SwiperModule, FeatherModule.pick(icons), CommonModule]
 })
 export class SliderModule {}
