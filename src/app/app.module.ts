@@ -15,6 +15,7 @@ import { AppComponent } from './app.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebase)
-  ]
+  ],
+  bootstrap: [AppComponent]
 })
 export class AppModule {}

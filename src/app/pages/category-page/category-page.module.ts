@@ -13,6 +13,7 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [CategoryPageComponent],
+  exports: [CategoryPageComponent],
   imports: [CommonModule, RouterModule.forChild(routes)]
 })
 export class CategoryPageModule {}

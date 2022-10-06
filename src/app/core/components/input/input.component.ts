@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-input',
@@ -8,10 +8,7 @@ import { FormControl, Validators } from '@angular/forms';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class InputComponent {
-  @Input() inputFormControl: FormControl = new FormControl(
-    '',
-    Validators.required
-  );
-
+  @Input() inputFormControl: FormControl = new FormControl();
+  @Input() error?: boolean;
   @Input() inputLable = '';
 }
