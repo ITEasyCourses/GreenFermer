@@ -9,3 +9,11 @@
 ) {
   font: $font-weight $font-style #{$size}/#{$height $font-family};
 }
+
+@mixin sizeImg ($maxWidth, $maxHeight, $minWidth, $minHeight) {
+  $addWidth: $maxWidth - $minWidth;
+  $addHeight: $maxHeight - $minHeight;
+
+  width: calc(#{$minWidth + px} + #{$addWidth} * ((100vw - 375px) / (1440 - 375)));
+  height: calc(#{$minHeight + px} + #{$addHeight} * ((100vw - 375px) / (1440 - 375)));
+}

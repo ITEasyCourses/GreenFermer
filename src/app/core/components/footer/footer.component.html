@@ -1,0 +1,48 @@
+<footer class="footer">
+  <div class="container">
+    <div class="footer__wrapper">
+      <div class="footer__left">
+        <a href="#" class="footer__logo">
+          <img
+            class="footer__logo-img"
+            src="./assets/images/footer/logo.svg"
+            alt="logo"
+          />
+        </a>
+        <h3 class="footer__title">Про нас</h3>
+        <p class="footer__about">
+          Маркетплейс свіжих овочів та фруктів в Україні.
+        </p>
+      </div>
+      <div class="footer__link-wrapper">
+        <div class="footer__render" *ngFor="let obj of footerConfig">
+          <h3 class="footer__title">{{ obj.title }}</h3>
+          <ul class="footer__list">
+            <li class="footer__item" *ngFor="let objBody of obj.body">
+              <a class="footer__link" [href]="objBody.href">{{
+                objBody.name
+              }}</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__app-wrapper">
+        <div class="footer__app-render" *ngFor="let obj of footerConfigApp">
+          <h3 class="footer__title">{{ obj.title }}</h3>
+          <ul class="footer__app-list">
+            <li class="footer__app-item" *ngFor="let objBody of obj.body">
+              <a class="footer__app-link" [href]="objBody.href">
+                <span class="sr-only"> {{ objBody.srOnly }} </span>
+                <img
+                  class="footer__app-img"
+                  [src]="objBody.imgSrc"
+                  [alt]="objBody.name"
+                />
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

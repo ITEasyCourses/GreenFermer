@@ -4,6 +4,7 @@
 .btn {
   @include font-base(15px, 600, 24px );
 
+  width: 100%;
   padding: 8px 30px;
   background: $main-yellow;
   border: none;
@@ -22,9 +23,22 @@
     transition: transform .2s linear;
   }
 
+  &.white {
+    background: $white;
+    border: 1px solid $main-yellow;
+    transition: all .2s linear;
+
+    &:hover {
+      border: 1px solid $light-yellow;
+      color: $gray1;
+      transition: all .2s linear;
+    }
+  }
+
   &.transparent {
     background: transparent;
     border: 1px solid $main-yellow;
+    transition: color .2s linear;
 
     &:hover {
       border: 1px solid $light-yellow;
@@ -43,5 +57,20 @@
     &:active {
       transform: none;
     }
+  }
+
+  &-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    & .icon {
+      width: 24px;
+    }
+  }
+
+  &.padding_10 {
+    padding: 8px 10px;
   }
 }
