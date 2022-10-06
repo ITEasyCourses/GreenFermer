@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="product-img">
+    <img src="{{ imgUrl }}" alt="product-img" />
+  </div>
+  <div class="interface-row">
+    <div class="interface-row-description">
+      <p>{{ productName }}</p>
+      <p>{{ price }} ₴ / кг</p>
+    </div>
+    <div class="interface-row-counter">
+      <i-feather
+        [class]="counter !== 1 ? 'icon minus' : 'icon minus-disabled'"
+        name="minus"
+        (click)="countPrice(0)"
+      ></i-feather>
+
+      <div class="interface-row-counter-window">
+        <p>{{ counter }} кг</p>
+      </div>
+
+      <i-feather
+        class="icon plus"
+        [class]="counter !== 1000 ? 'icon plus' : 'icon plus-disabled'"
+        name="plus"
+        (click)="countPrice(1)"
+      ></i-feather>
+    </div>
+
+    <i-feather
+      class="icon-trash"
+      name="trash"
+      (click)="deleteCard()"
+    ></i-feather>
+
+    <div class="interface-row-price">
+      <p>{{ totalPrice }} ₴</p>
+    </div>
+  </div>
+</div>
