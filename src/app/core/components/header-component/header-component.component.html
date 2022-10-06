@@ -1,9 +1,9 @@
-<div class="container">
-  <div class="header-wrapper">
-    <div
-      class="header"
-      [ngClass]="checkRoutAndScrollOptions ? 'transparent' : 'yellow'"
-    >
+<div
+  class="header-wrapper"
+  [ngClass]="checkRoutAndScrollOptions ? 'transparent' : 'yellow'"
+>
+  <div class="container">
+    <div class="header">
       <div class="header-left">
         <div class="header-left-logo">
           <img
@@ -14,14 +14,14 @@
         <div class="header-left-select">
           <app-select></app-select>
         </div>
-        <div *ngIf="!sessionUser?.isAuthentication" class="header-menu">
+        <div *ngIf="sessionUser?.isAuthentication" class="header-menu">
           <app-select></app-select>
         </div>
       </div>
       <div class="header-right">
         <ng-container
           [ngTemplateOutlet]="
-            !sessionUser?.isAuthentication
+            sessionUser?.isAuthentication
               ? activeAuthenticationSession
               : notAuthenticationSession
           "

@@ -1,36 +1,41 @@
 @import "src/assets/styles/vars";
 @import "src/assets/styles/mixins";
 
-.container {
+
+.header-wrapper {
   position: sticky;
   top: 0;
+  width: 100%;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
-  & .header-wrapper {
-    width: 100%;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  &.yellow {
+    background: $main-yellow;
+  }
+
+  &.transparent {
+    background: linear-gradient(180deg, #FFFFFF 0%, rgba(245, 245, 245, 0) 100%);
+  }
+    & .container {
 
     & .header {
       width: 100%;
       height: 100%;
-    }
-
-    & .yellow,
-    & .transparent {
       display: flex;
       align-items: center;
       justify-content: space-around;
     }
 
-    & .yellow {
-      background: $main-yellow;
-    }
+    //& .yellow,
+    //& .transparent {
+    //  display: flex;
+    //  align-items: center;
+    //  justify-content: space-around;
+    //}
 
-    & .transparent {
-      background: linear-gradient(180deg, #FFFFFF 0%, rgba(245, 245, 245, 0) 100%);
-    }
+
 
     @include font-base(15px, 600, 24px);
 
@@ -82,6 +87,7 @@
           width: 58px;
           height: 32px;
           margin-right: 96px;
+
           &::ng-deep app-language {
 
             .btn {
@@ -152,7 +158,7 @@
               border-radius: 50%;
             }
 
-            &__text{
+            &__text {
               width: 87px;
               height: 27px;
               margin-right: 12px;
