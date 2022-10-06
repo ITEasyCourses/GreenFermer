@@ -1,0 +1,101 @@
+<div class="modal-header">
+  <i-feather
+    (click)="close()"
+    name="x-circle"
+    class="modal-header__icon"
+  ></i-feather>
+</div>
+<div class="section">
+  <div class="section__left left">
+    <h1 class="left__title">Реєстрація</h1>
+    <div class="left__formGroup formGroup">
+      <app-radio-group-component
+        class="formGroup__radioGroup"
+        [textRadioBtn]="textForRadioBtn"
+        (radioGroupResult)="SetUserTypeControl($event)"
+      ></app-radio-group-component>
+      <div class="formGroup__inputGroupContainer">
+        <div class="formGroup__inputGroup inputGroup">
+          <label class="inputGroup__label">Ім’я</label>
+          <input
+            class="inputGroup__input"
+            type="text"
+            [formControl]="userNameControl"
+          />
+        </div>
+        <div class="formGroup__inputGroup inputGroup">
+          <label class="inputGroup__label">Прізвище</label>
+          <input
+            class="inputGroup__input"
+            type="text"
+            [formControl]="userSerNameControl"
+          />
+        </div>
+        <div class="formGroup__inputGroup inputGroup">
+          <label class="inputGroup__label">Номер телефону</label>
+          <input
+            class="inputGroup__input"
+            type="text"
+            [formControl]="userPhoneNumberControl"
+          />
+        </div>
+        <div class="formGroup__inputGroup inputGroup">
+          <label class="inputGroup__label">Ел. пошта</label>
+          <input
+            class="inputGroup__input"
+            type="text"
+            [formControl]="userEmailControl"
+          />
+        </div>
+        <div class="formGroup__inputGroup inputGroup">
+          <label class="inputGroup__label">Придумайте пароль</label>
+          <input
+            class="inputGroup__input"
+            type="text"
+            [formControl]="userPasswordControl"
+          />
+        </div>
+      </div>
+      <p class="formGroup__text">
+        Реєструючись, ви погоджуєтеся з умовами
+        <span> положення про обробку і захист персональних даних</span>
+        та
+        <span> угодою користувача</span>
+      </p>
+      <div class="btnGroup">
+        <app-button
+          class="btnGroup__btn"
+          [isDisabled]="true"
+          [buttonText]="'Зареєструватися'"
+          (click)="reg()"
+        ></app-button>
+        <app-button
+          class="btnGroup__btn"
+          [buttonColor]="'white'"
+          [buttonText]="'Вже зареєстрований'"
+          [routerLink]="'login'"
+        ></app-button>
+      </div>
+    </div>
+  </div>
+  <div class="mid">
+    <div class="mid__line"></div>
+    <p class="mid__text">або</p>
+    <div class="mid__line"></div>
+  </div>
+  <div class="right">
+    <p class="right__text">Увійти як користувач</p>
+    <div class="right__inner">
+      <app-button
+        class="right__btn"
+        [buttonText]="'Google'"
+        [buttonColor]="'white'"
+      ></app-button>
+      <app-button
+        class="right__btn"
+        [buttonText]="'Facebook'"
+        [buttonColor]="'white'"
+      ></app-button>
+    </div>
+  </div>
+</div>
