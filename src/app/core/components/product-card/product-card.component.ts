@@ -8,8 +8,6 @@ import {
 
 import { IProductCard } from '../../interfaces/i-product-card';
 
-// import { IProductCard } from '../../interfaces/i-product-card';
-
 @Component({
   selector: 'app-product-card',
   templateUrl: './product-card.component.html',
@@ -17,17 +15,11 @@ import { IProductCard } from '../../interfaces/i-product-card';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProductCardComponent {
-  @Input() product: any;
   @Output() public addToBasketEvent: EventEmitter<void> =
     new EventEmitter<void>();
 
+  @Input() card!: IProductCard;
   public heart = false;
-
-  // public card: IProductCard = {
-  //   name: 'Малина',
-  //   price: 23.01,
-  //   image: ''
-  // };
 
   public addToBasket(): void {
     this.addToBasketEvent.emit();

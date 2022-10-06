@@ -1,0 +1,17 @@
+@import "src/assets/styles/vars";
+
+.container{
+
+  &_toggle{
+    color: $gray2;
+    cursor: pointer;
+
+    &.active{
+      color: $light-black;
+    }
+  }
+
+  &_toggle:first-child{
+    margin-right: 12px;
+  }
+}

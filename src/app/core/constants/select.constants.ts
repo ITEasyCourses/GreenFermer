@@ -4,7 +4,7 @@ export const CATEGORIES: SortOption[] = [
   { value: 'fruits', viewValue: 'Фрукти' },
   {
     value: 'beans',
-    viewValue: 'БобовіБобовіБобовіБобовіБобовіБобовіБобовіБобовіБобовіБобові'
+    viewValue: 'Бобові'
   },
   { value: 'berries', viewValue: 'Ягоди' },
   { value: 'cheeses', viewValue: 'Сири' },
@@ -18,4 +18,7 @@ export const CATEGORIES: SortOption[] = [
   { value: 'vegetables', viewValue: 'Овочі' }
 ];
 
-export const LABEL_CATALOG = 'Каталог';
+export const LABEL_SELECT = {
+  CATALOG: 'Каталог',
+  MENU: 'Меню'
+};
