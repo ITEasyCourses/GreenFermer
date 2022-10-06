@@ -18,6 +18,13 @@ const routes: Routes = [
       )
   },
   {
+    path: 'category',
+    loadChildren: () =>
+      import('./pages/category-page/category-page.module').then(
+        (m) => m.CategoryPageModule
+      )
+  },
+  {
     path: RoutingPath.catalogPage,
     loadChildren: () =>
       import('./pages/catalog-page/catalog-page.module').then(
