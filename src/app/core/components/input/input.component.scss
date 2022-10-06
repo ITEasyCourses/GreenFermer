@@ -6,12 +6,10 @@
     @include font-base( 17px, 400);
     margin-bottom: 10px;
     color: #000000;
-    font-size: 17px;
-    line-height: 27px;
-    vertical-align: top;
   }
 
   & .input{
+    @include font-base( 17px, 400);
     display: flex;
     flex-direction: row;
     align-items: flex-start;
@@ -20,10 +18,6 @@
     background: #FFFFFF;
     border: 2px solid #747474;
     border-radius: 10px;
-  }
-
-  & .input[type="text"] {
-    @include font-base( 17px, 400);
   }
 
   & .error {
