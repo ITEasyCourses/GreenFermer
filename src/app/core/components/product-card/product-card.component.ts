@@ -15,14 +15,14 @@ import { IProductCard } from '../../interfaces/i-product-card';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProductCardComponent {
-  @Output() public addToBasketEvent: EventEmitter<IProductCard> =
-    new EventEmitter<IProductCard>();
+  @Output() public addToBasketEvent: EventEmitter<void> =
+    new EventEmitter<void>();
 
   @Input() card!: IProductCard;
   public heart = false;
 
-  public addToBasket(card: IProductCard): void {
-    this.addToBasketEvent.emit(card);
+  public addToBasket(): void {
+    this.addToBasketEvent.emit();
   }
 
   public like(): void {
