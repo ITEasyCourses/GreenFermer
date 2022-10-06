@@ -2,6 +2,7 @@ import {
   ChangeDetectionStrategy,
   Component,
   EventEmitter,
+  Input,
   Output
 } from '@angular/core';
 
@@ -17,13 +18,8 @@ export class ProductCardComponent {
   @Output() public addToBasketEvent: EventEmitter<void> =
     new EventEmitter<void>();
 
+  @Input() card!: IProductCard;
   public heart = false;
-
-  public card: IProductCard = {
-    name: 'Малина',
-    price: 23.01,
-    image: ''
-  };
 
   public addToBasket(): void {
     this.addToBasketEvent.emit();
