@@ -49,9 +49,11 @@
 
   &.disabled {
     opacity: .7;
+    cursor: default;
 
     &:hover {
-      background: $main-yellow;
+      background: inherit;
+      color: inherit;
     }
 
     &:active {

@@ -4,10 +4,13 @@
 
 .wrapper {
   display: flex;
+
   & .title {
     @include font-base(21px, 600, 33px);
+
     margin-bottom: 20px;
   }
+
   &-payment {
     margin-left: 98px;
   }
@@ -23,8 +26,7 @@
     gap: 27px;
 
     & .app-select {
-      width: 100%;
-      max-width: 400px;
+      width: 400px;
     }
   }
 }

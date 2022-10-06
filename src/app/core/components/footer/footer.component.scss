@@ -1,0 +1,174 @@
+@import "src/assets/styles/mixins";
+@import "src/assets/styles/vars";
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.footer{
+  @include font-base();
+
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  padding: 50px 0 30px;
+  position: relative;
+
+  &::before{
+    content: "";
+    position: absolute;
+    background-image: url(~src/assets/images/footer/bg.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top center;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+  }
+
+  ul {
+    list-style: none;
+  }
+
+&__wrapper{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+  &__left{
+    max-width: 252px;
+  }
+
+  &__logo{
+    display: block;
+    margin-bottom: 40px;
+    outline-color: transparent;
+    border-radius: 10px;
+    transition: opacity 0.3s;
+
+    &:hover{
+      opacity: 0.7;
+    }
+
+    &:active{
+      opacity: 0.5;
+    }
+
+    &:focus{
+      opacity: 0.5;
+    }
+
+    &-img{
+      @include sizeImg(252, 43, 150, 26)
+    }
+  }
+
+  &__title{
+    @include font-base(17px, 600, 27px);
+
+    letter-spacing: 0.0015em;
+    margin-bottom: 5px;
+  }
+
+  &__link{
+    color: inherit;
+    font-style: normal;
+    text-decoration: none;
+    border: 1px solid transparent;
+    padding: 0 4px;
+    border-radius: 10px;
+    outline-color: transparent;
+    transition: color 0.2s,  border-color 0.2s, box-shadow 0.2s ;
+
+    &:hover{
+      color: $white;
+    }
+
+    &:active{
+      border-color: $white;
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    }
+
+    &:focus{
+      border-color: $white;
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    }
+  }
+
+  &__link-wrapper{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 27px 108px;
+  }
+
+  &__app-wrapper{
+
+    & .footer__app-render{
+      &:not(:last-child){
+        margin-bottom: 20px;
+      }
+    }
+
+    & .footer__app-list{
+      display: flex;
+      align-items: center;
+
+      & .footer__app-item{
+        &:not(:last-child){
+          margin-right: 35px;
+        }
+      }
+    }
+  }
+
+  &__app-link{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 46px;
+    height: 46px;
+    background-color: $white;
+    border-radius: 50%;
+    position: relative;
+    outline-color: transparent;
+    transition: opacity 0.3s;
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background-color: $main-yellow;
+      top: 8px;
+      left: 5px;
+    }
+
+    & .footer__app-img{
+      position: relative;
+      z-index: 1;
+    }
+
+    &:hover{
+      opacity: 0.6;
+    }
+
+    &:active{
+      opacity: 0.5;
+    }
+
+    &:focus{
+      opacity: 0.5;
+    }
+  }
+}
