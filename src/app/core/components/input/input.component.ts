@@ -9,6 +9,5 @@ import { FormControl } from '@angular/forms';
 })
 export class InputComponent {
   @Input() inputFormControl: FormControl = new FormControl();
-  @Input() error?: boolean;
   @Input() inputLable = '';
 }
