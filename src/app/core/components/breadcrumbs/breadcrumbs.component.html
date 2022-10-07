@@ -1,0 +1,10 @@
+<ul>
+  <li *ngFor="let breadcrumb of breadcrumbs; let i = index">
+    <a
+      [href]="breadcrumb.url"
+      [ngClass]="{ disabled: i === breadcrumbs.length - 1 }"
+    >
+      {{ breadcrumb.label }}
+    </a>
+  </li>
+</ul>
