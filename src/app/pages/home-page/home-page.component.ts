@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
+import { ProductCardConstants } from '../../core/constants/product-card.constants';
 import { IProductCard } from '../../core/interfaces/i-product-card';
 
 @Component({
@@ -9,56 +10,5 @@ import { IProductCard } from '../../core/interfaces/i-product-card';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HomePageComponent {
-  productList: IProductCard[] = [
-    {
-      name: 'Томат черрі',
-      price: 23.01,
-      image: ''
-    },
-    {
-      name: 'Черешня рання',
-      price: 23.01,
-      image: ''
-    },
-    {
-      name: 'Цибуля Марс',
-      price: 23.01,
-      image: ''
-    },
-    {
-      name: 'Морква мита',
-      price: 23.01,
-      image: ''
-    },
-    {
-      name: 'Слива Президент',
-      price: 23.01,
-      image: ''
-    },
-    {
-      name: 'Томат черрі',
-      price: 23.01,
-      image: ''
-    },
-    {
-      name: 'Черешня рання',
-      price: 23.01,
-      image: ''
-    },
-    {
-      name: 'Цибуля Марс',
-      price: 23.01,
-      image: ''
-    },
-    {
-      name: 'Морква мита',
-      price: 23.01,
-      image: ''
-    },
-    {
-      name: 'Слива Президент',
-      price: 23.01,
-      image: ''
-    }
-  ];
+  productList: IProductCard[] = ProductCardConstants;
 }

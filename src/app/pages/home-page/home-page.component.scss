@@ -2,26 +2,21 @@
 
 .title{
   @include font-base(17px, 600, 27px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+ text-align: center;
   width: 182px;
-  height: 27px;
-  margin: 0 auto;
+  margin: 30px auto;
 }
 
-.product{
+.container{
   display: flex;
   align-items: center;
   margin: 0 100px;
 }
 
 .product_wrap{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  margin: 36px 30px;
+  display: grid;
+  grid-template-columns: 250px 250px 250px 250px 250px;
   &_carts{
-    margin-bottom: 36px ;
+    margin-bottom: 36px;
   }
 }
