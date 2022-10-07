@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ERoutes } from 'src/app/core/enums/routes';
 
+import { RoutingPath } from './core/enums/routing-path';
+
 const routes: Routes = [
   {
     path: '',
@@ -20,6 +22,13 @@ const routes: Routes = [
     loadChildren: () =>
       import('./pages/category-page/category-page.module').then(
         (m) => m.CategoryPageModule
+      )
+  },
+  {
+    path: RoutingPath.catalogPage,
+    loadChildren: () =>
+      import('./pages/catalog-page/catalog-page.module').then(
+        (m) => m.CatalogPageModule
       )
   },
   {
