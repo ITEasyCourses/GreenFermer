@@ -1,0 +1,10 @@
+<div class="container">
+  <div class="product">
+    <p class="title">Популярні продукти</p>
+    <div class="product_wrap">
+      <div class="product_wrap_carts" *ngFor="let product of productList">
+        <app-product-card [card]="product"></app-product-card>
+      </div>
+    </div>
+  </div>
+</div>
