@@ -1,0 +1,35 @@
+@import "src/assets/styles/vars";
+
+.slider{
+  display: flex;
+  align-items: center;
+  margin: 0 111px;
+
+  &_button{
+    width: 30px;
+    height: 28px;
+    background: #FFFFFF;
+    backdrop-filter: blur(2px);
+    border: none;
+    display: flex;
+    padding-top: 2px;
+    border-radius: 4px;
+
+    &_next{
+      margin-left: 23px;
+    }
+
+    &_prev{
+      margin-right: 23px;
+    }
+  }
+
+  &_swiper{
+
+    &_box{
+      width: 160px;
+      height: 200px;
+      background: greenyellow;
+    }
+  }
+}
