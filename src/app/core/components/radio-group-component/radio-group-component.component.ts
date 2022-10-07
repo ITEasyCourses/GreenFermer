@@ -24,8 +24,6 @@ export class RadioGroupComponentComponent {
   public radioGroupControl: FormControl = new FormControl('');
 
   public radioAnswer(): void {
-
-
     this.radioGroupResult.emit(this.radioGroupControl.value);
   }
 }
