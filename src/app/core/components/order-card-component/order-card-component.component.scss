@@ -1,18 +1,29 @@
 @import "src/assets/styles/mixins";
 @import "src/assets/styles/vars";
-
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .wrapper {
+  width: 86%;
   display: flex;
   flex-direction: column;
   padding: 24px 32px 24px 24px;
+  background: $white;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
 
-  & .card {
-    @include font-base(17px 600 24px);
-
+  & .card, & .main, & .sum, & .footer {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+  }
+
+  & .card {
+    @include font-base(17px 600 24px);
+
     margin-bottom: 8px;
 
     &-order {
@@ -117,6 +128,107 @@
       }
     }
   }
+
+  & .main {
+
+    &-name, &-purchase {
+      display: flex;
+      align-items: center;
+    }
+
+    &-name {
+      width: 480px;
+      height: 26px;
+
+      &__text {
+        width: 100%;
+        font-family: $font-base;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 17px;
+        line-height: 27px;
+        letter-spacing: 0.005em;
+        color: $main-black;
+      }
+    }
+
+    &-purchase {
+      flex-direction: row;
+      justify-content: flex-end;
+      font-family: $font-base;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 15px;
+      line-height: 24px;
+      text-align: right;
+      letter-spacing: 0.001em;
+      color: $main-black;
+
+      &-price {
+        width: 246px;
+        height: 24px;
+      }
+
+      &-x, &-amount, &-sum {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+      }
+
+      &-x {
+        width: 84px;
+        height: 13px;
+        font-size: 12px;
+      }
+
+      &-amount {
+        width: 90px;
+        height: 24px;
+        border: 1px solid $main-black;
+        padding: 2px 4px;
+      }
+
+      &-sum {
+        width: 162px;
+        display: flex;
+        text-align: right;
+        letter-spacing: 0.001em;
+
+        &__text {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  & .sum {
+    font-family: $font-base;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 17px;
+    line-height: 27px;
+    justify-content: flex-end;
+    text-align: right;
+    letter-spacing: 0.0015em;
+    margin-top: 23px;
+    color: $main-black;
+  }
+
+  & .footer {
+
+    &-btns {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin-top: 21px;
+
+      &__left {
+        margin-right: 15px;
+      }
+    }
+  }
+
 
 }
 

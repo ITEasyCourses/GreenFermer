@@ -1,73 +1,86 @@
-<div class="wrapper">
-  <header class="card">
-    <div class="card-order">
-      <div class="card-order-group">
-        <p class="card-order-group__number">Zmavlen9 #1313</p>
-        <p class="card-order-group__status">Obrobluets9</p>
+<div class="container">
+  <div class="wrapper">
+    <header class="card">
+      <div class="card-order">
+        <div class="card-order-group">
+          <p class="card-order-group__number">Zmavlen9 #1313</p>
+          <p class="card-order-group__status">Obrobluets9</p>
+        </div>
+        <label class="card-order__date">den' zamovlen9: segodn9</label>
       </div>
-      <label class="card-order__date">den' zamovlen9: segodn9</label>
-    </div>
-    <div class="card-direction">
-      <i-feather class="card-direction__location" name="disc"></i-feather>
-      <p class="card-direction__text">Harciv</p>
-      <div class="card-direction__arrow">
-        <div></div>
+      <div class="card-direction">
+        <i-feather class="card-direction__location" name="disc"></i-feather>
+        <p class="card-direction__text">Harciv</p>
+        <div class="card-direction__arrow">
+          <div></div>
+        </div>
+        <p class="card-direction__text">Oleksandriy</p>
       </div>
-      <p class="card-direction__text">Oleksandriy</p>
-    </div>
-  </header>
-  <main class="card-main">
-    <div class="card-main-name">
-      <p class="card-main-name__text">9bluka ma4enie</p>
-    </div>
-    <div class="card-maine-purchase">
-      <div class="card-maine-purchase-price">
-        <p class="card-maine-purchase-price__text">15 ₴/kg</p>
+    </header>
+    <main class="main">
+      <div class="main-name">
+        <p class="main-name__text">9bluka ma4enie</p>
       </div>
-      <div class="card-maine-purchase-x">
-        <p class="">x</p>
-      </div>
-      <div class="card-maine-purchase-amount">
-        <p class="card-maine-purchase-amount__text">1 kg</p>
-      </div>
-      <div class="card-maine-purchase-sum">
-        <p class="card-maine-purchase-sum">15.00 ₴/kg</p>
-      </div>
-    </div>
-  </main>
-  <div class="card-sum">
-    <p class="card-sum__text">456 grn/kg</p>
-  </div>
-  <footer class="card-footer">
-    <ng-container
-      *ngTemplateOutlet="isDane ? doneGroup : inProgressGroup"
-    ></ng-container>
-  </footer>
-</div>
+      <div class="main-purchase">
+        <div class="main-purchase-price">
+          <p class="maine-purchase-price__text">15 ₴/kg</p>
+        </div>
 
-<ng-template #inProgressGroup>
-  <div class="card-footer-btns">
-    <div class="card-footer-btns__left">
-      <app-button></app-button>
+        <div class="main-purchase-x">
+          <p class="main-purchase-x__text">x</p>
+        </div>
+
+        <div class="main-purchase-amount">
+          <p class="maine-purchase-amount__text">9 kg</p>
+        </div>
+
+        <div class="main-purchase-sum">
+          <p class="main-purchase-sum__text">15322322.00 ₴/kg</p>
+        </div>
+      </div>
+    </main>
+    <div class="sum">
+      <p class="sum__text">1456www grn/kg</p>
     </div>
-    <div class="card-footer-btns__right">
-      <app-button></app-button>
+    <footer class="footer">
+      <ng-container
+        *ngTemplateOutlet="isDane ? doneGroup : inProgressGroup"
+      ></ng-container>
+    </footer>
+  </div>
+</div>
+<ng-template #inProgressGroup>
+  <div class="footer-btns">
+    <div class="footer-btns__left">
+      <app-button
+        [buttonText]="'Вівстежувати'"
+        [buttonColor]="'transparent'"
+      ></app-button>
+    </div>
+    <div class="footer-btns__right">
+      <app-button
+        [buttonColor]="'transparent'"
+        [buttonText]="'Зв’язатися з продавцем'"
+      ></app-button>
     </div>
   </div>
-  <div class="card-footer-btn">
-    <div class="card-footer-btn__container">
-      <app-button></app-button>
+  <div class="footer-btn">
+    <div class="footer-btn__container">
+      <app-button
+        [buttonColor]="'transparent'"
+        [buttonText]="'Видалити замовлення'"
+      ></app-button>
     </div>
   </div>
 </ng-template>
 
 <ng-template #doneGroup>
-  <div class="card-footer-reviews">
-    <div class="card-footer-reviews__container">
+  <div class="footer-reviews">
+    <div class="footer-reviews__container">
       <app-button></app-button>
     </div>
   </div>
-  <div class="card-footer-detail">
+  <div class="footer-detail">
     <div class="card-footer-detail__container">
       <app-button></app-button>
     </div>
