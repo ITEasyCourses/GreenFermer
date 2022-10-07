@@ -2,7 +2,7 @@
 @import "src/assets/styles/mixins";
 
 .btn {
-  @include font-base(15px, 600, 24px );
+  @include font-base(15px, 600, 24px);
 
   width: 100%;
   padding: 8px 30px;
@@ -23,6 +23,35 @@
     transition: transform .2s linear;
   }
 
+  &-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    & .icon {
+      width: 24px;
+    }
+  }
+
+  &.padding_10 {
+    padding: 8px 10px;
+  }
+
+  &.disabled {
+    opacity: .6;
+    cursor: default;
+
+    &:hover {
+      color: initial ;
+      background: $main-yellow;
+    }
+
+    &:active {
+      transform: none;
+    }
+  }
+
   &.white {
     background: $white;
     border: 1px solid $main-yellow;
@@ -30,6 +59,7 @@
 
     &:hover {
       border: 1px solid $light-yellow;
+      background: $white;
       color: $gray1;
       transition: all .2s linear;
     }
@@ -46,31 +76,8 @@
       transition: all .2s linear;
     }
   }
-
-  &.disabled {
-    opacity: .7;
-
-    &:hover {
-      background: $main-yellow;
-    }
-
-    &:active {
-      transform: none;
-    }
-  }
-
-  &-title {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-
-    & .icon {
-      width: 24px;
-    }
-  }
-
-  &.padding_10 {
-    padding: 8px 10px;
-  }
 }
+
+
+
+
