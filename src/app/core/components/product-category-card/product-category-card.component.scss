@@ -1,7 +1,7 @@
 @import "../../../../assets/styles/vars";
 @import "../../../../assets/styles/mixins";
 
-.product-card {
+.product-category-card {
   position: relative;
   width: 160px;
   height: 168px;
@@ -29,7 +29,7 @@
     background-color: $main-white;
     box-shadow: 5px 5px 10px rgba(116, 116, 116, 0.2);
 
-    & .product-card-title{
+    & .product-category-card-title{
       @include font-base($font-weight: 600, $font-family: $font-base);
 
       display: flex;
