@@ -20,3 +20,41 @@
     margin-bottom: 36px;
   }
 }
+@import "src/assets/styles/mixins";
+
+.title{
+  @include font-base(17px, 600, 27px);
+ text-align: center;
+  width: 182px;
+  margin: 30px auto;
+}
+
+.container{
+  display: flex;
+  align-items: center;
+  margin: 0 100px;
+}
+
+.product_wrap{
+  display: grid;
+  grid-template-columns: 250px 250px 250px 250px 250px;
+  &_carts{
+    margin-bottom: 36px;
+  }
+}
+
+.first-block {
+  width: 1440px;
+  height: 640px;
+
+  & .banner {
+    width: 1440px;
+    height: 640px;
+    filter: blur(1.5px);
+    transform: matrix(-1, 0, 0, 1, 0, 0);
+  }
+
+  ::ng-deep.slider {
+    margin-top: 370px;
+  }
+}
