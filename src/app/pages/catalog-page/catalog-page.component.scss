@@ -3,9 +3,9 @@
 .second-block{
 
   &__title{
-    text-align: center;
     @include font-base(17px, 600, 26.76px);
 
+    text-align: center;
     letter-spacing: 0.0015em;
     margin-bottom: 30px;
   }
