@@ -120,7 +120,6 @@
             transform: rotate(-45deg);
           }
         }
-
       }
 
       & :last-child {
@@ -217,7 +216,7 @@
 
   & .footer {
 
-    &-btns {
+    &-btns, &-reviews {
       display: flex;
       flex-direction: row;
       align-items: center;
@@ -228,7 +227,5 @@
       }
     }
   }
-
-
 }
 

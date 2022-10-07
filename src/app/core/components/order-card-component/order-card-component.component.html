@@ -44,7 +44,7 @@
     </div>
     <footer class="footer">
       <ng-container
-        *ngTemplateOutlet="isDane ? doneGroup : inProgressGroup"
+        *ngTemplateOutlet="!isDane ? doneGroup : inProgressGroup"
       ></ng-container>
     </footer>
   </div>
@@ -77,12 +77,15 @@
 <ng-template #doneGroup>
   <div class="footer-reviews">
     <div class="footer-reviews__container">
-      <app-button></app-button>
+      <app-button [buttonText]="'Залишити відгук'"></app-button>
     </div>
   </div>
   <div class="footer-detail">
-    <div class="card-footer-detail__container">
-      <app-button></app-button>
+    <div class="footer-detail__container">
+      <app-button
+        [buttonColor]="'transparent'"
+        [buttonText]="'Дивитися деталі'"
+      ></app-button>
     </div>
   </div>
 </ng-template>
