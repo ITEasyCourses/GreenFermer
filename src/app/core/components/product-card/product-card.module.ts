@@ -5,7 +5,7 @@ import { Heart, ShoppingCart } from 'angular-feather/icons';
 
 import { ProductCardComponent } from './product-card.component';
 
-const icons = {
+const icon = {
   ShoppingCart,
   Heart
 };
@@ -13,6 +13,6 @@ const icons = {
 @NgModule({
   declarations: [ProductCardComponent],
   exports: [ProductCardComponent],
-  imports: [CommonModule, FeatherModule.pick(icons)]
+  imports: [CommonModule, FeatherModule.pick(icon)]
 })
 export class ProductCardModule {}
