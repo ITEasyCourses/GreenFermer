@@ -1,10 +1,5 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  EventEmitter,
-  Input,
-  Output
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-checkbox',
@@ -13,6 +8,6 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CheckboxComponent {
-  @Output() checkEmitter: EventEmitter<any> = new EventEmitter<any>();
   @Input() label!: string;
+  @Input() checkControl: FormControl = new FormControl<boolean>(false);
 }

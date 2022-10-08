@@ -16,8 +16,6 @@ import { RegExpService } from '../../../services/reg-exp.service';
 })
 export class LoginModalComponent implements OnInit {
   public loginFormGroup!: FormGroup;
-  public rememberUser = false;
-  private test!: any;
 
   constructor(
     private dialogRef: MatDialogRef<LoginModalComponent>,
@@ -32,13 +30,7 @@ export class LoginModalComponent implements OnInit {
 
   public loginForm(): void {
     if (this.loginFormGroup.valid) {
-      const login = {
-        email: this.loginFormGroup.get('email')?.value,
-        password: this.loginFormGroup.get('password')?.value,
-        rememberUser: this.rememberUser
-      };
-      /* Место для дальнейшей отправки данных с контролов. Сейчас данные присваиваются в переменную test для обхода esLint */
-      this.test = login;
+      /* Место для дальнейшей отправки данных*/
     }
   }
 
@@ -48,15 +40,12 @@ export class LoginModalComponent implements OnInit {
         Validators.required,
         Validators.pattern(this.regExpService.EMAIL_PATTERN)
       ]),
-      password: new FormControl('', [])
+      password: new FormControl('', [Validators.required]),
+      rememberUser: new FormControl(false, [])
     });
   }
 
   public closeModal(): void {
     this.dialogRef.close();
-  }
-
-  public setRememberUser(event: boolean): void {
-    this.rememberUser = event;
   }
 }
