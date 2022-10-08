@@ -1,0 +1,23 @@
+@import "src/assets/styles/mixins";
+
+.container {
+  margin: 0 100px;
+}
+
+.top {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 30px;
+
+  &_title {
+    @include font-base(17px, 600, 27px);
+  }
+}
+
+.categories_wrap {
+  display: grid;
+  grid-template-columns: 160px 160px 160px 160px 160px 160px;
+  gap: 75px 55px;
+}
+
