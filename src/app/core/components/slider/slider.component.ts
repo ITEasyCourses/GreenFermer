@@ -12,7 +12,7 @@ SwiperCore.use([Navigation, A11y, Mousewheel]);
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SliderComponent {
-  @Input() categoriesList!: Array<ProductCategoryCardInterface>;
+  @Input() categoriesList!: ProductCategoryCardInterface[];
 
   config: any = {
     slidesPerView: 6,
