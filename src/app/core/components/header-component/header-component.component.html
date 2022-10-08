@@ -12,7 +12,7 @@
           />
         </div>
         <div class="header-left-select">
-          <app-select></app-select>
+          <app-select [label]="catalog" [options]="optionCatalog"></app-select>
         </div>
         <div *ngIf="sessionUser?.isAuthentication" class="header-menu">
           <app-select></app-select>
