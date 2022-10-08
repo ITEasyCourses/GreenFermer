@@ -1,6 +1,8 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import SwiperCore, { Navigation, A11y, Mousewheel } from 'swiper';
 
+import { ProductCategoryCardInterface } from '../../interfaces/product-category-card.interface';
+
 SwiperCore.use([Navigation, A11y, Mousewheel]);
 
 @Component({
@@ -10,7 +12,7 @@ SwiperCore.use([Navigation, A11y, Mousewheel]);
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SliderComponent {
-  @Input() categoriesList!: any[];
+  @Input() categoriesList!: Array<ProductCategoryCardInterface>;
 
   config: any = {
     slidesPerView: 6,
