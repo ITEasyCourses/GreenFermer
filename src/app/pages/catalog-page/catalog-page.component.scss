@@ -1,0 +1,18 @@
+@import "src/assets/styles/mixins";
+
+.second-block{
+
+  &__title{
+    @include font-base(17px, 600, 26.76px);
+
+    text-align: center;
+    letter-spacing: 0.0015em;
+    margin-bottom: 30px;
+  }
+
+  &__inner{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 30px;
+  }
+}
