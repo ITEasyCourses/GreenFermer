@@ -16,6 +16,7 @@ import { ButtonModule } from '../../button/button.module';
 import { RadioGroupComponentModule } from '../../radio-group-component/radio-group-component.module';
 
 import { RegistrationModalComponent } from './registration-modal.component';
+import { InputModule } from '../../input/input.module';
 
 const icons = {
   CreditCard,
@@ -34,7 +35,8 @@ const icons = {
     FeatherModule.pick(icons),
     RouterLink,
     ReactiveFormsModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    InputModule
   ]
 })
 export class RegistrationModalModule {}

@@ -6,7 +6,7 @@ import { ERoutes } from 'src/app/core/enums/routes';
 import { ProductCardModule } from '../../core/components/product-card/product-card.module';
 
 import { HomePageComponent } from './home-page.component';
-import { ProductCardModule } from '../../core/components/product-card/product-card.module';
+import { HeaderComponentModule } from '../../core/components/header-component/header-component.module';
 
 const routes: Routes = [
   {
@@ -18,6 +18,6 @@ const routes: Routes = [
 @NgModule({
   declarations: [HomePageComponent],
   exports: [],
-  imports: [CommonModule, RouterModule.forChild(routes), ProductCardModule]
+  imports: [CommonModule, RouterModule.forChild(routes), ProductCardModule, HeaderComponentModule]
 })
 export class HomePageModule {}

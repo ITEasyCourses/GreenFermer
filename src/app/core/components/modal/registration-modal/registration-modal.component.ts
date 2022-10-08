@@ -13,6 +13,7 @@ import {
   PASSWORD_PATTERN,
   PHONE_PATTERN
 } from '../../../constants/registration.constants';
+import { SortOption } from '../../../interfaces/sort-option';
 
 @Component({
   selector: 'app-registration-modal',
@@ -51,8 +52,12 @@ export class RegistrationModalComponent implements OnInit {
   ]);
 
   public regForm!: FormGroup;
-  public textForRadioBtn: string[] = ['Покупець', 'Фермер'];
-  public defaultUserTypeValue = this.textForRadioBtn[0];
+  public textForRadioBtn: SortOption[] = [
+    { value: 'bayer', viewValue: 'Покупець' },
+    { value: 'farm', viewValue: 'Фермер' }
+  ];
+
+  public defaultUserTypeValue = 'this.textForRadioBtn[0]';
 
   constructor(
     private dialogRef: MatDialogRef<RegistrationModalComponent>,
@@ -103,6 +108,7 @@ export class RegistrationModalComponent implements OnInit {
   }
 
   public reg(): void {
+    console.log(this.regForm);
     this.formValidation();
     if (this.regForm.valid) {
       this.newUserReg();

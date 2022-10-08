@@ -5,11 +5,13 @@ import {
   Input,
   OnInit
 } from '@angular/core';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 
 import { HEADER_LOGO } from '../../constants/header.constants';
 import { IAuthenticationUser } from '../../interfaces/i-authentication-user';
 import { IHeaderBackground } from '../../interfaces/i-heder-background';
+import { RegistrationModalComponent } from '../modal/registration-modal/registration-modal.component';
 
 @Component({
   selector: 'app-header-component',
@@ -24,7 +26,7 @@ export class HeaderComponentComponent implements OnInit {
   public scrollStartPoint = 0;
   public isBottom!: boolean;
 
-  constructor(public router: Router) {
+  constructor(public router: Router, private regDialog: MatDialog) {
     this.isBottom = false;
   }
 
@@ -39,5 +41,10 @@ export class HeaderComponentComponent implements OnInit {
 
   public ngOnInit(): void {
     this.logo = HEADER_LOGO;
+  }
+
+  public openRegModal(): void {
+    const regDialogConfig = new MatDialogConfig();
+    this.regDialog.open(RegistrationModalComponent, regDialogConfig);
   }
 }

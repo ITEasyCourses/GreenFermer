@@ -6,6 +6,7 @@ import { Heart, MessageCircle } from 'angular-feather/icons';
 import { ButtonModule } from '../button/button.module';
 import { CartModule } from '../cart/cart.module';
 import { LanguageModule } from '../language/language.module';
+import { RegistrationModalModule } from '../modal/registration-modal/registration-modal.module';
 import { SelectModule } from '../select/select.module';
 
 import { HeaderComponentComponent } from './header-component.component';
@@ -24,7 +25,8 @@ const icons = {
     ButtonModule,
     FeatherModule.pick(icons),
     SelectModule,
-    LanguageModule
+    LanguageModule,
+    RegistrationModalModule
   ]
 })
 export class HeaderComponentModule {}

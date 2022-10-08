@@ -11,50 +11,35 @@
     <div class="left__formGroup formGroup">
       <app-radio-group-component
         class="formGroup__radioGroup"
-        [textRadioBtn]="textForRadioBtn"
+        [radioBtnItems]="textForRadioBtn"
         (radioGroupResult)="SetUserTypeControl($event)"
       ></app-radio-group-component>
-      <div class="formGroup__inputGroupContainer">
-        <div class="formGroup__inputGroup inputGroup">
-          <label class="inputGroup__label">Ім’я</label>
-          <input
-            class="inputGroup__input"
-            type="text"
-            [formControl]="userNameControl"
-          />
-        </div>
-        <div class="formGroup__inputGroup inputGroup">
-          <label class="inputGroup__label">Прізвище</label>
-          <input
-            class="inputGroup__input"
-            type="text"
-            [formControl]="userSerNameControl"
-          />
-        </div>
-        <div class="formGroup__inputGroup inputGroup">
-          <label class="inputGroup__label">Номер телефону</label>
-          <input
-            class="inputGroup__input"
-            type="text"
-            [formControl]="userPhoneNumberControl"
-          />
-        </div>
-        <div class="formGroup__inputGroup inputGroup">
-          <label class="inputGroup__label">Ел. пошта</label>
-          <input
-            class="inputGroup__input"
-            type="text"
-            [formControl]="userEmailControl"
-          />
-        </div>
-        <div class="formGroup__inputGroup inputGroup">
-          <label class="inputGroup__label">Придумайте пароль</label>
-          <input
-            class="inputGroup__input"
-            type="text"
-            [formControl]="userPasswordControl"
-          />
-        </div>
+      <div class="formGroup__inputGroupContainer inputGroupContainer">
+        <app-input
+          class="formGroup__inputGroup inputGroup"
+          [inputFormControl]="userNameControl"
+          [inputLable]="'Ім’я'"
+        ></app-input>
+        <app-input
+          class="formGroup__inputGroup inputGroup"
+          [inputFormControl]="userSerNameControl"
+          [inputLable]="'Прізвище'"
+        ></app-input>
+        <app-input
+          class="formGroup__inputGroup inputGroup"
+          [inputFormControl]="userPhoneNumberControl"
+          [inputLable]="'Номер телефону'"
+        ></app-input>
+        <app-input
+          class="formGroup__inputGroup inputGroup"
+          [inputFormControl]="userEmailControl"
+          [inputLable]="'Ел. пошта'"
+        ></app-input>
+        <app-input
+          class="formGroup__inputGroup inputGroup"
+          [inputFormControl]="userPasswordControl"
+          [inputLable]="'Придумайте пароль'"
+        ></app-input>
       </div>
       <p class="formGroup__text">
         Реєструючись, ви погоджуєтеся з умовами
@@ -65,7 +50,7 @@
       <div class="btnGroup">
         <app-button
           class="btnGroup__btn"
-          [isDisabled]="true"
+          [isDisabled]="regForm.invalid"
           [buttonText]="'Зареєструватися'"
           (click)="reg()"
         ></app-button>
