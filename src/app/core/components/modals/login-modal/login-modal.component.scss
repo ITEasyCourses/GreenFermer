@@ -1,13 +1,6 @@
 @import "src/assets/styles/vars";
 @import "src/assets/styles/mixins";
 
-p {
-  @include font-base(17px, 400, 26.75px);
-}
-
-h1 {
-  @include font-base(35px, 500, 55.09px)
-}
 
 ::ng-deep .login-modal {
   & .mat-dialog-container {
@@ -32,6 +25,14 @@ h1 {
   }
 
   &-content {
+    p {
+      @include font-base(17px, 400, 26.75px);
+    }
+
+    h1 {
+      @include font-base(35px, 500, 55.09px)
+    }
+
     display: flex;
     justify-content: space-between;
     width: 100%;
