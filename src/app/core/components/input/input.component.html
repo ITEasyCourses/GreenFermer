@@ -1,9 +1,9 @@
 <div class="input-wrapper">
-  <p *ngIf="inputLable" class="input-lable">{{ inputLable }}</p>
+  <p *ngIf="inputLabel" class="input-lable">{{ inputLabel }}</p>
   <input
     class="input"
     [class.error]="inputFormControl.errors && inputFormControl.touched"
-    type="text"
+    [type]="type"
     [formControl]="inputFormControl"
   />
 </div>
