@@ -1,0 +1,17 @@
+<div class="slider">
+  <button class="slider_button slider_button_prev">
+    <i-feather name="chevron-left"></i-feather>
+  </button>
+  <swiper [config]="config" class="slider_swiper">
+    <ng-container *ngFor="let category of categoriesList">
+      <ng-template swiperSlide>
+        <app-product-category-card
+          [productCategoryCard]="category"
+        ></app-product-category-card>
+      </ng-template>
+    </ng-container>
+  </swiper>
+  <button class="slider_button slider_button_next">
+    <i-feather name="chevron-right"></i-feather>
+  </button>
+</div>

@@ -1,9 +1,7 @@
 <button
   class="btn"
-  [classList]="{
-    disabled: isDisabled,
-    padding_10: addIcon
-  }"
+  [class.disabled]="isDisabled"
+  [class.padding_10]="addIcon"
   [ngClass]="buttonColor"
 >
   <div class="btn-title">

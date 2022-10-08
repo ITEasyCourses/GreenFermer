@@ -1,0 +1,93 @@
+@import "src/assets/styles/mixins";
+@import "src/assets/styles/vars";
+
+
+p {
+  @include font-base(17px, 600, 26.76px)
+}
+
+.container {
+  width: 100%;
+  min-width: 600px;
+  height: 140px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  & .product-img {
+    width: 140px;
+    height: 140px;
+
+    & img {
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+    }
+  }
+
+  & .interface-row {
+    width: 780px;
+    height: 54px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &-description {
+      width: 245px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+
+      & p {
+        @include font-base(17px, 400, 26.75px)
+      }
+    }
+
+    &-counter {
+      width: 115px;
+      height: 30px;
+      display: flex;
+      justify-content: space-between;
+
+
+      &-window {
+        width: 64px;
+        height: 30px;
+        border: 1px solid $gray3;
+        border-radius: 6px;
+        text-align: center;
+      }
+
+      & .icon {
+        width: 16px;
+        margin-top: 7px;
+        cursor: pointer;
+
+        &.minus {
+          &-disabled {
+            color: $gray4;
+            cursor: auto;
+          }
+        }
+
+        &.plus {
+          &-disabled {
+            color: $gray4;
+            cursor: auto;
+          }
+        }
+      }
+    }
+
+    & .icon-trash {
+      width: 20px;
+      cursor: pointer;
+    }
+
+    &-price {
+      width: 98px;
+      height: 27px;
+    }
+  }
+}
