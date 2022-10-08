@@ -59,6 +59,7 @@
           [buttonColor]="'white'"
           [buttonText]="'Вже зареєстрований'"
           [routerLink]="'login'"
+          (click)="goToLogin()"
         ></app-button>
       </div>
     </div>
@@ -71,16 +72,21 @@
   <div class="right">
     <p class="right__text">Увійти як користувач</p>
     <div class="right__inner">
-      <app-button
-        class="right__btn"
-        [buttonText]="'Google'"
-        [buttonColor]="'white'"
-      ></app-button>
-      <app-button
-        class="right__btn"
-        [buttonText]="'Facebook'"
-        [buttonColor]="'white'"
-      ></app-button>
+      <a href="https://www.google.com/" class="right__btn">
+        <img
+          src="./assets/images/registration/google%20logo.png"
+          alt="Google"
+          class="img__google"
+        />
+        Google
+      </a>
+      <a href="https://uk-ua.facebook.com/" class="right__btn">
+        <img
+          src="./assets/images/registration/facebook%20logo.png"
+          alt="Google"
+          class="img__facebook"
+        />Facebook
+      </a>
     </div>
   </div>
 </div>

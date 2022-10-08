@@ -57,15 +57,12 @@ export class RegistrationModalComponent implements OnInit {
     { value: 'farm', viewValue: 'Фермер' }
   ];
 
-  public defaultUserTypeValue = 'this.textForRadioBtn[0]';
-
   constructor(
     private dialogRef: MatDialogRef<RegistrationModalComponent>,
     private formBuilder: FormBuilder
   ) {}
 
   ngOnInit(): void {
-    this.userTypeControl.setValue(this.defaultUserTypeValue);
     this.formValidation();
   }
 
@@ -113,5 +110,9 @@ export class RegistrationModalComponent implements OnInit {
       this.newUserReg();
       this.close();
     }
+  }
+
+  public goToLogin(): void {
+    this.dialogRef.close();
   }
 }
