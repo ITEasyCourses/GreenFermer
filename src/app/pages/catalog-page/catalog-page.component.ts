@@ -11,8 +11,7 @@ import { SortOption } from '../../core/interfaces/sort-option';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CatalogPageComponent {
-  categoryList: ProductCategoryCardInterface[] | undefined =
-    ProductCategoryCard;
+  public categoryList: ProductCategoryCardInterface[] = ProductCategoryCard;
 
   public mockSortTypes: SortOption[] = [
     { value: 'fruits', viewValue: 'Фруткты' },

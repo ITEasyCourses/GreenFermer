@@ -1,9 +1,5 @@
 @import "src/assets/styles/mixins";
 
-.container {
-  margin: 0 100px;
-}
-
 .top {
   display: flex;
   flex-direction: row;
@@ -17,7 +13,7 @@
 
 .categories_wrap {
   display: grid;
-  grid-template-columns: 160px 160px 160px 160px 160px 160px;
+  grid-template-columns: repeat(6, 160px);
   gap: 75px 55px;
 }
 
