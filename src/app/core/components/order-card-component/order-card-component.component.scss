@@ -6,7 +6,8 @@
   align-items: center;
 }
 .wrapper {
-  max-width: 1240px;
+  @include font-base(15px, 600, 24px);
+
   display: flex;
   flex-direction: column;
   padding: 24px 32px 24px 24px;
@@ -23,8 +24,6 @@
   }
 
   & .card {
-    @include font-base(17px 600 24px);
-
     margin-bottom: 8px;
 
     &-order {
@@ -38,7 +37,6 @@
         flex-direction: row;
         font-size: 21px;
         font-weight: 600;
-        font-family: $font-base;
 
         &__number {
           margin-right: 8px;
@@ -58,7 +56,6 @@
       }
 
       &__date{
-        font-family: $font-base;
         font-style: normal;
         font-weight: 500;
         font-size: 15px;
@@ -82,7 +79,6 @@
       }
 
       &__text {
-        font-family: $font-base;
         font-style: normal;
         font-weight: 400;
         font-size: 16px;
@@ -150,7 +146,6 @@
 
       &__text {
         width: 100%;
-        font-family: $font-base;
         font-style: normal;
         font-weight: 400;
         font-size: 17px;
@@ -211,7 +206,6 @@
   }
 
   & .sum {
-    font-family: $font-base;
     font-style: normal;
     font-weight: 600;
     font-size: 17px;
