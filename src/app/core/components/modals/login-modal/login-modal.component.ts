@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import {
   FormBuilder,
   FormControl,
@@ -12,7 +12,8 @@ import { EMAIL_PATTERN } from '../../../constants/reg-exp';
 @Component({
   selector: 'app-login-modal',
   templateUrl: './login-modal.component.html',
-  styleUrls: ['./login-modal.component.scss']
+  styleUrls: ['./login-modal.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LoginModalComponent implements OnInit {
   public loginFormGroup!: FormGroup;
