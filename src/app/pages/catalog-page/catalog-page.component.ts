@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 import { ProductCategoryCard } from '../../core/constants/category-card.constants';
+import { SortTypes } from '../../core/constants/SortTypes.constants';
 import { ProductCategoryCardInterface } from '../../core/interfaces/product-category-card.interface';
 import { SortOption } from '../../core/interfaces/sort-option';
 
@@ -13,9 +14,5 @@ import { SortOption } from '../../core/interfaces/sort-option';
 export class CatalogPageComponent {
   public categoryList: ProductCategoryCardInterface[] = ProductCategoryCard;
 
-  public mockSortTypes: SortOption[] = [
-    { value: 'fruits', viewValue: 'Фруткты' },
-    { value: 'vegetables', viewValue: 'Овощи' },
-    { value: 'all', viewValue: 'Всё' }
-  ];
+  public mockSortTypes: SortOption[] = SortTypes;
 }
