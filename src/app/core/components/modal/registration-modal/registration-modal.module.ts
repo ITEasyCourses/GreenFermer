@@ -13,10 +13,10 @@ import {
 } from 'angular-feather/icons';
 
 import { ButtonModule } from '../../button/button.module';
+import { InputModule } from '../../input/input.module';
 import { RadioGroupComponentModule } from '../../radio-group-component/radio-group-component.module';
 
 import { RegistrationModalComponent } from './registration-modal.component';
-import { InputModule } from '../../input/input.module';
 
 const icons = {
   CreditCard,

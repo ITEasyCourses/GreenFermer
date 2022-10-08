@@ -108,7 +108,6 @@ export class RegistrationModalComponent implements OnInit {
   }
 
   public reg(): void {
-    console.log(this.regForm);
     this.formValidation();
     if (this.regForm.valid) {
       this.newUserReg();
