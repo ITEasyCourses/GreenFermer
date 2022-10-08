@@ -3,8 +3,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ERoutes } from 'src/app/core/enums/routes';
 
-import { ProductCardModule } from '../../core/components/product-card/product-card.module';
-
 import { HomePageComponent } from './home-page.component';
 
 const routes: Routes = [
@@ -16,6 +14,7 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [HomePageComponent],
-  imports: [CommonModule, RouterModule.forChild(routes), ProductCardModule]
+  exports: [],
+  imports: [CommonModule, RouterModule.forChild(routes)]
 })
 export class HomePageModule {}
