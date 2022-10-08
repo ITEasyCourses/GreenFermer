@@ -16,7 +16,7 @@ import { LoginModalModule } from './core/components/modals/login-modal/login-mod
     AppRoutingModule,
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebase),
-    LoginModalModule
+    LoginModalModule,
   ],
   bootstrap: [AppComponent]
 })

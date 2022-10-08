@@ -37,7 +37,12 @@
         </div>
         <app-radio-button [value]="'courer'">Кур’єр</app-radio-button>
         <div class="delivery-selects" *ngIf="deliveryType === 'courer'">
-          <ng-container *ngTemplateOutlet="city"></ng-container>
+          <ng-container *ngTemplateOutlet="city"> </ng-container>
+          <app-input
+            class="height"
+            [type]="'text'"
+            [placeholder]="'Введіть вашу адресу'"
+          ></app-input>
         </div>
       </div>
     </mat-radio-group>
@@ -66,13 +71,16 @@
         >
           <app-radio-button (change)="credit($event)" [value]="'apppay'">
             <span class="credit-wallet">
-              <img src="assets/images/credit-wallets/apppay.png" alt="" />
+              <img src="../../../../assets/images/icons/apppay.png" alt="" />
               Pay
             </span>
           </app-radio-button>
           <app-radio-button (change)="credit($event)" [value]="'gpay'">
             <span class="credit-wallet">
-              <img src="assets/images/credit-wallets/apppay.png" alt="" />
+              <img
+                src="../../../../assets/images/icons/google%20logo.png"
+                alt=""
+              />
               Pay
             </span>
           </app-radio-button>
