@@ -12,33 +12,6 @@ SwiperCore.use([Navigation, A11y, Mousewheel]);
 export class SliderComponent {
   @Input() categoriesList!: any[];
 
-  public test: any[] = [
-    {
-      number: 1
-    },
-    {
-      number: 2
-    },
-    {
-      number: 3
-    },
-    {
-      number: 4
-    },
-    {
-      number: 5
-    },
-    {
-      number: 6
-    },
-    {
-      number: 7
-    },
-    {
-      number: 8
-    }
-  ];
-
   config: any = {
     slidesPerView: 6,
     spaceBetween: 30,
