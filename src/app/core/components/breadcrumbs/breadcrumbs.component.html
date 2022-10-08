@@ -1,9 +1,6 @@
 <ul>
-  <li *ngFor="let breadcrumb of breadcrumbs; let i = index">
-    <a
-      [href]="breadcrumb.url"
-      [ngClass]="{ disabled: i === breadcrumbs.length - 1 }"
-    >
+  <li *ngFor="let breadcrumb of breadcrumbs; last as isLast">
+    <a [routerLink]="breadcrumb.url" [ngClass]="{ disabled: isLast }">
       {{ breadcrumb.label }}
     </a>
   </li>

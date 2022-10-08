@@ -1,11 +1,5 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
-import {
-  ActivatedRouteSnapshot,
-  Data,
-  NavigationEnd,
-  Router
-} from '@angular/router';
-import { filter } from 'rxjs/operators';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ActivatedRouteSnapshot, Data, Router } from '@angular/router';
 import { Breadcrumb } from 'src/app/core/interfaces/IBreadCrumbs';
 
 @Component({
@@ -14,17 +8,15 @@ import { Breadcrumb } from 'src/app/core/interfaces/IBreadCrumbs';
   styleUrls: ['./breadcrumbs.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class BreadcrumbsComponent {
+export class BreadcrumbsComponent implements OnInit {
   public breadcrumbs: Breadcrumb[] = [];
 
-  constructor(private router: Router) {
-    this.router.events
-      .pipe(filter((event) => event instanceof NavigationEnd))
-      .subscribe(() => {
-        const root = this.router.routerState.snapshot.root;
-        const breadcrumbs: Breadcrumb[] = [];
-        this.addBreadcrumb(root, [], breadcrumbs);
-      });
+  constructor(private router: Router) {}
+
+  public ngOnInit(): void {
+    const root = this.router.routerState.snapshot.root;
+    const breadcrumbs: Breadcrumb[] = [];
+    this.addBreadcrumb(root, [], breadcrumbs);
   }
 
   private addBreadcrumb(
@@ -41,6 +33,8 @@ export class BreadcrumbsComponent {
           url: '/' + routeUrl.join('/')
         };
         this.breadcrumbs.push(breadcrumb);
+      } else {
+        this.breadcrumbs = [];
       }
       this.addBreadcrumb(
         <ActivatedRouteSnapshot>route.firstChild,
