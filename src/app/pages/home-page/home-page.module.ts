@@ -6,6 +6,7 @@ import { ERoutes } from 'src/app/core/enums/routes';
 import { ProductCardModule } from '../../core/components/product-card/product-card.module';
 
 import { HomePageComponent } from './home-page.component';
+import { ProductCardModule } from '../../core/components/product-card/product-card.module';
 
 const routes: Routes = [
   {
