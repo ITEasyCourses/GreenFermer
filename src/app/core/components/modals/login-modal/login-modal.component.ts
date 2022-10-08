@@ -7,7 +7,7 @@ import {
 } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 
-import { RegExpService } from '../../../services/reg-exp.service';
+import { EMAIL_PATTERN } from '../../../constants/reg-exp';
 
 @Component({
   selector: 'app-login-modal',
@@ -19,8 +19,7 @@ export class LoginModalComponent implements OnInit {
 
   constructor(
     private dialogRef: MatDialogRef<LoginModalComponent>,
-    private fb: FormBuilder,
-    private regExpService: RegExpService
+    private fb: FormBuilder
   ) {}
 
   public ngOnInit(): void {
@@ -38,7 +37,7 @@ export class LoginModalComponent implements OnInit {
     this.loginFormGroup = this.fb.group({
       email: new FormControl('', [
         Validators.required,
-        Validators.pattern(this.regExpService.EMAIL_PATTERN)
+        Validators.pattern(EMAIL_PATTERN)
       ]),
       password: new FormControl('', [Validators.required]),
       rememberUser: new FormControl(false, [])
