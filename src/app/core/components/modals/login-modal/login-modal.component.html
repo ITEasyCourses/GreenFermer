@@ -1,0 +1,66 @@
+<div class="login-modal">
+  <div class="login-modal-header">
+    <i-feather name="x-circle" class="close" (click)="closeModal()"></i-feather>
+  </div>
+  <div class="login-modal-content">
+    <div class="login-modal-content-left">
+      <h1 class="element-text">Вхід</h1>
+      <div class="element-email">
+        <div class="element-email-input">
+          <app-input
+            [inputFormControl]="loginFormGroup.get('email') | getControl"
+            [inputLabel]="'Ел. пошта або телефон'"
+          ></app-input>
+        </div>
+      </div>
+      <div class="element-password">
+        <div class="element-password-input">
+          <app-input
+            [inputFormControl]="loginFormGroup.get('password') | getControl"
+            [inputLabel]="'Пароль'"
+            [type]="'password'"
+          ></app-input>
+        </div>
+      </div>
+      <div class="element-footer">
+        <div class="element-footer-top">
+          <div class="checkbox">
+            <app-checkbox
+              [checkControl]="loginFormGroup.get('rememberUser') | getControl"
+              [label]="'Запам’ятати мене'"
+            ></app-checkbox>
+          </div>
+          <p>Нагадати пароль</p>
+        </div>
+        <div class="element-footer-bottom">
+          <div class="button sign-in">
+            <app-button
+              [buttonText]="'Увійти'"
+              [isDisabled]="loginFormGroup.invalid"
+              (click)="loginFormGroup.valid ? loginForm() : null"
+            >
+            </app-button>
+          </div>
+          <div class="button sign-up">
+            <app-button
+              [buttonColor]="'transparent'"
+              [buttonText]="'Зареєструватися'"
+            ></app-button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="separator">або</p>
+    <div class="login-modal-content-right">
+      <p class="login-modal-content-right-label">Увійти як користувач</p>
+      <div class="label-google">
+        <img class="google-img" src="assets/images/icons/google%20logo.png" />
+        <p>Google</p>
+      </div>
+      <div class="label-facebook">
+        <img class="facebook-img" src="assets/images/icons/Vector.png" />
+        <p>Facebook</p>
+      </div>
+    </div>
+  </div>
+</div>
