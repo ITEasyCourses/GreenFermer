@@ -1,6 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { RouterLink } from '@angular/router';
 import { FeatherModule } from 'angular-feather';
 import {
   CreditCard,
@@ -13,9 +16,6 @@ import { ButtonModule } from '../../button/button.module';
 import { RadioGroupComponentModule } from '../../radio-group-component/radio-group-component.module';
 
 import { RegistrationModalComponent } from './registration-modal.component';
-import { RouterLink } from '@angular/router';
-import { ReactiveFormsModule } from '@angular/forms';
-import { MatFormFieldModule } from '@angular/material/form-field';
 
 const icons = {
   CreditCard,

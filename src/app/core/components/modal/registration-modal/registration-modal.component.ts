@@ -8,10 +8,11 @@ import {
 import { MatDialogRef } from '@angular/material/dialog';
 
 import {
-  EMAIL_PATTERN, NAME_PATTERN,
+  EMAIL_PATTERN,
+  NAME_PATTERN,
   PASSWORD_PATTERN,
   PHONE_PATTERN
-} from '../../../constants/registration..constants';
+} from '../../../constants/registration.constants';
 
 @Component({
   selector: 'app-registration-modal',
