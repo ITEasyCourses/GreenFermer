@@ -11,6 +11,7 @@ import { ProductCategoryCardInterface } from '../../interfaces/product-category-
 export class ProductCategoryCardComponent {
   @Input() productCategoryCard: ProductCategoryCardInterface = {
     img: '../../../../assets/images/categories/Category%20icons=icon%20cheese.png',
-    title: 'Фрукти'
+    title: 'Фрукти',
+    id: 1
   };
 }
