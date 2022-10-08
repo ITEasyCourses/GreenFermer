@@ -1,3 +1,6 @@
 export enum ERoutes {
-  HOME = ''
+  HOME = '',
+  CATALOG_PAGE = 'catalog',
+  PRODUCT_DETAIL = 'product-detail',
+  CATEGORY = 'category'
 }
