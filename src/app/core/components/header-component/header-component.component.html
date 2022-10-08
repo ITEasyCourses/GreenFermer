@@ -12,10 +12,16 @@
           />
         </div>
         <div class="header-left-select">
-          <app-select></app-select>
+          <app-select
+            [label]="labelForSelectKatalog"
+            [options]="mocListForOptionSelect"
+          ></app-select>
         </div>
         <div *ngIf="sessionUser?.isAuthentication" class="header-menu">
-          <app-select></app-select>
+          <app-select
+            [label]="labelForSelectMenu"
+            [options]="mocListForOptionSelect"
+          ></app-select>
         </div>
       </div>
       <div class="header-right">
