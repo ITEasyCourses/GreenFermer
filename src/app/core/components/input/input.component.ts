@@ -1,6 +1,8 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
+import { InputType } from '../../types/application-types';
+
 @Component({
   selector: 'app-input',
   templateUrl: './input.component.html',
@@ -8,6 +10,7 @@ import { FormControl } from '@angular/forms';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class InputComponent {
-  @Input() inputFormControl: FormControl = new FormControl();
-  @Input() inputLable = '';
+  @Input() inputFormControl: FormControl = new FormControl('');
+  @Input() type: InputType = 'text';
+  @Input() inputLabel = '';
 }

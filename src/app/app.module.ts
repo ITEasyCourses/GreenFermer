@@ -7,7 +7,7 @@ import { environment } from '../environments/environment';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CategoryPageModule } from './pages/category-page/category-page.module';
+import { LoginModalModule } from './core/components/modals/login-modal/login-modal.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -16,7 +16,7 @@ import { CategoryPageModule } from './pages/category-page/category-page.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebase),
-    CategoryPageModule
+    LoginModalModule
   ],
   bootstrap: [AppComponent]
 })
