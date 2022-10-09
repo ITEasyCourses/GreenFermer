@@ -1,8 +1,15 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { FeatherModule } from 'angular-feather';
+import { AlignJustify, Grid } from 'angular-feather/icons';
 
 import { MyOrderPageComponent } from './my-order-page.component';
+
+const icons = {
+  Grid,
+  AlignJustify
+};
 
 const routes: Routes = [
   {
@@ -13,6 +20,10 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [MyOrderPageComponent],
-  imports: [CommonModule, RouterModule.forChild(routes)]
+  imports: [
+    CommonModule,
+    RouterModule.forChild(routes),
+    FeatherModule.pick(icons)
+  ]
 })
 export class MyOrderPageModule {}
