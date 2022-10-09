@@ -4,7 +4,7 @@ import { ERoutes } from 'src/app/core/enums/routes';
 
 const routes: Routes = [
   {
-    path: '',
+    path: ERoutes.HOME,
     loadChildren: () =>
       import('./pages/home-page/home-page.module').then((m) => m.HomePageModule)
   },

@@ -5,6 +5,7 @@ import {
   Input,
   OnInit
 } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 
 import { HEADER_LOGO } from '../../constants/header.constants';
@@ -12,6 +13,7 @@ import { CATEGORIES, LABEL_SELECT } from '../../constants/select.constants';
 import { IAuthenticationUser } from '../../interfaces/i-authentication-user';
 import { IHeaderBackground } from '../../interfaces/i-heder-background';
 import { SortOption } from '../../interfaces/sort-option';
+import { LoginModalComponent } from '../modals/login-modal/login-modal.component';
 
 @Component({
   selector: 'app-header-component',
@@ -29,7 +31,7 @@ export class HeaderComponentComponent implements OnInit {
   public mocListForOptionSelect!: SortOption[];
   public labelForSelectMenu!: string;
 
-  constructor(public router: Router) {
+  constructor(public router: Router, private loginModal: MatDialog) {
     this.isBottom = false;
   }
 
@@ -47,5 +49,9 @@ export class HeaderComponentComponent implements OnInit {
     this.labelForSelectKatalog = LABEL_SELECT.CATALOG;
     this.labelForSelectMenu = LABEL_SELECT.MENU;
     this.mocListForOptionSelect = CATEGORIES;
+  }
+
+  public openModal(): void {
+    this.loginModal.open(LoginModalComponent);
   }
 }
