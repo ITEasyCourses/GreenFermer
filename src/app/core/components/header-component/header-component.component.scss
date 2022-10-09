@@ -11,12 +11,16 @@
   align-items: center;
   z-index: 5;
 
-  &.yellow {
+  &.header-wrapper .yellow {
     background: $main-yellow;
   }
 
   &.transparent {
     background: linear-gradient(180deg, #FFFFFF 0%, rgba(245, 245, 245, 0) 100%);
+  }
+
+  &.yellow {
+    background: $main-yellow;
   }
 
   & .container {

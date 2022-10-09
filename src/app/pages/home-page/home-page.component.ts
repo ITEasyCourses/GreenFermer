@@ -20,6 +20,10 @@ export class HomePageComponent {
     {
       img: '../../../../assets/images/categories/Category%20icons=icon%20cheese.png',
       title: 'Фрукти'
+    },
+    {
+      img: '../../../../assets/images/categories/Category%20icons=icon%20cheese.png',
+      title: 'Фрукти'
     }
   ];
 }

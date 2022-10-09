@@ -1,7 +1,4 @@
-<div
-  class="header-wrapper"
-  [ngClass]="checkRoutAndScrollOptions ? 'transparent' : 'yellow'"
->
+<div class="header-wrapper" appHeaderColor>
   <div class="container">
     <div class="header">
       <div class="header-left">
@@ -13,7 +10,7 @@
         </div>
         <div class="header-left-select">
           <app-select
-            [label]="labelForSelectKatalog"
+            [label]="labelForSelectCatalog"
             [options]="mocListForOptionSelect"
           ></app-select>
         </div>

@@ -27,11 +27,11 @@ export class HeaderComponentComponent implements OnInit {
   public logo!: IHeaderBackground;
   public scrollStartPoint = 0;
   public isBottom!: boolean;
-  public labelForSelectKatalog!: string;
+  public labelForSelectCatalog!: string;
   public mocListForOptionSelect!: SortOption[];
   public labelForSelectMenu!: string;
 
-  constructor(public router: Router, private loginModal: MatDialog) {
+  constructor(private router: Router, private loginModal: MatDialog) {
     this.isBottom = false;
   }
 
@@ -46,7 +46,7 @@ export class HeaderComponentComponent implements OnInit {
 
   public ngOnInit(): void {
     this.logo = HEADER_LOGO;
-    this.labelForSelectKatalog = LABEL_SELECT.CATALOG;
+    this.labelForSelectCatalog = LABEL_SELECT.CATALOG;
     this.labelForSelectMenu = LABEL_SELECT.MENU;
     this.mocListForOptionSelect = CATEGORIES;
   }

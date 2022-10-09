@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FeatherModule } from 'angular-feather';
 import { Heart, MessageCircle } from 'angular-feather/icons';
 
+import { HeaderColorDirective } from '../../directives/header-color/header-color.directive';
 import { ButtonModule } from '../button/button.module';
 import { CartModule } from '../cart/cart.module';
 import { LanguageModule } from '../language/language.module';
@@ -16,7 +17,7 @@ const icons = {
 };
 
 @NgModule({
-  declarations: [HeaderComponentComponent],
+  declarations: [HeaderComponentComponent, HeaderColorDirective],
   exports: [HeaderComponentComponent],
   imports: [
     CommonModule,
