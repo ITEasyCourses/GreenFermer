@@ -2,30 +2,28 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ERoutes } from 'src/app/core/enums/routes';
 
-import { RoutingPath } from './core/enums/routing-path';
-
 const routes: Routes = [
   {
-    path: '',
+    path: ERoutes.HOME,
     loadChildren: () =>
       import('./pages/home-page/home-page.module').then((m) => m.HomePageModule)
   },
   {
-    path: 'product-detail',
+    path: ERoutes.PRODUCT_DETAIL,
     loadChildren: () =>
       import('./pages/product-detail-page/product-detail-page.module').then(
         (m) => m.ProductDetailPageModule
       )
   },
   {
-    path: 'category',
+    path: ERoutes.CATEGORY,
     loadChildren: () =>
       import('./pages/category-page/category-page.module').then(
         (m) => m.CategoryPageModule
       )
   },
   {
-    path: RoutingPath.catalogPage,
+    path: ERoutes.CATALOG_PAGE,
     loadChildren: () =>
       import('./pages/catalog-page/catalog-page.module').then(
         (m) => m.CatalogPageModule
