@@ -30,6 +30,13 @@ const routes: Routes = [
       )
   },
   {
+    path: ERoutes.MY_ORDER_PAGE,
+    loadChildren: () =>
+      import('./pages/my-order-page/my-order-page.module').then(
+        (m) => m.MyOrderPageModule
+      )
+  },
+  {
     path: '**',
     redirectTo: ERoutes.HOME
   }
