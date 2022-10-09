@@ -1,11 +1,15 @@
 <div class="wrapper">
-  <div class="container">
-    <div class="first">
+  <div class="first">
+    <div class="container">
       <div class="first-interactive">
-        <app-search></app-search>
-        <app-slider [categoriesList]="sliderList"></app-slider>
+<!--        <app-search></app-search>-->
+        <div class="first-interactive__slider">
+          <app-slider [categoriesList]="sliderList"></app-slider>
+        </div>
       </div>
     </div>
+  </div>
+  <div class="container">
     <div class="product">
       <p class="product__title">Популярні продукти</p>
       <div class="product__wrap">

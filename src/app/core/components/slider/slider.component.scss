@@ -3,7 +3,8 @@
 .slider{
   display: flex;
   align-items: center;
-  margin: 0 111px;
+  margin: 0;
+  width: 100%;
 
   &_button{
     width: 30px;
