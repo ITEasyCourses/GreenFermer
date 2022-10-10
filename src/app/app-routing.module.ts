@@ -23,6 +23,13 @@ const routes: Routes = [
       )
   },
   {
+    path: ERoutes.CATEGORY_DETAIL,
+    loadChildren: () =>
+      import('./pages/category-detail-page/category-detail-page.module').then(
+        (m) => m.CategoryDetailPageModule
+      )
+  },
+  {
     path: ERoutes.CATALOG_PAGE,
     loadChildren: () =>
       import('./pages/catalog-page/catalog-page.module').then(
