@@ -1,14 +1,26 @@
-.baner-img {
-  width: 100%;
-  margin-top: -60px;
-}
 .header-index {
   z-index: 1;
   position: relative;
 }
+.search {
+  position: absolute;
+  left: -7%;
+  top: -40%;
+}
+.container-body {
+  max-width: 1240px;
+  margin: 0 auto;
+  width: 100%;
+}
 
-.header {
+.body {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 30px;
+}
 
+.card-wrapper {
+  margin-bottom: 36px;
 }
 
 .container {
@@ -16,8 +28,7 @@
   width: 100%;
   height: 324px;
   background-image: url("../../../assets/images/categories-baner/baner.png") ;
+  top: -60px;
 }
-::ng-deep app-search{
-  top: 111px;
-  left: 111px;
-}
+
+
