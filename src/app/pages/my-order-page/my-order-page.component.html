@@ -1,9 +1,14 @@
 <div class="container">
   <div class="wrapper">
     <div class="header">
-      <p>My orders</p>
+      <p>{{ tittle }}</p>
       <div class="header-sort">
-        <div class="header-sort-select"></div>
+        <div class="header-sort-select">
+          <app-sort-select
+            [placeholder]="'Get order'"
+            [selectItems]="options"
+          ></app-sort-select>
+        </div>
         <i-feather class="header-sort-icon" name="align-justify"></i-feather>
         <i-feather class="header-sort-icon" name="grid"></i-feather>
       </div>
