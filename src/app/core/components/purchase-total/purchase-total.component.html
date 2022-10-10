@@ -1,0 +1,27 @@
+<div class="purchase-total-wrapper">
+  <div class="price-wrapper">
+    <p class="together">Разом</p>
+    <div class="allPrice">
+      <p class="name">{{ totalProduct }}{{ totalProductText }} на суму</p>
+      <p *ngIf="allProductPrice" class="price">{{ allProductPrice }}.00 ₴</p>
+    </div>
+    <div class="allPrice">
+      <p class="name">Пакування</p>
+      <p *ngIf="package" class="price">+{{ package }}.00 ₴</p>
+    </div>
+    <div class="allPrice">
+      <p class="name">Доставка</p>
+      <p *ngIf="delivery" class="price">+{{ delivery }}.00 ₴</p>
+    </div>
+    <hr />
+    <div class="allPrice">
+      <p class="name">До сплати</p>
+      <p *ngIf="allProductPrice" class="totalPrice">{{ allPrice }}.00 ₴</p>
+    </div>
+  </div>
+  <app-button [buttonText]="'Підтвердити замовлення'"></app-button>
+  <app-button
+    [buttonText]="'Редагувати замовлення'"
+    [buttonColor]="'transparent'"
+  ></app-button>
+</div>
