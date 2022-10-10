@@ -17,30 +17,39 @@
       <div class="formGroup__inputGroupContainer inputGroupContainer">
         <app-input
           class="formGroup__inputGroup inputGroup"
-          [inputFormControl]="registrationForm.get('userName') | getControl"
-          [inputLable]="'Ім’я'"
-        ></app-input>
-        <app-input
-          class="formGroup__inputGroup inputGroup"
-          [inputFormControl]="registrationForm.get('userSerName') | getControl"
-          [inputLable]="'Прізвище'"
+          [inputFormControl]="
+            registrationFormGroup.get('userName') | getControl
+          "
+          [inputLabel]="'Ім’я'"
         ></app-input>
         <app-input
           class="formGroup__inputGroup inputGroup"
           [inputFormControl]="
-            registrationForm.get('userPhoneNumber') | getControl
+            registrationFormGroup.get('userSerName') | getControl
           "
-          [inputLable]="'Номер телефону'"
+          [inputLabel]="'Прізвище'"
         ></app-input>
         <app-input
           class="formGroup__inputGroup inputGroup"
-          [inputFormControl]="registrationForm.get('userEmail') | getControl"
-          [inputLable]="'Ел. пошта'"
+          [inputFormControl]="
+            registrationFormGroup.get('userPhoneNumber') | getControl
+          "
+          [inputLabel]="'Номер телефону'"
         ></app-input>
         <app-input
           class="formGroup__inputGroup inputGroup"
-          [inputFormControl]="registrationForm.get('userPassword') | getControl"
-          [inputLable]="'Придумайте пароль'"
+          [inputFormControl]="
+            registrationFormGroup.get('userEmail') | getControl
+          "
+          [inputLabel]="'Ел. пошта'"
+        ></app-input>
+        <app-input
+          class="formGroup__inputGroup inputGroup"
+          [inputFormControl]="
+            registrationFormGroup.get('userPassword') | getControl
+          "
+          [inputLabel]="'Придумайте пароль'"
+          [type]="'password'"
         ></app-input>
       </div>
       <p class="formGroup__text">
@@ -52,7 +61,7 @@
       <div class="btnGroup">
         <app-button
           class="btnGroup__btn"
-          [isDisabled]="registrationForm.invalid"
+          [isDisabled]="registrationFormGroup.invalid"
           [buttonText]="'Зареєструватися'"
           (click)="registration()"
         ></app-button>
@@ -76,7 +85,7 @@
     <div class="right__inner">
       <a href="https://www.google.com/" class="right__btn">
         <img
-          src="./assets/images/registration/google%20logo.png"
+          src="../../../../../assets/images/registration/google%20logo.png"
           alt="Google"
           class="img__google"
         />
@@ -84,7 +93,7 @@
       </a>
       <a href="https://uk-ua.facebook.com/" class="right__btn">
         <img
-          src="./assets/images/registration/facebook%20logo.png"
+          src="../../../../../assets/images/registration/facebook%20logo.png"
           alt="Google"
           class="img__facebook"
         />Facebook

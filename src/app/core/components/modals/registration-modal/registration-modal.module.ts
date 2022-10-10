@@ -12,12 +12,12 @@ import {
   XCircle
 } from 'angular-feather/icons';
 
+import { GetControlModule } from '../../../pipes/get-control/get-control.module';
 import { ButtonModule } from '../../button/button.module';
 import { InputModule } from '../../input/input.module';
 import { RadioGroupComponentModule } from '../../radio-group-component/radio-group-component.module';
 
 import { RegistrationModalComponent } from './registration-modal.component';
-import { GetControlModule } from '../../../pipes/get-control/get-control.module';
 
 const icons = {
   CreditCard,

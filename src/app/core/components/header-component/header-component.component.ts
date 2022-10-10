@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 import { HEADER_LOGO } from '../../constants/header.constants';
 import { IAuthenticationUser } from '../../interfaces/i-authentication-user';
 import { IHeaderBackground } from '../../interfaces/i-heder-background';
-import { RegistrationModalComponent } from '../modal/registration-modal/registration-modal.component';
+import { RegistrationModalComponent } from '../modals/registration-modal/registration-modal.component';
 
 @Component({
   selector: 'app-header-component',

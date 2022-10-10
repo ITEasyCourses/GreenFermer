@@ -1,0 +1,168 @@
+@import "src/assets/styles/vars";
+@import "src/assets/styles/mixins";
+
+
+::ng-deep .login-modal {
+  & .mat-dialog-container {
+    width: 1040px;
+    padding: 0;
+    border-radius: 10px;
+  }
+
+  &-header {
+    position: relative;
+    width: 100%;
+    height: 60px;
+    background-color: $main-yellow;
+
+    & .close {
+      position: absolute;
+      right: 19.88px;
+      top: 19.88px;
+      width: 20.25px;
+      cursor: pointer;
+    }
+  }
+
+  &-content {
+    p {
+      @include font-base(17px, 400, 26.75px);
+    }
+
+    h1 {
+      @include font-base(35px, 500, 55.09px)
+    }
+
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 422px;
+
+    &-left {
+      display: block;
+      padding: 16px 40px 40px 40px;
+      margin-right: 40px;
+
+      & .element-text, .element-email, .element-password {
+        width: 422px;
+        margin-bottom: 20px;
+      }
+
+      & .element-footer {
+        display: flex;
+        flex-direction: column;
+        width: 422px;
+        height: 95px;
+
+          &-top {
+            width: 100%;
+            height: 24px;
+            display: flex;
+            justify-content: flex-start;
+            margin-bottom: 30px;
+
+            & .checkbox {
+              width: 185px;
+              margin-right: 37px;
+            }
+
+            & p {
+              @include font-base(15px, 600, 23.61px);
+
+              margin-top: 2px;
+              cursor: pointer;
+            }
+          }
+
+          &-bottom {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            height: 40px;
+
+            & .button{
+              width: 196px;
+            }
+          }
+
+      }
+
+      & .element-email-text, .element-password-text {
+        margin-bottom: 10px;
+
+      }
+
+      & .element-email-input, .element-password-input {
+        width: 100%;
+      }
+
+    }
+
+    & .separator {
+      @include font-base(10px, 400, 15.4);
+
+      display: flex;
+      align-items: center;
+      position: relative;
+      height: 100%;
+
+      &:before {
+        content: '';
+        position: absolute;
+        top: 5px;
+        left: 50%;
+        width: 1px;
+        height: 40%;
+        background: $gray3;
+      }
+
+      &:after {
+        content: '';
+        position: absolute;
+        bottom: 5px;
+        left: 50%;
+        width: 1px;
+        height: 40%;
+        background: $gray3;
+      }
+    }
+
+    & .login-modal-content-right {
+      display: block;
+      padding: 91px 40px 177px 80px;
+
+      &-label {
+        margin-bottom: 13px;
+      }
+
+      & .label-google, .label-facebook {
+        width: 360px;
+        height: 47px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid $main-yellow;
+        margin-bottom: 20px;
+        border-radius: 10px;
+        padding: 4px 0;
+        cursor: pointer;
+
+        & p {
+          @include font-base(25px, 400, 39.35px);
+        }
+
+        & .facebook-img {
+          width: 11px;
+          height: 21px;
+          margin-right: 16px;
+        }
+
+        & .google-img {
+          width: 21px;
+          height: 21px;
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+}

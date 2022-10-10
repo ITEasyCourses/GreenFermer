@@ -17,7 +17,7 @@ import { SortOption } from '../../../interfaces/sort-option';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class RegistrationModalComponent implements OnInit {
-  public registrationForm!: FormGroup;
+  public registrationFormGroup!: FormGroup;
   public typeUserValue = '';
   public textForRadioBtn: SortOption[] = [
     { value: 'bayer', viewValue: 'Покупець' },
@@ -30,6 +30,7 @@ export class RegistrationModalComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.dialogRef.addPanelClass('registration-modal');
     this.formValidation();
   }
 
@@ -42,13 +43,13 @@ export class RegistrationModalComponent implements OnInit {
   }
 
   public formValidation(): void {
-    this.registrationForm = this.fb.group({
+    this.registrationFormGroup = this.fb.group({
       userType: new FormControl(`${this.typeUserValue}`, [Validators.required]),
-      userName: new FormControl(``, [
+      userName: new FormControl('', [
         Validators.required,
         Validators.pattern(patternValidators.NAME_PATTERN)
       ]),
-      userSerName: new FormControl(``, [
+      userSerName: new FormControl('', [
         Validators.required,
         Validators.pattern(patternValidators.NAME_PATTERN)
       ]),
@@ -70,12 +71,13 @@ export class RegistrationModalComponent implements OnInit {
   public newUserRegistration(): void {
     const payload = [
       {
-        userType: this.registrationForm.get('userType')?.value,
-        userName: this.registrationForm.get('userName')?.value,
-        userSerName: this.registrationForm.get('userSerName')?.value,
-        userPhoneNumber: this.registrationForm.get('userPhoneNumber')?.value,
-        userEmail: this.registrationForm.get('userEmail')?.value,
-        userPassword: this.registrationForm.get('userPassword')?.value
+        userType: this.registrationFormGroup.get('userType')?.value,
+        userName: this.registrationFormGroup.get('userName')?.value,
+        userSerName: this.registrationFormGroup.get('userSerName')?.value,
+        userPhoneNumber:
+          this.registrationFormGroup.get('userPhoneNumber')?.value,
+        userEmail: this.registrationFormGroup.get('userEmail')?.value,
+        userPassword: this.registrationFormGroup.get('userPassword')?.value
       }
     ];
     JSON.stringify(payload);
@@ -83,10 +85,8 @@ export class RegistrationModalComponent implements OnInit {
 
   public registration(): void {
     this.formValidation();
-    // console.log(this.registrationForm.value, 'username');
-    // console.log(this.registrationForm);
-    // console.log(this.registrationForm.valid);
-    if (this.registrationForm.valid) {
+    // console.log(this.registrationFormGroup.get('userName'), 'userName');
+    if (this.registrationFormGroup.valid) {
       this.newUserRegistration();
       this.close();
     }
