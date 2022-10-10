@@ -17,27 +17,29 @@
       <div class="formGroup__inputGroupContainer inputGroupContainer">
         <app-input
           class="formGroup__inputGroup inputGroup"
-          [inputFormControl]="userNameControl"
+          [inputFormControl]="registrationForm.get('userName') | getControl"
           [inputLable]="'Ім’я'"
         ></app-input>
         <app-input
           class="formGroup__inputGroup inputGroup"
-          [inputFormControl]="userSerNameControl"
+          [inputFormControl]="registrationForm.get('userSerName') | getControl"
           [inputLable]="'Прізвище'"
         ></app-input>
         <app-input
           class="formGroup__inputGroup inputGroup"
-          [inputFormControl]="userPhoneNumberControl"
+          [inputFormControl]="
+            registrationForm.get('userPhoneNumber') | getControl
+          "
           [inputLable]="'Номер телефону'"
         ></app-input>
         <app-input
           class="formGroup__inputGroup inputGroup"
-          [inputFormControl]="userEmailControl"
+          [inputFormControl]="registrationForm.get('userEmail') | getControl"
           [inputLable]="'Ел. пошта'"
         ></app-input>
         <app-input
           class="formGroup__inputGroup inputGroup"
-          [inputFormControl]="userPasswordControl"
+          [inputFormControl]="registrationForm.get('userPassword') | getControl"
           [inputLable]="'Придумайте пароль'"
         ></app-input>
       </div>
@@ -50,9 +52,9 @@
       <div class="btnGroup">
         <app-button
           class="btnGroup__btn"
-          [isDisabled]="regForm.invalid"
+          [isDisabled]="registrationForm.invalid"
           [buttonText]="'Зареєструватися'"
-          (click)="reg()"
+          (click)="registration()"
         ></app-button>
         <app-button
           class="btnGroup__btn"

@@ -26,7 +26,7 @@ export class HeaderComponentComponent implements OnInit {
   public scrollStartPoint = 0;
   public isBottom!: boolean;
 
-  constructor(public router: Router, private regDialog: MatDialog) {
+  constructor(public router: Router, private matDialog: MatDialog) {
     this.isBottom = false;
   }
 
@@ -45,6 +45,6 @@ export class HeaderComponentComponent implements OnInit {
 
   public openRegModal(): void {
     const regDialogConfig = new MatDialogConfig();
-    this.regDialog.open(RegistrationModalComponent, regDialogConfig);
+    this.matDialog.open(RegistrationModalComponent, regDialogConfig);
   }
 }

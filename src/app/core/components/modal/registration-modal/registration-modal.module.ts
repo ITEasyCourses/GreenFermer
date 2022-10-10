@@ -17,6 +17,7 @@ import { InputModule } from '../../input/input.module';
 import { RadioGroupComponentModule } from '../../radio-group-component/radio-group-component.module';
 
 import { RegistrationModalComponent } from './registration-modal.component';
+import { GetControlModule } from '../../../pipes/get-control/get-control.module';
 
 const icons = {
   CreditCard,
@@ -36,7 +37,8 @@ const icons = {
     RouterLink,
     ReactiveFormsModule,
     MatFormFieldModule,
-    InputModule
+    InputModule,
+    GetControlModule
   ]
 })
 export class RegistrationModalModule {}

@@ -49,6 +49,7 @@
 
     &__title {
       @include font-base(35px, 500, 55px);
+
       letter-spacing: 0.0025em;
       margin-bottom: 20px;
     }
@@ -86,9 +87,10 @@
 
 
       &__text {
+        @include font-base(12px, 400, 19px);
+
         max-width: 422px;
         min-height: 38px;
-        @include font-base(12px, 400, 19px);
         letter-spacing: 0.004em;
         margin-bottom: 30px;
 
@@ -118,6 +120,7 @@
 
     &__text {
       @include font-base(10px, 400, 16px);
+
       letter-spacing: 0.015em;
       color: $gray1;
       margin: 10px;
@@ -131,6 +134,7 @@
 
     &__text {
       @include font-base(17px, 400, 27px);
+
       letter-spacing: 0.005em;
       margin-top: 91px;
       margin-bottom: 13px;
@@ -143,6 +147,8 @@
     }
 
     &__btn {
+      @include font-base(25px, 400, 39px);
+
       border: 1px solid $main-yellow;
       border-radius: 10px;
       display: flex;
@@ -150,7 +156,6 @@
       align-items: center;
       width: 360px;
       padding: 4px 40px;
-      @include font-base(25px, 400, 39px);
       cursor: pointer;
       color:$main-black;
       text-decoration: none;

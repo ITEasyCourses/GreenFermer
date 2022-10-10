@@ -7,12 +7,7 @@ import {
 } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 
-import {
-  EMAIL_PATTERN,
-  NAME_PATTERN,
-  PASSWORD_PATTERN,
-  PHONE_PATTERN
-} from '../../../constants/registration.constants';
+import { patternValidators } from '../../../constants/registration.constants';
 import { SortOption } from '../../../interfaces/sort-option';
 
 @Component({
@@ -22,36 +17,8 @@ import { SortOption } from '../../../interfaces/sort-option';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class RegistrationModalComponent implements OnInit {
-  public userTypeControl: FormControl = new FormControl(``, [
-    Validators.required
-  ]);
-
-  public userNameControl: FormControl = new FormControl('', [
-    Validators.required,
-    Validators.pattern(NAME_PATTERN)
-  ]);
-
-  public userSerNameControl: FormControl = new FormControl('', [
-    Validators.required,
-    Validators.pattern(NAME_PATTERN)
-  ]);
-
-  public userPhoneNumberControl: FormControl = new FormControl('', [
-    Validators.required,
-    Validators.pattern(PHONE_PATTERN)
-  ]);
-
-  public userEmailControl: FormControl = new FormControl('', [
-    Validators.required,
-    Validators.pattern(EMAIL_PATTERN)
-  ]);
-
-  public userPasswordControl: FormControl = new FormControl('', [
-    Validators.required,
-    Validators.pattern(PASSWORD_PATTERN)
-  ]);
-
-  public regForm!: FormGroup;
+  public registrationForm!: FormGroup;
+  public typeUserValue = '';
   public textForRadioBtn: SortOption[] = [
     { value: 'bayer', viewValue: 'Покупець' },
     { value: 'farm', viewValue: 'Фермер' }
@@ -59,7 +26,7 @@ export class RegistrationModalComponent implements OnInit {
 
   constructor(
     private dialogRef: MatDialogRef<RegistrationModalComponent>,
-    private formBuilder: FormBuilder
+    private fb: FormBuilder
   ) {}
 
   ngOnInit(): void {
@@ -71,43 +38,56 @@ export class RegistrationModalComponent implements OnInit {
   }
 
   public SetUserTypeControl(event: string) {
-    this.userTypeControl.setValue(event);
+    this.typeUserValue = event;
   }
 
   public formValidation(): void {
-    this.regForm = this.formBuilder.group({
-      userType: this.userTypeControl,
-      userName: this.userNameControl,
-      userSerName: this.userSerNameControl,
-      userPhoneNumber: this.userPhoneNumberControl,
-      userEmail: this.userEmailControl,
-      userPassword: this.userPasswordControl
+    this.registrationForm = this.fb.group({
+      userType: new FormControl(`${this.typeUserValue}`, [Validators.required]),
+      userName: new FormControl(``, [
+        Validators.required,
+        Validators.pattern(patternValidators.NAME_PATTERN)
+      ]),
+      userSerName: new FormControl(``, [
+        Validators.required,
+        Validators.pattern(patternValidators.NAME_PATTERN)
+      ]),
+      userPhoneNumber: new FormControl('', [
+        Validators.required,
+        Validators.pattern(patternValidators.PHONE_PATTERN)
+      ]),
+      userEmail: new FormControl('', [
+        Validators.required,
+        Validators.pattern(patternValidators.EMAIL_PATTERN)
+      ]),
+      userPassword: new FormControl('', [
+        Validators.required,
+        Validators.pattern(patternValidators.PASSWORD_PATTERN)
+      ])
     });
   }
 
-  public newUserReg(): void {
-    const allUser = JSON.parse(localStorage.getItem('users') || '[]');
-
+  public newUserRegistration(): void {
     const payload = [
-      ...allUser,
       {
-        userType: this.regForm.get('userType')?.value,
-        userName: this.regForm.get('userName')?.value,
-        userSerName: this.regForm.get('userSerName')?.value,
-        userPhoneNumber: this.regForm.get('userPhoneNumber')?.value,
-        userEmail: this.regForm.get('userEmail')?.value,
-        userPassword: this.regForm.get('userPassword')?.value
+        userType: this.registrationForm.get('userType')?.value,
+        userName: this.registrationForm.get('userName')?.value,
+        userSerName: this.registrationForm.get('userSerName')?.value,
+        userPhoneNumber: this.registrationForm.get('userPhoneNumber')?.value,
+        userEmail: this.registrationForm.get('userEmail')?.value,
+        userPassword: this.registrationForm.get('userPassword')?.value
       }
     ];
-
-    const regUser = JSON.stringify(payload);
-    localStorage.setItem('users', regUser);
+    JSON.stringify(payload);
   }
 
-  public reg(): void {
+  public registration(): void {
     this.formValidation();
-    if (this.regForm.valid) {
-      this.newUserReg();
+    // console.log(this.registrationForm.value, 'username');
+    // console.log(this.registrationForm);
+    // console.log(this.registrationForm.valid);
+    if (this.registrationForm.valid) {
+      this.newUserRegistration();
       this.close();
     }
   }
