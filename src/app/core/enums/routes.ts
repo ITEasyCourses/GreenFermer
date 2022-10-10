@@ -3,5 +3,6 @@ export enum ERoutes {
   CATALOG_PAGE = 'catalog',
   PRODUCT_DETAIL = 'product-detail',
   CATEGORY = 'category',
-  PAGE = 'page'
+  PAGE = 'page',
+  DETAIL = 'detail'
 }
