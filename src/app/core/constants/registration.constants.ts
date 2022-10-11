@@ -1,3 +1,5 @@
+import { SortOption } from '../interfaces/sort-option';
+
 export const patternValidators = {
   EMAIL_PATTERN: new RegExp(
     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
@@ -10,3 +12,8 @@ export const patternValidators = {
   ),
   PHONE_PATTERN: new RegExp(/^(?:\+38)?(0\d{9})$/)
 };
+
+export const USERTYPE: SortOption[] = [
+  { value: 'bayer', viewValue: 'Покупець' },
+  { value: 'farm', viewValue: 'Фермер' }
+];

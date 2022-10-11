@@ -11,7 +11,10 @@ import {
   MatDialogRef
 } from '@angular/material/dialog';
 
-import { patternValidators } from '../../../constants/registration.constants';
+import {
+  patternValidators,
+  USERTYPE
+} from '../../../constants/registration.constants';
 import { SortOption } from '../../../interfaces/sort-option';
 import { LoginModalComponent } from '../login-modal/login-modal.component';
 
@@ -24,10 +27,7 @@ import { LoginModalComponent } from '../login-modal/login-modal.component';
 export class RegistrationModalComponent implements OnInit {
   public registrationFormGroup!: FormGroup;
   public typeUserValue = '';
-  public textForRadioBtn: SortOption[] = [
-    { value: 'bayer', viewValue: 'Покупець' },
-    { value: 'farm', viewValue: 'Фермер' }
-  ];
+  public textForRadioBtn: SortOption[] = USERTYPE;
 
   constructor(
     private dialogRef: MatDialogRef<RegistrationModalComponent>,
