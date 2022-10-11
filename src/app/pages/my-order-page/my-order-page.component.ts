@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
+import { ORDERS } from '../../core/constants/oder-card-moc-arr.constants';
 import { IOrderCardFields } from '../../core/interfaces/i-order-card-fields';
 import { SortOption } from '../../core/interfaces/sort-option';
 
@@ -10,75 +11,53 @@ import { SortOption } from '../../core/interfaces/sort-option';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MyOrderPageComponent {
-  public tittle = 'asdadadsf';
-  public mocCads: IOrderCardFields[] = [
-    {
-      isDane: true,
-      ordersNumber: 2,
-      dayOfOder: '02.03',
-      cityFromOder: 'Kyiv',
-      cityToOder: 'Mlt',
-      orderAddedProducts: [
-        {
-          productName: 'Sheet',
-          productPrice: 223,
-          productAmount: 3,
-          productSum: 450
-        }
-      ],
-      sumOderProducts: 222,
-      id: 3
-    },
-    {
-      isDane: false,
-      ordersNumber: 2,
-      dayOfOder: '02.03',
-      cityFromOder: 'Kyiv',
-      cityToOder: 'Mlt',
-      orderAddedProducts: [
-        {
-          productName: 'Sheet',
-          productPrice: 223,
-          productAmount: 3,
-          productSum: 450
-        }
-      ],
-      sumOderProducts: 222,
-      id: 3
-    },
-    {
-      isDane: true,
-      ordersNumber: 2,
-      dayOfOder: '02.03',
-      cityFromOder: 'Lviv',
-      cityToOder: 'Borschaha',
-      orderAddedProducts: [
-        {
-          productName: 'Pizda',
-          productPrice: 223,
-          productAmount: 3,
-          productSum: 450
-        }
-      ],
-      sumOderProducts: 222,
-      id: 3
-    }
-  ];
+  public tittle = 'Мои заказы';
+  public mocCads: IOrderCardFields[] = ORDERS;
 
   public options: SortOption[] = [
     {
-      value: 'Status',
-      viewValue: 'status'
+      value: 'isDane',
+      viewValue: 'Статус ОБР'
     },
     {
-      value: 'City',
-      viewValue: 'city'
+      value: '!isDane',
+      viewValue: 'Статус ВИК'
     },
     {
-      value: 'Price',
-      viewValue: 'price'
+      value: 'cityFromOder',
+      viewValue: 'Місто А-Я'
+    },
+    {
+      value: '!cityFromOder',
+      viewValue: 'Місто Я-А'
+    },
+    {
+      value: 'sumOderProducts',
+      viewValue: 'Сума +'
+    },
+    {
+      value: '!sumOderProducts',
+      viewValue: 'Сума -'
     }
   ];
 
   constructor() {}
+
+  public sortBy(type: string): void {
+    const reverseSort = !!type.match('!');
+    const formatType = type.replace('!', '');
+    this.mocCads.sort((a: any, b: any) => {
+      if (a[formatType] < b[formatType]) {
+        if (reverseSort) {
+          return 1;
+        }
+        return -1;
+      } else {
+        if (reverseSort) {
+          return -1;
+        }
+        return 1;
+      }
+    });
+  }
 }

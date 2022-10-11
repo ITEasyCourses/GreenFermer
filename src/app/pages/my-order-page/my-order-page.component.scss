@@ -1,42 +1,38 @@
 @import "src/assets/styles/vars";
 @import "src/assets/styles/mixins";
 
-.container {
+
+.wrapper {
+
   p {
     @include font-base(17px, 600, 26.76px)
   }
 
+  display: flex;
+  flex-direction: column;
   width: 100%;
-  max-height: 100vh;
-  border: 1px solid #000;
 
-  & .wrapper {
+  & .header {
     display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 100%;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 35px;
 
-    & .header {
+    &-sort {
       display: flex;
       justify-content: space-between;
-      align-items: center;
-      margin-top: 35px;
+      width: 267px;
 
-      &-sort {
-        display: flex;
-        justify-content: space-between;
-        width: 267px;
+      &-select {
+        width: 190px;
+      }
 
-        &-select {
-          width: 190px;
-        }
-
-        &-icon {
-          width: 24px;
-          margin-top: 2px;
-          cursor: pointer;
-        }
+      &-icon {
+        width: 24px;
+        margin-top: 2px;
+        cursor: pointer;
       }
     }
   }
 }
+

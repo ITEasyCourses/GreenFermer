@@ -1,23 +1,22 @@
-<div class="container">
-  <div class="wrapper">
-    <div class="header">
-      <p>{{ tittle }} ({{ mocCads.length }})</p>
-      <div class="header-sort">
-        <div class="header-sort-select">
-          <app-sort-select
-            [placeholder]="'Get order'"
-            [selectItems]="options"
-          ></app-sort-select>
-        </div>
-        <i-feather class="header-sort-icon" name="align-justify"></i-feather>
-        <i-feather class="header-sort-icon" name="grid"></i-feather>
+<div class="wrapper">
+  <div class="header">
+    <p>{{ tittle }} ({{ mocCads.length }})</p>
+    <div class="header-sort">
+      <div class="header-sort-select">
+        <app-sort-select
+          [placeholder]="'Сортувати за'"
+          [selectItems]="options"
+          (sortString)="sortBy($event)"
+        ></app-sort-select>
       </div>
+      <i-feather class="header-sort-icon" name="align-justify"></i-feather>
+      <i-feather class="header-sort-icon" name="grid"></i-feather>
     </div>
-    <div class="card-container">
-      <app-order-card-component
-        *ngFor="let card of mocCads"
-        [ordersCards]="card"
-      ></app-order-card-component>
-    </div>
+  </div>
+  <div class="card-container">
+    <app-order-card-component
+      *ngFor="let card of mocCads"
+      [ordersCards]="card"
+    ></app-order-card-component>
   </div>
 </div>
