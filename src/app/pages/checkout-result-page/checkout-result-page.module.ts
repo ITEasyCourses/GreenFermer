@@ -2,8 +2,9 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { CheckoutResultPageComponent } from './checkout-result-page.component';
 import { ButtonModule } from '../../core/components/button/button.module';
+
+import { CheckoutResultPageComponent } from './checkout-result-page.component';
 
 const routes: Routes = [
   {
