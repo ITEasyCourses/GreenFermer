@@ -8,7 +8,6 @@ import {
 import { FormControl } from '@angular/forms';
 
 import { SortOption } from '../../interfaces/sort-option';
-import { CityOptions, CityPlace } from '../../interfaces/deliveryType';
 
 @Component({
   selector: 'app-sort-select',

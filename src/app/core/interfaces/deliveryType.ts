@@ -11,7 +11,7 @@ export interface DeliveryType {
 export interface CityOptions {
   viewValue: string;
   id: number;
-  value?: string
+  value?: string;
   address?: string;
 }
 

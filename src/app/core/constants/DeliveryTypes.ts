@@ -13,7 +13,7 @@ export const deliverySelf: DeliveryType = {
       cityPlace: new FormControl(null),
       cityPlaceID: new FormControl(null, [Validators.required]),
       deliveryType: new FormControl(EDelivery.SELF),
-      payment: new FormControl(null,[Validators.required])
+      payment: new FormControl(null, [Validators.required])
     },
     [Validators.required]
   ),

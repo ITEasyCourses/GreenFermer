@@ -1,9 +1,15 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  OnInit
+} from '@angular/core';
 
 @Component({
   selector: 'app-radio-button',
   templateUrl: './radio-button.component.html',
-  styleUrls: ['./radio-button.component.scss']
+  styleUrls: ['./radio-button.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class RadioButtonComponent implements OnInit {
   @Input() public value!: string;
