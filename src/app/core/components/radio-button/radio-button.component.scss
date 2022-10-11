@@ -22,3 +22,7 @@
     border-color: $main-yellow;
   }
 }
+
+::ng-deep .mat-radio-label {
+  align-items: flex-start !important;
+}

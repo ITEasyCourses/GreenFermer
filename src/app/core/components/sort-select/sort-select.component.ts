@@ -8,6 +8,7 @@ import {
 import { FormControl } from '@angular/forms';
 
 import { SortOption } from '../../interfaces/sort-option';
+import { CityOptions, CityPlace } from '../../interfaces/deliveryType';
 
 @Component({
   selector: 'app-sort-select',
@@ -24,11 +25,8 @@ export class SortSelectComponent {
   @Output() public sortString: EventEmitter<string> =
     new EventEmitter<string>();
 
-  public mockSortTypes: SortOption[] = [
-    { value: 'fruits', viewValue: 'Фруткты' },
-    { value: 'vegetables', viewValue: 'Овощи' },
-    { value: 'all', viewValue: 'Всё' }
-  ];
+  @Output() public sortViewValue: EventEmitter<string> =
+    new EventEmitter<string>();
 
   public sendSortType(): void {
     this.sortString.emit(this.sortControl.value);

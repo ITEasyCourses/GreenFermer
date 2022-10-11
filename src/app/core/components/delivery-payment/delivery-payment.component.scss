@@ -11,6 +11,10 @@
     margin-bottom: 20px;
   }
 
+  & .label {
+    margin-bottom: 10px;
+  }
+
   &-payment {
     margin-left: 98px;
   }
@@ -42,7 +46,7 @@
     gap: 20px;
   }
 
-  & .cash, .credit {
+  & .cash {
     display: flex;
     align-items: center;
     justify-content: center;

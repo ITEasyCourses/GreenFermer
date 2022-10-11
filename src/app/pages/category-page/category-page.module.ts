@@ -7,7 +7,10 @@ import { CategoryPageComponent } from './category-page.component';
 const routes: Routes = [
   {
     path: '',
-    component: CategoryPageComponent
+    component: CategoryPageComponent,
+    data: {
+      breadcrumb: 'Категория'
+    }
   }
 ];
 

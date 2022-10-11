@@ -1,6 +1,7 @@
 <select
   [class.padding]="placeholder || placeholderGray"
   [class.gray]="placeholderGray"
+  [class.error]="sortControl.errors && sortControl.touched"
   class="select"
   [formControl]="sortControl"
   (change)="sendSortType()"
@@ -18,8 +19,8 @@
   <option
     class="option"
     *ngFor="let item of selectItems"
-    [value]="[item.value]"
+    [value]="[item.value || item.id]"
   >
-    {{ item.viewValue }}
+    {{ item.viewValue || item.address }}
   </option>
 </select>

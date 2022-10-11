@@ -10,6 +10,7 @@ import { SortSelectModule } from '../sort-select/sort-select.module';
 
 import { DeliveryPaymentComponent } from './delivery-payment.component';
 import { InputModule } from '../input/input.module';
+import { GetControlModule } from '../../pipes/get-control/get-control.module';
 
 const icons = {
   DollarSign,
@@ -28,7 +29,8 @@ const icons = {
     ReactiveFormsModule,
     FormsModule,
     FeatherModule.pick(icons),
-    InputModule
+    InputModule,
+    GetControlModule
   ]
 })
 export class DeliveryPaymentModule {}

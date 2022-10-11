@@ -10,16 +10,21 @@
 
   &.gray {
     @include font-base(17px, 400, 24px);
+
     color: $gray1;
   }
 
   & .option {
     @include font-base(15px, 600, 24px);
+
     color: $main-black;
   }
 
-
   &.padding {
     padding-right: 68px;
+  }
+
+  &.error {
+    border: 2px solid $red;
   }
 }
