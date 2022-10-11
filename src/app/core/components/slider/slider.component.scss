@@ -18,10 +18,22 @@
 
     &_next{
       margin-left: 23px;
+      cursor: pointer;
+      background: $gray4;
+
+      &:hover {
+        transform: scale(1.3);
+      }
     }
 
     &_prev{
       margin-right: 23px;
+      cursor: pointer;
+
+      &:hover {
+        transform: scale(1.3);
+        background: $gray4;
+      }
     }
   }
 
