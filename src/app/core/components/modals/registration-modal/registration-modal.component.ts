@@ -5,10 +5,15 @@ import {
   FormGroup,
   Validators
 } from '@angular/forms';
-import { MatDialogRef } from '@angular/material/dialog';
+import {
+  MatDialog,
+  MatDialogConfig,
+  MatDialogRef
+} from '@angular/material/dialog';
 
 import { patternValidators } from '../../../constants/registration.constants';
 import { SortOption } from '../../../interfaces/sort-option';
+import { LoginModalComponent } from '../login-modal/login-modal.component';
 
 @Component({
   selector: 'app-registration-modal',
@@ -26,6 +31,7 @@ export class RegistrationModalComponent implements OnInit {
 
   constructor(
     private dialogRef: MatDialogRef<RegistrationModalComponent>,
+    private matDialog: MatDialog,
     private fb: FormBuilder
   ) {}
 
@@ -40,6 +46,7 @@ export class RegistrationModalComponent implements OnInit {
 
   public SetUserTypeControl(event: string) {
     this.typeUserValue = event;
+    this.formValidation();
   }
 
   public formValidation(): void {
@@ -71,21 +78,13 @@ export class RegistrationModalComponent implements OnInit {
   public newUserRegistration(): void {
     const payload = [
       {
-        userType: this.registrationFormGroup.get('userType')?.value,
-        userName: this.registrationFormGroup.get('userName')?.value,
-        userSerName: this.registrationFormGroup.get('userSerName')?.value,
-        userPhoneNumber:
-          this.registrationFormGroup.get('userPhoneNumber')?.value,
-        userEmail: this.registrationFormGroup.get('userEmail')?.value,
-        userPassword: this.registrationFormGroup.get('userPassword')?.value
+        user: this.registrationFormGroup.value
       }
     ];
     JSON.stringify(payload);
   }
 
   public registration(): void {
-    this.formValidation();
-    // console.log(this.registrationFormGroup.get('userName'), 'userName');
     if (this.registrationFormGroup.valid) {
       this.newUserRegistration();
       this.close();
@@ -94,5 +93,7 @@ export class RegistrationModalComponent implements OnInit {
 
   public goToLogin(): void {
     this.dialogRef.close();
+    const loginDialogConfig = new MatDialogConfig();
+    this.matDialog.open(LoginModalComponent, loginDialogConfig);
   }
 }
