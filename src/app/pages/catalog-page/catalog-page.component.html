@@ -15,3 +15,14 @@
     </div>
   </div>
 </div>
+<section class="second-block">
+  <div class="container">
+    <h2 class="second-block__title">Популярні продукти</h2>
+    <div class="second-block__inner">
+      <app-product-card
+        *ngFor="let card of cardsArr"
+        [card]="card"
+      ></app-product-card>
+    </div>
+  </div>
+</section>
