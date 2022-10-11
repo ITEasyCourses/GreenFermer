@@ -26,6 +26,7 @@
   flex-direction: column;
   position: relative;
   justify-content: center;
+  align-items: center;
   margin-top: auto;
 
   &-search {
@@ -33,12 +34,13 @@
   }
 
   &__slider {
+    width: 100%;
+    z-index: 0;
     margin-top: 50px;
     margin-bottom: 83px;
   }
 
 }
-
 
 .product {
     display: flex;
@@ -62,8 +64,6 @@
       flex-wrap: wrap;
       align-items: center;
       justify-content: flex-start;
-      //display: grid;
-      //grid-template-columns: 250px 250px 250px;
 
       &_carts {
         margin-right: 24px;
