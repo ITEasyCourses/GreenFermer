@@ -2,7 +2,6 @@ import {
   ChangeDetectionStrategy,
   Component,
   HostListener,
-  Input,
   OnInit
 } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
@@ -22,7 +21,7 @@ import { LoginModalComponent } from '../modals/login-modal/login-modal.component
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HeaderComponentComponent implements OnInit {
-  @Input() public sessionUser?: IAuthenticationUser;
+  public sessionUser?: IAuthenticationUser;
 
   public logo!: IHeaderBackground;
   public scrollStartPoint = 0;

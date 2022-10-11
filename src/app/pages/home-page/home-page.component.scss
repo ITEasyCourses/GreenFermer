@@ -1,17 +1,22 @@
 @import "src/assets/styles/mixins";
 @import "src/assets/styles/vars";
 
-.wrapper {
-  background: $gray5;
-}
-
 .first {
-
+  margin-top: auto;
   height: 643px;
-  background: url("../../../assets/images/home-page/banner.png") center no-repeat;
-  background-size: cover;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+
+  & img {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    height: 643px;
+    z-index: -1;
+    object-fit: cover;
+  }
 }
 
 
@@ -20,22 +25,22 @@
   display: flex;
   flex-direction: column;
   position: relative;
+  justify-content: center;
+  margin-top: auto;
 
-  & app-search {
-    position: absolute;
-    top: -65px;
-    left: -125px;
+  &-search {
+    width: 1028px;
   }
 
   &__slider {
-    margin-top: 370px;
+    margin-top: 50px;
+    margin-bottom: 83px;
   }
 
 }
 
-.container {
 
-  & .product {
+.product {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -66,7 +71,7 @@
       }
     }
   }
-}
+
 
 
 
