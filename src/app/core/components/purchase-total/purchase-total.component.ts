@@ -16,7 +16,6 @@ export class PurchaseTotalComponent implements OnInit {
   ngOnInit(): void {
     this.allPrice =
       this.allProductPrice + (this.package || 0) + (this.delivery || 0);
-
     if (
       this.totalProduct === 1 ||
       (this.totalProduct > 20 && (this.totalProduct - 1) % 10 === 0)
