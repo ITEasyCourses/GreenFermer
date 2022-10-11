@@ -1,0 +1,73 @@
+@import "src/assets/styles/mixins";
+@import "src/assets/styles/vars";
+
+.container {
+  max-width: 1240px;
+  margin: 60px auto;
+  text-align: center;
+
+  &-thanking {
+    @include font-base(28px, 600, 40px );
+
+    margin-bottom: 10px;
+  }
+
+  &-order {
+    @include font-base(21px, 600, 33px );
+
+    margin-bottom: 10px;
+  }
+
+  &-delivery-date {
+    @include font-base(15px, 600, 1.4);
+
+    margin-bottom: 8px;
+    color: $green;
+  }
+
+  &-info {
+    @include font-base();
+  }
+
+  &-cards {
+    display: flex;
+    justify-content: space-around;
+    margin: 35px 100px;
+    text-align: left;
+
+    &-contact, &-details, &-sum {
+      width: 320px;
+      height: 240px;
+      padding: 25px 20px;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+      border-radius: 10px;
+
+      &__title {
+        @include font-base(17px, 600, 27px );
+      }
+    }
+
+    &-contact {
+
+    }
+
+    &-details {
+
+    }
+
+    &-sum {
+
+    }
+  }
+
+  &-buttons {
+    display: flex;
+    justify-content: flex-end;
+    margin: 0 100px;
+
+    & div {
+      margin-left: 20px;
+    }
+
+  }
+}

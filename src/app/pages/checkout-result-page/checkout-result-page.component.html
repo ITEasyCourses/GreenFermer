@@ -1,0 +1,37 @@
+<div class="container">
+  <p class="container-thanking">Дякуємо вам!</p>
+  <p class="container-order">Замовлення № {{ order }}</p>
+  <p class="container-delivery-date">
+    Приблизна дата доставки: {{ deliveryDate }}
+  </p>
+  <p class="container-info">
+    Інформація про вашу покупку надіслана на електронну пошту. Якщо <br />
+    у вас <b>виникли запитання</b> щодо покупки, зв'яжіться з нами за адресою
+    <b>{{ emailAdmin }}</b> <br />або <b>{{ phoneAdmin }}</b>
+  </p>
+  <div class="container-cards">
+    <div class="container-cards-contact">
+      <p class="container-cards-contact__title">Контактні дані</p>
+    </div>
+    <div class="container-cards-details">
+      <p class="container-cards-details__title">Деталі</p>
+    </div>
+    <div class="container-cards-sum">
+      <p class="container-cards-sum__title">Підсумок</p>
+    </div>
+  </div>
+  <div class="container-buttons">
+    <div>
+      <app-button
+        [buttonText]="buttonTextContinue"
+        [buttonColor]="'#FFD345'"
+      ></app-button>
+    </div>
+    <div>
+      <app-button
+        [buttonText]="buttonTextOrder"
+        [buttonColor]="'#FFD345'"
+      ></app-button>
+    </div>
+  </div>
+</div>
