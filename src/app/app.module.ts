@@ -7,7 +7,6 @@ import { environment } from '../environments/environment';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PurchaseTotalModule } from './core/components/purchase-total/purchase-total.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -15,8 +14,7 @@ import { PurchaseTotalModule } from './core/components/purchase-total/purchase-t
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    AngularFireModule.initializeApp(environment.firebase),
-    PurchaseTotalModule
+    AngularFireModule.initializeApp(environment.firebase)
   ],
   bootstrap: [AppComponent]
 })

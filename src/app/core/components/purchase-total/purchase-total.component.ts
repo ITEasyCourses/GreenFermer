@@ -32,4 +32,8 @@ export class PurchaseTotalComponent implements OnInit {
       this.totalProductText = ' товарів';
     } else this.totalProductText = ' товарів';
   }
+
+  public confirmOrder(): void {}
+
+  public editOrder(): void {}
 }
