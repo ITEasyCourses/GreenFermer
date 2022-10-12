@@ -10,7 +10,7 @@
 
 .rating-body::before {
   content: "★★★★★";
-  color: #F1F1F1;
+  color: $gray4;
 
 }
 
@@ -48,5 +48,5 @@
   height: 100%;
   top: 0;
   left: 0;
-  color: #FFD345;
+  color: $main-yellow;
 }

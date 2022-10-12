@@ -8,7 +8,6 @@ import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginModalModule } from './core/components/modals/login-modal/login-modal.module';
-import { RatingComponentModule } from './core/components/rating-component/rating-component.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -17,8 +16,7 @@ import { RatingComponentModule } from './core/components/rating-component/rating
     AppRoutingModule,
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebase),
-    LoginModalModule,
-    RatingComponentModule
+    LoginModalModule
   ],
   bootstrap: [AppComponent]
 })
