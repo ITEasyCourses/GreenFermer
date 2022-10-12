@@ -1,5 +1,4 @@
 @import "src/assets/styles/mixins";
-@import "src/assets/styles/vars";
 
 .container {
   max-width: 1240px;
@@ -9,7 +8,7 @@
   &-thanking {
     @include font-base(28px, 600, 40px );
 
-    margin-bottom: 10px;
+    margin-bottom: 8px;
   }
 
   &-order {
@@ -32,18 +31,33 @@
   &-cards {
     display: flex;
     justify-content: space-around;
-    margin: 35px 100px;
+    margin: 30px 100px;
     text-align: left;
 
     &-contact, &-details, &-sum {
       width: 320px;
-      height: 240px;
-      padding: 25px 20px;
+      height: 176px;
+      padding: 12px 15px;
       box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
       border-radius: 10px;
 
       &__title {
-        @include font-base(17px, 600, 27px );
+        @include font-base(17px, 600, 27px);
+
+        margin-bottom: 8px;
+      }
+
+      &__text {
+        @include font-base(13px, 400, 1.4);
+
+        margin-bottom: 5px;
+      }
+
+      &__sum {
+        @include font-base(15px, 600, 1.4);
+
+        text-align: right;
+        margin-top: 25px;
       }
     }
 

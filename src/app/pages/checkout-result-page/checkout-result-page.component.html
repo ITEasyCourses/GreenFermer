@@ -1,6 +1,6 @@
 <div class="container">
   <p class="container-thanking">Дякуємо вам!</p>
-  <p class="container-order">Замовлення № {{ order }}</p>
+  <p class="container-order">Замовлення №{{ order }}</p>
   <p class="container-delivery-date">
     Приблизна дата доставки: {{ deliveryDate }}
   </p>
@@ -12,26 +12,32 @@
   <div class="container-cards">
     <div class="container-cards-contact">
       <p class="container-cards-contact__title">Контактні дані</p>
+      <p class="container-cards-contact__text">{{ userName }}</p>
+      <p class="container-cards-contact__text">{{ userPhone }}</p>
+      <p class="container-cards-contact__text">{{ userEmail }}</p>
     </div>
     <div class="container-cards-details">
       <p class="container-cards-details__title">Деталі</p>
+      <p class="container-cards-contact__text">{{ deliveryCity }}</p>
+      <p class="container-cards-contact__text">{{ deliveryCompany }}</p>
+      <p class="container-cards-contact__text">
+        Відділення №{{ deliveryDepartment }}
+      </p>
     </div>
     <div class="container-cards-sum">
       <p class="container-cards-sum__title">Підсумок</p>
+      <p class="container-cards-contact__text">Замовлення: {{ orderSum }} ₴</p>
+      <p class="container-cards-contact__text">Пакування: {{ packingSum }} ₴</p>
+      <p class="container-cards-contact__text">Доставка: {{ deliverySum }} ₴</p>
+      <p class="container-cards-details__sum">Всього: {{ finalSum }} ₴</p>
     </div>
   </div>
   <div class="container-buttons">
     <div>
-      <app-button
-        [buttonText]="buttonTextContinue"
-        [buttonColor]="'#FFD345'"
-      ></app-button>
+      <app-button [buttonText]="buttonTextContinue"></app-button>
     </div>
     <div>
-      <app-button
-        [buttonText]="buttonTextOrder"
-        [buttonColor]="'#FFD345'"
-      ></app-button>
+      <app-button [buttonText]="buttonTextOrder"></app-button>
     </div>
   </div>
 </div>

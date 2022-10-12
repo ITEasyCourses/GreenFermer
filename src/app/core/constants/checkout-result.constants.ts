@@ -1,4 +1,16 @@
-export const ORDER = 1;
+export const ORDER = '1';
 export const DELIVERY_DATE = '10.12.22';
 export const EMAIL_ADMIN = 'Rinok@gmail.com';
 export const PHONE_ADMIN = '(093) 369-731-5962';
+export const BUTTON_TEXT_CONTINUE = 'Повернутись до покупок';
+export const BUTTON_TEXT_ORDER = 'Подивитися моє замовлення';
+export const USER_NAME = 'Катерина Кучеренко';
+export const USER_PHONE = '(067) 474-251-7630';
+export const USER_EMAIL = 'FannyKatia@gmail.com';
+export const DELIVERY_CITY = 'Івано-Франківськ';
+export const DELIVERY_COMPANY = 'Нова пошта';
+export const DELIVERY_DEPARTMENT = '192';
+export const ORDER_SUM = '113.00';
+export const PACKING_SUM = '+20.00';
+export const DELIVERY_SUM = '+15.00';
+export const FINAL_SUM = '148.00';
