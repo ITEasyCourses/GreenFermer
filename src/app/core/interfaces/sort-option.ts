@@ -1,5 +1,5 @@
 export interface SortOption {
-  value?: string;
+  value: string;
   viewValue?: string;
   id?: number;
   address?: string;

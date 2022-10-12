@@ -3,7 +3,7 @@ import {
   deliveryNewPost,
   deliverySelf,
   deliveryUkrPost
-} from './DeliveryTypes';
+} from './delivery-types';
 
 export const Delivery = [
   deliverySelf,

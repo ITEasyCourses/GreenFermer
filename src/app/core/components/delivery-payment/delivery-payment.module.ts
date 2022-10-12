@@ -11,6 +11,8 @@ import { RadioButtonModule } from '../radio-button/radio-button.module';
 import { SortSelectModule } from '../sort-select/sort-select.module';
 
 import { DeliveryPaymentComponent } from './delivery-payment.component';
+import { SelectModule } from '../select/select.module';
+import { SelectDeliveryModule } from '../select-delivery/select-delivery.module';
 
 const icons = {
   DollarSign,
@@ -30,7 +32,9 @@ const icons = {
     FormsModule,
     FeatherModule.pick(icons),
     InputModule,
-    GetControlModule
+    GetControlModule,
+    SelectModule,
+    SelectDeliveryModule
   ]
 })
 export class DeliveryPaymentModule {}

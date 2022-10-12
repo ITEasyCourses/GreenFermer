@@ -7,11 +7,11 @@ import {
 import { FormGroup } from '@angular/forms';
 import { MatRadioChange } from '@angular/material/radio';
 
-import { Delivery } from '../../constants/Delivery';
-import { CreditPay, Payment } from '../../constants/Payment';
-import { EDelivery } from '../../enums/delivery_payment';
-import { DeliveryType } from '../../interfaces/deliveryType';
-import { PaymentType } from '../../interfaces/paymentType';
+import { Delivery } from '../../constants/delivery';
+import { CreditPay, Payment } from '../../constants/payment';
+import { EDelivery, EPayment } from '../../enums/delivery-payment';
+import { SelectOption, DeliveryType } from '../../interfaces/delivery-type';
+import { PaymentType } from '../../interfaces/payment-type';
 
 @Component({
   selector: 'app-delivery-payment',
@@ -29,32 +29,40 @@ export class DeliveryPaymentComponent {
   public deliveryFB!: FormGroup;
 
   public enumDelivery = EDelivery;
-  public deliveryType = 'self';
-  public paymentType = 'cash';
+  public deliveryType = EDelivery.SELF;
+  public paymentType = EPayment.CASH;
   public paymentControl!: string;
   public cityId!: number;
-  public postOfficeID!: number;
+  public label!: string;
+  public labelEndPoint!: string;
 
-  public cityDelivery(cityId: string, item: DeliveryType): void {
-    this.cityId = +cityId;
-    item.group.patchValue({
-      city: item.cityOptions[this.cityId - 1].viewValue
-    });
-    item.group.patchValue({ payment: this.paymentType });
+  public city(objCity: SelectOption, item: DeliveryType): void {
+    this.cityId = objCity.id;
+    this.label = objCity.viewValue;
+    item.group.patchValue({ city: objCity.viewValue, cityID: objCity.id });
+    item.group.patchValue({ cityPlace: null, cityPlaceID: null });
+    this.labelEndPoint = '';
     this.deliveryFB = item.group;
+    this.send();
   }
 
-  public deliveryPostOffice(postOfficeID: string, item: DeliveryType): void {
-    this.postOfficeID = +postOfficeID;
+  public endPoint(objCityPlace: SelectOption, item: DeliveryType): void {
+    this.labelEndPoint = objCityPlace.viewValue;
     item.group.patchValue({
-      cityPlace: item.cityPlaces[this.cityId][this.postOfficeID - 1].address
+      cityPlace: objCityPlace.viewValue,
+      cityPlaceID: objCityPlace.id
     });
-    item.group.patchValue({ payment: this.paymentType });
     this.deliveryFB = item.group;
+    this.send();
   }
 
-  public reset(group: FormGroup) {
-    group.patchValue({ cityPlace: null, cityPlaceID: null });
+  public reset(): void {
+    this.label = '';
+    this.labelEndPoint = '';
+    this.cityId = 0;
+    if (this.deliveryFB) {
+      this.deliveryFB.reset();
+    }
   }
 
   public paymentChange(event: MatRadioChange) {
@@ -66,7 +74,7 @@ export class DeliveryPaymentComponent {
     if (this.deliveryFB) {
       this.deliveryFB.patchValue({ payment: this.paymentType });
       if (this.deliveryFB.valid) {
-        this.deliveryObj.emit(this.deliveryFB);
+        this.deliveryObj.emit(this.deliveryFB.value);
       }
     }
   }

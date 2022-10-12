@@ -1,6 +1,6 @@
 <div class="wrapper">
   <div class="wrapper-delivery">
-    <mat-radio-group aria-label="Select an option" [(ngModel)]="deliveryType">
+    <mat-radio-group aria-label="Select an option" (ngModelChange)="reset()" [(ngModel)]="deliveryType">
       <h3 class="title">Доставка</h3>
       <div class="delivery">
         <app-radio-button
@@ -16,20 +16,20 @@
                   [formGroup]="item.group"
                   (change)="send()"
                 >
-                  <app-sort-select
-                    (sortString)="cityDelivery($event, item)"
-                    [sortControl]="item.group.get('cityID') | getControl"
-                    [selectItems]="item.cityOptions"
-                    (change)="reset(item.group)"
-                    class="app-select"
-                  ></app-sort-select>
-                  <app-sort-select
-                    (sortString)="deliveryPostOffice($event, item)"
-                    [sortControl]="item.group.get('cityPlaceID') | getControl"
-                    [placeholderGray]="'Оберіть пунк видачі товара'"
-                    [selectItems]="item.cityPlaces[cityId]"
-                    class="app-select"
-                  ></app-sort-select>
+                  <app-select-delivery
+                    [options]="item.cityOptions"
+                    (selectedOption)="city($event, item)"
+                    [label]="label || 'Оберіть ваш населенній пункт'"
+                    [deliveryStyle]="true"
+                    class="app-select-delivery"
+                  ></app-select-delivery>
+                  <app-select-delivery
+                    [options]="item.cityPlaces[cityId]"
+                    (selectedOption)="endPoint($event, item)"
+                    [label]="labelEndPoint || 'Оберіть пунк видачі товара'"
+                    [deliveryStyle]="true"
+                    class="app-select-delivery"
+                  ></app-select-delivery>
                 </form>
               </ng-container>
             </ng-container>
@@ -40,21 +40,20 @@
                   [formGroup]="item.group"
                   (change)="send()"
                 >
-                  <app-sort-select
-                    (sortString)="cityDelivery($event, item)"
-                    [sortControl]="item.group.get('cityID') | getControl"
-                    [placeholderGray]="'Оберіть ваш населенній пункт'"
-                    [selectItems]="item.cityOptions"
-                    (change)="reset(item.group)"
-                    class="app-select"
-                  ></app-sort-select>
-                  <app-sort-select
-                    (sortString)="deliveryPostOffice($event, item)"
-                    [sortControl]="item.group.get('cityPlaceID') | getControl"
-                    [placeholderGray]="'Оберіть пунк видачі товара'"
-                    [selectItems]="item.cityPlaces[cityId]"
-                    class="app-select"
-                  ></app-sort-select>
+                  <app-select-delivery
+                    [options]="item.cityOptions"
+                    (selectedOption)="city($event, item)"
+                    [label]="label || 'Оберіть ваш населенній пункт'"
+                    [deliveryStyle]="true"
+                    class="app-select-delivery"
+                  ></app-select-delivery>
+                  <app-select-delivery
+                    [options]="item.cityPlaces[cityId]"
+                    (selectedOption)="endPoint($event, item)"
+                    [label]="labelEndPoint || 'Оберіть пунк видачі товара'"
+                    [deliveryStyle]="true"
+                    class="app-select-delivery"
+                  ></app-select-delivery>
                 </form>
               </ng-container>
             </ng-container>
@@ -65,21 +64,20 @@
                   [formGroup]="item.group"
                   (change)="send()"
                 >
-                  <app-sort-select
-                    (sortString)="cityDelivery($event, item)"
-                    [sortControl]="item.group.get('cityID') | getControl"
-                    [placeholderGray]="'Оберіть ваш населенній пункт'"
-                    [selectItems]="item.cityOptions"
-                    (change)="reset(item.group)"
-                    class="app-select"
-                  ></app-sort-select>
-                  <app-sort-select
-                    (sortString)="deliveryPostOffice($event, item)"
-                    [sortControl]="item.group.get('cityPlaceID') | getControl"
-                    [placeholderGray]="'Оберіть пунк видачі товара'"
-                    [selectItems]="item.cityPlaces[cityId]"
-                    class="app-select"
-                  ></app-sort-select>
+                  <app-select-delivery
+                    [options]="item.cityOptions"
+                    (selectedOption)="city($event, item)"
+                    [label]="label || 'Оберіть ваш населенній пункт'"
+                    [deliveryStyle]="true"
+                    class="app-select-delivery"
+                  ></app-select-delivery>
+                  <app-select-delivery
+                    [options]="item.cityPlaces[cityId]"
+                    (selectedOption)="endPoint($event, item)"
+                    [label]="labelEndPoint || 'Оберіть пунк видачі товара'"
+                    [deliveryStyle]="true"
+                    class="app-select-delivery"
+                  ></app-select-delivery>
                 </form>
               </ng-container>
             </ng-container>
@@ -90,20 +88,19 @@
                   [formGroup]="item.group"
                   (change)="send()"
                 >
-                  <app-sort-select
-                    (sortString)="cityDelivery($event, item)"
-                    [sortControl]="item.group.get('cityID') | getControl"
-                    [placeholderGray]="'Оберіть ваш населенній пункт'"
-                    [selectItems]="item.cityOptions"
-                    (change)="reset(item.group)"
-                    class="app-select"
-                  ></app-sort-select>
+                  <app-select-delivery
+                    [options]="item.cityOptions"
+                    (selectedOption)="city($event, item)"
+                    [label]="label || 'Оберіть ваш населенній пункт'"
+                    [deliveryStyle]="true"
+                    class="app-select-delivery"
+                  ></app-select-delivery>
                   <app-input
                     class="height"
                     [type]="'text'"
                     [placeholder]="'Введіть вашу адресу'"
                     [inputFormControl]="
-                      item.group.get('cityPlaceID') | getControl
+                      item.group.get('cityPlace') | getControl
                     "
                   ></app-input>
                 </form>
