@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
+import { HEADER_SLIDER } from '../../core/constants/home-page.constans';
 import { ProductCardConstants } from '../../core/constants/product-card.constants';
 import { IProductCard } from '../../core/interfaces/i-product-card';
 import { ProductCategoryCardInterface } from '../../core/interfaces/product-category-card.interface';
@@ -12,26 +13,5 @@ import { ProductCategoryCardInterface } from '../../core/interfaces/product-cate
 })
 export class HomePageComponent {
   productList: IProductCard[] = ProductCardConstants;
-  sliderList: ProductCategoryCardInterface[] = [
-    {
-      img: '../../../../assets/images/categories/Category%20icons=icon%20cheese.png',
-      title: 'Фрукти'
-    },
-    {
-      img: '../../../../assets/images/categories/Category%20icons=icon%20cheese.png',
-      title: 'Фрукти'
-    },
-    {
-      img: '../../../../assets/images/categories/Category%20icons=icon%20cheese.png',
-      title: 'Фрукти'
-    },
-    {
-      img: '../../../../assets/images/categories/Category%20icons=icon%20cheese.png',
-      title: 'Фрукти'
-    },
-    {
-      img: '../../../../assets/images/categories/Category%20icons=icon%20cheese.png',
-      title: 'Фрукти'
-    }
-  ];
+  sliderList: ProductCategoryCardInterface[] = HEADER_SLIDER;
 }
