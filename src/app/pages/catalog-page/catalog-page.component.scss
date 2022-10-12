@@ -1,5 +1,22 @@
 @import "src/assets/styles/mixins";
 
+.top {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 30px;
+
+  &_title {
+    @include font-base(17px, 600, 27px);
+  }
+}
+
+.categories_wrap {
+  display: grid;
+  grid-template-columns: repeat(6, 160px);
+  gap: 75px 55px;
+}
+
 .second-block{
 
   &__title{
