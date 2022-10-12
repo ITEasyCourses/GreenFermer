@@ -3,7 +3,12 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { EDelivery } from '../enums/delivery-payment';
 import { DeliveryType } from '../interfaces/delivery-type';
 
-import { cityOptions, cityPlaces, newPostPlaces, ukrPostPlaces } from './city-options';
+import {
+  cityOptions,
+  cityPlaces,
+  newPostPlaces,
+  ukrPostPlaces
+} from './city-options';
 
 export const deliverySelf: DeliveryType = {
   label: 'Самовівоз',

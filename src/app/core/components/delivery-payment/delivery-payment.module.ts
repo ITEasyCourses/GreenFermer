@@ -8,11 +8,11 @@ import { CreditCard, DollarSign, Folder } from 'angular-feather/icons';
 import { GetControlModule } from '../../pipes/get-control/get-control.module';
 import { InputModule } from '../input/input.module';
 import { RadioButtonModule } from '../radio-button/radio-button.module';
+import { SelectDeliveryModule } from '../select-delivery/select-delivery.module';
+import { SelectModule } from '../select/select.module';
 import { SortSelectModule } from '../sort-select/sort-select.module';
 
 import { DeliveryPaymentComponent } from './delivery-payment.component';
-import { SelectModule } from '../select/select.module';
-import { SelectDeliveryModule } from '../select-delivery/select-delivery.module';
 
 const icons = {
   DollarSign,
