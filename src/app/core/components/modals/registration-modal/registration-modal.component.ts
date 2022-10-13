@@ -44,7 +44,7 @@ export class RegistrationModalComponent implements OnInit {
     this.dialogRef.close();
   }
 
-  public SetUserTypeControl(event: string) {
+  public setUserTypeControl(event: string) {
     this.typeUserValue = event;
     this.formValidation();
   }
