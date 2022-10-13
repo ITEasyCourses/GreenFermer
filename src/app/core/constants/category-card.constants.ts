@@ -1,64 +1,52 @@
-import { IProductCategoryCard } from '../interfaces/product-category-card.interface';
+import { ProductCategoryCardInterface } from '../interfaces/product-category-card.interface';
 
-export const ProductCategoryCard: IProductCategoryCard[] = [
+export const ProductCategoryCard: ProductCategoryCardInterface[] = [
   {
     img: '../../../../assets/images/categories/Category%20icons=icon%20fruit.png',
-    title: 'Фрукти',
-    id: 1
+    title: 'Фрукти'
   },
   {
     img: '../../../../assets/images/categories/Category%20icons=icon%20beans.png',
-    title: 'Бобові',
-    id: 2
+    title: 'Бобові'
   },
   {
     img: '../../../../assets/images/categories/Category%20icons=icon%20barry.png',
-    title: 'Ягоди',
-    id: 3
+    title: 'Ягоди'
   },
   {
     img: '../../../../assets/images/categories/Category%20icons=icon%20cheese.png',
-    title: 'Сири',
-    id: 4
+    title: 'Сири'
   },
   {
     img: '../../../../assets/images/categories/Category%20icons=icon%20exotic.png',
-    title: 'Екзотика',
-    id: 5
+    title: 'Екзотика'
   },
   {
     img: '../../../../assets/images/categories/Category%20icons=icon%20fish.png',
-    title: 'Риби',
-    id: 6
+    title: 'Риби'
   },
   {
     img: '../../../../assets/images/categories/Category%20icons=icon%20green.png',
-    title: 'Зелень',
-    id: 7
+    title: 'Зелень'
   },
   {
     img: '../../../../assets/images/categories/Category%20icons=icon%20honey.png',
-    title: 'Мед',
-    id: 8
+    title: 'Мед'
   },
   {
     img: '../../../../assets/images/categories/Category%20icons=icon%20mushr.png',
-    title: 'Гриби',
-    id: 9
+    title: 'Гриби'
   },
   {
     img: '../../../../assets/images/categories/Category%20icons=icon%20nuts.png',
-    title: 'Горіхи',
-    id: 10
+    title: 'Горіхи'
   },
   {
     img: '../../../../assets/images/categories/Category%20icons=icon%20meat.png',
-    title: "М'ясо",
-    id: 11
+    title: "М'ясо"
   },
   {
     img: '../../../../assets/images/categories/Category%20icons=icon%20vegetables.png',
-    title: 'Овочі',
-    id: 12
+    title: 'Овочі'
   }
 ];
