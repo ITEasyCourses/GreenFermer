@@ -1,0 +1,233 @@
+@import "src/assets/styles/mixins";
+@import "src/assets/styles/vars";
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.wrapper {
+  @include font-base(15px, 600, 24px);
+
+  display: flex;
+  flex-direction: column;
+  padding: 24px 32px 24px 24px;
+  background: $white;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  margin-top: 30px;
+
+  & .card, & .main, & .sum, & .footer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  & .card {
+    margin-bottom: 8px;
+
+    &-order {
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      &-group{
+        display: flex;
+        flex-direction: row;
+        font-size: 21px;
+        font-weight: 600;
+
+        &__number {
+          margin-right: 8px;
+          color: $main-black;
+        }
+
+        &__status {
+
+          &.blue {
+            color: $blue;
+          }
+
+          &.green {
+            color: $green;
+          }
+        }
+      }
+
+      &__date{
+        font-style: normal;
+        font-weight: 500;
+        font-size: 15px;
+        line-height: 24px;
+        color: $gray2;
+        margin-top: 8px;
+      }
+    }
+
+    &-direction {
+      display: flex;
+      flex-direction: row;
+      justify-content: right;
+      align-items: center;
+
+      &__location {
+        color: $light-yellow;
+        width: 18px;
+        height: 18px;
+        margin-right: 11px;
+      }
+
+      &__text {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        margin-right: 8px;
+      }
+
+      &__arrow {
+        cursor: pointer;
+        position: relative;
+        width: 40px;
+        height: 21px;
+        margin-right: 8px;
+
+        & div {
+          position: relative;
+          top: 10px;
+          width: 40px;
+          height: 1px;
+          background-color: $light-black;
+          box-shadow: 0 3px 5px rgba(0, 0, 0, .2);
+          left:0;
+          display: block;
+
+          &::after {
+            content: '';
+            position: absolute;
+            width: 1.5px;
+            height: 8px;
+            top: 0;
+            right: 4px;
+            background-color: $light-black;
+            transform: rotate(45deg);
+          }
+
+          &::before {
+            content: '';
+            position: absolute;
+            width: 1.5px;
+            height: 8px;
+            top: -7px;
+            right: 4px;
+            background-color: $light-black;
+            box-shadow: 0 3px 5px rgba(0, 0, 0, .2);
+            transform: rotate(-45deg);
+          }
+        }
+      }
+
+      & :last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  & .main {
+
+    &-name, &-purchase {
+      display: flex;
+      align-items: center;
+    }
+
+    &-name {
+      width: 480px;
+      height: 26px;
+
+      &__text {
+        width: 100%;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 17px;
+        line-height: 27px;
+        letter-spacing: 0.005em;
+        color: $main-black;
+      }
+    }
+
+    &-purchase {
+      flex-direction: row;
+      justify-content: flex-end;
+      font-family: $font-base;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 15px;
+      line-height: 24px;
+      text-align: right;
+      letter-spacing: 0.001em;
+      color: $main-black;
+
+      &-price {
+        width: 246px;
+        height: 24px;
+      }
+
+      &-x, &-amount, &-sum {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+      }
+
+      &-x {
+        width: 84px;
+        height: 13px;
+        font-size: 12px;
+      }
+
+      &-amount {
+        width: 90px;
+        height: 24px;
+        border: 1px solid $main-black;
+        padding: 2px 4px;
+      }
+
+      &-sum {
+        width: 162px;
+        display: flex;
+        text-align: right;
+        letter-spacing: 0.001em;
+
+        &__text {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  & .sum {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 17px;
+    line-height: 27px;
+    justify-content: flex-end;
+    text-align: right;
+    letter-spacing: 0.0015em;
+    margin-top: 23px;
+    color: $main-black;
+  }
+
+  & .footer {
+
+    &-btns, &-reviews {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin-top: 21px;
+
+      &__left {
+        margin-right: 15px;
+      }
+    }
+  }
+}
