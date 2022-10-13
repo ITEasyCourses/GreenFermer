@@ -1,0 +1,38 @@
+@import "src/assets/styles/vars";
+@import "src/assets/styles/mixins";
+
+
+.wrapper {
+
+  p {
+    @include font-base(17px, 600, 26.76px)
+  }
+
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  & .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 35px;
+
+    &-sort {
+      display: flex;
+      justify-content: space-between;
+      width: 267px;
+
+      &-select {
+        width: 190px;
+      }
+
+      &-icon {
+        width: 24px;
+        margin-top: 2px;
+        cursor: pointer;
+      }
+    }
+  }
+}
+

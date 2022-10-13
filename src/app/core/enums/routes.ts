@@ -4,6 +4,7 @@ export enum ERoutes {
   PRODUCT_DETAIL = 'product-detail',
   CATEGORY = 'category',
   CATEGORY_ID = ':categoryId',
+  MY_ORDER_PAGE = 'order',
   CHECKOUT = 'checkout',
   CHECKOUT_RESULT = 'checkout-result'
 }
