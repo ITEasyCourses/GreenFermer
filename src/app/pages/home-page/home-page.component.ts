@@ -3,7 +3,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { ProductCategoryCard } from '../../core/constants/category-card.constants';
 import { ProductCardConstants } from '../../core/constants/product-card.constants';
 import { IProductCard } from '../../core/interfaces/i-product-card';
-import { ProductCategoryCardInterface } from '../../core/interfaces/product-category-card.interface';
+import { IProductCategoryCard } from '../../core/interfaces/product-category-card.interface';
 
 @Component({
   selector: 'app-home-page',
@@ -13,5 +13,5 @@ import { ProductCategoryCardInterface } from '../../core/interfaces/product-cate
 })
 export class HomePageComponent {
   productList: IProductCard[] = ProductCardConstants;
-  sliderList: ProductCategoryCardInterface[] = ProductCategoryCard;
+  sliderList: IProductCategoryCard[] = ProductCategoryCard;
 }
