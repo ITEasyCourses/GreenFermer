@@ -18,6 +18,7 @@ export class PurchaseTotalComponent implements OnInit {
   @Input() package!: number;
   @Input() delivery!: number;
   @Input() totalProduct!: number;
+
   @Output() addOrder: EventEmitter<any> = new EventEmitter<any>();
   @Output() cancelOrder: EventEmitter<any> = new EventEmitter<any>();
 
