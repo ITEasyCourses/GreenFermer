@@ -5,15 +5,13 @@ import {
   Input,
   OnInit
 } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 
 import { HEADER_LOGO } from '../../constants/header.constants';
-import { CATEGORIES, LABEL_SELECT } from '../../constants/select.constants';
 import { IAuthenticationUser } from '../../interfaces/i-authentication-user';
 import { IHeaderBackground } from '../../interfaces/i-heder-background';
-import { SortOption } from '../../interfaces/sort-option';
-import { LoginModalComponent } from '../modals/login-modal/login-modal.component';
+import { RegistrationModalComponent } from '../modals/registration-modal/registration-modal.component';
 
 @Component({
   selector: 'app-header-component',
@@ -27,11 +25,8 @@ export class HeaderComponentComponent implements OnInit {
   public logo!: IHeaderBackground;
   public scrollStartPoint = 0;
   public isBottom!: boolean;
-  public labelForSelectKatalog!: string;
-  public mocListForOptionSelect!: SortOption[];
-  public labelForSelectMenu!: string;
 
-  constructor(public router: Router, private loginModal: MatDialog) {
+  constructor(public router: Router, private matDialog: MatDialog) {
     this.isBottom = false;
   }
 
@@ -46,12 +41,10 @@ export class HeaderComponentComponent implements OnInit {
 
   public ngOnInit(): void {
     this.logo = HEADER_LOGO;
-    this.labelForSelectKatalog = LABEL_SELECT.CATALOG;
-    this.labelForSelectMenu = LABEL_SELECT.MENU;
-    this.mocListForOptionSelect = CATEGORIES;
   }
 
-  public openModal(): void {
-    this.loginModal.open(LoginModalComponent);
+  public openRegModal(): void {
+    const regDialogConfig = new MatDialogConfig();
+    this.matDialog.open(RegistrationModalComponent, regDialogConfig);
   }
 }
