@@ -8,8 +8,8 @@
     border-radius: 10px;
     width: 1040px;
     height: inherit;
-    overflow-y: auto;
-    overflow-x: hidden;
+    overflow: auto;
+
   }
 
   .modal-header {
@@ -21,14 +21,14 @@
     background: $main-yellow;
 
     &__icon {
-      width: 24px;
-      height: 24px;
+      width: 20.25px;
+      height: 20.25px;
       margin-right: 20px;
       cursor: pointer;
       transition: all 0.3s ease-in-out;
 
       &:hover {
-        transform: rotate(0.25turn);
+        color:$gray1;
         transition: transform 0.3s ease-in-out;
       }
 
