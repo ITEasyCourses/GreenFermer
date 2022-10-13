@@ -1,0 +1,148 @@
+<div class="wrapper">
+  <div class="wrapper-delivery">
+    <mat-radio-group aria-label="Select an option" (ngModelChange)="reset()" [(ngModel)]="deliveryType">
+      <h3 class="title">Доставка</h3>
+      <div class="delivery">
+        <app-radio-button
+          class="app"
+          *ngFor="let item of delivery"
+          [value]="item.value"
+          ><p class="label">{{ item.label }}</p>
+          <ng-container *ngIf="item.value === deliveryType">
+            <ng-container [ngSwitch]="item.value">
+              <ng-container *ngSwitchCase="enumDelivery.SELF">
+                <form
+                  class="delivery-selects"
+                  [formGroup]="item.group"
+                  (change)="send()"
+                >
+                  <app-select-delivery
+                    [options]="item.cityOptions"
+                    (selectedOption)="city($event, item)"
+                    [label]="label || 'Оберіть ваш населенній пункт'"
+                    [deliveryStyle]="true"
+                    class="app-select-delivery"
+                  ></app-select-delivery>
+                  <app-select-delivery
+                    [options]="item.cityPlaces[cityId]"
+                    (selectedOption)="endPoint($event, item)"
+                    [label]="labelEndPoint || 'Оберіть пунк видачі товара'"
+                    [deliveryStyle]="true"
+                    class="app-select-delivery"
+                  ></app-select-delivery>
+                </form>
+              </ng-container>
+            </ng-container>
+            <ng-container [ngSwitch]="item.value">
+              <ng-container *ngSwitchCase="enumDelivery.NEWPOST">
+                <form
+                  class="delivery-selects"
+                  [formGroup]="item.group"
+                  (change)="send()"
+                >
+                  <app-select-delivery
+                    [options]="item.cityOptions"
+                    (selectedOption)="city($event, item)"
+                    [label]="label || 'Оберіть ваш населенній пункт'"
+                    [deliveryStyle]="true"
+                    class="app-select-delivery"
+                  ></app-select-delivery>
+                  <app-select-delivery
+                    [options]="item.cityPlaces[cityId]"
+                    (selectedOption)="endPoint($event, item)"
+                    [label]="labelEndPoint || 'Оберіть пунк видачі товара'"
+                    [deliveryStyle]="true"
+                    class="app-select-delivery"
+                  ></app-select-delivery>
+                </form>
+              </ng-container>
+            </ng-container>
+            <ng-container [ngSwitch]="item.value">
+              <ng-container *ngSwitchCase="enumDelivery.UKRPOST">
+                <form
+                  class="delivery-selects"
+                  [formGroup]="item.group"
+                  (change)="send()"
+                >
+                  <app-select-delivery
+                    [options]="item.cityOptions"
+                    (selectedOption)="city($event, item)"
+                    [label]="label || 'Оберіть ваш населенній пункт'"
+                    [deliveryStyle]="true"
+                    class="app-select-delivery"
+                  ></app-select-delivery>
+                  <app-select-delivery
+                    [options]="item.cityPlaces[cityId]"
+                    (selectedOption)="endPoint($event, item)"
+                    [label]="labelEndPoint || 'Оберіть пунк видачі товара'"
+                    [deliveryStyle]="true"
+                    class="app-select-delivery"
+                  ></app-select-delivery>
+                </form>
+              </ng-container>
+            </ng-container>
+            <ng-container [ngSwitch]="item.value">
+              <ng-container *ngSwitchCase="enumDelivery.COURIER">
+                <form
+                  class="delivery-selects"
+                  [formGroup]="item.group"
+                  (change)="send()"
+                >
+                  <app-select-delivery
+                    [options]="item.cityOptions"
+                    (selectedOption)="city($event, item)"
+                    [label]="label || 'Оберіть ваш населенній пункт'"
+                    [deliveryStyle]="true"
+                    class="app-select-delivery"
+                  ></app-select-delivery>
+                  <app-input
+                    class="height"
+                    [type]="'text'"
+                    [placeholder]="'Введіть вашу адресу'"
+                    [inputFormControl]="
+                      item.group.get('cityPlace') | getControl
+                    "
+                  ></app-input>
+                </form>
+              </ng-container>
+            </ng-container>
+          </ng-container>
+        </app-radio-button>
+      </div>
+    </mat-radio-group>
+  </div>
+  <div class="wrapper-payment">
+    <mat-radio-group
+      aria-label="Select an option"
+      [(ngModel)]="paymentControl"
+      (change)="paymentChange($event)"
+    >
+      <h3 class="title">Оплата</h3>
+      <form class="payment">
+        <app-radio-button *ngFor="let item of payment" [value]="item.value">
+          <span class="cash">
+            <i-feather [name]="item.imgUrl"></i-feather>{{ item.label }}</span
+          >
+        </app-radio-button>
+        <ng-container *ngIf="paymentControl === 'credit'">
+          <mat-radio-group
+            aria-label="Select an option"
+            (change)="paymentChange($event)"
+          >
+            <div class="credit-type">
+              <app-radio-button
+                *ngFor="let item of credit"
+                [value]="item.value"
+              >
+                <span class="credit-wallet">
+                  <img [src]="item.imgUrl" alt="pay" />
+                  {{ item.label }}
+                </span>
+              </app-radio-button>
+            </div>
+          </mat-radio-group>
+        </ng-container>
+      </form>
+    </mat-radio-group>
+  </div>
+</div>
