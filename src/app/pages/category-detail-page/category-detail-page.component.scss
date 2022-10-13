@@ -1,0 +1,37 @@
+@import "src/assets/styles/vars";
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: $gray5;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $main-yellow;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: $light-yellow;
+}
+
+.left-path{
+
+  &_breadcrumbs{
+    margin-bottom: 30px;
+  }
+
+  &_content{
+    width: 520px;
+    height: 1105px;
+    display: flex;
+    flex-wrap: wrap;
+    overflow-y: scroll;
+
+    &_card{
+      margin: 0 30px 36px 0;
+    }
+  }
+}

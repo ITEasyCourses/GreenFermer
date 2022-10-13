@@ -18,16 +18,14 @@ import { SortOption } from '../../interfaces/sort-option';
 export class SortSelectComponent {
   @Input() public sortControl: FormControl = new FormControl('');
   @Input() public placeholder!: string;
+  @Input() public placeholderGray!: string;
   @Input() public selectItems!: SortOption[];
 
   @Output() public sortString: EventEmitter<string> =
     new EventEmitter<string>();
 
-  public mockSortTypes: SortOption[] = [
-    { value: 'fruits', viewValue: 'Фруткты' },
-    { value: 'vegetables', viewValue: 'Овощи' },
-    { value: 'all', viewValue: 'Всё' }
-  ];
+  @Output() public sortViewValue: EventEmitter<string> =
+    new EventEmitter<string>();
 
   public sendSortType(): void {
     this.sortString.emit(this.sortControl.value);
