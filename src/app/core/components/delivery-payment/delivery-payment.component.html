@@ -1,6 +1,10 @@
 <div class="wrapper">
   <div class="wrapper-delivery">
-    <mat-radio-group aria-label="Select an option" (ngModelChange)="reset()" [(ngModel)]="deliveryType">
+    <mat-radio-group
+      aria-label="Select an option"
+      (ngModelChange)="reset()"
+      [(ngModel)]="deliveryType"
+    >
       <h3 class="title">Доставка</h3>
       <div class="delivery">
         <app-radio-button
