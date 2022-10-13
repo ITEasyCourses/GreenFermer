@@ -37,6 +37,13 @@ const routes: Routes = [
       )
   },
   {
+    path: ERoutes.CHECKOUT_RESULT,
+    loadChildren: () =>
+      import('./pages/checkout-result-page/checkout-result-page.module').then(
+        (m) => m.CheckoutResultPageModule
+      )
+  },
+  {
     path: '**',
     redirectTo: ERoutes.HOME
   }
