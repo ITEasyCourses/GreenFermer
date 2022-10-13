@@ -5,5 +5,6 @@ export enum ERoutes {
   CATEGORY = 'category',
   CATEGORY_ID = ':categoryId',
   MY_ORDER_PAGE = 'order',
-  CHECKOUT = 'checkout'
+  CHECKOUT = 'checkout',
+  CHECKOUT_RESULT = 'checkout-result'
 }

@@ -4,7 +4,7 @@ import { PopularProductsConst } from '../../core/constants/catalog-page.constant
 import { ProductCategoryCard } from '../../core/constants/category-card.constants';
 import { sortTypes } from '../../core/constants/sort-card-types-constants';
 import { IProductCard } from '../../core/interfaces/i-product-card';
-import { ProductCategoryCardInterface } from '../../core/interfaces/product-category-card.interface';
+import { IProductCategoryCard } from '../../core/interfaces/product-category-card.interface';
 import { SortOption } from '../../core/interfaces/sort-option';
 
 @Component({
@@ -15,6 +15,6 @@ import { SortOption } from '../../core/interfaces/sort-option';
 })
 export class CatalogPageComponent {
   public cardsArr: IProductCard[] = PopularProductsConst;
-  public categoryList: ProductCategoryCardInterface[] = ProductCategoryCard;
+  public categoryList: IProductCategoryCard[] = ProductCategoryCard;
   public mockSortTypes: SortOption[] = sortTypes;
 }
