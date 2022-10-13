@@ -1,7 +1,9 @@
-@import "src/assets/styles/_mixins.scss";
-@import "src/assets/styles/_vars.scss";
+@import "src/assets/styles/vars";
+@import "src/assets/styles/mixins";
 
 .search {
+  @include font-base();
+
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -23,7 +25,11 @@
       border-top-left-radius: 10px;
       border-bottom-left-radius: 10px;
       border-right: 1px solid #D9D9D9;
+    }
 
+    &__size[type="text"] {
+      padding-left: 30px;
+      @include font-base( 15px, 600);
     }
 
     &-imag {
@@ -40,10 +46,25 @@
     }
   }
 
+  &-input:active, :hover, :focus {
+    outline: 0;
+    outline-offset: 0;
+  }
+
   &-select {
     position: relative;
     width: 59%;
     height: 40px;
+
+    &__selected {
+      @include font-base( 15px, 600);
+      width: 100%;
+      height: 100%;
+      border: none;
+      appearance: none;
+      padding-left: 40px;
+      cursor: pointer;
+    }
 
     &-location{
       width: 24px;
@@ -53,35 +74,13 @@
       top: 18.25%;
     }
   }
-}
 
-.search-input__size[type="text"] {
-  padding-left: 30px;
-  @include font-base( 15px, 600);
-
-}
-.search-input:active, :hover, :focus {
-  outline: 0;
-  outline-offset: 0;
-}
-
-.btn {
-  @include font-base(140px, 400, 15.04px);
-  width: 120px;
-  font: 600 normal 14px/15.04px Saira, sans-serif;
-  margin-left: -5px;
-  z-index: 0;
-
-}
-
-.my-selected {
-  @include font-base( 15px, 600);
-  width: 100%;
-  height: 100%;
-  border: none;
-  appearance: none;
-  padding-left: 40px;
-  cursor: pointer;
+  & .btn {
+    @include font-base( 600, 14px/15.04px);
+    width: 120px;
+    margin-left: -5px;
+    z-index: 0;
+  }
 }
 
 
