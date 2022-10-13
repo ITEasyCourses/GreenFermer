@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 import { ORDERS } from '../../core/constants/oder-card-moc-arr.constants';
+import { ORDER_PAGE_SELECT } from '../../core/constants/select.constants';
 import { IOrderCardFields } from '../../core/interfaces/i-order-card-fields';
 import { SortOption } from '../../core/interfaces/sort-option';
 
@@ -14,32 +15,7 @@ export class MyOrderPageComponent {
   public tittle = 'Мои заказы';
   public mocCads: IOrderCardFields[] = ORDERS;
 
-  public options: SortOption[] = [
-    {
-      value: 'isDane',
-      viewValue: 'Статус ОБР'
-    },
-    {
-      value: '!isDane',
-      viewValue: 'Статус ВИК'
-    },
-    {
-      value: 'cityFromOder',
-      viewValue: 'Місто А-Я'
-    },
-    {
-      value: '!cityFromOder',
-      viewValue: 'Місто Я-А'
-    },
-    {
-      value: 'sumOderProducts',
-      viewValue: 'Сума +'
-    },
-    {
-      value: '!sumOderProducts',
-      viewValue: 'Сума -'
-    }
-  ];
+  public options: SortOption[] = ORDER_PAGE_SELECT;
 
   constructor() {}
 
