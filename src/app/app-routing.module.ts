@@ -23,6 +23,13 @@ const routes: Routes = [
       )
   },
   {
+    path: ERoutes.CHECKOUT,
+    loadChildren: () =>
+      import('./pages/checkout-page/checkout-page.module').then(
+        (m) => m.CheckoutPageModule
+      )
+  },
+  {
     path: ERoutes.CATALOG_PAGE,
     loadChildren: () =>
       import('./pages/catalog-page/catalog-page.module').then(

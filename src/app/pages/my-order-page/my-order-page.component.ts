@@ -16,24 +16,4 @@ export class MyOrderPageComponent {
   public mocCads: IOrderCardFields[] = ORDERS;
 
   public options: SortOption[] = ORDER_PAGE_SELECT;
-
-  constructor() {}
-
-  public sortBy(type: string): void {
-    const reverseSort = !!type.match('!');
-    const formatType = type.replace('!', '');
-    this.mocCads.sort((a: any, b: any) => {
-      if (a[formatType] < b[formatType]) {
-        if (reverseSort) {
-          return 1;
-        }
-        return -1;
-      } else {
-        if (reverseSort) {
-          return -1;
-        }
-        return 1;
-      }
-    });
-  }
 }
