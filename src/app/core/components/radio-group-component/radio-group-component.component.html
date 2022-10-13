@@ -7,6 +7,7 @@
     *ngFor="let item of radioBtnItems"
     [value]="item.value"
     [class.horizontal]="positionHorizontal"
+    [checked]="item.value === defaultValue"
     class="position"
     >{{ item.viewValue }}</mat-radio-button
   >

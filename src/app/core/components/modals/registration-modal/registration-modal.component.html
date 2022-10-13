@@ -17,6 +17,7 @@
       <div class="formGroup__inputGroupContainer inputGroupContainer">
         <app-input
           class="formGroup__inputGroup inputGroup"
+          [placeholder]="'Катерина'"
           [inputFormControl]="
             registrationFormGroup.get('userName') | getControl
           "
@@ -24,6 +25,7 @@
         ></app-input>
         <app-input
           class="formGroup__inputGroup inputGroup"
+          [placeholder]="'Петренко'"
           [inputFormControl]="
             registrationFormGroup.get('userSerName') | getControl
           "
@@ -31,6 +33,7 @@
         ></app-input>
         <app-input
           class="formGroup__inputGroup inputGroup"
+          [placeholder]="'+38099096905'"
           [inputFormControl]="
             registrationFormGroup.get('userPhoneNumber') | getControl
           "
@@ -38,6 +41,7 @@
         ></app-input>
         <app-input
           class="formGroup__inputGroup inputGroup"
+          [placeholder]="'fanny.katia@gmail.com'"
           [inputFormControl]="
             registrationFormGroup.get('userEmail') | getControl
           "
@@ -45,6 +49,7 @@
         ></app-input>
         <app-input
           class="formGroup__inputGroup inputGroup"
+          [placeholder]="'****************'"
           [inputFormControl]="
             registrationFormGroup.get('userPassword') | getControl
           "
