@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-checkbox',
@@ -7,6 +8,6 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CheckboxComponent {
-  @Input() isChecked = false;
   @Input() label!: string;
+  @Input() checkControl: FormControl = new FormControl<boolean>(false);
 }

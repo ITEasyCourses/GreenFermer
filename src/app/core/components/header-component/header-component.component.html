@@ -1,0 +1,95 @@
+<div
+  class="header-wrapper"
+  [ngClass]="checkRoutAndScrollOptions ? 'transparent' : 'yellow'"
+>
+  <div class="container">
+    <div class="header">
+      <div class="header-left">
+        <div class="header-left-logo">
+          <img
+            [src]="checkRoutAndScrollOptions ? logo.transparent : logo.yellow"
+            alt="logo"
+          />
+        </div>
+        <div class="header-left-select">
+          <app-select></app-select>
+        </div>
+        <div *ngIf="sessionUser?.isAuthentication" class="header-menu">
+          <app-select></app-select>
+        </div>
+      </div>
+      <div class="header-right">
+        <ng-container
+          [ngTemplateOutlet]="
+            sessionUser?.isAuthentication
+              ? activeAuthenticationSession
+              : notAuthenticationSession
+          "
+        ></ng-container>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #activeAuthenticationSession>
+  <div class="header-right-auth__language">
+    <app-language
+      [activeLang]="checkRoutAndScrollOptions ? 'yellow' : 'white'"
+    ></app-language>
+  </div>
+  <div class="header-right-auth-comment">
+    <i-feather
+      class="header-right-auth-comment__size"
+      name="message-circle"
+    ></i-feather>
+  </div>
+  <div class="header-right-auth-like">
+    <i-feather class="header-right-auth-like__size" name="heart"></i-feather>
+  </div>
+  <div class="header-right-auth__basket">
+    <app-cart
+      [color]="checkRoutAndScrollOptions ? 'yellow' : 'white'"
+    ></app-cart>
+  </div>
+  <div class="header-right-auth-avatar">
+    <div class="header-right-auth-avatar-user">
+      <img
+        class="header-right-auth-avatar-user__img"
+        [src]="sessionUser?.avatar"
+        alt="avatar"
+      />
+      <p class="header-right-auth-avatar-user__text">123456789</p>
+    </div>
+    <div class="header-right-auth-avatar-button">
+      <app-button
+        class="header-right-auth-avatar-button__size"
+        [buttonText]="'Додатитовар'"
+        [buttonColor]="checkRoutAndScrollOptions ? 'yellow' : 'white'"
+        [addIcon]="true"
+      ></app-button>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #notAuthenticationSession>
+  <div class="header-right__language">
+    <app-language
+      [activeLang]="checkRoutAndScrollOptions ? 'yellow' : 'white'"
+    ></app-language>
+  </div>
+  <div class="header-right__basket">
+    <app-cart
+      [color]="checkRoutAndScrollOptions ? 'yellow' : 'white'"
+    ></app-cart>
+  </div>
+  <div class="header-right__button">
+    <div class="header-right__button-wrapper">
+      <app-button
+        [buttonColor]="checkRoutAndScrollOptions ? 'yellow' : 'white'"
+        [buttonText]="'Вхід/Реєстрація'"
+        (click)="openRegModal()"
+      >
+      </app-button>
+    </div>
+  </div>
+</ng-template>

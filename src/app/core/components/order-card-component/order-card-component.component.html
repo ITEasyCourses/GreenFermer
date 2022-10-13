@@ -1,0 +1,106 @@
+<div class="wrapper">
+  <header class="card">
+    <div class="card-order">
+      <div class="card-order-group">
+        <p class="card-order-group__number">
+          Замовлення №{{ ordersCards.ordersNumber }}
+        </p>
+        <p
+          class="card-order-group__status"
+          [ngClass]="ordersCards.isDane ? 'green' : 'blue'"
+          [textContent]="ordersCards.isDane ? 'Виконано' : 'Оброблюється'"
+        ></p>
+      </div>
+      <label class="card-order__date"
+        >День замовлення: {{ ordersCards.dayOfOder }}
+      </label>
+    </div>
+    <div class="card-direction">
+      <i-feather class="card-direction__location" name="disc"></i-feather>
+      <p class="card-direction__text">{{ ordersCards.cityFromOder }}</p>
+      <div class="card-direction__arrow">
+        <div></div>
+      </div>
+      <p class="card-direction__text">{{ ordersCards.cityToOder }}</p>
+    </div>
+  </header>
+  <main class="main" *ngFor="let product of ordersCards.orderAddedProducts">
+    <div class="main-name">
+      <p class="main-name__text">{{ product.productName | titlecase }}</p>
+    </div>
+    <div class="main-purchase">
+      <div class="main-purchase-price">
+        <p class="maine-purchase-price__text">{{ product.productPrice }}₴/кг</p>
+      </div>
+
+      <div class="main-purchase-x">
+        <p class="main-purchase-x__text">x</p>
+      </div>
+
+      <div class="main-purchase-amount">
+        <p class="maine-purchase-amount__text">
+          {{ product.productAmount }} кг
+        </p>
+      </div>
+
+      <div class="main-purchase-sum">
+        <p class="main-purchase-sum__text">{{ product.productSum }}₴</p>
+      </div>
+    </div>
+  </main>
+  <div class="sum">
+    <p class="sum__text">Загалом: {{ ordersCards.sumOderProducts }}₴</p>
+  </div>
+  <footer class="footer">
+    <ng-container
+      *ngTemplateOutlet="ordersCards.isDane ? doneGroup : inProgressGroup"
+    ></ng-container>
+  </footer>
+</div>
+<ng-template #inProgressGroup>
+  <div class="footer-btns">
+    <div class="footer-btns__left">
+      <app-button
+        (click)="monitoringButton()"
+        [buttonText]="'Вівстежувати'"
+        [buttonColor]="'transparent'"
+      ></app-button>
+    </div>
+    <div class="footer-btns__right">
+      <app-button
+        (click)="connectionWithSeller()"
+        [buttonColor]="'transparent'"
+        [buttonText]="'Зв’язатися з продавцем'"
+      ></app-button>
+    </div>
+  </div>
+  <div class="footer-btn">
+    <div class="footer-btn__container">
+      <app-button
+        (click)="deleteOrder()"
+        [buttonColor]="'transparent'"
+        [buttonText]="'Видалити замовлення'"
+      ></app-button>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #doneGroup>
+  <div class="footer-reviews">
+    <div class="footer-reviews__container">
+      <app-button
+        (click)="leftReview()"
+        [buttonText]="'Залишити відгук'"
+      ></app-button>
+    </div>
+  </div>
+  <div class="footer-detail">
+    <div class="footer-detail__container">
+      <app-button
+        (click)="watchingDetails()"
+        [buttonColor]="'transparent'"
+        [buttonText]="'Дивитися деталі'"
+      ></app-button>
+    </div>
+  </div>
+</ng-template>

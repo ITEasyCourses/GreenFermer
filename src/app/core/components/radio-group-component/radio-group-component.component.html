@@ -1,9 +1,13 @@
-<mat-radio-group [formControl]="radioGroupControl" (change)="radioAnswer()">
+<mat-radio-group
+  [formControl]="radioGroupControl"
+  (change)="radioAnswer()"
+  *ngIf="radioBtnItems"
+>
   <mat-radio-button
-    *ngFor="let text of textRadioBtn"
-    [value]="text"
+    *ngFor="let item of radioBtnItems"
+    [value]="item.value"
     [class.horizontal]="positionHorizontal"
     class="position"
-    >{{ text }}</mat-radio-button
+    >{{ item.viewValue }}</mat-radio-button
   >
 </mat-radio-group>

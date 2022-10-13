@@ -8,7 +8,7 @@
     "build:prod": "ng build --configuration production",
     "test": "ng test",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\"",
-    "lint:fix": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
+    "lint:fix": "eslint \"{src,apps,libs,test}/**/*{.ts,.html}\" --fix",
     "prettier": "prettier \"./**/*{.ts,.js,.scss,.html}\" --check",
     "prettier:fix": "prettier \"./**/*{.ts,.js,.scss,.html}\" --write",
     "e2e": "ng e2e",
@@ -31,6 +31,7 @@
     "firebase": "^9.10.0",
     "husky": "^8.0.1",
     "rxjs": "~7.5.0",
+    "swiper": "^8.4.2",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
   },

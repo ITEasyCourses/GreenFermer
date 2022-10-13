@@ -1,17 +1,26 @@
 <select
-  [class.padding]="placeholder"
+  [class.padding]="placeholder || placeholderGray"
+  [class.gray]="placeholderGray"
+  [class.error]="sortControl.errors && sortControl.touched"
   class="select"
   [formControl]="sortControl"
   (change)="sendSortType()"
 >
-  <option class="option" *ngIf="placeholder" disabled selected hidden value="">
-    {{ placeholder }}
+  <option
+    class="option"
+    *ngIf="placeholder || placeholderGray"
+    disabled
+    selected
+    hidden
+    value=""
+  >
+    {{ placeholder }} {{ placeholderGray }}
   </option>
   <option
     class="option"
-    [value]="[item.value]"
-    *ngFor="let item of mockSortTypes"
+    *ngFor="let item of selectItems"
+    [value]="[item.value || item.id]"
   >
-    {{ item.viewValue }}
+    {{ item.viewValue || item.address }}
   </option>
 </select>
