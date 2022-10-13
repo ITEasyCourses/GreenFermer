@@ -10,6 +10,7 @@
           <app-input
             [inputFormControl]="loginFormGroup.get('email') | getControl"
             [inputLabel]="'Ел. пошта або телефон'"
+            [placeholder]="''"
           ></app-input>
         </div>
       </div>
@@ -19,6 +20,7 @@
             [inputFormControl]="loginFormGroup.get('password') | getControl"
             [inputLabel]="'Пароль'"
             [type]="'password'"
+            [placeholder]="''"
           ></app-input>
         </div>
       </div>
@@ -45,6 +47,7 @@
             <app-button
               [buttonColor]="'transparent'"
               [buttonText]="'Зареєструватися'"
+              (click)="goToRegistration()"
             ></app-button>
           </div>
         </div>

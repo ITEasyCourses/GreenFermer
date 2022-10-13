@@ -20,7 +20,14 @@
       right: 19.88px;
       top: 19.88px;
       width: 20.25px;
+      height: 20.25px;
       cursor: pointer;
+      transition: all 0.3s ease-in-out;
+
+      &:hover {
+        color: $gray1;
+        transition: transform 0.3s ease-in-out;
+      }
     }
   }
 
@@ -146,6 +153,16 @@
         border-radius: 10px;
         padding: 4px 0;
         cursor: pointer;
+
+        &:hover {
+          background: $light-yellow;
+          transition: background .2s linear;
+        }
+
+        &:active {
+          transform: translateY(1px);
+          transition: transform .2s linear;
+        }
 
         & p {
           @include font-base(25px, 400, 39.35px);
