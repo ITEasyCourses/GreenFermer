@@ -2,6 +2,9 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+import { BreadcrumbsModule } from '../../core/components/breadcrumbs/breadcrumbs.module';
+import { ProductCardModule } from '../../core/components/product-card/product-card.module';
+
 import { CategoryDetailPageComponent } from './category-detail-page.component';
 
 const routes: Routes = [
@@ -13,6 +16,7 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [CategoryDetailPageComponent],
-  imports: [CommonModule, RouterModule.forChild(routes)]
+  exports: [CategoryDetailPageComponent],
+  imports: [CommonModule, BreadcrumbsModule, ProductCardModule]
 })
 export class CategoryDetailPageModule {}
