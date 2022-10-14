@@ -7,11 +7,9 @@ import { environment } from '../environments/environment';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { FooterModule } from './core/components/footer/footer.module';
+import { HeaderComponentModule } from './core/components/header-component/header-component.module';
 import { LoginModalModule } from './core/components/modals/login-modal/login-modal.module';
-import { SliderModule } from './core/components/slider/slider.module';
-import { CatalogPageModule } from './pages/catalog-page/catalog-page.module';
-import { CategoryPageModule } from './pages/category-page/category-page.module';
-import { HomePageModule } from './pages/home-page/home-page.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -21,10 +19,8 @@ import { HomePageModule } from './pages/home-page/home-page.module';
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebase),
     LoginModalModule,
-    CategoryPageModule,
-    SliderModule,
-    HomePageModule,
-    CatalogPageModule
+    HeaderComponentModule,
+    FooterModule
   ],
   bootstrap: [AppComponent]
 })

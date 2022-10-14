@@ -1,0 +1,19 @@
+<div [class.select-overlay]="openFlag" (click)="open()"></div>
+<button (click)="open()" class="select" [class.delivery]="deliveryStyle">
+  {{ label }}
+  <i-feather
+    name="chevron-down"
+    [class.active]="openFlag"
+    class="select-chevron"
+  ></i-feather>
+
+  <div
+    class="option-wrapper"
+    [class.open]="openFlag"
+    [class.delivery-option]="deliveryStyle"
+  >
+    <button *ngFor="let item of options" (click)="selectOption(item)">
+      {{ item.viewValue }}
+    </button>
+  </div>
+</button>
