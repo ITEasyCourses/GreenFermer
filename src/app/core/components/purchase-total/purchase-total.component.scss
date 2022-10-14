@@ -65,11 +65,11 @@
  }
 
   & .button-wrapper{
-    margin-top: 15px;
-  ::ng-deep button{
-    margin: 20px 20px 0 31px;
-    padding: 8px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100px;
+    margin: 35px 20px 0 31px;
     width: 266px;
-  }
   }
 }

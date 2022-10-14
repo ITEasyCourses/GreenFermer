@@ -6,6 +6,7 @@ import { FeatherModule } from 'angular-feather';
 import { XCircle } from 'angular-feather/icons';
 
 import { GetControlModule } from '../../../pipes/get-control/get-control.module';
+import { ButtonModule } from '../../button/button.module';
 import { CheckboxModule } from '../../checkbox/checkbox.module';
 import { InputModule } from '../../input/input.module';
 
@@ -25,7 +26,8 @@ const icons = {
     CheckboxModule,
     GetControlModule,
     ReactiveFormsModule,
-    InputModule
+    InputModule,
+    ButtonModule
   ]
 })
 export class LoginModalModule {}
