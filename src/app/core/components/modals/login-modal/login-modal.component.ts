@@ -5,11 +5,7 @@ import {
   FormGroup,
   Validators
 } from '@angular/forms';
-import {
-  MatDialog,
-  MatDialogConfig,
-  MatDialogRef
-} from '@angular/material/dialog';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 
 import { EMAIL_PATTERN } from '../../../constants/reg-exp';
 import { RegistrationModalComponent } from '../registration-modal/registration-modal.component';
@@ -53,8 +49,7 @@ export class LoginModalComponent implements OnInit {
 
   public goToRegistration(): void {
     this.dialogRef.close();
-    const loginDialogConfig = new MatDialogConfig();
-    this.matDialog.open(RegistrationModalComponent, loginDialogConfig);
+    this.matDialog.open(RegistrationModalComponent);
   }
 
   public closeModal(): void {
