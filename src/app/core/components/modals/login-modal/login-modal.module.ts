@@ -26,8 +26,8 @@ const icons = {
     CheckboxModule,
     GetControlModule,
     ReactiveFormsModule,
-    ButtonModule,
-    InputModule
+    InputModule,
+    ButtonModule
   ]
 })
 export class LoginModalModule {}
