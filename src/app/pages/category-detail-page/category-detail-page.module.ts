@@ -25,7 +25,6 @@ const routes: Routes = [
     SortSelectModule,
     BreadcrumbsModule,
     ProductCardModule
-  ],
-  exports: [CategoryDetailPageComponent]
+  ]
 })
 export class CategoryDetailPageModule {}
