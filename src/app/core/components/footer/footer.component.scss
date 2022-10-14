@@ -65,10 +65,6 @@
       opacity: 0.5;
     }
 
-    &:focus{
-      opacity: 0.5;
-    }
-
     &-img{
       @include sizeImg(252, 43, 150, 26)
     }
