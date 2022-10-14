@@ -1,5 +1,19 @@
 @import "src/assets/styles/vars";
 
+.right-path_header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.right-path-maps {
+  margin-top: 19px;
+  width: 714px;
+  height: 1050px;
+  border-radius: 10px;
+  border: 0;
+}
+
 ::-webkit-scrollbar {
   width: 10px;
 }
