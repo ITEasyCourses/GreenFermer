@@ -26,7 +26,7 @@ import { LoginModalComponent } from '../login-modal/login-modal.component';
 })
 export class RegistrationModalComponent implements OnInit {
   public registrationFormGroup!: FormGroup;
-  public typeUserValue = '';
+  public typeUserValue = USERTYPE[0].value;
   public textForRadioBtn: SortOption[] = USERTYPE;
 
   constructor(
@@ -85,6 +85,7 @@ export class RegistrationModalComponent implements OnInit {
   }
 
   public registration(): void {
+    console.log(this.registrationFormGroup.value);
     if (this.registrationFormGroup.valid) {
       this.newUserRegistration();
       this.close();

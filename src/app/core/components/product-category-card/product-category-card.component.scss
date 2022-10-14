@@ -12,6 +12,11 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+  &:hover {
+    transform: scale(1.02);
+  }
+
 
   &-title-wrapper {
     position: absolute;

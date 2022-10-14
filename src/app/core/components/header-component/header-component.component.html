@@ -12,10 +12,16 @@
           />
         </div>
         <div class="header-left-select">
-          <app-select></app-select>
+          <app-select
+            [label]="labelForSelectCatalog"
+            [options]="mocListForOptionSelect"
+          ></app-select>
         </div>
         <div *ngIf="sessionUser?.isAuthentication" class="header-menu">
-          <app-select></app-select>
+          <app-select
+            [label]="labelForSelectMenu"
+            [options]="mocListForOptionSelect"
+          ></app-select>
         </div>
       </div>
       <div class="header-right">
@@ -58,12 +64,12 @@
         [src]="sessionUser?.avatar"
         alt="avatar"
       />
-      <p class="header-right-auth-avatar-user__text">123456789</p>
+      <p class="header-right-auth-avatar-user__text">{{ sessionUser?.name }}</p>
     </div>
     <div class="header-right-auth-avatar-button">
       <app-button
         class="header-right-auth-avatar-button__size"
-        [buttonText]="'Додатитовар'"
+        [buttonText]="'Додати товар'"
         [buttonColor]="checkRoutAndScrollOptions ? 'yellow' : 'white'"
         [addIcon]="true"
       ></app-button>
