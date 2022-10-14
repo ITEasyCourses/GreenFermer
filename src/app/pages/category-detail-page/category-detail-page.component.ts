@@ -1,6 +1,8 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
+import { sortMapOptions } from '../../core/constants/sort-map-options';
 import { IProductCard } from '../../core/interfaces/i-product-card';
+import { SortOption } from '../../core/interfaces/sort-option';
 
 @Component({
   selector: 'app-category-detail-page',
@@ -10,4 +12,5 @@ import { IProductCard } from '../../core/interfaces/i-product-card';
 })
 export class CategoryDetailPageComponent {
   @Input() products!: IProductCard[];
+  public mockSortTypes: SortOption[] = sortMapOptions;
 }
