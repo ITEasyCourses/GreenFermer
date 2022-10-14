@@ -7,6 +7,7 @@ import { Component, Input } from '@angular/core';
 })
 export class FeedbackComponent {
   @Input() feedback: any;
+
   public heart = false;
   public like(): void {
     this.heart = !this.heart;

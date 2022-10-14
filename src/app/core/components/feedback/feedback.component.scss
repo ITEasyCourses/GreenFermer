@@ -7,6 +7,7 @@
 
   &_tittle {
     @include font-base(21px, 600, 33px);
+
     width: 122px;
     height: 33px;
     margin-left: 30px;
@@ -28,6 +29,7 @@
 
     &_info-name {
       @include font-base(17px, 600, 27px);
+
       margin-top: 30px;
     }
 
@@ -54,6 +56,7 @@
 
     &_info-text {
       @include font-base(17px, 400, 27px);
+
       margin-top: 16px;
     }
 
