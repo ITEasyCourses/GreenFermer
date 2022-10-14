@@ -13,5 +13,6 @@ import { SortOption } from '../../core/interfaces/sort-option';
 })
 export class CategoryDetailPageComponent {
   @Input() products: IProductCard[] = CategoryDetailConst;
+
   public mockSortTypes: SortOption[] = sortMapOptions;
 }
