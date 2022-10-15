@@ -55,13 +55,12 @@
             @include font-base(17px, 600, 27px );
 
             cursor: pointer;
+            border-bottom: 1px solid transparent;
             transition: all .2s linear;
           }
 
           &-label:hover{
-            color: $white;
-            text-shadow: $main-black 0 0 3px;
-            transition: all .2s linear;
+            border-color: $main-black;
           }
         }
 
