@@ -2,6 +2,7 @@ import {
   ChangeDetectionStrategy,
   Component,
   HostListener,
+  Input,
   OnInit
 } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
@@ -21,9 +22,12 @@ import { RegistrationModalComponent } from '../modals/registration-modal/registr
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HeaderComponentComponent implements OnInit {
+  @Input() isTransparent = false;
+
   public sessionUser?: IAuthenticationUser;
 
   public logo!: IHeaderBackground;
+
   public scrollStartPoint = 0;
   public isBottom!: boolean;
   public labelForSelectCatalog!: string;
@@ -35,7 +39,9 @@ export class HeaderComponentComponent implements OnInit {
   }
 
   public get checkRoutAndScrollOptions(): boolean {
-    return this.router.url === '/' && !this.isBottom;
+    if (this.isTransparent) {
+      return false;
+    } else return this.router.url === '/' && !this.isBottom;
   }
 
   @HostListener('window:scroll', [])
