@@ -54,4 +54,12 @@ export class HeaderComponentComponent implements OnInit {
     const regDialogConfig = new MatDialogConfig();
     this.matDialog.open(RegistrationModalComponent, regDialogConfig);
   }
+
+  public goToHome(): void {
+    this.router.navigate(['']);
+  }
+
+  public goToCatalog(): void {
+    this.router.navigate(['catalog']);
+  }
 }
