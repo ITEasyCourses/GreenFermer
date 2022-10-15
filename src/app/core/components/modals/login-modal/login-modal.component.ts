@@ -5,9 +5,10 @@ import {
   FormGroup,
   Validators
 } from '@angular/forms';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 
 import { EMAIL_PATTERN } from '../../../constants/reg-exp';
+import { RegistrationModalComponent } from '../registration-modal/registration-modal.component';
 
 @Component({
   selector: 'app-login-modal',
@@ -20,6 +21,7 @@ export class LoginModalComponent implements OnInit {
 
   constructor(
     private dialogRef: MatDialogRef<LoginModalComponent>,
+    private matDialog: MatDialog,
     private fb: FormBuilder
   ) {}
 
@@ -43,6 +45,11 @@ export class LoginModalComponent implements OnInit {
       password: new FormControl('', [Validators.required]),
       rememberUser: new FormControl(false, [])
     });
+  }
+
+  public goToRegistration(): void {
+    this.dialogRef.close();
+    this.matDialog.open(RegistrationModalComponent);
   }
 
   public closeModal(): void {

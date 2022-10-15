@@ -1,0 +1,75 @@
+@import "src/assets/styles/mixins";
+@import "src/assets/styles/vars";
+
+.purchase-total-wrapper{
+  width: 377px;
+  height: 447px;
+  background: $main-white;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 20px 30px;
+
+ & .price-wrapper{
+   @include font-base( 17px, 400);
+
+  & .together{
+    @include font-base( 35px, 500);
+
+    width: 106px;
+    height: 55px;
+    line-height: 55px;
+    display: flex;
+    align-items: center;
+  }
+
+  & .allPrice{
+    width: 100%;
+    height: 27px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-style: normal;
+    color: $main-black;
+    margin-top: 20px;
+
+    & .check{
+      @include font-base( 17px, 400);
+
+      line-height: 27px;
+      letter-spacing: 0.005em;
+    }
+
+    & .price{
+      font-weight: 600;
+      font-size: 17px;
+      line-height: 27px;
+      text-align: right;
+      letter-spacing: 0.0015em;
+    }
+
+    & .totalPrice{
+      font-weight: 500;
+      font-size: 35px;
+      line-height: 55px;
+      text-align: right;
+      letter-spacing: 0.0025em;
+   }
+  }
+
+  hr {
+    margin: 10px 0 15px;
+    width: 100%;
+    height: 2px;
+    color: $gray3;
+  }
+ }
+
+  & .button-wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100px;
+    margin: 35px 20px 0 31px;
+    width: 266px;
+  }
+}
