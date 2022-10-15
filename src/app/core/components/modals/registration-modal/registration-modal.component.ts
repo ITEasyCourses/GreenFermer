@@ -13,7 +13,8 @@ import {
 
 import {
   patternValidators,
-  USERTYPE
+  USER_START_SELECT_TYPE,
+  USER_TYPE
 } from '../../../constants/registration.constants';
 import { SortOption } from '../../../interfaces/sort-option';
 import { LoginModalComponent } from '../login-modal/login-modal.component';
@@ -26,8 +27,8 @@ import { LoginModalComponent } from '../login-modal/login-modal.component';
 })
 export class RegistrationModalComponent implements OnInit {
   public registrationFormGroup!: FormGroup;
-  public typeUserValue = USERTYPE[0].value;
-  public textForRadioBtn: SortOption[] = USERTYPE;
+  public typeUserValue = USER_START_SELECT_TYPE;
+  public textForRadioBtn: SortOption[] = USER_TYPE;
 
   constructor(
     private dialogRef: MatDialogRef<RegistrationModalComponent>,

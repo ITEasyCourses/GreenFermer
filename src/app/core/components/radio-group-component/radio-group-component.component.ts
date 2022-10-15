@@ -3,8 +3,7 @@ import {
   Input,
   Output,
   EventEmitter,
-  ChangeDetectionStrategy,
-  OnInit
+  ChangeDetectionStrategy
 } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
@@ -16,20 +15,14 @@ import { SortOption } from '../../interfaces/sort-option';
   styleUrls: ['./radio-group-component.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class RadioGroupComponentComponent implements OnInit {
+export class RadioGroupComponentComponent {
   @Input() radioBtnItems!: SortOption[];
   @Input() positionHorizontal = false;
-
+  @Input() radioBtnStartSelect?: string;
   @Output() radioGroupResult = new EventEmitter<string>();
-
-  public radioGroupControl: FormControl = new FormControl('');
-  public defaultValue = '';
+  public radioGroupControl: FormControl = new FormControl(``);
 
   public radioAnswer(): void {
     this.radioGroupResult.emit(this.radioGroupControl.value);
-  }
-
-  ngOnInit(): void {
-    this.defaultValue = this.radioBtnItems[0].value;
   }
 }

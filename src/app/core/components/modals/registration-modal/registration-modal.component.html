@@ -12,6 +12,7 @@
       <app-radio-group-component
         class="formGroup__radioGroup"
         [radioBtnItems]="textForRadioBtn"
+        [radioBtnStartSelect]="typeUserValue"
         (radioGroupResult)="setUserTypeControl($event)"
       ></app-radio-group-component>
       <div class="formGroup__inputGroupContainer inputGroupContainer">
