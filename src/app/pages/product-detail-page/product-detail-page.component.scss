@@ -14,3 +14,19 @@
   }
 }
 
+@import "src/assets/styles/mixins";
+
+.description {
+
+  &-title {
+    @include font-base(21px, 600, 33px );
+  }
+
+  &-text {
+    @include font-base(17px, 400, 27px );
+
+    margin-top: 30px;
+    white-space: pre-line;
+  }
+}
+
