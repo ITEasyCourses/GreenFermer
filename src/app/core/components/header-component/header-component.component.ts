@@ -29,6 +29,8 @@ export class HeaderComponentComponent implements OnInit {
   public labelForSelectCatalog!: string;
   public mocListForOptionSelect!: SortOption[];
   public labelForSelectMenu!: string;
+  public catalog!: string;
+  public optionCatalog!: SortOption[];
 
   constructor(private router: Router, private matDialog: MatDialog) {
     this.isBottom = false;
@@ -44,6 +46,8 @@ export class HeaderComponentComponent implements OnInit {
   }
 
   public ngOnInit(): void {
+    this.optionCatalog = CATEGORIES;
+    this.catalog = LABEL_SELECT.CATALOG;
     this.logo = HEADER_LOGO;
     this.labelForSelectCatalog = LABEL_SELECT.CATALOG;
     this.labelForSelectMenu = LABEL_SELECT.MENU;
