@@ -3,7 +3,6 @@
 .feedback {
   display: flex;
   flex-direction: column;
-  padding: 40px 100px;
 
   &_tittle {
     @include font-base(21px, 600, 33px);
