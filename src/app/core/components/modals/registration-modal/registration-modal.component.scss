@@ -8,7 +8,9 @@
     border-radius: 10px;
     width: 1040px;
     height: inherit;
-    overflow: auto;
+    margin: 20px 0;
+    overflow-y: auto;
+    overflow-x: hidden;
   }
 
   .modal-header {
