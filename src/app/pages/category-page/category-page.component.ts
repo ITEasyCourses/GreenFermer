@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component} from '@angular/core';
+
 
 @Component({
   selector: 'app-category-page',
@@ -6,4 +7,6 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   styleUrls: ['./category-page.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CategoryPageComponent {}
+export class CategoryPageComponent {
+  public img = '../../../assets/images/category-page/fruits.png';
+}

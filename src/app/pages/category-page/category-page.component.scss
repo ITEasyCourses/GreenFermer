@@ -1,0 +1,24 @@
+.first-container {
+  width: 100%;
+  height: 324px;
+  top: 0;
+  display: flex;
+  justify-content: space-around;
+  z-index: 5;
+
+  & .category-search {
+    width: 1028px;
+    margin-top: 162px;
+  }
+}
+
+.category-banner {
+  width: 100%;
+  height: 324px;
+  object-fit: cover;
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
