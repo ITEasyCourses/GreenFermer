@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 
 import { HEADER_LOGO } from '../../constants/header.constants';
 import { CATEGORIES, LABEL_SELECT } from '../../constants/select.constants';
+import { ERoutes } from '../../enums/routes';
 import { IAuthenticationUser } from '../../interfaces/i-authentication-user';
 import { IHeaderBackground } from '../../interfaces/i-heder-background';
 import { SortOption } from '../../interfaces/sort-option';
@@ -57,5 +58,13 @@ export class HeaderComponentComponent implements OnInit {
   public openRegModal(): void {
     const regDialogConfig = new MatDialogConfig();
     this.matDialog.open(RegistrationModalComponent, regDialogConfig);
+  }
+
+  public goToHome(): void {
+    this.router.navigate([ERoutes.HOME]);
+  }
+
+  public goToCatalog(): void {
+    this.router.navigate([ERoutes.CATALOG_PAGE]);
   }
 }

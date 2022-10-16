@@ -43,12 +43,25 @@
           height: 32px;
           width: 190px;
           border-radius: 0;
+          cursor: pointer;
         }
 
         &-select {
           margin-left: 50px;
           width: 96px;
           height: 27px;
+
+          &-label{
+            @include font-base(17px, 600, 27px );
+
+            cursor: pointer;
+            border-bottom: 1px solid transparent;
+            transition: all .2s linear;
+          }
+
+          &-label:hover{
+            border-color: $main-black;
+          }
         }
 
         &-menu {
