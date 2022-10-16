@@ -11,8 +11,8 @@
     <div class="left__formGroup formGroup">
       <app-radio-group-component
         class="formGroup__radioGroup"
+        [radioGroupControl]="registrationFormGroup.get('userType') | getControl"
         [radioBtnItems]="textForRadioBtn"
-        [radioBtnStartSelect]="typeUserValue"
         (radioGroupResult)="setUserTypeControl($event)"
       ></app-radio-group-component>
       <div class="formGroup__inputGroupContainer inputGroupContainer">

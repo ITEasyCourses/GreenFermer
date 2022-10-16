@@ -18,9 +18,8 @@ import { SortOption } from '../../interfaces/sort-option';
 export class RadioGroupComponentComponent {
   @Input() radioBtnItems!: SortOption[];
   @Input() positionHorizontal = false;
-  @Input() radioBtnStartSelect?: string;
   @Output() radioGroupResult = new EventEmitter<string>();
-  public radioGroupControl: FormControl = new FormControl(``);
+  @Input() radioGroupControl: FormControl = new FormControl(``);
 
   public radioAnswer(): void {
     this.radioGroupResult.emit(this.radioGroupControl.value);
