@@ -41,7 +41,8 @@ export class HeaderComponentComponent implements OnInit {
   public get checkRoutAndScrollOptions(): boolean {
     if (this.isTransparent) {
       return false;
-    } else return this.router.url === '/' && !this.isBottom;
+    }
+    return this.router.url === '/' && !this.isBottom;
   }
 
   @HostListener('window:scroll', [])

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs';
 
+import { RouteNavigation } from './core/interfaces/route-navigation';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -16,10 +18,13 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.router.events
       .pipe(filter((event) => event instanceof NavigationEnd))
-      .subscribe((rout: any) => {
-        if (rout.urlAfterRedirects !== '/') {
-          this.yellowHeader = true;
-        }
+      .subscribe((route: RouteNavigation) => {
+        this.yellowHeader = route.urlAfterRedirects !== '/';
       });
   }
 }
+
+/* id: 1
+type: 1
+url: "/catalog"
+urlAfterRedirects: "/catalog"*/
