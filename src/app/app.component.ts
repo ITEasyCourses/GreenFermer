@@ -15,6 +15,10 @@ export class AppComponent implements OnInit {
   constructor(private router: Router) {}
 
   ngOnInit(): void {
+    this.handlerOfRouterSubscribe();
+  }
+
+  private handlerOfRouterSubscribe(): void {
     this.router.events
       .pipe(
         filter(
