@@ -13,7 +13,8 @@ export const patternValidators = {
   PHONE_PATTERN: new RegExp(/^(?:\+38)?(0\d{9})$/)
 };
 
-export const USERTYPE: SortOption[] = [
+export const USER_TYPE: SortOption[] = [
   { value: 'bayer', viewValue: 'Покупець' },
   { value: 'farm', viewValue: 'Фермер' }
 ];
+export const USER_START_SELECT_TYPE = 'bayer';
