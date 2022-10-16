@@ -1,0 +1,53 @@
+@import "src/assets/styles/mixins";
+
+.checkout{
+  width: 100%;
+  margin: 100px 0;
+  border: 1px solid #000;
+  &_btn-wrap{
+    @include font-base(17px, 600, 27px);
+
+    display: flex;
+    flex-direction: row;
+    &_one{
+      margin-right: 50px;
+    }
+    &_two{}
+  }
+  &_title{
+    @include font-base(21px, 600, 33px);
+
+    margin: 20px 0;
+  }
+  &_input{
+    @include font-base(17px, 400, 27px);
+
+    display: flex;
+    flex-direction: row;
+    &_firstBlock{
+      display: flex;
+      flex-direction: column;
+      margin-right: 230px;
+      &_name{
+        margin-right: 475px;
+        margin-bottom: 10px;
+      }
+      &_phone{
+        margin-bottom: 10px;
+        margin-top: 20px;
+      }
+    }
+    &_secondBlock{
+      display: flex;
+      flex-direction: column;
+      &_secondName{
+        margin-right: 430px;
+        margin-bottom: 10px;
+      }
+      &_email{
+        margin-top: 20px;
+        margin-bottom: 10px;
+      }
+    }
+  }
+}

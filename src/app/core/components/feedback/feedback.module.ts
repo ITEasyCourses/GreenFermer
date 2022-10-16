@@ -11,6 +11,7 @@ import { FeedbackComponent } from './feedback.component';
 const icons = {
   Heart
 };
+
 @NgModule({
   declarations: [FeedbackComponent],
   exports: [FeedbackComponent],
