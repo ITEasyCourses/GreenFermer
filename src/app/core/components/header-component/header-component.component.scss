@@ -12,10 +12,12 @@
 
   &.header-wrapper .yellow {
     background: $main-yellow;
+    transition: background 0.3s;
   }
 
   &.transparent {
     background: linear-gradient(180deg, #FFFFFF 0%, rgba(245, 245, 245, 0) 100%);
+    transition: background 0.3s;
   }
 
   &.yellow {
