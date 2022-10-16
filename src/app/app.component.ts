@@ -23,8 +23,3 @@ export class AppComponent implements OnInit {
       });
   }
 }
-
-/* id: 1
-type: 1
-url: "/catalog"
-urlAfterRedirects: "/catalog"*/

@@ -1,5 +1,5 @@
 export interface RouteNavigation {
-  id: number;
+  id?: number;
   type?: number;
   url?: string;
   urlAfterRedirects?: string;
