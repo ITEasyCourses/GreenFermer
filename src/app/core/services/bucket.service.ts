@@ -1,25 +1,32 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BucketService {
-  public goodsCounterSubj: Subject<number> = new Subject<number>();
+  private goodsCounterSubj: Subject<number> = new Subject<number>();
+  private goodsCounter$: Observable<number> =
+    this.goodsCounterSubj.asObservable();
+
+  public get getGoodsCounter$(): Observable<number> {
+    return this.goodsCounter$;
+  }
 
   public setGoodsInLocalStorage(item: any): void {
-    const currentSession = JSON.parse(localStorage.getItem('session') || '');
-    const newItemInBucket = {
-      ...currentSession,
-      bucket: [...currentSession.bucket, item]
-    };
-    localStorage.setItem('session', JSON.stringify(newItemInBucket));
-    this.setValueInGoodsCounter();
+    const currentSessionBucket = JSON.parse(
+      localStorage.getItem('bucket') || ''
+    );
+    if (currentSessionBucket) {
+      const setNewItemInBucket = [...currentSessionBucket, item];
+      localStorage.setItem('bucket', JSON.stringify(setNewItemInBucket));
+      this.setValueInGoodsCounter();
+    }
   }
 
   private setValueInGoodsCounter(): void {
     this.goodsCounterSubj.next(
-      JSON.parse(localStorage.getItem('session') || '').bucket.length
+      JSON.parse(localStorage.getItem('bucket') || '').length
     );
   }
 }

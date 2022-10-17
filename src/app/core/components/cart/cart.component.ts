@@ -17,10 +17,15 @@ import { CartColorsType } from '../../types/application-types';
 export class CartComponent implements OnInit {
   @Input() counter = 0;
   @Input() color: CartColorsType = 'yellow';
+
   constructor(private bucketService: BucketService) {}
 
   public ngOnInit(): void {
-    this.bucketService.goodsCounterSubj.subscribe(
+    this.updateCounterBySubscribe();
+  }
+
+  private updateCounterBySubscribe(): void {
+    this.bucketService.getGoodsCounter$.subscribe(
       (num) => (this.counter = num)
     );
   }
