@@ -6,7 +6,6 @@ import { Subject } from 'rxjs';
 })
 export class BucketService {
   public goodsCounterSubj: Subject<number> = new Subject<number>();
-  constructor() {}
 
   public setGoodsInLocalStorage(item: any): void {
     const currentSession = JSON.parse(localStorage.getItem('session') || '');

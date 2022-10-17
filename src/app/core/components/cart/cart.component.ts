@@ -19,7 +19,7 @@ export class CartComponent implements OnInit {
   @Input() color: CartColorsType = 'yellow';
   constructor(private bucketService: BucketService) {}
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.bucketService.goodsCounterSubj.subscribe(
       (num) => (this.counter = num)
     );
