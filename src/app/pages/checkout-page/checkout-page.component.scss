@@ -1,70 +1,54 @@
 @import "src/assets/styles/mixins";
 
-.checkout{
+.checkout {
   width: 100%;
   margin: 100px 0;
-  &_btn-wrap{
+
+  &_wrap {
     @include font-base(17px, 600, 27px);
 
-    display: flex;
-    flex-direction: row;
-    &_one{
-      text-decoration: none;
-      margin-right: 50px;
-      border-bottom: 1px solid transparent;
-    }
-    &_two{
+    &_link {
       text-decoration: none;
       border-bottom: 1px solid transparent;
-    }
-    &_one:hover{
-    border-bottom: 1px solid #000
-    }
-    &_two:hover{
-      border-bottom: 1px solid #000
-    }
-    &_one:visited{
-      color: #000000;
-    }
-    &_two:visited{
-      color: #000000;
-    }
+      transition: border-color 0.3s;
 
+      &:first-child {
+        margin-right: 50px;
+      }
+
+      &:hover {
+        border-color: $main-black;
+        transition: border-color 0.3s;
+      }
+
+      &:visited {
+        color: $main-black;
+      }
+    }
   }
-  &_title{
+
+  &_title {
     @include font-base(21px, 600, 33px);
 
-    margin: 20px 0;
+    margin-top: 20px;
   }
-  &_input{
+
+  &_input {
     @include font-base(17px, 400, 27px);
 
     display: flex;
-    flex-direction: row;
-    &_firstBlock{
-      display: flex;
-      flex-direction: column;
-      margin-right: 230px;
-      &_name{
-        margin-right: 475px;
-        margin-bottom: 10px;
-      }
-      &_phone{
-        margin-bottom: 10px;
-        margin-top: 20px;
-      }
-    }
-    &_secondBlock{
-      display: flex;
-      flex-direction: column;
-      &_secondName{
-        margin-right: 430px;
-        margin-bottom: 10px;
-      }
-      &_email{
-        margin-top: 20px;
-        margin-bottom: 10px;
+    justify-content: space-between;
+
+    &_block{
+      width: 505px;
+
+      &_item{
+
+        &:not(:last-child){
+          padding: 20px;
+        }
       }
     }
   }
 }
+

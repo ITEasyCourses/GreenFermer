@@ -1,23 +1,31 @@
 <div class="checkout">
-  <div class="checkout_btn-wrap">
-    <a href="#" class="checkout_btn-wrap_one">Продовжити без реєстрації</a>
-    <a href="#" class="checkout_btn-wrap_two">Увійти</a>
+  <div class="checkout_wrap">
+    <a href="#" class="checkout_wrap_link">Продовжити без реєстрації</a>
+    <a href="#" class="checkout_wrap_link">Увійти</a>
   </div>
   <div class="checkout_title">
     <p>Контактні дані</p>
   </div>
   <div class="checkout_input">
-    <div class="checkout_input_firstBlock">
-      <p class="checkout_input_firstBlock_name">Ім’я</p>
-      <app-input></app-input>
-      <p class="checkout_input_firstBlock_phone">Телефон</p>
-      <app-input></app-input>
+    <div class="checkout_input_block">
+      <app-input
+        class="checkout_input_block_item"
+        [inputLabel]="'Ім’я'"
+      ></app-input>
+      <app-input
+        class="checkout_input_block_item"
+        [inputLabel]="'Телефон'"
+      ></app-input>
     </div>
-    <div class="checkout_input_secondBlock">
-      <p class="checkout_input_secondBlock_secondName">Прізвище</p>
-      <app-input></app-input>
-      <p class="checkout_input_secondBlock_email">Електронна пошта</p>
-      <app-input></app-input>
+    <div class="checkout_input_block">
+      <app-input
+        class="checkout_input_block_item"
+        [inputLabel]="'Прізвище'"
+      ></app-input>
+      <app-input
+        class="checkout_input_block_item"
+        [inputLabel]="'Електронна пошта'"
+      ></app-input>
     </div>
   </div>
 </div>
