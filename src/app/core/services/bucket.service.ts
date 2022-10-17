@@ -5,6 +5,10 @@ import { Observable, Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class BucketService {
+  private currentSessionBucket = localStorage.getItem('bucket')
+    ? JSON.parse(localStorage.getItem('bucket') || '')
+    : [];
+
   private goodsCounterSubj: Subject<number> = new Subject<number>();
   private goodsCounter$: Observable<number> =
     this.goodsCounterSubj.asObservable();
@@ -14,19 +18,12 @@ export class BucketService {
   }
 
   public setGoodsInLocalStorage(item: any): void {
-    const currentSessionBucket = JSON.parse(
-      localStorage.getItem('bucket') || ''
-    );
-    if (currentSessionBucket) {
-      const setNewItemInBucket = [...currentSessionBucket, item];
-      localStorage.setItem('bucket', JSON.stringify(setNewItemInBucket));
-      this.setValueInGoodsCounter();
-    }
+    const setNewItemInBucket = [...this.currentSessionBucket, item];
+    localStorage.setItem('bucket', JSON.stringify(setNewItemInBucket));
+    this.setValueInGoodsCounter();
   }
 
   private setValueInGoodsCounter(): void {
-    this.goodsCounterSubj.next(
-      JSON.parse(localStorage.getItem('bucket') || '').length
-    );
+    this.goodsCounterSubj.next(this.currentSessionBucket.length);
   }
 }
