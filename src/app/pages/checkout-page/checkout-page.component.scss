@@ -3,7 +3,6 @@
 .checkout{
   width: 100%;
   margin: 100px 0;
-  border: 1px solid #000;
   &_btn-wrap{
     @include font-base(17px, 600, 27px);
 
@@ -12,23 +11,25 @@
     &_one{
       text-decoration: none;
       margin-right: 50px;
+      border-bottom: 1px solid transparent;
     }
     &_two{
       text-decoration: none;
+      border-bottom: 1px solid transparent;
     }
     &_one:hover{
-      text-decoration: underline;
+    border-bottom: 1px solid #000
     }
     &_two:hover{
-      text-decoration: underline;
+      border-bottom: 1px solid #000
     }
     &_one:visited{
       color: #000000;
     }
     &_two:visited{
       color: #000000;
-
     }
+
   }
   &_title{
     @include font-base(21px, 600, 33px);
