@@ -1,5 +1,8 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
+import { ProductCardConstants } from '../../core/constants/product-card.constants';
+import { IProductCard } from '../../core/interfaces/i-product-card';
+
 @Component({
   selector: 'app-category-page',
   templateUrl: './category-page.component.html',
@@ -8,4 +11,5 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 })
 export class CategoryPageComponent {
   public img = '../../../assets/images/category-page/fruits.png';
+  allProduct: IProductCard[] = ProductCardConstants;
 }
