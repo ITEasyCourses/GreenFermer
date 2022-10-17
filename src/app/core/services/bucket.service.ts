@@ -5,25 +5,27 @@ import { Observable, Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class BucketService {
-  private currentSessionBucket = localStorage.getItem('bucket')
-    ? JSON.parse(localStorage.getItem('bucket') || '')
-    : [];
-
   private goodsCounterSubj: Subject<number> = new Subject<number>();
-  private goodsCounter$: Observable<number> =
-    this.goodsCounterSubj.asObservable();
 
-  public get getGoodsCounter$(): Observable<number> {
-    return this.goodsCounter$;
+  public getGoodsCounter(): Observable<number> {
+    return this.goodsCounterSubj.asObservable();
   }
 
+  // TODO добавить типизацию, когда она будет доступна
   public setGoodsInLocalStorage(item: any): void {
-    const setNewItemInBucket = [...this.currentSessionBucket, item];
+    const setNewItemInBucket = [...this.getCurrentSessionBucket(), item];
     localStorage.setItem('bucket', JSON.stringify(setNewItemInBucket));
     this.setValueInGoodsCounter();
   }
 
+  // TODO добавить типизацию, когда она будет доступна
+  private getCurrentSessionBucket(): any[] {
+    return localStorage.getItem('bucket')
+      ? JSON.parse(localStorage.getItem('bucket') || '')
+      : [];
+  }
+
   private setValueInGoodsCounter(): void {
-    this.goodsCounterSubj.next(this.currentSessionBucket.length);
+    this.goodsCounterSubj.next(this.getCurrentSessionBucket().length);
   }
 }

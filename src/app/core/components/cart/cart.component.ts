@@ -25,8 +25,8 @@ export class CartComponent implements OnInit {
   }
 
   private updateCounterBySubscribe(): void {
-    this.bucketService.getGoodsCounter$.subscribe(
-      (num) => (this.counter = num)
-    );
+    this.bucketService
+      .getGoodsCounter()
+      .subscribe((num) => (this.counter = num));
   }
 }
