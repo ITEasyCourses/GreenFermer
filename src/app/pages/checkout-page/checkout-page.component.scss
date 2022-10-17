@@ -18,7 +18,6 @@
 
       &:hover {
         border-color: $main-black;
-        transition: border-color 0.3s;
       }
 
       &:visited {
@@ -43,7 +42,6 @@
       width: 505px;
 
       &_item{
-
         &:not(:last-child){
           padding: 20px;
         }
