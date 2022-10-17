@@ -15,7 +15,7 @@ import { CartColorsType } from '../../types/application-types';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CartComponent implements OnInit {
-  @Input() counter = 6;
+  @Input() counter = 0;
   @Input() color: CartColorsType = 'yellow';
   constructor(private bucketService: BucketService) {}
 
