@@ -5,3 +5,6 @@
     {{ description }}
   </p>
 </div>
+<div *ngFor="let feedback of arrFeedback">
+  <app-feedback [feedback]="feedback"></app-feedback>
+</div>

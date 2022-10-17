@@ -1,5 +1,31 @@
 @import "src/assets/styles/vars";
 
+.category{
+  margin: 95px 0 40px;
+
+  &__wrapper{
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.right-path{
+
+  &_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 19px
+  }
+
+  &-maps {
+    width: 714px;
+    height: 1050px;
+    border-radius: 10px;
+    border: 0;
+  }
+}
+
 ::-webkit-scrollbar {
   width: 10px;
 }
@@ -26,12 +52,9 @@
   &_content{
     width: 520px;
     height: 1105px;
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 30px 36px;
     overflow-y: scroll;
-
-    &_card{
-      margin: 0 30px 36px 0;
-    }
   }
 }

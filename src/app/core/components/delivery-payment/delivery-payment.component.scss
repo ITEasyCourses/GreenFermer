@@ -1,0 +1,65 @@
+@import "/src/assets/styles/vars";
+@import "/src/assets/styles/mixins";
+
+
+.wrapper {
+  display: flex;
+
+  & .title {
+    @include font-base(21px, 600, 33px);
+
+    margin-bottom: 20px;
+  }
+
+  & .label {
+    margin-bottom: 10px;
+  }
+
+  &-payment {
+    margin-left: 98px;
+  }
+}
+
+.delivery {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  &-selects {
+    display: flex;
+    flex-direction: column;
+    gap: 27px;
+
+    & .app-select {
+      width: 400px;
+    }
+  }
+}
+
+.payment {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  & .credit-type {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  & .cash {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+  }
+
+  & .credit-wallet {
+    @include font-base(21px, 600);
+
+  }
+}
+
+::ng-deep .mat-radio-button {
+  @include font-base(17px, 400);
+}
