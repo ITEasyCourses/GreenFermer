@@ -2,10 +2,10 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+import { SearchModule } from '../../core/components/search/search.module';
 import { ERoutes } from '../../core/enums/routes';
 
 import { CategoryPageComponent } from './category-page.component';
-import { SearchModule } from '../../core/components/search/search.module';
 
 const routes: Routes = [
   {
@@ -25,9 +25,7 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [CategoryPageComponent],
-  exports: [
-    CategoryPageComponent
-  ],
+  exports: [CategoryPageComponent],
   imports: [CommonModule, RouterModule.forChild(routes), SearchModule]
 })
 export class CategoryPageModule {}
