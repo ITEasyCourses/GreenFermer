@@ -1,6 +1,30 @@
-<div class="description">
-  <p class="description-title">Опис</p>
-  <p class="description-text">
-    {{ description }}
-  </p>
+<div class="container">
+  <div class="description">
+    <p class="description-title">Опис</p>
+    <p class="description-text">
+      {{ description }}
+    </p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="third">
+    <div class="third-head">
+      <h3 class="third-head-name">Популярні товари продавця</h3>
+      <div class="third-head-select">
+        <app-sort-select
+          [placeholder]="'Сортувати за'"
+          [selectItems]="mockSortTypes"
+        ></app-sort-select>
+      </div>
+    </div>
+    <div class="third-cardss">
+      <div class="third-cardss-cards" *ngFor="let card of cards">
+        <app-product-card
+          class="third-cardss-cards-card"
+          [card]="card"
+        ></app-product-card>
+      </div>
+    </div>
+  </div>
 </div>

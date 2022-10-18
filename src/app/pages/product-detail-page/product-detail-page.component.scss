@@ -13,4 +13,22 @@
     white-space: pre-line;
   }
 }
+.third{
+  display: flex;
+  flex-direction: column;
+  &-head{
+    display: flex;
+    justify-content: space-between;
+    &-name{
+      @include font-base( 21px, 600, 33px)
+    }
+  }
+  &-cardss{
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
 
