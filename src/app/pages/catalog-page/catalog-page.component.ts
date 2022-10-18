@@ -21,7 +21,7 @@ export class CatalogPageComponent {
 
   constructor(private router: Router) {}
 
-  goToCatalog(card: IProductCategoryCard): void {
+  public goToCatalog(card: IProductCategoryCard): void {
     this.router.navigate([`catalog/`, card.title]);
   }
 }

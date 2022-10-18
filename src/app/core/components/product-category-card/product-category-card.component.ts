@@ -16,6 +16,7 @@ import { IProductCategoryCard } from '../../interfaces/product-category-card.int
 })
 export class ProductCategoryCardComponent {
   @Input() productCategoryCard?: IProductCategoryCard;
+
   @Output() card: EventEmitter<IProductCategoryCard> =
     new EventEmitter<IProductCategoryCard>();
 
