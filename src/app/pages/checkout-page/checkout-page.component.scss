@@ -8,16 +8,18 @@
     @include font-base(17px, 600, 27px);
 
     &_link {
+      cursor: pointer;
       text-decoration: none;
       border-bottom: 1px solid transparent;
       transition: border-color 0.3s;
 
-      &:first-child {
-        margin-right: 50px;
+      &.check{
+        border-bottom: 1px solid $main-black;
+        cursor: default
       }
 
-      &:hover {
-        border-color: $main-black;
+      &:first-child {
+        margin-right: 50px;
       }
 
       &:visited {
@@ -29,7 +31,7 @@
   &_title {
     @include font-base(21px, 600, 33px);
 
-    margin-top: 20px;
+    margin: 20px 0;
   }
 
   &_input {
@@ -41,12 +43,9 @@
     &_block{
       width: 505px;
 
-      &_item{
-        &:not(:last-child){
-          padding: 20px;
-        }
+      &_phone,&_email{
+        margin-top: 20px;
       }
     }
   }
 }
-

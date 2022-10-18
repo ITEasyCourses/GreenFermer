@@ -1,31 +1,37 @@
 <div class="checkout">
   <div class="checkout_wrap">
-    <a href="#" class="checkout_wrap_link">Продовжити без реєстрації</a>
-    <a href="#" class="checkout_wrap_link">Увійти</a>
+    <a
+      (click)="changeState(1)"
+      [ngClass]="!state ? 'check' : null"
+      class="checkout_wrap_link"
+      >Продовжити без реєстрації</a
+    >
+    <a
+      (click)="changeState(2)"
+      [ngClass]="state ? 'check' : null"
+      class="checkout_wrap_link"
+      >Увійти</a
+    >
   </div>
   <div class="checkout_title">
     <p>Контактні дані</p>
   </div>
   <div class="checkout_input">
     <div class="checkout_input_block">
-      <app-input
-        class="checkout_input_block_item"
-        [inputLabel]="'Ім’я'"
-      ></app-input>
-      <app-input
-        class="checkout_input_block_item"
-        [inputLabel]="'Телефон'"
-      ></app-input>
+      <div class="checkout_input_block_name">
+        <app-input [inputLabel]="'Ім’я'"></app-input>
+      </div>
+      <div class="checkout_input_block_phone">
+        <app-input [inputLabel]="'Телефон'"></app-input>
+      </div>
     </div>
     <div class="checkout_input_block">
-      <app-input
-        class="checkout_input_block_item"
-        [inputLabel]="'Прізвище'"
-      ></app-input>
-      <app-input
-        class="checkout_input_block_item"
-        [inputLabel]="'Електронна пошта'"
-      ></app-input>
+      <div class="checkout_input_block_secondName">
+        <app-input [inputLabel]="'Прізвище'"></app-input>
+      </div>
+      <div class="checkout_input_block_email">
+        <app-input [inputLabel]="'Електронна пошта'"></app-input>
+      </div>
     </div>
   </div>
 </div>
