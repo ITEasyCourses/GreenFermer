@@ -27,4 +27,14 @@
       </div>
     </div>
   </div>
+  <app-breadcrumbs></app-breadcrumbs>
+  <div class="description">
+    <p class="description-title">Опис</p>
+    <p class="description-text">
+      {{ description }}
+    </p>
+  </div>
+  <div *ngFor="let feedback of arrFeedback">
+    <app-feedback [feedback]="feedback"></app-feedback>
+  </div>
 </div>

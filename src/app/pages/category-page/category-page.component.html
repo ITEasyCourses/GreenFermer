@@ -1,1 +1,7 @@
-<p>category-page works!</p>
+<div class="container-body">
+  <div class="body">
+    <div class="card-wrapper" *ngFor="let product of allProduct">
+      <app-product-card [card]="product"></app-product-card>
+    </div>
+  </div>
+</div>

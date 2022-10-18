@@ -1,10 +1,19 @@
-<div class="container">
-  <div class="product">
-    <p class="title">Популярні продукти</p>
-    <div class="product_wrap">
-      <div class="product_wrap_carts" *ngFor="let product of productList">
-        <app-product-card [card]="product"></app-product-card>
-      </div>
+<div class="first">
+  <img src="../../../assets/images/home-page/banner.png" />
+  <div class="first-interactive">
+    <div class="first-interactive-search">
+      <app-search></app-search>
+    </div>
+    <div class="first-interactive__slider">
+      <app-slider [categoriesList]="sliderList"></app-slider>
+    </div>
+  </div>
+</div>
+<div class="product">
+  <p class="product__title">Популярні продукти</p>
+  <div class="product__wrap">
+    <div class="product__wrap_carts" *ngFor="let product of productList">
+      <app-product-card [card]="product"></app-product-card>
     </div>
   </div>
 </div>

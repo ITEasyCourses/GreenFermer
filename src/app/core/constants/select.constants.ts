@@ -22,3 +22,12 @@ export const LABEL_SELECT = {
   CATALOG: 'Каталог',
   MENU: 'Меню'
 };
+
+export const ORDER_PAGE_SELECT: SortOption[] = [
+  { value: 'isDane', viewValue: 'Статус ОБР' },
+  { value: '!isDane', viewValue: 'Статус ВИК' },
+  { value: 'cityFromOder', viewValue: 'Місто А-Я' },
+  { value: '!cityFromOder', viewValue: 'Місто Я-А' },
+  { value: 'sumOderProducts', viewValue: 'Сума +' },
+  { value: '!sumOderProducts', viewValue: 'Сума -' }
+];

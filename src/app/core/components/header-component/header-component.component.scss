@@ -1,21 +1,27 @@
 @import "src/assets/styles/vars";
 @import "src/assets/styles/mixins";
 
-
 .header-wrapper {
-  position: sticky;
+  position: fixed;
   top: 0;
   width: 100%;
   height: 60px;
   display: flex;
   align-items: center;
+  z-index: 5;
 
-  &.yellow {
+  &.header-wrapper .yellow {
     background: $main-yellow;
+    transition: background 0.3s;
   }
 
   &.transparent {
     background: linear-gradient(180deg, #FFFFFF 0%, rgba(245, 245, 245, 0) 100%);
+    transition: background 0.3s;
+  }
+
+  &.yellow {
+    background: $main-yellow;
   }
 
   & .container {
@@ -39,12 +45,25 @@
           height: 32px;
           width: 190px;
           border-radius: 0;
+          cursor: pointer;
         }
 
         &-select {
           margin-left: 50px;
           width: 96px;
           height: 27px;
+
+          &-label{
+            @include font-base(17px, 600, 27px );
+
+            cursor: pointer;
+            border-bottom: 1px solid transparent;
+            transition: all .2s linear;
+          }
+
+          &-label:hover{
+            border-color: $main-black;
+          }
         }
 
         &-menu {

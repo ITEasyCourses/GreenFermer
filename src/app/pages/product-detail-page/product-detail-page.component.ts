@@ -1,6 +1,8 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
+import { feedbackConstants } from '../../core/constants/feedback.constants';
 import { PRODUCT_DESCRIPTION } from '../../core/constants/product-detail.constants';
+import { Feedback } from '../../core/interfaces/feedback-interface';
 import { IProductCard } from '../../core/interfaces/i-product-card';
 import { SortOption } from '../../core/interfaces/sort-option';
 
@@ -42,4 +44,5 @@ export class ProductDetailPageComponent {
   ];
 
   public mockSortTypes!: SortOption[];
+  public arrFeedback: Feedback[] = feedbackConstants;
 }

@@ -25,6 +25,7 @@
     content: "";
     position: absolute;
     background-image: url(~src/assets/images/footer/bg.svg);
+    background-color: $gray5;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: top center;
@@ -61,10 +62,6 @@
     }
 
     &:active{
-      opacity: 0.5;
-    }
-
-    &:focus{
       opacity: 0.5;
     }
 

@@ -7,6 +7,8 @@ import { environment } from '../environments/environment';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { FooterModule } from './core/components/footer/footer.module';
+import { HeaderComponentModule } from './core/components/header-component/header-component.module';
 import { LoginModalModule } from './core/components/modals/login-modal/login-modal.module';
 
 @NgModule({
@@ -16,7 +18,9 @@ import { LoginModalModule } from './core/components/modals/login-modal/login-mod
     AppRoutingModule,
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebase),
-    LoginModalModule
+    LoginModalModule,
+    HeaderComponentModule,
+    FooterModule
   ],
   bootstrap: [AppComponent]
 })
