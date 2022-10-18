@@ -1,0 +1,35 @@
+<div class="purchase-modal">
+  <div class="purchase-modal-header">
+    <i-feather name="x-circle" class="close" (click)="closeModal()"></i-feather>
+  </div>
+  <div class="purchase-modal-content">
+    <div class="purchase-modal-content__header">
+      <h3>Мій кошик</h3>
+      <app-sort-select
+        class="right-path_header-select"
+        [selectItems]="mockSortTypes"
+        [placeholder]="'Сортувати за'"
+      ></app-sort-select>
+    </div>
+    <div class="purchase-modal-content__product-purchase">
+      <app-product-purchase-card
+        [price]="'10.20'"
+        (totalWeight)="countTotalWeight($event)"
+      ></app-product-purchase-card>
+    </div>
+    <div class="purchase-modal-content__product-purchase">
+      <app-product-purchase-card
+        [price]="'10.20'"
+        (totalWeight)="countTotalWeight($event)"
+      ></app-product-purchase-card>
+    </div>
+    <div class="purchase-modal-content__product-purchase">
+      <app-product-purchase-card
+        [price]="'10.20'"
+        (totalWeight)="countTotalWeight($event)"
+      ></app-product-purchase-card>
+    </div>
+    <p>Всего кг {{ myKg }}</p>
+    <p>Всего uah {{ myPrice }}</p>
+  </div>
+</div>

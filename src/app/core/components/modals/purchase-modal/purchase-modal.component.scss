@@ -1,0 +1,62 @@
+@import "src/assets/styles/vars";
+@import "src/assets/styles/mixins";
+
+::ng-deep .purchase-modal {
+  & .mat-dialog-container {
+    width: 1040px;
+    padding: 0;
+    border-radius: 10px;
+  }
+
+  &-header {
+    position: relative;
+    width: 100%;
+    height: 60px;
+    background-color: $main-yellow;
+
+    & .close {
+      position: absolute;
+      right: 19.88px;
+      top: 19.88px;
+      width: 20.25px;
+      height: 20.25px;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+
+      &:hover {
+        color: $gray1;
+        transition: transform 0.3s ease-in-out;
+      }
+    }
+  }
+
+  &-content {
+    padding: 20px 40px;
+    &__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 20px;
+
+      h3 {
+        @include font-base(21px, 600, 33px)
+      }
+    }
+
+    &__product-purchase {
+      margin-top: 20px;
+      margin-bottom: 10px;
+
+    }
+    &:after {
+      content: '';
+      margin-top: 20px;
+      left: 4.47%;
+      width: 100%;
+      height: 1px;
+      background: $gray3;
+      display: block;
+    }
+  }
+}
+

@@ -6,6 +6,7 @@ import {
   OnInit,
   Output
 } from '@angular/core';
+import { object } from '@angular/fire/database';
 
 @Component({
   selector: 'app-product-purchase-card',
@@ -14,13 +15,17 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProductPurchaseCardComponent implements OnInit {
-  @Input() productName!: string;
-  @Input() price!: string;
-  @Input() imgUrl!: string;
+  @Input() productName = 'zaza buua';
+  @Input() price = '20.00';
+  @Input() imgUrl =
+    '../../../../../assets/images/categories/Category%20icons=icon%20fruit.png';
+
   @Input() productCard!: any;
 
   @Output() totalPriceInCents: EventEmitter<number> =
     new EventEmitter<number>();
+
+  @Output() totalWeight: EventEmitter<number> = new EventEmitter<number>();
 
   @Output() deleteCardEmitter: EventEmitter<any> = new EventEmitter<any>();
   public counter = 1;
@@ -33,10 +38,14 @@ export class ProductPurchaseCardComponent implements OnInit {
       if (operator === 0) {
         if (this.counter !== 1) {
           this.counter--;
+          this.countWeightByDirection(operator);
         } else this.counter = 1;
       } else if (this.counter === 1000) {
         this.counter = 1000;
-      } else this.counter++;
+      } else {
+        this.counter++;
+        this.countWeightByDirection(operator);
+      }
       const result = (uah * 100 + cent) * this.counter;
       this.totalPrice = (result / 100).toFixed(2);
       this.totalPriceInCents.emit(result);
@@ -49,5 +58,10 @@ export class ProductPurchaseCardComponent implements OnInit {
 
   public ngOnInit(): void {
     this.totalPrice = this.price;
+    this.countWeightByDirection(1);
+  }
+
+  private countWeightByDirection(direction: number): void {
+    this.totalWeight.emit(direction);
   }
 }
