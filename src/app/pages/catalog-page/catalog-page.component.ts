@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { PopularProductsConst } from '../../core/constants/catalog-page.constants';
 import { ProductCategoryCard } from '../../core/constants/category-card.constants';
@@ -17,4 +18,10 @@ export class CatalogPageComponent {
   public cardsArr: IProductCard[] = PopularProductsConst;
   public categoryList: IProductCategoryCard[] = ProductCategoryCard;
   public mockSortTypes: SortOption[] = sortTypes;
+
+  constructor(private router: Router) {}
+
+  goToCatalog(card: IProductCategoryCard): void {
+    this.router.navigate([`catalog/`, card.title]);
+  }
 }

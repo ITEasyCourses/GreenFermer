@@ -15,13 +15,13 @@ const routes: Routes = [
         (m) => m.ProductDetailPageModule
       )
   },
-  {
-    path: ERoutes.CATEGORY,
-    loadChildren: () =>
-      import('./pages/category-page/category-page.module').then(
-        (m) => m.CategoryPageModule
-      )
-  },
+  // {
+  //   path: ERoutes.CATEGORY,
+  //   loadChildren: () =>
+  //     import('./pages/category-page/category-page.module').then(
+  //       (m) => m.CategoryPageModule
+  //     )
+  // },
   {
     path: ERoutes.CHECKOUT,
     loadChildren: () =>
@@ -32,8 +32,8 @@ const routes: Routes = [
   {
     path: ERoutes.CATALOG_PAGE,
     loadChildren: () =>
-      import('./pages/catalog-page/catalog-page.module').then(
-        (m) => m.CatalogPageModule
+      import('./pages/catalog-router/catalog-router.module').then(
+        (m) => m.CatalogRouterModule
       )
   },
   {
