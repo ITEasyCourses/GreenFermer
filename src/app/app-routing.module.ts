@@ -32,8 +32,8 @@ const routes: Routes = [
   {
     path: ERoutes.CATALOG_PAGE,
     loadChildren: () =>
-      import('./pages/catalog-router/catalog-router.module').then(
-        (m) => m.CatalogRouterModule
+      import('./pages/catalog-page/catalog-page.module').then(
+        (m) => m.CatalogPageModule
       )
   },
   {

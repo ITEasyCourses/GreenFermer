@@ -11,7 +11,6 @@
     <div class="categories_wrap_cards" *ngFor="let card of categoryList">
       <app-product-category-card
         [productCategoryCard]="card"
-        (card)="goToCatalog($event)"
       ></app-product-category-card>
     </div>
   </div>

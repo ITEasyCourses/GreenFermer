@@ -1,10 +1,5 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  EventEmitter,
-  Input,
-  Output
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { IProductCategoryCard } from '../../interfaces/product-category-card.interface';
 
@@ -17,10 +12,11 @@ import { IProductCategoryCard } from '../../interfaces/product-category-card.int
 export class ProductCategoryCardComponent {
   @Input() productCategoryCard?: IProductCategoryCard;
 
-  @Output() card: EventEmitter<IProductCategoryCard> =
-    new EventEmitter<IProductCategoryCard>();
+  constructor(private router: Router) {}
 
-  public emitCard(currentCard?: IProductCategoryCard): void {
-    this.card.emit(currentCard);
+  public goToCategory(productCategoryCard?: IProductCategoryCard) {
+    if (productCategoryCard) {
+      this.router.navigate(['/catalog', productCategoryCard.id]);
+    }
   }
 }
