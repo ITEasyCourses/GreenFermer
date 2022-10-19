@@ -24,6 +24,7 @@ export class ProductPurchaseCardComponent implements OnInit {
   @Output() totalWeight: EventEmitter<any> = new EventEmitter<any>();
 
   @Output() deleteCardEmitter: EventEmitter<any> = new EventEmitter<any>();
+
   public counter = 1;
   public totalPrice!: string;
 

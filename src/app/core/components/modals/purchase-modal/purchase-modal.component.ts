@@ -20,6 +20,7 @@ import { SortOption } from '../../../interfaces/sort-option';
 export class PurchaseModalComponent implements OnInit {
   @Input() myKg = 0;
   @Input() myPrice!: string;
+
   public mockSortTypes: SortOption[] = sortPurchaseOptions;
   public totalPrice!: string;
   public productCards!: IProductCardBucket[];

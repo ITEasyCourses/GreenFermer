@@ -20,7 +20,22 @@
         (totalWeight)="countByDirection($event)"
       ></app-product-purchase-card>
     </div>
-    <p>Всего кг {{ myKg }}</p>
-    <p>Всего uah {{ totalPrice }}</p>
+    <div class="purchase-modal-content__footer">
+      <div class="purchase-modal-content__footer-top">
+        <p>Всього товарів: {{ productCards.length }}</p>
+        <div class="purchase-modal-content__footer-top-right">
+          <p class="purchase-weight">Загальна вага {{ myKg }} кг</p>
+          <p>Всього</p>
+          <p class="purchase-sum">{{ totalPrice }}₴</p>
+        </div>
+      </div>
+      <div class="purchase-modal-content__footer-bottom">
+        <app-button
+          [buttonText]="'Продовжити покупки'"
+          [buttonColor]="'transparent'"
+        ></app-button>
+        <app-button [buttonText]="'Оплатити'"></app-button>
+      </div>
+    </div>
   </div>
 </div>
