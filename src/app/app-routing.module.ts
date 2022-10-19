@@ -15,13 +15,6 @@ const routes: Routes = [
         (m) => m.ProductDetailPageModule
       )
   },
-  // {
-  //   path: ERoutes.CATEGORY,
-  //   loadChildren: () =>
-  //     import('./pages/category-page/category-page.module').then(
-  //       (m) => m.CategoryPageModule
-  //     )
-  // },
   {
     path: ERoutes.CHECKOUT,
     loadChildren: () =>
