@@ -11,25 +11,16 @@
         [placeholder]="'Сортувати за'"
       ></app-sort-select>
     </div>
-    <div class="purchase-modal-content__product-purchase">
+    <div
+      class="purchase-modal-content__product-purchase"
+      *ngFor="let productCard of productCards"
+    >
       <app-product-purchase-card
-        [price]="'10.20'"
-        (totalWeight)="countTotalWeight($event)"
-      ></app-product-purchase-card>
-    </div>
-    <div class="purchase-modal-content__product-purchase">
-      <app-product-purchase-card
-        [price]="'10.20'"
-        (totalWeight)="countTotalWeight($event)"
-      ></app-product-purchase-card>
-    </div>
-    <div class="purchase-modal-content__product-purchase">
-      <app-product-purchase-card
-        [price]="'10.20'"
-        (totalWeight)="countTotalWeight($event)"
+        [productCard]="productCard"
+        (totalWeight)="countByDirection($event)"
       ></app-product-purchase-card>
     </div>
     <p>Всего кг {{ myKg }}</p>
-    <p>Всего uah {{ myPrice }}</p>
+    <p>Всего uah {{ totalPrice }}</p>
   </div>
 </div>
