@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
+import { ERoutes } from '../../enums/routes';
 import { IProductCategoryCard } from '../../interfaces/product-category-card.interface';
 
 @Component({
@@ -16,7 +17,7 @@ export class ProductCategoryCardComponent {
 
   public goToCategory(productCategoryCard?: IProductCategoryCard) {
     if (productCategoryCard) {
-      this.router.navigate(['/catalog', productCategoryCard.id]);
+      this.router.navigate([ERoutes.CATALOG_PAGE, productCategoryCard.id]);
     }
   }
 }
