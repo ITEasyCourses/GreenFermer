@@ -2,13 +2,15 @@
   <div class="checkout_wrap">
     <a
       (click)="changeState(1)"
-      [ngClass]="!state ? 'check' : null"
+      [class.check]="!state"
+      href="#"
       class="checkout_wrap_link"
       >Продовжити без реєстрації</a
     >
     <a
       (click)="changeState(2)"
-      [ngClass]="state ? 'check' : null"
+      [class.check]="state"
+      href="#"
       class="checkout_wrap_link"
       >Увійти</a
     >
