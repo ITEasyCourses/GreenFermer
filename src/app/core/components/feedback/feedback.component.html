@@ -1,0 +1,31 @@
+<div class="feedback">
+  <p class="feedback_tittle">Продавець</p>
+  <div class="feedback_wrapper">
+    <img class="feedback_wrapper_img" [src]="feedback.img" alt="farmer_photo" />
+    <div class="feedback_wrapper_info">
+      <div class="feedback_wrapper_info-heart">
+        <h4 class="feedback_wrapper_info-name">{{ feedback.name }}</h4>
+        <i-feather
+          [ngClass]="heart ? 'yellow' : 'transparent'"
+          class="feedback_wrapper_info-like"
+          (click)="like()"
+          name="heart"
+        ></i-feather>
+      </div>
+      <div class="feedback_wrapper_info-rating">
+        <app-rating-component></app-rating-component>
+      </div>
+      <p class="feedback_wrapper_info-text">{{ feedback.info }}</p>
+      <div class="feedback_wrapper_info-btnGroup">
+        <app-button
+          class="feedback_wrapper_info-btnGroup_first"
+          buttonText="Перейти у магазин"
+        ></app-button>
+        <app-button
+          [buttonColor]="'transparent'"
+          buttonText="Переглянути відгуки "
+        ></app-button>
+      </div>
+    </div>
+  </div>
+</div>

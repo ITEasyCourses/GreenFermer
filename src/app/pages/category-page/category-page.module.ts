@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+import { ProductCardModule } from '../../core/components/product-card/product-card.module';
 import { ERoutes } from '../../core/enums/routes';
 
 import { CategoryPageComponent } from './category-page.component';
@@ -24,6 +25,6 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [CategoryPageComponent],
-  imports: [CommonModule, RouterModule.forChild(routes)]
+  imports: [CommonModule, RouterModule.forChild(routes), ProductCardModule]
 })
 export class CategoryPageModule {}

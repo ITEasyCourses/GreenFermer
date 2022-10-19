@@ -5,17 +5,16 @@
   <div class="container">
     <div class="header">
       <div class="header-left">
-        <div class="header-left-logo">
+        <div class="header-left-logo" (click)="goToHome()">
           <img
             [src]="checkRoutAndScrollOptions ? logo.transparent : logo.yellow"
             alt="logo"
           />
         </div>
-        <div class="header-left-select">
-          <app-select
-            [label]="labelForSelectCatalog"
-            [options]="mocListForOptionSelect"
-          ></app-select>
+        <div class="header-left-select" (click)="goToCatalog()">
+          <label class="header-left-select-label">{{
+            labelForSelectCatalog
+          }}</label>
         </div>
         <div *ngIf="sessionUser?.isAuthentication" class="header-menu">
           <app-select
