@@ -8,7 +8,8 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 })
 export class CheckoutPageComponent {
   public state = false;
-  public changeState(number: number): void {
-    number === 1 ? (this.state = false) : (this.state = true);
+
+  public changeState(state: boolean): void {
+    this.state = state;
   }
 }

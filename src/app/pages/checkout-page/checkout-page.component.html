@@ -1,16 +1,14 @@
 <div class="checkout">
   <div class="checkout_wrap">
     <a
-      (click)="changeState(1)"
+      (click)="changeState(false)"
       [class.check]="!state"
-      href="#"
       class="checkout_wrap_link"
       >Продовжити без реєстрації</a
     >
     <a
-      (click)="changeState(2)"
+      (click)="changeState(true)"
       [class.check]="state"
-      href="#"
       class="checkout_wrap_link"
       >Увійти</a
     >
