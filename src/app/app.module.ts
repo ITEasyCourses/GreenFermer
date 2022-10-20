@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { FooterModule } from './core/components/footer/footer.module';
 import { HeaderComponentModule } from './core/components/header-component/header-component.module';
 import { LoginModalModule } from './core/components/modals/login-modal/login-modal.module';
+import { PurchaseModalModule } from './core/components/modals/purchase-modal/purchase-modal.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,7 +21,8 @@ import { LoginModalModule } from './core/components/modals/login-modal/login-mod
     AngularFireModule.initializeApp(environment.firebase),
     LoginModalModule,
     HeaderComponentModule,
-    FooterModule
+    FooterModule,
+    PurchaseModalModule
   ],
   bootstrap: [AppComponent]
 })
