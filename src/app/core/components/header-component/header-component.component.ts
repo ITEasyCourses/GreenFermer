@@ -69,8 +69,7 @@ export class HeaderComponentComponent implements OnInit {
   }
 
   public openPurchModal(): void {
-    const purchDialogConfig = new MatDialogConfig();
-    this.matDialog.open(PurchaseModalComponent, purchDialogConfig);
+    this.matDialog.open(PurchaseModalComponent);
   }
 
   public goToHome(): void {

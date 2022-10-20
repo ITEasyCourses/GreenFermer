@@ -8,6 +8,7 @@ import {
 } from '@angular/core';
 
 import { IProductCardBucket } from '../../interfaces/product-card-bucket.interface';
+import { PurchasePayloadEmitter } from '../../interfaces/purchase-payload-emitter';
 
 @Component({
   selector: 'app-product-purchase-card',
@@ -21,9 +22,11 @@ export class ProductPurchaseCardComponent implements OnInit {
   @Output() totalPriceInCents: EventEmitter<number> =
     new EventEmitter<number>();
 
-  @Output() totalWeight: EventEmitter<any> = new EventEmitter<any>();
+  @Output() totalWeight: EventEmitter<PurchasePayloadEmitter> =
+    new EventEmitter<PurchasePayloadEmitter>();
 
-  @Output() deleteCardEmitter: EventEmitter<any> = new EventEmitter<any>();
+  @Output() deleteCardEmitter: EventEmitter<IProductCardBucket> =
+    new EventEmitter<IProductCardBucket>();
 
   public counter = 1;
   public totalPrice!: string;

@@ -13,7 +13,7 @@
     </div>
     <div
       class="purchase-modal-content__product-purchase"
-      *ngFor="let productCard of productCards"
+      *ngFor="let productCard of productCards; trackBy: trackByFn"
     >
       <app-product-purchase-card
         [productCard]="productCard"
@@ -24,7 +24,7 @@
       <div class="purchase-modal-content__footer-top">
         <p>Всього товарів: {{ productCards.length }}</p>
         <div class="purchase-modal-content__footer-top-right">
-          <p class="purchase-weight">Загальна вага {{ myKg }} кг</p>
+          <p class="purchase-weight">Загальна вага {{ totalWeight }} кг</p>
           <p>Всього</p>
           <p class="purchase-sum">{{ totalPrice }}₴</p>
         </div>
