@@ -11,13 +11,11 @@ import { IProductCategoryCard } from '../../interfaces/product-category-card.int
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProductCategoryCardComponent {
-  @Input() productCategoryCard?: IProductCategoryCard;
+  @Input() productCategoryCard!: IProductCategoryCard;
 
   constructor(private router: Router) {}
 
-  public goToCategory(productCategoryCard?: IProductCategoryCard) {
-    if (productCategoryCard) {
-      this.router.navigate([ERoutes.CATALOG_PAGE, productCategoryCard.id]);
-    }
+  public goToCategory() {
+    this.router.navigate([ERoutes.CATALOG_PAGE, this.productCategoryCard.id]);
   }
 }
