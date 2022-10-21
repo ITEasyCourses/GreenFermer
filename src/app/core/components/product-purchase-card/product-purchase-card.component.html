@@ -4,8 +4,19 @@
   </div>
   <div class="interface-row">
     <div class="interface-row-description">
-      <p>{{ productCard.productName }}</p>
-      <p>{{ productCard.price }} ₴ / кг</p>
+      <p class="interface-row-description-text">
+        {{ productCard.productName }}
+      </p>
+      <p class="interface-row-description-text">
+        {{ productCard.price }} ₴ / кг
+      </p>
+      <p
+        class="interface-row-description-wholesale"
+        [ngClass]="wholesale ? 'activate' : null"
+      >
+        отпова ціна від <b>{{ productCard.startWholesaleByKg }}</b> од.
+        {{ productCard.wholesalePrice }} ₴ / кг
+      </p>
     </div>
     <div class="interface-row-counter">
       <i-feather

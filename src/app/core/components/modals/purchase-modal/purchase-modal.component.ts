@@ -38,13 +38,11 @@ export class PurchaseModalComponent implements OnInit {
   }
 
   public countByDirection(receivedData: PurchasePayloadEmitter): void {
-    const uah = +this.totalPrice.split('.')[0];
-    const cent = +this.totalPrice.split('.')[1];
     const priceOfCurrentCard = this.getPriceOfCurrentCard(
       receivedData.productCard.id,
       this.productCards
     );
-    let numPrice = uah * 100 + cent;
+    let numPrice = this.getCalculatePriceByWeight(receivedData.productCard);
     if (receivedData.direction === 1) {
       this.totalWeight++;
       numPrice += priceOfCurrentCard;
@@ -88,6 +86,12 @@ export class PurchaseModalComponent implements OnInit {
       }
     });
     return numPrice;
+  }
+
+  private getCalculatePriceByWeight(card: IProductCardBucket): number {
+    const uah = +card.price.split('.')[0];
+    const cent = +card.price.split('.')[1];
+    return (uah * 100 + cent) * this.totalWeight;
   }
 
   private initializeData(): void {

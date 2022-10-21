@@ -30,10 +30,9 @@ export class ProductPurchaseCardComponent implements OnInit {
 
   public counter = 1;
   public totalPrice!: string;
+  public wholesale = false;
 
   public countPrice(operator: number): void {
-    const uah = +this.productCard.price.split('.')[0];
-    const cent = +this.productCard.price.split('.')[1];
     if (this.productCard.price) {
       if (operator === 0) {
         if (this.counter !== 1) {
@@ -46,9 +45,12 @@ export class ProductPurchaseCardComponent implements OnInit {
         this.counter++;
         this.countWeightByDirection(operator);
       }
-      const result = (uah * 100 + cent) * this.counter;
-      this.totalPrice = (result / 100).toFixed(2);
-      this.totalPriceInCents.emit(result);
+      this.totalPrice = (
+        this.getPriceInCentByCounter(this.productCard) / 100
+      ).toFixed(2);
+      this.totalPriceInCents.emit(
+        this.getPriceInCentByCounter(this.productCard)
+      );
     }
   }
 
@@ -65,11 +67,16 @@ export class ProductPurchaseCardComponent implements OnInit {
     this.totalWeight.emit(payload);
   }
 
+  private getPriceInCentByCounter(card: IProductCardBucket): number {
+    const uah = +card.price.split('.')[0];
+    const cent = +card.price.split('.')[1];
+    return (uah * 100 + cent) * this.counter;
+  }
+
   private initCard(): void {
     this.counter = this.productCard.weight;
-    const uah = +this.productCard.price.split('.')[0];
-    const cent = +this.productCard.price.split('.')[1];
-    const result = (uah * 100 + cent) * this.counter;
-    this.totalPrice = (result / 100).toFixed(2);
+    this.totalPrice = (
+      this.getPriceInCentByCounter(this.productCard) / 100
+    ).toFixed(2);
   }
 }

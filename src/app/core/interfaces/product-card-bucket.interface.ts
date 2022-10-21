@@ -4,4 +4,6 @@ export interface IProductCardBucket {
   productName: string;
   img: string;
   weight: number;
+  wholesalePrice?: string;
+  startWholesaleByKg?: number;
 }
