@@ -8,19 +8,24 @@ import { ERoutes } from '../../core/enums/routes';
 
 import { CategoryPageComponent } from './category-page.component';
 
+const children: Routes = [
+  {
+    path: '',
+    component: CategoryPageComponent
+  },
+  {
+    path: ERoutes.CATEGORY_ID,
+    loadChildren: () =>
+      import('../category-detail-page/category-detail-page.module').then(
+        (m) => m.CategoryDetailPageModule
+      )
+  }
+];
+
 const routes: Routes = [
   {
     path: '',
-    component: CategoryPageComponent,
-    children: [
-      {
-        path: ERoutes.CATEGORY_ID,
-        loadChildren: () =>
-          import('./../category-detail-page/category-detail-page.module').then(
-            (m) => m.CategoryDetailPageModule
-          )
-      }
-    ]
+    children
   }
 ];
 
