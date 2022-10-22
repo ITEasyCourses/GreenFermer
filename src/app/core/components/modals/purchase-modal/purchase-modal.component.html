@@ -34,7 +34,10 @@
           [buttonText]="'Продовжити покупки'"
           [buttonColor]="'transparent'"
         ></app-button>
-        <app-button [buttonText]="'Оплатити'"></app-button>
+        <app-button
+          [buttonText]="'Оплатити'"
+          (click)="goToCheckout()"
+        ></app-button>
       </div>
     </div>
   </div>
