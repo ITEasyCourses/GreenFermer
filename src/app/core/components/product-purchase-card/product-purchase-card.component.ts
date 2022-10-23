@@ -8,7 +8,6 @@ import {
 } from '@angular/core';
 
 import { IProductCardBucket } from '../../interfaces/product-card-bucket.interface';
-import { PurchasePayloadEmitter } from '../../interfaces/purchase-payload-emitter';
 import { BucketCardArgType } from '../../types/application-types';
 
 @Component({
@@ -20,8 +19,8 @@ import { BucketCardArgType } from '../../types/application-types';
 export class ProductPurchaseCardComponent implements OnInit {
   @Input() productCard!: IProductCardBucket;
 
-  @Output() productCardWithData: EventEmitter<PurchasePayloadEmitter> =
-    new EventEmitter<PurchasePayloadEmitter>();
+  @Output() productCardWithData: EventEmitter<IProductCardBucket> =
+    new EventEmitter<IProductCardBucket>();
 
   @Output() deleteCardEmitter: EventEmitter<IProductCardBucket> =
     new EventEmitter<IProductCardBucket>();
@@ -31,20 +30,16 @@ export class ProductPurchaseCardComponent implements OnInit {
   public cardPrice!: string;
   public wholesaleFlag = false;
 
-  private directionOperatorForSendData!: number;
-
   public countPrice(operator: number): void {
     if (this.productCard.price) {
       if (operator === 0) {
         if (this.counter !== 1) {
           this.counter--;
-          this.directionOperatorForSendData = 0;
         } else this.counter = 1;
       } else if (this.counter >= 1000) {
         this.counter = 1000;
       } else {
         this.counter++;
-        this.directionOperatorForSendData = 1;
       }
       if (this.counter >= this.productCard.startWholesaleByKg) {
         this.totalPrice = (
@@ -77,11 +72,7 @@ export class ProductPurchaseCardComponent implements OnInit {
       totalPrice: this.totalPrice,
       weight: this.counter
     };
-    const payload = {
-      productCard: this.productCard,
-      direction: this.directionOperatorForSendData
-    };
-    this.productCardWithData.emit(payload);
+    this.productCardWithData.emit(this.productCard);
   }
 
   private getConvertStrPriseToNumAndSetCounterPrice(

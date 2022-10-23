@@ -9,7 +9,6 @@ import { MatDialogRef } from '@angular/material/dialog';
 import { ProductCardBucketConstants } from '../../../constants/product-card-bucket.constants';
 import { sortPurchaseOptions } from '../../../constants/sort-purchase-options';
 import { IProductCardBucket } from '../../../interfaces/product-card-bucket.interface';
-import { PurchasePayloadEmitter } from '../../../interfaces/purchase-payload-emitter';
 import { SortOption } from '../../../interfaces/sort-option';
 import { BucketCardArgType } from '../../../types/application-types';
 
@@ -37,7 +36,7 @@ export class PurchaseModalComponent implements OnInit {
     this.dialogRef.close();
   }
 
-  public countByDirection(receivedData: PurchasePayloadEmitter): void {
+  public countByDirection(receivedData: IProductCardBucket): void {
     this.setNewProductCards(receivedData);
     this.getTotalPrice();
   }
@@ -77,13 +76,13 @@ export class PurchaseModalComponent implements OnInit {
     this.getTotalPrice();
   }
 
-  private setNewProductCards(data: PurchasePayloadEmitter): void {
+  private setNewProductCards(data: IProductCardBucket): void {
     this.productCards = this.productCards.map((el: IProductCardBucket) => {
-      return el.id === data.productCard.id
+      return el.id === data.id
         ? {
             ...el,
-            weight: data.productCard.weight,
-            totalPrice: data.productCard.totalPrice
+            weight: data.weight,
+            totalPrice: data.totalPrice
           }
         : el;
     });
