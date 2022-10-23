@@ -3,7 +3,7 @@ import { IProductCardBucket } from '../interfaces/product-card-bucket.interface'
 export const ProductCardBucketConstants: IProductCardBucket[] = [
   {
     id: 1,
-    price: '20.00',
+    price: '20.11',
     productName: 'Томат черрі',
     img: '',
     weight: 1,
@@ -13,7 +13,7 @@ export const ProductCardBucketConstants: IProductCardBucket[] = [
   },
   {
     id: 2,
-    price: '30.00',
+    price: '30.29',
     productName: 'Яблуко смачне',
     img: '',
     weight: 10,
@@ -23,11 +23,11 @@ export const ProductCardBucketConstants: IProductCardBucket[] = [
   },
   {
     id: 3,
-    price: '10.00',
+    price: '15.40',
     productName: 'Вишня сочна',
     img: '',
     weight: 4,
-    wholesalePrice: '20.00',
+    wholesalePrice: '10.00',
     startWholesaleByKg: 7,
     totalPrice: '00.00'
   }

@@ -78,16 +78,14 @@ export class PurchaseModalComponent implements OnInit {
   }
 
   private setNewProductCards(data: PurchasePayloadEmitter): void {
-    [...this.productCards] = this.productCards.map((el: IProductCardBucket) => {
-      if (el.id === data.productCard.id) {
-        return {
-          ...el,
-          weight: data.productCard.weight,
-          totalPrice: data.productCard.totalPrice
-        };
-      } else {
-        return el;
-      }
+    this.productCards = this.productCards.map((el: IProductCardBucket) => {
+      return el.id === data.productCard.id
+        ? {
+            ...el,
+            weight: data.productCard.weight,
+            totalPrice: data.productCard.totalPrice
+          }
+        : el;
     });
   }
 }

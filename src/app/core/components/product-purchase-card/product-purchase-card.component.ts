@@ -20,7 +20,7 @@ import { BucketCardArgType } from '../../types/application-types';
 export class ProductPurchaseCardComponent implements OnInit {
   @Input() productCard!: IProductCardBucket;
 
-  @Output() cardData: EventEmitter<PurchasePayloadEmitter> =
+  @Output() productCardWithData: EventEmitter<PurchasePayloadEmitter> =
     new EventEmitter<PurchasePayloadEmitter>();
 
   @Output() deleteCardEmitter: EventEmitter<IProductCardBucket> =
@@ -30,6 +30,7 @@ export class ProductPurchaseCardComponent implements OnInit {
   public totalPrice!: string;
   public cardPrice!: string;
   public wholesaleFlag = false;
+
   private directionOperatorForSendData!: number;
 
   public countPrice(operator: number): void {
@@ -46,11 +47,15 @@ export class ProductPurchaseCardComponent implements OnInit {
         this.directionOperatorForSendData = 1;
       }
       if (this.counter >= this.productCard.startWholesaleByKg) {
-        this.totalPrice = (this.getPriceInCentByCounter(0) / 100).toFixed(2);
+        this.totalPrice = (
+          this.getConvertStrPriseToNumAndSetCounterPrice('wholesalePrice') / 100
+        ).toFixed(2);
         this.sendPayloadData();
         this.wholesaleFlag = true;
       } else {
-        this.totalPrice = (this.getPriceInCentByCounter(1) / 100).toFixed(2);
+        this.totalPrice = (
+          this.getConvertStrPriseToNumAndSetCounterPrice('price') / 100
+        ).toFixed(2);
         this.sendPayloadData();
         this.wholesaleFlag = false;
       }
@@ -76,15 +81,7 @@ export class ProductPurchaseCardComponent implements OnInit {
       productCard: this.productCard,
       direction: this.directionOperatorForSendData
     };
-    this.cardData.emit(payload);
-  }
-
-  private getPriceInCentByCounter(operator: number): number {
-    if (!operator) {
-      return this.getConvertStrPriseToNumAndSetCounterPrice('wholesalePrice');
-    } else {
-      return this.getConvertStrPriseToNumAndSetCounterPrice('price');
-    }
+    this.productCardWithData.emit(payload);
   }
 
   private getConvertStrPriseToNumAndSetCounterPrice(
@@ -101,11 +98,15 @@ export class ProductPurchaseCardComponent implements OnInit {
     if (this.productCard.weight < this.productCard.startWholesaleByKg) {
       this.cardPrice = this.productCard.price;
       this.wholesaleFlag = false;
-      this.totalPrice = (this.getPriceInCentByCounter(1) / 100).toFixed(2);
+      this.totalPrice = (
+        this.getConvertStrPriseToNumAndSetCounterPrice('price') / 100
+      ).toFixed(2);
     } else {
       this.cardPrice = this.productCard.wholesalePrice;
       this.wholesaleFlag = true;
-      this.totalPrice = (this.getPriceInCentByCounter(0) / 100).toFixed(2);
+      this.totalPrice = (
+        this.getConvertStrPriseToNumAndSetCounterPrice('wholesalePrice') / 100
+      ).toFixed(2);
     }
   }
 }
