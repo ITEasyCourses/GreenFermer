@@ -45,13 +45,13 @@
 
 .left-path{
 
-  &_breadcrumbs{
-    margin-bottom: 30px;
+  &__breadcrumbs{
+    margin: 5px 0 30px;
   }
 
-  &_content{
-    width: 520px;
-    height: 1105px;
+  &__content{
+    width: 502px;
+    max-height: 1105px;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 30px 36px;
