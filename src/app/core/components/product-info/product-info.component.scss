@@ -21,10 +21,12 @@
         width: 400px;
         display: flex;
         justify-content: space-between;
+
         & .arrows-left {
           color: #ffffff;
           cursor: pointer;
         }
+
         & .arrows-right {
           color: #ffffff;
           cursor: pointer;
@@ -60,9 +62,11 @@
   }
   & .right-container {
     width: 400px;
+
     & .head {
       display: flex;
       justify-content: space-between;
+
       h3 {
         margin-left: 20px;
         @include font-base(21px, 600);
@@ -70,8 +74,8 @@
         letter-spacing: 0.0015em;
         height: 33px;
         font-style: normal;
-
       }
+
       & .heart {
         margin-top: 7px;
         margin-right: 50px;
@@ -86,6 +90,7 @@
         fill: $main-yellow;
       }
     }
+
     & .availability {
       margin-left: 20px;
       margin-top: 10px;
@@ -95,6 +100,7 @@
       @include font-base(17px, 600);
       color: #118252;
     }
+
     & .inform {
       height: 207px;
       width: 346px;
@@ -105,6 +111,7 @@
 
       &_name {
         width: 173px;
+
         &_list {
           @include font-base(15px, 500);
           height: 24px;
@@ -114,13 +121,16 @@
       }
       &_result{
         width: 173px;
+
         & .rating-info {
           height: 15px;
           width: 106px;
           margin-top: 4px;
         }
+
         &_count {
           margin-top: 18px;
+
         &_data {
           @include font-base(15px, 600);
           line-height: 24px;
