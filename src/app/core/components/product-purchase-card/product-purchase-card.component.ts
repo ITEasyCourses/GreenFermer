@@ -19,7 +19,7 @@ import { BucketCardArgType } from '../../types/application-types';
 export class ProductPurchaseCardComponent implements OnInit {
   @Input() productCard!: IProductCardBucket;
 
-  @Output() productCardWithData: EventEmitter<IProductCardBucket> =
+  @Output() updateProductCard: EventEmitter<IProductCardBucket> =
     new EventEmitter<IProductCardBucket>();
 
   @Output() deleteCardEmitter: EventEmitter<IProductCardBucket> =
@@ -42,15 +42,11 @@ export class ProductPurchaseCardComponent implements OnInit {
         this.counter++;
       }
       if (this.counter >= this.productCard.startWholesaleByKg) {
-        this.totalPrice = (
-          this.getConvertStrPriseToNumAndSetCounterPrice('wholesalePrice') / 100
-        ).toFixed(2);
+        this.totalPrice = this.getPriseAndSetCounterPrice('wholesalePrice');
         this.sendPayloadData();
         this.wholesaleFlag = true;
       } else {
-        this.totalPrice = (
-          this.getConvertStrPriseToNumAndSetCounterPrice('price') / 100
-        ).toFixed(2);
+        this.totalPrice = this.getPriseAndSetCounterPrice('price');
         this.sendPayloadData();
         this.wholesaleFlag = false;
       }
@@ -72,16 +68,14 @@ export class ProductPurchaseCardComponent implements OnInit {
       totalPrice: this.totalPrice,
       weight: this.counter
     };
-    this.productCardWithData.emit(this.productCard);
+    this.updateProductCard.emit(this.productCard);
   }
 
-  private getConvertStrPriseToNumAndSetCounterPrice(
-    type: BucketCardArgType
-  ): number {
+  private getPriseAndSetCounterPrice(type: BucketCardArgType): string {
     const uah = +this.productCard[type].split('.')[0];
     const cent = +this.productCard[type].split('.')[1];
     this.cardPrice = this.productCard[type];
-    return (uah * 100 + cent) * this.counter;
+    return (((uah * 100 + cent) * this.counter) / 100).toFixed(2);
   }
 
   private initCard(): void {
@@ -89,15 +83,11 @@ export class ProductPurchaseCardComponent implements OnInit {
     if (this.productCard.weight < this.productCard.startWholesaleByKg) {
       this.cardPrice = this.productCard.price;
       this.wholesaleFlag = false;
-      this.totalPrice = (
-        this.getConvertStrPriseToNumAndSetCounterPrice('price') / 100
-      ).toFixed(2);
+      this.totalPrice = this.getPriseAndSetCounterPrice('price');
     } else {
       this.cardPrice = this.productCard.wholesalePrice;
       this.wholesaleFlag = true;
-      this.totalPrice = (
-        this.getConvertStrPriseToNumAndSetCounterPrice('wholesalePrice') / 100
-      ).toFixed(2);
+      this.totalPrice = this.getPriseAndSetCounterPrice('wholesalePrice');
     }
   }
 }
