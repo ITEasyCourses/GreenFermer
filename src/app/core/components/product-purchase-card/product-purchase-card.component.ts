@@ -47,11 +47,11 @@ export class ProductPurchaseCardComponent implements OnInit {
       }
       if (this.counter >= this.productCard.startWholesaleByKg) {
         this.totalPrice = (this.getPriceInCentByCounter(0) / 100).toFixed(2);
-        this.sendPayloadData('wholesalePrice');
+        this.sendPayloadData();
         this.wholesaleFlag = true;
       } else {
         this.totalPrice = (this.getPriceInCentByCounter(1) / 100).toFixed(2);
-        this.sendPayloadData('price');
+        this.sendPayloadData();
         this.wholesaleFlag = false;
       }
       this.productCard.weight = this.counter;
@@ -66,8 +66,7 @@ export class ProductPurchaseCardComponent implements OnInit {
     this.initCard();
   }
 
-  // TODO возможо название полей изменятся. В этом случае изменить типизацию.
-  private sendPayloadData(priceType: BucketCardArgType): void {
+  private sendPayloadData(): void {
     this.productCard = {
       ...this.productCard,
       totalPrice: this.totalPrice,
@@ -75,8 +74,7 @@ export class ProductPurchaseCardComponent implements OnInit {
     };
     const payload = {
       productCard: this.productCard,
-      direction: this.directionOperatorForSendData,
-      priceType
+      direction: this.directionOperatorForSendData
     };
     this.cardData.emit(payload);
   }
