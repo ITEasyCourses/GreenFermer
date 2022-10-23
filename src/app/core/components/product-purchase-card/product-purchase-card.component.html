@@ -7,14 +7,12 @@
       <p class="interface-row-description-text">
         {{ productCard.productName }}
       </p>
-      <p class="interface-row-description-text">
-        {{ productCard.price }} ₴ / кг
-      </p>
+      <p class="interface-row-description-text">{{ cardPrice }} ₴ / кг</p>
       <p
         class="interface-row-description-wholesale"
-        [ngClass]="wholesale ? 'activate' : null"
+        [ngClass]="wholesaleFlag ? 'activate' : null"
       >
-        отпова ціна від <b>{{ productCard.startWholesaleByKg }}</b> од.
+        отпова ціна від <b>{{ productCard.startWholesaleByKg }}</b> кг
         {{ productCard.wholesalePrice }} ₴ / кг
       </p>
     </div>
@@ -22,7 +20,7 @@
       <i-feather
         [class]="counter !== 1 ? 'icon minus' : 'icon minus-disabled'"
         name="minus"
-        (click)="countPrice(0)"
+        (click)="counter !== 1 ? countPrice(0) : null"
       ></i-feather>
 
       <div class="interface-row-counter-window">

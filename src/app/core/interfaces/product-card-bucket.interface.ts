@@ -1,9 +1,10 @@
 export interface IProductCardBucket {
   id: number;
-  price: string;
   productName: string;
   img: string;
+  price: string;
+  wholesalePrice: string;
   weight: number;
-  wholesalePrice?: string;
-  startWholesaleByKg?: number;
+  startWholesaleByKg: number;
+  totalPrice: string;
 }

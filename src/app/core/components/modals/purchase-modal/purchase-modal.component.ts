@@ -11,6 +11,7 @@ import { sortPurchaseOptions } from '../../../constants/sort-purchase-options';
 import { IProductCardBucket } from '../../../interfaces/product-card-bucket.interface';
 import { PurchasePayloadEmitter } from '../../../interfaces/purchase-payload-emitter';
 import { SortOption } from '../../../interfaces/sort-option';
+import { BucketCardArgType } from '../../../types/application-types';
 
 @Component({
   selector: 'app-purchase-modal',
@@ -20,7 +21,6 @@ import { SortOption } from '../../../interfaces/sort-option';
 })
 export class PurchaseModalComponent implements OnInit {
   @Input() totalWeight = 0;
-  @Input() myPrice!: string;
 
   public mockSortTypes: SortOption[] = sortPurchaseOptions;
   public totalPrice!: string;
@@ -38,64 +38,56 @@ export class PurchaseModalComponent implements OnInit {
   }
 
   public countByDirection(receivedData: PurchasePayloadEmitter): void {
-    const priceOfCurrentCard = this.getPriceOfCurrentCard(
-      receivedData.productCard.id,
-      this.productCards
-    );
-    let numPrice = this.getCalculatePriceByWeight(receivedData.productCard);
-    if (receivedData.direction === 1) {
-      this.totalWeight++;
-      numPrice += priceOfCurrentCard;
-    } else {
-      this.totalWeight--;
-      numPrice -= priceOfCurrentCard;
-    }
-    this.totalPrice = (numPrice / 100).toFixed(2);
+    this.setNewProductCards(receivedData);
+    this.getTotalPrice();
   }
 
   public trackByFn(index: number, cards: IProductCardBucket) {
     return cards.id;
   }
 
-  private getTotalWeight(): void {
-    this.productCards.forEach(
-      (el: IProductCardBucket) => (this.totalWeight += el.weight)
-    );
-  }
-
-  private getPriceInCents(): void {
+  private getTotalPrice(): void {
     let result = 0;
+    let weight = 0;
     this.productCards.forEach((el: IProductCardBucket) => {
-      const uah = +el.price.split('.')[0];
-      const cent = +el.price.split('.')[1];
-      result += (uah * 100 + cent) * el.weight;
+      if (+el.totalPrice) {
+        result += this.getConvertStrPriseToNum(el, 'totalPrice');
+      } else if (el.weight < el.startWholesaleByKg) {
+        result += this.getConvertStrPriseToNum(el, 'price') * el.weight;
+      } else {
+        result +=
+          this.getConvertStrPriseToNum(el, 'wholesalePrice') * el.weight;
+      }
+      weight += el.weight;
     });
     this.totalPrice = (result / 100).toFixed(2);
+    this.totalWeight = weight;
   }
 
-  private getPriceOfCurrentCard(
-    id: number,
-    card: IProductCardBucket[]
+  private getConvertStrPriseToNum(
+    el: IProductCardBucket,
+    type: BucketCardArgType
   ): number {
-    let numPrice = 0;
-    card.forEach((el: IProductCardBucket) => {
-      if (el.id === id) {
-        const uah = +el.price.split('.')[0];
-        const cent = +el.price.split('.')[1];
-        numPrice = uah * 100 + cent;
-      }
-    });
-    return numPrice;
-  }
-
-  private getCalculatePriceByWeight(card: IProductCardBucket): number {
-    const uah = +card.price.split('.')[0];
-    const cent = +card.price.split('.')[1];
-    return (uah * 100 + cent) * this.totalWeight;
+    const uah = +el[type].split('.')[0];
+    const cent = +el[type].split('.')[1];
+    return uah * 100 + cent;
   }
 
   private initializeData(): void {
-    this.getTotalWeight();
-    this.getPriceInCents();
+    this.getTotalPrice();
+  }
+
+  private setNewProductCards(data: PurchasePayloadEmitter): void {
+    [...this.productCards] = this.productCards.map((el: IProductCardBucket) => {
+      if (el.id === data.productCard.id) {
+        return {
+          ...el,
+          weight: data.productCard.weight,
+          totalPrice: data.productCard.totalPrice
+        };
+      } else {
+        return el;
+      }
+    });
   }
 }
