@@ -1,0 +1,134 @@
+@import "src/assets/styles/vars";
+@import "src/assets/styles/mixins";
+
+.product-container {
+  width: 800px;
+  height: 505px;
+  display: flex;
+  justify-content: space-between;
+
+  & .left-container {
+    width: 400px;
+    height: 100%;
+
+    & .big-container {
+      width: 100%;
+      height: 400px;
+
+      & .arrows {
+        position: absolute;
+        margin-top: 194.75px;
+        width: 400px;
+        display: flex;
+        justify-content: space-between;
+        & .arrows-left {
+          color: #ffffff;
+          cursor: pointer;
+        }
+        & .arrows-right {
+          color: #ffffff;
+          cursor: pointer;
+        }
+      }
+
+      & .pictures {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+      }
+    }
+
+    & .small-container {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+
+      & .small-image {
+        width: 85px;
+        height: 85px;
+        margin-top: 20px;
+
+        & .pictures {
+          object-fit: cover;
+          width: 100%;
+          height: 100%;
+          border-radius: 10px;
+        }
+      }
+    }
+  }
+  & .right-container {
+    width: 400px;
+    & .head {
+      display: flex;
+      justify-content: space-between;
+      h3 {
+        margin-left: 20px;
+        @include font-base(21px, 600);
+        line-height: 33px;
+        letter-spacing: 0.0015em;
+        height: 33px;
+        font-style: normal;
+
+      }
+      & .heart {
+        margin-top: 7px;
+        margin-right: 50px;
+        height: 20px;
+        width: 20px;
+        cursor: pointer;
+
+      }
+
+      & .yellow {
+        color: $main-yellow;
+        fill: $main-yellow;
+      }
+    }
+    & .availability {
+      margin-left: 20px;
+      margin-top: 10px;
+      width: 119px;
+      height: 27px;
+      font-style: normal;
+      @include font-base(17px, 600);
+      color: #118252;
+    }
+    & .inform {
+      height: 207px;
+      width: 346px;
+      margin-left: 20px;
+      margin-top: 10px;
+      display: flex;
+      justify-content: space-between;
+
+      &_name {
+        width: 173px;
+        &_list {
+          @include font-base(15px, 500);
+          height: 24px;
+          width: 158px;
+          margin-top: 7px;
+        }
+      }
+      &_result{
+        width: 173px;
+        & .rating-info {
+          height: 15px;
+          width: 106px;
+          margin-top: 4px;
+        }
+        &_count {
+          margin-top: 18px;
+        &_data {
+          @include font-base(15px, 600);
+          line-height: 24px;
+          letter-spacing: 0.0125em;
+          margin-top: 7px;
+         }
+        }
+      }
+    }
+  }
+}

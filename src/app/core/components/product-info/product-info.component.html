@@ -1,0 +1,61 @@
+<div class="product-container">
+  <div class="left-container">
+    <div class="big-container">
+      <div class="arrows">
+        <i-feather name="chevron-left" class="arrows-left"></i-feather>
+        <i-feather name="chevron-right" class="arrows-right"></i-feather>
+      </div>
+      <img class="pictures" [src]="img1" alt="img" />
+    </div>
+    <div class="small-container">
+      <div class="small-image">
+        <img class="pictures" [src]="img2" alt="img" />
+      </div>
+      <div class="small-image">
+        <img class="pictures" [src]="img3" alt="img" />
+      </div>
+      <div class="small-image">
+        <img class="pictures" [src]="img4" alt="img" />
+      </div>
+      <div class="small-image">
+        <img class="pictures" [src]="img5" alt="img" />
+      </div>
+    </div>
+  </div>
+  <div class="right-container">
+    <div class="head">
+      <h3>{{ product.name }}</h3>
+      <i-feather
+        [ngClass]="heart ? 'yellow' : 'transparent'"
+        class="heart"
+        (click)="like()"
+        name="heart"
+      ></i-feather>
+    </div>
+    <p class="availability">{{ product.availability }}</p>
+    <div class="inform">
+      <div class="inform_name">
+        <p class="inform_name_list">Рейтинг</p>
+        <p class="inform_name_list">Смак</p>
+        <p class="inform_name_list">Розмiр</p>
+        <p class="inform_name_list">Перiод вирощування</p>
+        <p class="inform_name_list">Локацiя</p>
+        <p class="inform_name_list">Умови зберiгання</p>
+        <p class="inform_name_list">Строк зберiгання</p>
+      </div>
+      <div class="inform_result">
+        <div class="rating-info">
+          <app-rating-component></app-rating-component>
+        </div>
+        <div class="inform_result_count">
+          <p class="inform_result_count_data">{{ product.taste }}</p>
+          <p class="inform_result_count_data">{{ product.size }}</p>
+          <p class="inform_result_count_data">{{ product.period }}</p>
+          <p class="inform_result_count_data">{{ product.location }}</p>
+          <p class="inform_result_count_data">{{ product.storage }}</p>
+          <p class="inform_result_count_data">{{ product.term }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
