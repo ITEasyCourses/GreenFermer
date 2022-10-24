@@ -8,7 +8,6 @@ import {
 } from '@angular/core';
 
 import { IProductCardBucket } from '../../interfaces/product-card-bucket.interface';
-import { BucketCardArgType } from '../../types/application-types';
 
 @Component({
   selector: 'app-product-purchase-card',
@@ -30,36 +29,25 @@ export class ProductPurchaseCardComponent implements OnInit {
   public cardPrice!: string;
   public wholesaleFlag = false;
 
+  public ngOnInit(): void {
+    this.initCard();
+  }
+
   public countPrice(operator: number): void {
     if (this.productCard.price) {
-      if (operator === 0) {
-        if (this.counter !== 1) {
-          this.counter--;
-        } else this.counter = 1;
+      if (!operator) {
+        this.counter--;
       } else if (this.counter >= 1000) {
         this.counter = 1000;
-      } else {
-        this.counter++;
-      }
-      if (this.counter >= this.productCard.startWholesaleByKg) {
-        this.totalPrice = this.getPriseAndSetCounterPrice('wholesalePrice');
-        this.sendPayloadData();
-        this.wholesaleFlag = true;
-      } else {
-        this.totalPrice = this.getPriseAndSetCounterPrice('price');
-        this.sendPayloadData();
-        this.wholesaleFlag = false;
-      }
-      this.productCard.weight = this.counter;
+      } else this.counter++;
+      this.wholesaleFlag = this.counter >= this.productCard.startWholesaleByKg;
+      this.setTotalPriseAndCounterPrice();
+      this.sendPayloadData();
     }
   }
 
   public deleteCard(): void {
     this.deleteCardEmitter.emit(this.productCard);
-  }
-
-  public ngOnInit(): void {
-    this.initCard();
   }
 
   private sendPayloadData(): void {
@@ -71,11 +59,12 @@ export class ProductPurchaseCardComponent implements OnInit {
     this.updateProductCard.emit(this.productCard);
   }
 
-  private getPriseAndSetCounterPrice(type: BucketCardArgType): string {
+  private setTotalPriseAndCounterPrice(): void {
+    const type = this.wholesaleFlag ? 'wholesalePrice' : 'price';
     const uah = +this.productCard[type].split('.')[0];
     const cent = +this.productCard[type].split('.')[1];
     this.cardPrice = this.productCard[type];
-    return (((uah * 100 + cent) * this.counter) / 100).toFixed(2);
+    this.totalPrice = (((uah * 100 + cent) * this.counter) / 100).toFixed(2);
   }
 
   private initCard(): void {
@@ -83,11 +72,10 @@ export class ProductPurchaseCardComponent implements OnInit {
     if (this.productCard.weight < this.productCard.startWholesaleByKg) {
       this.cardPrice = this.productCard.price;
       this.wholesaleFlag = false;
-      this.totalPrice = this.getPriseAndSetCounterPrice('price');
     } else {
       this.cardPrice = this.productCard.wholesalePrice;
       this.wholesaleFlag = true;
-      this.totalPrice = this.getPriseAndSetCounterPrice('wholesalePrice');
     }
+    this.setTotalPriseAndCounterPrice();
   }
 }
