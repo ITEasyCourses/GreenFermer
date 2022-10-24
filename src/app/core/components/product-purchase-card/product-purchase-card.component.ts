@@ -36,7 +36,9 @@ export class ProductPurchaseCardComponent implements OnInit {
   public countPrice(operator: number): void {
     if (this.productCard.price) {
       if (!operator) {
-        this.counter--;
+        if (this.counter > 1) {
+          this.counter--;
+        }
       } else if (this.counter >= 1000) {
         this.counter = 1000;
       } else this.counter++;
@@ -69,13 +71,11 @@ export class ProductPurchaseCardComponent implements OnInit {
 
   private initCard(): void {
     this.counter = this.productCard.weight;
-    if (this.productCard.weight < this.productCard.startWholesaleByKg) {
-      this.cardPrice = this.productCard.price;
-      this.wholesaleFlag = false;
-    } else {
-      this.cardPrice = this.productCard.wholesalePrice;
-      this.wholesaleFlag = true;
-    }
+    this.wholesaleFlag =
+      this.productCard.weight >= this.productCard.startWholesaleByKg;
+    this.cardPrice = this.wholesaleFlag
+      ? this.productCard.wholesalePrice
+      : this.productCard.price;
     this.setTotalPriseAndCounterPrice();
   }
 }

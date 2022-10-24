@@ -75,14 +75,14 @@ p {
         cursor: pointer;
 
         &.minus {
-          &-disabled {
+          &.disabled {
             color: $main-gray;
             cursor: auto;
           }
         }
 
         &.plus {
-          &-disabled {
+          &.disabled {
             color: $gray4;
             cursor: auto;
           }

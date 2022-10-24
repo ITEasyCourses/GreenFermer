@@ -10,7 +10,7 @@
       <p class="interface-row-description-text">{{ cardPrice }} ₴ / кг</p>
       <p
         class="interface-row-description-wholesale"
-        [ngClass]="wholesaleFlag ? 'activate' : null"
+        [class.activate]="wholesaleFlag"
       >
         оптова ціна від <b>{{ productCard.startWholesaleByKg }}</b> кг
         {{ productCard.wholesalePrice }} ₴ / кг
@@ -18,9 +18,10 @@
     </div>
     <div class="interface-row-counter">
       <i-feather
-        [class]="counter !== 1 ? 'icon minus' : 'icon minus-disabled'"
+        class="icon minus"
+        [class.disabled]="counter === 1"
         name="minus"
-        (click)="counter !== 1 ? countPrice(0) : null"
+        (click)="countPrice(0)"
       ></i-feather>
 
       <div class="interface-row-counter-window">
@@ -29,7 +30,7 @@
 
       <i-feather
         class="icon plus"
-        [class]="counter !== 1000 ? 'icon plus' : 'icon plus-disabled'"
+        [class.disabled]="counter >= 1000"
         name="plus"
         (click)="countPrice(1)"
       ></i-feather>
