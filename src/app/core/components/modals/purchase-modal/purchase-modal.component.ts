@@ -5,9 +5,11 @@ import {
   OnInit
 } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 
 import { ProductCardBucketConstants } from '../../../constants/product-card-bucket.constants';
 import { sortPurchaseOptions } from '../../../constants/sort-purchase-options';
+import { ERoutes } from '../../../enums/routes';
 import { IProductCardBucket } from '../../../interfaces/product-card-bucket.interface';
 import { SortOption } from '../../../interfaces/sort-option';
 import { BucketCardArgType } from '../../../types/application-types';
@@ -25,7 +27,10 @@ export class PurchaseModalComponent implements OnInit {
   public totalPrice!: string;
   public productCards: IProductCardBucket[] = ProductCardBucketConstants;
 
-  constructor(private dialogRef: MatDialogRef<PurchaseModalComponent>) {}
+  constructor(
+    private dialogRef: MatDialogRef<PurchaseModalComponent>,
+    private router: Router
+  ) {}
 
   public ngOnInit(): void {
     this.dialogRef.addPanelClass('purchase-modal');
@@ -43,6 +48,11 @@ export class PurchaseModalComponent implements OnInit {
 
   public trackByFn(index: number, cards: IProductCardBucket) {
     return cards.id;
+  }
+
+  public goToCheckout(): void {
+    this.router.navigate([ERoutes.CHECKOUT]);
+    this.dialogRef.close();
   }
 
   private getTotalPrice(): void {

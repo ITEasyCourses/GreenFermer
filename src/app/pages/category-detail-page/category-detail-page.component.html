@@ -1,14 +1,13 @@
 <section class="category">
   <div class="category__wrapper">
     <div class="left-path">
-      <app-breadcrumbs class="left-path_breadcrumbs"></app-breadcrumbs>
-      <div class="left-path_content">
-        <app-product-card
-          *ngFor="let card of products"
-          class="left-path_content_card"
-          [card]="card"
-        >
-        </app-product-card>
+      <div class="left-path__breadcrumbs">
+        <app-breadcrumbs></app-breadcrumbs>
+      </div>
+      <div class="left-path__content">
+        <div *ngFor="let card of products" class="left-path_content_card">
+          <app-product-card [card]="card"> </app-product-card>
+        </div>
       </div>
     </div>
     <div class="right-path">
