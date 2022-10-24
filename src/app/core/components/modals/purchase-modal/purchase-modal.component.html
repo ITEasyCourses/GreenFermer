@@ -17,7 +17,7 @@
     >
       <app-product-purchase-card
         [productCard]="productCard"
-        (totalWeight)="countByDirection($event)"
+        (updateProductCard)="countByDirection($event)"
       ></app-product-purchase-card>
     </div>
     <div class="purchase-modal-content__footer">

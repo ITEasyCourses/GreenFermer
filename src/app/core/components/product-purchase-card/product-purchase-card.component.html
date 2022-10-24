@@ -4,12 +4,22 @@
   </div>
   <div class="interface-row">
     <div class="interface-row-description">
-      <p>{{ productCard.productName }}</p>
-      <p>{{ productCard.price }} ₴ / кг</p>
+      <p class="interface-row-description-text">
+        {{ productCard.productName }}
+      </p>
+      <p class="interface-row-description-text">{{ cardPrice }} ₴ / кг</p>
+      <p
+        class="interface-row-description-wholesale"
+        [class.activate]="wholesaleFlag"
+      >
+        оптова ціна від <b>{{ productCard.startWholesaleByKg }}</b> кг
+        {{ productCard.wholesalePrice }} ₴ / кг
+      </p>
     </div>
     <div class="interface-row-counter">
       <i-feather
-        [class]="counter !== 1 ? 'icon minus' : 'icon minus-disabled'"
+        class="icon minus"
+        [class.disabled]="counter === 1"
         name="minus"
         (click)="countPrice(0)"
       ></i-feather>
@@ -20,7 +30,7 @@
 
       <i-feather
         class="icon plus"
-        [class]="counter !== 1000 ? 'icon plus' : 'icon plus-disabled'"
+        [class.disabled]="counter >= 1000"
         name="plus"
         (click)="countPrice(1)"
       ></i-feather>
