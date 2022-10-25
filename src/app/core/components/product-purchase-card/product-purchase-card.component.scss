@@ -14,22 +14,20 @@ p {
   justify-content: space-between;
   align-items: flex-start;
 
-  & .product-img {
-    width: 140px;
-    height: 140px;
-
-    & img {
-      width: 100%;
-      height: 100%;
-      border-radius: 10px;
-    }
-  }
-
-  & .interface-row {
-    width: 780px;
+  & .left-content {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+
+    &-img {
+      width: 140px;
+      height: 140px;
+
+      & img {
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+      }
+    }
 
     &-description {
       width: 245px;
@@ -37,9 +35,15 @@ p {
       display: flex;
       flex-direction: column;
       align-items: flex-start;
+      margin-left: 40px;
 
       &-text {
-        @include font-base(17px, 400, 26.75px)
+        @include font-base(17px, 400, 26.75px);
+
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
       }
 
       &-wholesale {
@@ -53,6 +57,14 @@ p {
         }
       }
     }
+  }
+
+  & .interface-row {
+    width: 450px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
 
     &-counter {
       width: 115px;

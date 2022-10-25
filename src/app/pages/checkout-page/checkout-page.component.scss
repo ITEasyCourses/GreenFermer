@@ -48,4 +48,50 @@
       }
     }
   }
+
+  &_info {
+    @include font-base(21px, 600, 33px);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 40px 0 6px;
+
+    &_price {
+      @include font-base(17px, 600, 27px);
+    }
+  }
+
+  & hr {
+    height: 1px;
+    border: 0;
+    background-color: $gray3;
+    margin-bottom: 20px;
+  }
+
+  &_order  {
+
+    &_content {
+      margin-bottom: 23px;
+    }
+  }
+
+  &_package {
+    margin-bottom: 30px;
+
+    &_title {
+      @include font-base(21px, 600, 33px);
+      margin-bottom: 30px;
+    }
+
+    &_subtitle {
+      @include font-base(17px, 400, 27px);
+      margin-bottom: 40px;
+    }
+
+    &_select {
+      width: 505px;
+      height: 40px;
+    }
+  }
 }

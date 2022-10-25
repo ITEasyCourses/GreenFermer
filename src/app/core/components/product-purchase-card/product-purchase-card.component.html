@@ -1,49 +1,45 @@
 <div class="container">
-  <div class="product-img">
-    <img src="{{ productCard.img }}" alt="product-img" />
-  </div>
-  <div class="interface-row">
-    <div class="interface-row-description">
-      <p class="interface-row-description-text">
+  <div class="left-content">
+    <div class="left-content-img">
+      <img src="{{ productCard.img }}" alt="product-img" />
+    </div>
+    <div class="left-content-description">
+      <p class="left-content-description-text">
         {{ productCard.productName }}
       </p>
-      <p class="interface-row-description-text">{{ cardPrice }} ₴ / кг</p>
+      <p class="left-content-description-text">{{ cardPrice }} ₴ / кг</p>
       <p
-        class="interface-row-description-wholesale"
+        class="left-content-description-wholesale"
         [class.activate]="wholesaleFlag"
       >
         оптова ціна від <b>{{ productCard.startWholesaleByKg }}</b> кг
         {{ productCard.wholesalePrice }} ₴ / кг
       </p>
     </div>
-    <div class="interface-row-counter">
-      <i-feather
-        class="icon minus"
-        [class.disabled]="counter === 1"
-        name="minus"
-        (click)="countPrice(0)"
-      ></i-feather>
+  </div>
+  <div class="interface-row-counter">
+    <i-feather
+      class="icon minus"
+      [class.disabled]="counter === 1"
+      name="minus"
+      (click)="countPrice(0)"
+    ></i-feather>
 
-      <div class="interface-row-counter-window">
-        <p>{{ counter }} кг</p>
-      </div>
-
-      <i-feather
-        class="icon plus"
-        [class.disabled]="counter >= 1000"
-        name="plus"
-        (click)="countPrice(1)"
-      ></i-feather>
+    <div class="interface-row-counter-window">
+      <p>{{ counter }} кг</p>
     </div>
 
     <i-feather
-      class="icon-trash"
-      name="trash"
-      (click)="deleteCard()"
+      class="icon plus"
+      [class.disabled]="counter >= 1000"
+      name="plus"
+      (click)="countPrice(1)"
     ></i-feather>
+  </div>
 
-    <div class="interface-row-price">
-      <p>{{ totalPrice }} ₴</p>
-    </div>
+  <i-feather class="icon-trash" name="trash" (click)="deleteCard()"></i-feather>
+
+  <div class="interface-row-price">
+    <p>{{ totalPrice }} ₴</p>
   </div>
 </div>

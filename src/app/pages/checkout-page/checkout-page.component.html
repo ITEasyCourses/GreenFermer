@@ -34,4 +34,34 @@
       </div>
     </div>
   </div>
+  <div class="checkout_info">
+    <p>Замовлення №</p>
+    <p class="checkout_info_price">{{ totalPrice || '00.00' }} ₴</p>
+  </div>
+  <hr />
+  <div class="checkout_order">
+    <div class="checkout_order_content"></div>
+  </div>
+  <div class="checkout_package">
+    <p class="checkout_package_title">Додати еко-пакування?</p>
+    <p class="checkout_package_subtitle">
+      Ми пропонуємо різні види біорозкладних упакувань для вашого замовлення, ми
+      завжди шукаємо нові та інноваційні способи допомогти врятувати нашу
+      планету та зберегти продукти свіжими.
+    </p>
+    <div class="checkout_package_select">
+      <app-select-delivery
+        [label]="label || 'Картонне пакування'"
+        [options]="[
+          {
+            viewValue: 'Картонне пакування',
+            id: 1
+          }
+        ]"
+        [deliveryStyle]="true"
+        (selectedOption)="selectedPackage($event)"
+      ></app-select-delivery>
+    </div>
+  </div>
+  <hr />
 </div>
