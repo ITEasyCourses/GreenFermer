@@ -1,31 +1,56 @@
-import { Component, Input } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  OnInit
+} from '@angular/core';
 
+import { PRODUCT_INFO_CARD } from '../../constants/product-info.constants';
 import { ProductInfo } from '../../interfaces/product-info.interface';
 
 @Component({
   selector: 'app-product-info',
   templateUrl: './product-info.component.html',
-  styleUrls: ['./product-info.component.scss']
+  styleUrls: ['./product-info.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ProductInfoComponent {
-  @Input() product: ProductInfo = {
-    name: 'Яблуко Ред Джоржанпринц',
-    availability: 'Є в наявності',
-    taste: 'Солодкий',
-    size: 'Велилий',
-    period: 'Осінь-зима',
-    location: 'Київ',
-    storage: 'У холодильнику',
-    term: 'Вiд чотирьох мiсяцiв'
-  };
+export class ProductInfoComponent implements OnInit {
+  @Input() product: ProductInfo = PRODUCT_INFO_CARD;
+  @Input() mainImg!: string;
 
-  public img1 = '../../../../assets/images/product-info/img1.jpg';
-  public img2 = '../../../../assets/images/product-info/img2.jpg';
-  public img3 = '../../../../assets/images/product-info/img3.jpg';
-  public img4 = '../../../../assets/images/product-info/img4.jpg';
-  public img5 = '../../../../assets/images/product-info/img5.jpg';
+  public availability!: string;
   public heart = false;
-  public like() {
+
+  private counter = 0;
+
+  public changeImage(img: string, idx: number): void {
+    this.product.img.splice(idx, 1, this.mainImg);
+    [this.mainImg, this.counter] = [img, idx];
+  }
+
+  public ngOnInit() {
+    this.mainImg = this.product.img.splice(0, 1)[0];
+    this.availability = this.product.availability
+      ? 'Немає в наявності'
+      : 'Є в наявності';
+  }
+
+  public like(): void {
     this.heart = !this.heart;
+  }
+
+  public arrowClick(direction: number) {
+    const containImg = this.mainImg;
+    if (!direction) {
+      if (this.counter === 0) {
+        this.counter = 3;
+      } else this.counter--;
+    } else {
+      if (this.counter === 3) {
+        this.counter = 0;
+      } else this.counter++;
+    }
+    this.mainImg = this.product.img[this.counter];
+    this.product.img.splice(this.counter, 1, containImg);
   }
 }

@@ -2,23 +2,27 @@
   <div class="left-container">
     <div class="big-container">
       <div class="arrows">
-        <i-feather name="chevron-left" class="arrows-left"></i-feather>
-        <i-feather name="chevron-right" class="arrows-right"></i-feather>
+        <i-feather
+          name="chevron-left"
+          class="arrows-left"
+          (click)="arrowClick(0)"
+        ></i-feather>
+        <i-feather
+          name="chevron-right"
+          class="arrows-right"
+          (click)="arrowClick(1)"
+        ></i-feather>
       </div>
-      <img class="pictures" [src]="img1" alt="img" />
+      <img class="picture" [src]="mainImg" alt="img" />
     </div>
     <div class="small-container">
-      <div class="small-image">
-        <img class="pictures" [src]="img2" alt="img" />
-      </div>
-      <div class="small-image">
-        <img class="pictures" [src]="img3" alt="img" />
-      </div>
-      <div class="small-image">
-        <img class="pictures" [src]="img4" alt="img" />
-      </div>
-      <div class="small-image">
-        <img class="pictures" [src]="img5" alt="img" />
+      <div class="small-image" *ngFor="let img of product.img; index as idx">
+        <img
+          class="pictures-small"
+          [src]="img"
+          alt="img"
+          (click)="changeImage(img, idx)"
+        />
       </div>
     </div>
   </div>
@@ -26,13 +30,13 @@
     <div class="head">
       <h3>{{ product.name }}</h3>
       <i-feather
-        [ngClass]="heart ? 'yellow' : 'transparent'"
-        class="heart"
+        class="heart transparent"
+        [class.yellow]="heart"
         (click)="like()"
         name="heart"
       ></i-feather>
     </div>
-    <p class="availability">{{ product.availability }}</p>
+    <p class="availability">{{ availability }}</p>
     <div class="inform">
       <div class="inform_name">
         <p class="inform_name_list">Рейтинг</p>
@@ -45,7 +49,9 @@
       </div>
       <div class="inform_result">
         <div class="rating-info">
-          <app-rating-component></app-rating-component>
+          <app-rating-component
+            [ratingStar]="product.rating"
+          ></app-rating-component>
         </div>
         <div class="inform_result_count">
           <p class="inform_result_count_data">{{ product.taste }}</p>
