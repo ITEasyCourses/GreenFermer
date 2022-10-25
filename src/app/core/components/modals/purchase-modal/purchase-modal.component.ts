@@ -46,8 +46,8 @@ export class PurchaseModalComponent implements OnInit {
     this.getTotalPrice();
   }
 
-  public trackByFn(index: number, cards: IProductCardBucket) {
-    return cards.id;
+  public trackByFn(index: number, card: IProductCardBucket) {
+    return card.id;
   }
 
   public goToCheckout(): void {
