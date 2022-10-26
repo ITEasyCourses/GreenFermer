@@ -1,5 +1,6 @@
 export interface IProductCategoryCard {
-  img: string;
+  cover: string;
+  icon: string;
+  id: string;
   title: string;
-  id: number;
 }
