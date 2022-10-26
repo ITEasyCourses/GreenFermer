@@ -24,9 +24,9 @@
         justify-content: space-between;
 
         & .arrows-left {
-          color: #ffffff;
+          color: $white;
           cursor: pointer;
-          transition: 0.1s;
+          transition: all 0.1s;
 
           &:hover {
             transform: scale(1.4);
@@ -34,9 +34,9 @@
         }
 
         & .arrows-right {
-          color: #ffffff;
+          color: $white;
           cursor: pointer;
-          transition: 0.1s;
+          transition: all 0.1s;
 
           &:hover {
             transform: scale(1.4);
@@ -85,8 +85,6 @@
         margin-left: 20px;
         line-height: 33px;
         letter-spacing: 0.0015em;
-        height: 33px;
-        font-style: normal;
       }
 
       & .heart {
@@ -112,7 +110,7 @@
       width: 100%;
       height: 27px;
       font-style: normal;
-      color: #118252;
+      color: $green;
     }
 
     & .inform {

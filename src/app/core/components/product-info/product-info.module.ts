@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { FeatherModule } from 'angular-feather';
 import { ChevronLeft, ChevronRight, Heart } from 'angular-feather/icons';
-import { SwiperModule } from 'swiper/angular';
 
 import { RatingComponentModule } from '../rating-component/rating-component.module';
 
@@ -22,8 +21,7 @@ const icons = {
     CommonModule,
     FeatherModule.pick(icons),
     RatingComponentModule,
-    FormsModule,
-    SwiperModule
+    FormsModule
   ]
 })
 export class ProductInfoModule {}
