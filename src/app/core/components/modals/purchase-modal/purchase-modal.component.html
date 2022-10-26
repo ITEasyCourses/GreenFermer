@@ -11,14 +11,17 @@
         [placeholder]="'Сортувати за'"
       ></app-sort-select>
     </div>
-    <div
-      class="purchase-modal-content__product-purchase"
-      *ngFor="let productCard of productCards; trackBy: trackByFn"
-    >
-      <app-product-purchase-card
-        [productCard]="productCard"
-        (updateProductCard)="countByDirection($event)"
-      ></app-product-purchase-card>
+    <div class="card-container" [class.scroll]="productCards.length > 3">
+      <div
+        class="purchase-modal-content__product-purchase"
+        *ngFor="let productCard of productCards; trackBy: trackByFn"
+      >
+        <app-product-purchase-card
+          [productCard]="productCard"
+          (updateProductCard)="countByDirection($event)"
+          (deleteCardEmitter)="deleteCard($event)"
+        ></app-product-purchase-card>
+      </div>
     </div>
     <div class="purchase-modal-content__footer">
       <div class="purchase-modal-content__footer-top">
