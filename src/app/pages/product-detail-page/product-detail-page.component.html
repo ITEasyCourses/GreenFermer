@@ -1,40 +1,36 @@
-<div class="container">
-  <div class="description">
-    <p class="description-title">Опис</p>
-    <p class="description-text">
-      {{ description }}
-    </p>
-  </div>
-</div>
+<app-breadcrumbs></app-breadcrumbs>
 
-<div class="container">
-  <div class="third">
-    <div class="third-head">
-      <h3 class="third-head-name">Популярні товари продавця</h3>
-      <div class="third-head-select">
-        <app-sort-select
-          [placeholder]="'Сортувати за'"
-          [selectItems]="mockSortTypes"
-        ></app-sort-select>
-      </div>
+<section class="description">
+  <div class="container">
+    <div class="description__wrapper">
+      <p class="description-title">Опис</p>
+      <p class="description-text">
+        {{ description }}
+      </p>
     </div>
-    <div class="third-cardss">
-      <div class="third-cardss-cards" *ngFor="let card of cards">
-        <app-product-card
-          class="third-cardss-cards-card"
-          [card]="card"
-        ></app-product-card>
-      </div>
+    <div class="description__feedback" *ngFor="let feedback of arrFeedback">
+      <app-feedback [feedback]="feedback"></app-feedback>
     </div>
   </div>
-  <app-breadcrumbs></app-breadcrumbs>
-  <div class="description">
-    <p class="description-title">Опис</p>
-    <p class="description-text">
-      {{ description }}
-    </p>
+</section>
+
+<section class="popular-item">
+  <div class="container">
+    <div class="popular-item__third">
+      <div class="popular-item__third-head">
+        <h3 class="popular-item__title">Популярні товари продавця</h3>
+        <div class="third-head-select">
+          <app-sort-select
+            [placeholder]="'Сортувати за'"
+            [selectItems]="mockSortTypes"
+          ></app-sort-select>
+        </div>
+      </div>
+      <div class="popular-item__cards-wrapper">
+        <div class="popular-item__cards" *ngFor="let card of cards">
+          <app-product-card [card]="card"></app-product-card>
+        </div>
+      </div>
+    </div>
   </div>
-  <div *ngFor="let feedback of arrFeedback">
-    <app-feedback [feedback]="feedback"></app-feedback>
-  </div>
-</div>
+</section>
