@@ -80,11 +80,9 @@
       justify-content: space-between;
 
       h3 {
-        @include font-base(21px, 600);
+        @include font-base(21px, 600, 33px);
 
         margin-left: 20px;
-        line-height: 33px;
-        letter-spacing: 0.0015em;
       }
 
       & .heart {
@@ -107,9 +105,6 @@
 
       margin-left: 20px;
       margin-top: 10px;
-      width: 100%;
-      height: 27px;
-      font-style: normal;
       color: $green;
     }
 
@@ -145,9 +140,8 @@
           margin-top: 23px;
 
           &_data {
-            @include font-base(15px, 600);
+            @include font-base(15px, 600, 24px);
 
-            line-height: 24px;
             letter-spacing: 0.0125em;
             margin-top: 7px;
           }
