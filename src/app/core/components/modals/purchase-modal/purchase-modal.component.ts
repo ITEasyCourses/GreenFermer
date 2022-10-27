@@ -56,6 +56,7 @@ export class PurchaseModalComponent implements OnInit {
 
   public deleteCard(card: IProductCardBucket): void {
     this.productCards = this.productCards.filter((el) => el.id !== card.id);
+    this.getTotalPrice();
   }
 
   private getTotalPrice(): void {
