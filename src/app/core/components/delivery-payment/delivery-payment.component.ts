@@ -74,7 +74,6 @@ export class DeliveryPaymentComponent {
     if (this.deliveryFB) {
       this.deliveryFB.patchValue({ payment: this.paymentType });
       if (this.deliveryFB.valid) {
-        console.log(this.deliveryFB.value);
         this.deliveryObj.emit(this.deliveryFB.value);
       }
     }
