@@ -51,6 +51,28 @@
       background: black;
     }
 
+    &-bottom {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      &_price {
+        @include font-base(15px, 500, 24px);
+
+        margin-left: 10px;
+        margin-bottom: 46px;
+        letter-spacing: 0.001em;
+      }
+
+      &_link {
+        margin-right: 10px;
+        cursor: pointer;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
     &-text{
 
       &-first {
@@ -87,13 +109,6 @@
         }
       }
 
-      &-price {
-        @include font-base(15px, 500, 24px);
-
-        margin-left: 10px;
-        margin-bottom: 46px;
-        letter-spacing: 0.001em;
-      }
     }
   }
 }
