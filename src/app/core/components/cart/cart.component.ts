@@ -1,5 +1,11 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  OnInit
+} from '@angular/core';
 
+import { BucketService } from '../../services/bucket.service';
 import { CartColorsType } from '../../types/application-types';
 
 @Component({
@@ -8,7 +14,19 @@ import { CartColorsType } from '../../types/application-types';
   styleUrls: ['./cart.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CartComponent {
-  @Input() counter = 6;
+export class CartComponent implements OnInit {
+  @Input() counter = 0;
   @Input() color: CartColorsType = 'yellow';
+
+  constructor(private bucketService: BucketService) {}
+
+  public ngOnInit(): void {
+    this.updateCounterBySubscribe();
+  }
+
+  private updateCounterBySubscribe(): void {
+    this.bucketService
+      .getGoodsCounter()
+      .subscribe((num) => (this.counter = num));
+  }
 }

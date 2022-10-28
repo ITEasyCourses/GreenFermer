@@ -1,5 +1,11 @@
-<div class="container-body">
-  <div class="body">
+<img class="category-banner" [src]="img" alt="image" />
+<div class="category__top">
+  <div class="category__search">
+    <app-search></app-search>
+  </div>
+</div>
+<div class="category__content">
+  <div class="category__content-wrapper">
     <div class="card-wrapper" *ngFor="let product of allProduct">
       <app-product-card [card]="product"></app-product-card>
     </div>

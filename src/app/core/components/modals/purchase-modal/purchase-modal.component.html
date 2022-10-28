@@ -1,0 +1,47 @@
+<div class="purchase-modal">
+  <div class="purchase-modal-header">
+    <i-feather name="x-circle" class="close" (click)="closeModal()"></i-feather>
+  </div>
+  <div class="purchase-modal-content">
+    <div class="purchase-modal-content__header">
+      <h3>Мій кошик</h3>
+      <app-sort-select
+        class="right-path_header-select"
+        [selectItems]="mockSortTypes"
+        [placeholder]="'Сортувати за'"
+      ></app-sort-select>
+    </div>
+    <div class="card-container" [class.scroll]="productCards.length > 3">
+      <div
+        class="purchase-modal-content__product-purchase"
+        *ngFor="let productCard of productCards; trackBy: trackByFn"
+      >
+        <app-product-purchase-card
+          [productCard]="productCard"
+          (updateProductCard)="countByDirection($event)"
+          (deleteCardEmitter)="deleteCard($event)"
+        ></app-product-purchase-card>
+      </div>
+    </div>
+    <div class="purchase-modal-content__footer">
+      <div class="purchase-modal-content__footer-top">
+        <p>Всього товарів: {{ productCards.length }}</p>
+        <div class="purchase-modal-content__footer-top-right">
+          <p class="purchase-weight">Загальна вага {{ totalWeight }} кг</p>
+          <p>Всього</p>
+          <p class="purchase-sum">{{ totalPrice }}₴</p>
+        </div>
+      </div>
+      <div class="purchase-modal-content__footer-bottom">
+        <app-button
+          [buttonText]="'Продовжити покупки'"
+          [buttonColor]="'transparent'"
+        ></app-button>
+        <app-button
+          [buttonText]="'Оплатити'"
+          (click)="goToCheckout()"
+        ></app-button>
+      </div>
+    </div>
+  </div>
+</div>

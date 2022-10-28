@@ -6,13 +6,28 @@ import { BreadcrumbsModule } from '../../core/components/breadcrumbs/breadcrumbs
 import { ProductCardModule } from '../../core/components/product-card/product-card.module';
 import { ProductCategoryCardModule } from '../../core/components/product-category-card/product-category-card.module';
 import { SortSelectModule } from '../../core/components/sort-select/sort-select.module';
+import { ERoutes } from '../../core/enums/routes';
 
 import { CatalogPageComponent } from './catalog-page.component';
+
+const children: Routes = [
+  {
+    path: '',
+    component: CatalogPageComponent
+  },
+  {
+    path: ERoutes.CATEGORY,
+    loadChildren: () =>
+      import('../category-page/category-page.module').then(
+        (m) => m.CategoryPageModule
+      )
+  }
+];
 
 const routes: Routes = [
   {
     path: '',
-    component: CatalogPageComponent,
+    children,
     data: {
       breadcrumb: 'Каталог'
     }
