@@ -1,15 +1,46 @@
 @import "src/assets/styles/mixins";
 
 .description {
+  margin-bottom: 40px;
 
   &-title {
     @include font-base(21px, 600, 33px );
+
+    margin-bottom: 30px;
   }
 
   &-text {
     @include font-base(17px, 400, 27px );
 
-    margin-top: 30px;
     white-space: pre-line;
+    margin-bottom: 40px;
+  }
+
+  &__feedback{
+    margin-bottom: 48px;
+  }
+}
+
+.popular-item {
+  margin-bottom: 40px;
+
+  &__third {
+    display: flex;
+    flex-direction: column;
+
+    &-head {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 30px;
+    }
+  }
+
+  &__title {
+    @include font-base( 21px, 600, 33px)
+  }
+
+  &__cards-wrapper {
+    display: flex;
+    justify-content: space-between;
   }
 }
