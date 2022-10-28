@@ -12,7 +12,7 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class RatingComponentComponent implements OnInit {
-  @Input() public ratingStar = 3.1;
+  @Input() public ratingStar = 2.8;
 
   ngOnInit() {
     this.sumAll();

@@ -2,33 +2,45 @@ import { IProductCard } from '../interfaces/i-product-card';
 
 export const CategoryDetailConst: IProductCard[] = [
   {
-    name: 'Кукумбер',
+    title: 'Кукумбер',
     price: '7.5',
-    image: ''
+    typeText: '',
+    images: '',
+    id: ''
   },
   {
-    name: 'Лохина',
+    title: 'Лохина',
     price: '17.25',
-    image: ''
+    typeText: '',
+    images: '',
+    id: ''
   },
   {
-    name: 'Бульба',
+    title: 'Бульба',
     price: '7',
-    image: ''
+    typeText: '',
+    images: '',
+    id: ''
   },
   {
-    name: 'Картопля',
+    title: 'Картопля',
     price: '10',
-    image: ''
+    typeText: '',
+    images: '',
+    id: ''
   },
   {
-    name: 'Черешня',
+    title: 'Черешня',
     price: '28.3',
-    image: ''
+    typeText: '',
+    images: '',
+    id: ''
   },
   {
-    name: 'Томат',
+    title: 'Томат',
     price: '13.3',
-    image: ''
+    typeText: '',
+    images: '',
+    id: ''
   }
 ];

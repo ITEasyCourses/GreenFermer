@@ -6,12 +6,12 @@ import {
   Self
 } from '@angular/core';
 
-import { PopularProductsConst } from '../../core/constants/catalog-page.constants';
 import { sortTypes } from '../../core/constants/sort-card-types-constants';
 import { IProductCard } from '../../core/interfaces/i-product-card';
 import { IProductCategoryCard } from '../../core/interfaces/product-category-card.interface';
 import { SortOption } from '../../core/interfaces/sort-option';
 import { CategoryService } from '../../core/services/category.service';
+import { PopularService } from '../../core/services/popular.service';
 import { UnsubscribeService } from '../../core/services/unsubscribe.service';
 
 @Component({
@@ -22,18 +22,20 @@ import { UnsubscribeService } from '../../core/services/unsubscribe.service';
   providers: [UnsubscribeService]
 })
 export class CatalogPageComponent implements OnInit {
-  public cardsArr: IProductCard[] = PopularProductsConst;
+  public cardsArr!: IProductCard[];
   public categoryList!: IProductCategoryCard[];
   public mockSortTypes: SortOption[] = sortTypes;
 
   constructor(
     private categoryService: CategoryService,
     @Self() private unsubscribeService: UnsubscribeService,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
+    private popularService: PopularService
   ) {}
 
   ngOnInit() {
     this.getProductCategoryCards();
+    this.getPopularsCards();
   }
 
   private getProductCategoryCards(): void {
@@ -42,6 +44,16 @@ export class CatalogPageComponent implements OnInit {
       .pipe(this.unsubscribeService.takeUntilDestroy)
       .subscribe((data: IProductCategoryCard[]) => {
         this.categoryList = data;
+        this.cdr.detectChanges();
+      });
+  }
+
+  private getPopularsCards(): void {
+    this.popularService
+      .getPopulars()
+      .pipe(this.unsubscribeService.takeUntilDestroy)
+      .subscribe((data: IProductCard[]) => {
+        this.cardsArr = data;
         this.cdr.detectChanges();
       });
   }
