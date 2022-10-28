@@ -9,43 +9,53 @@
       <h5 class="price-card_main_naming_boldName2">Загалом:</h5>
     </div>
     <div class="price-card_main_number">
-      <h5 class="price-card_main_number_name1">{{ product.cost }} ₴/кг</h5>
-      <h5 class="price-card_main_number_name2">
-        {{ product.wholesaleCost }} ₴/від {{ product.wholesaleAmount }} кг
-      </h5>
-      <h5 class="price-card_main_number_name">{{ product.minAmount }} кг</h5>
-      <h5 class="price-card_main_number_boldName1">
-        <i-feather
-          name="credit-card"
-          class="price-card_main_number_boldName1_tools"
-        ></i-feather>
-        <i-feather
-          name="dollar-sign"
-          class="price-card_main_number_boldName1_tools"
-        ></i-feather>
-      </h5>
-      <div class="price-card_main_number_boldName">
-        <span
-          class="price-card_main_number_boldName_plus"
-          (click)="minusProduct()"
-          >-</span
-        >
-        <span class="price-card_main_number_boldName_number">{{
-          product.amount
-        }}</span>
-        <span
-          class="price-card_main_number_boldName_plus"
-          (click)="plusProduct()"
-          >+</span
-        >
+      <div class="price-card_main_number_top">
+        <h5 class="price-card_main_number_name1">{{ product.cost }} ₴/кг</h5>
+        <h5 class="price-card_main_number_name2">
+          {{ product.wholesaleCost }} ₴/від {{ product.wholesaleAmount }} кг
+        </h5>
+        <h5 class="price-card_main_number_name">{{ product.minAmount }} кг</h5>
+        <h5 class="price-card_main_number_boldName1">
+          <i-feather
+            name="credit-card"
+            class="price-card_main_number_boldName1_tools"
+          ></i-feather>
+          <i-feather
+            name="folder"
+            class="price-card_main_number_boldName1_tools"
+          ></i-feather>
+        </h5>
+        <div class="price-card_main_number_boldName">
+          <i-feather
+            name="minus"
+            class="price-card_main_number_boldName_plus"
+            [class.disable]="productTools.amount === product.minAmount"
+            (click)="minusProduct()"
+            ><</i-feather
+          >
+          <p class="price-card_main_number_boldName_number">
+            {{ productTools.amount }}
+          </p>
+          <i-feather
+            name="plus"
+            class="price-card_main_number_boldName_plus"
+            [class.disable]="productTools.amount === 1000"
+            (click)="plusProduct()"
+          ></i-feather>
+        </div>
       </div>
-      <h5 class="price-card_main_number_boldName">
-        {{ product.sum }} ₴ / за {{ product.amount }} кг
-      </h5>
+      <div class="price-card_main_number_bottom">
+        <h5 class="price-card_main_number_boldName">
+          {{ productTools.sum }} ₴ / за {{ productTools.amount }} кг
+        </h5>
+      </div>
     </div>
   </div>
   <div class="price-card_button-block">
     <app-button [buttonText]="'Додати до кошика'"></app-button>
-    <i-feather name="message-circle"></i-feather>
+    <i-feather
+      name="message-circle"
+      class="price-card_button-block_dialog"
+    ></i-feather>
   </div>
 </div>
