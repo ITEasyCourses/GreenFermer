@@ -40,7 +40,7 @@
   }
 
   &__cards-wrapper {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    display: flex;
+    justify-content: space-between;
   }
 }
