@@ -7,6 +7,8 @@ import {
   Output
 } from '@angular/core';
 
+import { IProductCardBucket } from '../../interfaces/product-card-bucket.interface';
+
 @Component({
   selector: 'app-product-purchase-card',
   templateUrl: './product-purchase-card.component.html',
@@ -14,32 +16,35 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProductPurchaseCardComponent implements OnInit {
-  @Input() productName!: string;
-  @Input() price!: string;
-  @Input() imgUrl!: string;
-  @Input() productCard!: any;
+  @Input() productCard!: IProductCardBucket;
 
-  @Output() totalPriceInCents: EventEmitter<number> =
-    new EventEmitter<number>();
+  @Output() updateProductCard: EventEmitter<IProductCardBucket> =
+    new EventEmitter<IProductCardBucket>();
 
-  @Output() deleteCardEmitter: EventEmitter<any> = new EventEmitter<any>();
+  @Output() deleteCardEmitter: EventEmitter<IProductCardBucket> =
+    new EventEmitter<IProductCardBucket>();
+
   public counter = 1;
   public totalPrice!: string;
+  public cardPrice!: string;
+  public wholesaleFlag = false;
+
+  public ngOnInit(): void {
+    this.initCard();
+  }
 
   public countPrice(operator: number): void {
-    const uah = +this.price.split('.')[0];
-    const cent = +this.price.split('.')[1];
-    if (this.price) {
-      if (operator === 0) {
-        if (this.counter !== 1) {
+    if (this.productCard.price) {
+      if (!operator) {
+        if (this.counter > 1) {
           this.counter--;
-        } else this.counter = 1;
-      } else if (this.counter === 1000) {
+        }
+      } else if (this.counter >= 1000) {
         this.counter = 1000;
       } else this.counter++;
-      const result = (uah * 100 + cent) * this.counter;
-      this.totalPrice = (result / 100).toFixed(2);
-      this.totalPriceInCents.emit(result);
+      this.wholesaleFlag = this.counter >= this.productCard.startWholesaleByKg;
+      this.setTotalPriseAndCounterPrice();
+      this.sendPayloadData();
     }
   }
 
@@ -47,7 +52,30 @@ export class ProductPurchaseCardComponent implements OnInit {
     this.deleteCardEmitter.emit(this.productCard);
   }
 
-  public ngOnInit(): void {
-    this.totalPrice = this.price;
+  private sendPayloadData(): void {
+    this.productCard = {
+      ...this.productCard,
+      totalPrice: this.totalPrice,
+      weight: this.counter
+    };
+    this.updateProductCard.emit(this.productCard);
+  }
+
+  private setTotalPriseAndCounterPrice(): void {
+    const type = this.wholesaleFlag ? 'wholesalePrice' : 'price';
+    const uah = +this.productCard[type].split('.')[0];
+    const cent = +this.productCard[type].split('.')[1];
+    this.cardPrice = this.productCard[type];
+    this.totalPrice = (((uah * 100 + cent) * this.counter) / 100).toFixed(2);
+  }
+
+  private initCard(): void {
+    this.counter = this.productCard.weight;
+    this.wholesaleFlag =
+      this.productCard.weight >= this.productCard.startWholesaleByKg;
+    this.cardPrice = this.wholesaleFlag
+      ? this.productCard.wholesalePrice
+      : this.productCard.price;
+    this.setTotalPriseAndCounterPrice();
   }
 }

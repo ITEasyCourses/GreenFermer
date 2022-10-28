@@ -6,4 +6,10 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   styleUrls: ['./checkout-page.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CheckoutPageComponent {}
+export class CheckoutPageComponent {
+  public state = false;
+
+  public changeState(state: boolean): void {
+    this.state = state;
+  }
+}

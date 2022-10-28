@@ -1,15 +1,27 @@
 <div class="container">
-  <div class="product-img">
-    <img src="{{ imgUrl }}" alt="product-img" />
+  <div class="left-content">
+    <div class="left-content-img">
+      <img src="{{ productCard.img }}" alt="product-img" />
+    </div>
+    <div class="left-content-description">
+      <p class="left-content-description-text">
+        {{ productCard.productName }}
+      </p>
+      <p class="left-content-description-text">{{ cardPrice }} ₴ / кг</p>
+      <p
+        class="left-content-description-wholesale"
+        [class.activate]="wholesaleFlag"
+      >
+        оптова ціна від <b>{{ productCard.startWholesaleByKg }}</b> кг
+        {{ productCard.wholesalePrice }} ₴ / кг
+      </p>
+    </div>
   </div>
   <div class="interface-row">
-    <div class="interface-row-description">
-      <p>{{ productName }}</p>
-      <p>{{ price }} ₴ / кг</p>
-    </div>
     <div class="interface-row-counter">
       <i-feather
-        [class]="counter !== 1 ? 'icon minus' : 'icon minus-disabled'"
+        class="icon minus"
+        [class.disabled]="counter === 1"
         name="minus"
         (click)="countPrice(0)"
       ></i-feather>
@@ -20,7 +32,7 @@
 
       <i-feather
         class="icon plus"
-        [class]="counter !== 1000 ? 'icon plus' : 'icon plus-disabled'"
+        [class.disabled]="counter >= 1000"
         name="plus"
         (click)="countPrice(1)"
       ></i-feather>

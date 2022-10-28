@@ -14,6 +14,7 @@ import { ERoutes } from '../../enums/routes';
 import { IAuthenticationUser } from '../../interfaces/i-authentication-user';
 import { IHeaderBackground } from '../../interfaces/i-heder-background';
 import { SortOption } from '../../interfaces/sort-option';
+import { PurchaseModalComponent } from '../modals/purchase-modal/purchase-modal.component';
 import { RegistrationModalComponent } from '../modals/registration-modal/registration-modal.component';
 
 @Component({
@@ -65,6 +66,10 @@ export class HeaderComponentComponent implements OnInit {
   public openRegModal(): void {
     const regDialogConfig = new MatDialogConfig();
     this.matDialog.open(RegistrationModalComponent, regDialogConfig);
+  }
+
+  public openPurchModal(): void {
+    this.matDialog.open(PurchaseModalComponent);
   }
 
   public goToHome(): void {

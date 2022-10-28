@@ -1,0 +1,51 @@
+@import "src/assets/styles/mixins";
+
+.checkout {
+  width: 100%;
+  margin: 100px 0;
+
+  &_wrap {
+    @include font-base(17px, 600, 27px);
+
+    &_link {
+      cursor: pointer;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.3s;
+
+      &.check{
+        border-bottom: 1px solid $main-black;
+        cursor: default
+      }
+
+      &:first-child {
+        margin-right: 50px;
+      }
+
+      &:visited {
+        color: $main-black;
+      }
+    }
+  }
+
+  &_title {
+    @include font-base(21px, 600, 33px);
+
+    margin: 20px 0;
+  }
+
+  &_input {
+    @include font-base(17px, 400, 27px);
+
+    display: flex;
+    justify-content: space-between;
+
+    &_block{
+      width: 505px;
+
+      &_phone,&_email{
+        margin-top: 20px;
+      }
+    }
+  }
+}

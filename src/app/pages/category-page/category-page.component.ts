@@ -10,5 +10,6 @@ import { IProductCard } from '../../core/interfaces/i-product-card';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CategoryPageComponent {
+  public img = '../../../assets/images/category-page/fruits.png';
   allProduct: IProductCard[] = ProductCardConstants;
 }

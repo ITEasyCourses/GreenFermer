@@ -1,5 +1,7 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
+import { ERoutes } from '../../enums/routes';
 import { IProductCategoryCard } from '../../interfaces/product-category-card.interface';
 
 @Component({
@@ -9,5 +11,11 @@ import { IProductCategoryCard } from '../../interfaces/product-category-card.int
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProductCategoryCardComponent {
-  @Input() productCategoryCard?: IProductCategoryCard;
+  @Input() productCategoryCard!: IProductCategoryCard;
+
+  constructor(private router: Router) {}
+
+  public goToCategory() {
+    this.router.navigate([ERoutes.CATALOG_PAGE, this.productCategoryCard.id]);
+  }
 }

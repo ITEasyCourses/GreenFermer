@@ -1,11 +1,34 @@
-.body {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-gap: 30px;
-}
+.category{
 
-.card-wrapper {
-  margin-bottom: 36px;
+  &-banner{
+    width: 100%;
+    height: 324px;
+    object-fit: cover;
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+
+  &__top{
+    padding: 162px 0 120px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    margin-bottom: 40px;
+  }
+
+  &__search{
+    width: 1028px;
+  }
+
+  &__content-wrapper{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 30px;
+    margin-bottom: 40px;
+  }
 }
 
 
