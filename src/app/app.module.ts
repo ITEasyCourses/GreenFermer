@@ -11,6 +11,7 @@ import { FooterModule } from './core/components/footer/footer.module';
 import { HeaderComponentModule } from './core/components/header-component/header-component.module';
 import { LoginModalModule } from './core/components/modals/login-modal/login-modal.module';
 import { PurchaseModalModule } from './core/components/modals/purchase-modal/purchase-modal.module';
+import { DeliveryPaymentModule } from './core/components/delivery-payment/delivery-payment.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,7 +23,8 @@ import { PurchaseModalModule } from './core/components/modals/purchase-modal/pur
     LoginModalModule,
     HeaderComponentModule,
     FooterModule,
-    PurchaseModalModule
+    PurchaseModalModule,
+    DeliveryPaymentModule
   ],
   bootstrap: [AppComponent]
 })

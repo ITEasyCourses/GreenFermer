@@ -12,8 +12,14 @@
     [class.open]="openFlag"
     [class.delivery-option]="deliveryStyle"
   >
-    <button *ngFor="let item of options" (click)="selectOption(item)">
-      {{ item.viewValue }}
-    </button>
+    <ng-container *ngIf="options; else noOptions">
+      <button *ngFor="let item of options" (click)="selectOption(item)">
+        {{ item.viewValue }}
+      </button>
+    </ng-container>
   </div>
 </button>
+
+<ng-template #noOptions>
+  <p>Оберіть населенний пункт</p>
+</ng-template>
