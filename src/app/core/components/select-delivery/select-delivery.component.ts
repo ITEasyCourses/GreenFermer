@@ -24,7 +24,7 @@ export class SelectDeliveryComponent {
 
   public openFlag = false;
 
-  public selectOption(option: any): void {
+  public selectOption(option: SelectOption): void {
     this.selectedOption.emit(option);
   }
 

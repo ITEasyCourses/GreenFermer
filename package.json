@@ -28,7 +28,6 @@
     "@angular/platform-browser-dynamic": "^14.2.4",
     "@angular/router": "^14.2.4",
     "angular-feather": "^6.5.0",
-    "firebase": "^9.10.0",
     "husky": "^8.0.1",
     "rxjs": "~7.5.0",
     "swiper": "^8.4.2",
