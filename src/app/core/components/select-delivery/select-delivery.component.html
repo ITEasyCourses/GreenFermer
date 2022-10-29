@@ -12,7 +12,7 @@
     [class.open]="openFlag"
     [class.delivery-option]="deliveryStyle"
   >
-    <ng-container *ngIf="options; else noOptions">
+    <ng-container *ngIf="options?.length; else noOptions">
       <button *ngFor="let item of options" (click)="selectOption(item)">
         {{ item.viewValue }}
       </button>
