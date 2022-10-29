@@ -36,11 +36,16 @@
   </div>
   <div class="checkout_info">
     <p>Замовлення №</p>
-    <p class="checkout_info_price">{{ totalPrice || '00.00' }} ₴</p>
+    <p class="checkout_info_price">{{ totalPrice }} ₴</p>
   </div>
   <hr />
   <div class="checkout_order">
-    <div class="checkout_order_content"></div>
+    <div class="checkout_order_content" *ngFor="let card of data">
+      <app-product-purchase-card
+        [productCard]="card"
+        (updateProductCard)="onUpdateProductCard($event)"
+      ></app-product-purchase-card>
+    </div>
   </div>
   <div class="checkout_package">
     <p class="checkout_package_title">Додати еко-пакування?</p>
