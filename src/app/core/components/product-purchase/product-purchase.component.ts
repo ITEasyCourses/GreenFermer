@@ -24,12 +24,14 @@ export class ProductPurchaseComponent implements OnInit {
     minAmount: 2
   };
 
-  productTools: ProductToolsPurchase = {
+  public productTools: ProductToolsPurchase = {
     amount: 0,
     sum: 0
   };
 
-  ngOnInit() {
+  public maxWeight = 1000;
+
+  public ngOnInit(): void {
     this.productTools.amount = this.product.minAmount;
     this.productTools.sum = this.productTools.amount * this.product.cost;
   }
@@ -42,7 +44,7 @@ export class ProductPurchaseComponent implements OnInit {
   }
 
   public plusProduct(): void {
-    if (this.productTools.amount < 1000) {
+    if (this.productTools.amount < this.maxWeight) {
       this.productTools.amount = this.productTools.amount + 1;
       this.wholesale();
     }
