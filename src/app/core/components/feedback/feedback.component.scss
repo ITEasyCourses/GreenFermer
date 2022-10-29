@@ -9,7 +9,7 @@
 
     width: 122px;
     height: 33px;
-    margin-left: 30px;
+    margin-bottom: 30px;
   }
 
   &_wrapper {
@@ -23,19 +23,15 @@
 
     &_info-heart {
       display: flex;
-      flex-direction: row;
     }
 
     &_info-name {
       @include font-base(17px, 600, 27px);
 
-      margin-top: 30px;
+      margin-right: 22px;
     }
 
     &_info-like {
-      margin-right: 26px;
-      margin-top: 26px;
-      margin-left: 22px;
       cursor: pointer;
 
       &.yellow{
@@ -49,10 +45,6 @@
       }
     }
 
-    &_info-rating {
-      margin-top: 15px;
-    }
-
     &_info-text {
       @include font-base(17px, 400, 27px);
 
@@ -62,7 +54,7 @@
     &_img {
       width: 220px;
       height: 230px;
-      margin: 30px;
+      margin-right: 30px;
       border-radius: 15px;
       object-fit: cover;
     }

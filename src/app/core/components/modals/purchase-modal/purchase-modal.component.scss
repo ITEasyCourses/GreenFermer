@@ -4,6 +4,7 @@
 ::ng-deep .purchase-modal {
   & .mat-dialog-container {
     width: 1040px;
+    max-height: 825px;
     padding: 0;
     border-radius: 10px;
   }
@@ -43,16 +44,23 @@
         @include font-base(21px, 600, 33px);
       }
     }
+    & .card-container{
+      height: 490px;
 
-    &__product-purchase {
+    & .purchase-modal-content__product-purchase {
       margin-top: 20px;
       margin-bottom: 10px;
+     }
+
+      &.scroll {
+        overflow-y: scroll;
+      }
     }
 
     &__footer {
       display: flex;
       flex-direction: column;
-      margin-bottom: 53px;
+      margin-bottom: 35px;
 
       p {
         @include font-base(17px, 600, 27px)

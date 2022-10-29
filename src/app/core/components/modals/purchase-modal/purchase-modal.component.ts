@@ -26,7 +26,6 @@ export class PurchaseModalComponent implements OnInit {
   public mockSortTypes: SortOption[] = sortPurchaseOptions;
   public totalPrice!: string;
   public productCards: IProductCardBucket[] = ProductCardBucketConstants;
-
   constructor(
     private dialogRef: MatDialogRef<PurchaseModalComponent>,
     private router: Router
@@ -53,6 +52,11 @@ export class PurchaseModalComponent implements OnInit {
   public goToCheckout(): void {
     this.router.navigate([ERoutes.CHECKOUT]);
     this.dialogRef.close();
+  }
+
+  public deleteCard(card: IProductCardBucket): void {
+    this.productCards = this.productCards.filter((el) => el.id !== card.id);
+    this.getTotalPrice();
   }
 
   private getTotalPrice(): void {
