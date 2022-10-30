@@ -14,4 +14,8 @@ export class AuthService {
   public setUser(user: any): void {
     this.authUserSubj.next(user);
   }
+
+  public getUser(): any {
+    return this.authUserSubj.getValue();
+  }
 }
