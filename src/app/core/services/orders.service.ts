@@ -15,7 +15,7 @@ export class OrdersService {
     userId: 0
   };
 
-  public nextOrder = false;
+  public isNextOrder = false;
 
   constructor(
     private angularFirestore: AngularFirestore,
@@ -39,7 +39,7 @@ export class OrdersService {
   }
 
   public goToCheckoutResult(): void {
-    this.nextOrder = true;
+    this.isNextOrder = true;
     this.router.navigate([ERoutes.CHECKOUT_RESULT]);
   }
 }

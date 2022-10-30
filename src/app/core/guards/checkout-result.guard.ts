@@ -8,8 +8,8 @@ import { OrdersService } from '../services/orders.service';
 export class CheckoutResultGuard implements CanActivate {
   constructor(private orderService: OrdersService) {}
   canActivate(): Observable<boolean> | boolean {
-    if (this.orderService.nextOrder) {
-      this.orderService.nextOrder = false;
+    if (this.orderService.isNextOrder) {
+      this.orderService.isNextOrder = false;
       return true;
     } else {
       return false;
