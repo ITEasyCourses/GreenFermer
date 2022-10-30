@@ -8,13 +8,6 @@ const routes: Routes = [
     loadChildren: () =>
       import('./pages/home-page/home-page.module').then((m) => m.HomePageModule)
   },
-  // {
-  //   path: ERoutes.PRODUCT_DETAIL,
-  //   loadChildren: () =>
-  //     import('./pages/product-detail-page/product-detail-page.module').then(
-  //       (m) => m.ProductDetailPageModule
-  //     )
-  // },
   {
     path: ERoutes.CHECKOUT,
     loadChildren: () =>
