@@ -12,6 +12,13 @@ import { IProductCardBucket } from '../../core/interfaces/product-card-bucket.in
 export class CheckoutPageComponent implements OnInit {
   public state = false;
   public label!: string;
+  public options: SelectOption[] = [
+    {
+      viewValue: 'Картонне пакування',
+      id: 1
+    }
+  ];
+
   public totalPrice = 0;
   public data: IProductCardBucket[] = [];
 
@@ -35,6 +42,10 @@ export class CheckoutPageComponent implements OnInit {
       return el;
     });
     this.getTotalPrice();
+  }
+
+  public getCardId(index: number, name: any): number {
+    return name.id;
   }
 
   private getTotalPrice(): void {

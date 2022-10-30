@@ -40,7 +40,7 @@
   </div>
   <hr />
   <div class="checkout_order">
-    <div class="checkout_order_content" *ngFor="let card of data">
+    <div class="checkout_order_content" *ngFor="let card of data; trackBy: getCardId">
       <app-product-purchase-card
         [productCard]="card"
         (updateProductCard)="onUpdateProductCard($event)"
@@ -57,12 +57,7 @@
     <div class="checkout_package_select">
       <app-select-delivery
         [label]="label || 'Картонне пакування'"
-        [options]="[
-          {
-            viewValue: 'Картонне пакування',
-            id: 1
-          }
-        ]"
+        [options]="options"
         [deliveryStyle]="true"
         (selectedOption)="selectedPackage($event)"
       ></app-select-delivery>

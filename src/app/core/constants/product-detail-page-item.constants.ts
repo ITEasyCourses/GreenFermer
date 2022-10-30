@@ -24,4 +24,4 @@ export const PRODUCT_ITEM = [
     price: '123',
     image: ''
   }
-]
+];
