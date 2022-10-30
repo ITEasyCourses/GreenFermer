@@ -28,7 +28,7 @@
       </option>
       <option
         class="my-option"
-        *ngFor="let searchCity of sortCity"
+        *ngFor="let searchCity of sortCity; trackBy: trackByFn"
         [value]="searchCity.viewValue"
       >
         {{ searchCity.viewValue }}

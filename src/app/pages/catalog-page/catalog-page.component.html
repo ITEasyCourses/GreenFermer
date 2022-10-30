@@ -8,7 +8,10 @@
     ></app-sort-select>
   </div>
   <div class="categories_wrap">
-    <div class="categories_wrap_cards" *ngFor="let card of categoryList">
+    <div
+      class="categories_wrap_cards"
+      *ngFor="let card of categoryList; trackBy: trackByFn"
+    >
       <app-product-category-card
         [productCategoryCard]="card"
       ></app-product-category-card>
@@ -19,7 +22,7 @@
       <h2 class="second-block__title">Популярні продукти</h2>
       <div class="second-block__inner">
         <app-product-card
-          *ngFor="let card of cardsArr"
+          *ngFor="let card of cardsArr; trackBy: trackByCardsFn"
           [card]="card"
         ></app-product-card>
       </div>

@@ -12,7 +12,7 @@
     [class.open]="openFlag"
     [class.delivery-option]="deliveryStyle"
   >
-    <button *ngFor="let item of options" (click)="selectOption(item)">
+    <button *ngFor="let item of options; trackBy: trackByFn" (click)="selectOption(item)">
       {{ item.viewValue }}
     </button>
   </div>

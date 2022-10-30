@@ -14,7 +14,7 @@
   </div>
   <div class="card-container">
     <app-order-card-component
-      *ngFor="let card of mocCads"
+      *ngFor="let card of mocCads; trackBy: trackByFn"
       [ordersCards]="card"
     ></app-order-card-component>
   </div>
