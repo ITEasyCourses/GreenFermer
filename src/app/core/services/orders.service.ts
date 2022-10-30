@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
 
 import { ERoutes } from '../enums/routes';
@@ -8,7 +9,21 @@ import { ERoutes } from '../enums/routes';
 })
 export class OrdersService {
   public isNextOrder = false;
-  constructor(private router: Router) {}
+  constructor(
+    private angularFirestore: AngularFirestore,
+    private router: Router
+  ) {}
+
+  // TODO Дописать типизацию 'order', когда будет
+  public setOrder(userId: string, order: any): void {
+    this.angularFirestore
+      .collection('users')
+      .doc(userId)
+      .collection('orders')
+      .doc()
+      .set(order);
+    this.goToCheckoutResult();
+  }
 
   public goToCheckoutResult(): void {
     this.isNextOrder = true;
