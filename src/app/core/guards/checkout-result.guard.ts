@@ -6,10 +6,10 @@ import { OrdersService } from '../services/orders.service';
 
 @Injectable()
 export class CheckoutResultGuard implements CanActivate {
-  constructor(private orderService: OrdersService) {}
+  constructor(private ordersService: OrdersService) {}
   canActivate(): Observable<boolean> | boolean {
-    if (this.orderService.isNextOrder) {
-      this.orderService.isNextOrder = false;
+    if (this.ordersService.isNextOrder) {
+      this.ordersService.isNextOrder = false;
       return true;
     } else {
       return false;
