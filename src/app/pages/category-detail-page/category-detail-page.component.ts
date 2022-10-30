@@ -17,7 +17,7 @@ export class CategoryDetailPageComponent {
   @Input() products: IProductCard[] = CategoryDetailConst;
 
   public mockSortTypes: SortOption[] = sortMapOptions;
-  public isCategoryPage?: boolean;
+  public isCategoryPage!: boolean;
 
   constructor(private router: Router) {}
 
