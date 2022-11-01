@@ -12,13 +12,14 @@ export class ProductDetailService {
 
   public getProduct(
     categoryId: string,
-    productId: string
+    productId: string,
+    singleProductId: string
   ): Observable<ProductDetail> {
     return this.angularFirestore
       .collection('categories')
       .doc(categoryId)
-      .collection('products')
-      .doc(productId)
+      .collection(productId)
+      .doc(singleProductId)
       .valueChanges()
       .pipe(take(1)) as unknown as Observable<ProductDetail>;
   }
