@@ -1,4 +1,8 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  TrackByFunction
+} from '@angular/core';
 
 import { ORDERS } from '../../core/constants/oder-card-moc-arr.constants';
 import { ORDER_PAGE_SELECT } from '../../core/constants/select.constants';
@@ -16,4 +20,7 @@ export class MyOrderPageComponent {
   public mocCads: IOrderCardFields[] = ORDERS;
 
   public options: SortOption[] = ORDER_PAGE_SELECT;
+
+  public trackByFn: TrackByFunction<IOrderCardFields> = (index, item) =>
+    item.id;
 }
