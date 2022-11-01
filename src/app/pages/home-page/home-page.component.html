@@ -12,7 +12,10 @@
 <div class="product">
   <p class="product__title">Популярні продукти</p>
   <div class="product__wrap">
-    <div class="product__wrap_carts" *ngFor="let product of productList">
+    <div
+      class="product__wrap_carts"
+      *ngFor="let product of productList; trackBy: trackByFn"
+    >
       <app-product-card [card]="product"></app-product-card>
     </div>
   </div>
