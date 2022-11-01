@@ -10,7 +10,10 @@ import { ProductDetail } from '../interfaces/product-detail';
 export class ProductDetailService {
   constructor(private angularFirestore: AngularFirestore) {}
 
-  public getProduct(categoryId: string, productId: string): any {
+  public getProduct(
+    categoryId: string,
+    productId: string
+  ): Observable<ProductDetail> {
     return this.angularFirestore
       .collection('categories')
       .doc(categoryId)
