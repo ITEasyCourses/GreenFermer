@@ -61,12 +61,6 @@
         justify-content: space-between;
         width: 95px;
 
-        svg-icon-sprite {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
-
         ::ng-deep &_tools{
           cursor: pointer;
           color: transparent;
@@ -129,9 +123,8 @@
     align-items: center;
 
     ::ng-deep &_dialog{
-      padding: 0 6px;
-      width: 36px;
-      height: 36px;
+      width: 21px;
+      height: 21px;
     }
   }
 }

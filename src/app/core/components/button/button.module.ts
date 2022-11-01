@@ -4,7 +4,6 @@ import { IconSpriteModule } from 'ng-svg-icon-sprite';
 
 import { ButtonComponent } from './button.component';
 
-
 @NgModule({
   declarations: [ButtonComponent],
   imports: [CommonModule, IconSpriteModule],

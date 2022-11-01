@@ -1,14 +1,14 @@
 <div class="container">
-  <i-feather
-    name="grid"
-    class="container_toggle"
-    [class.active]="!isMenuToggle"
+  <svg-icon-sprite
+    [src]="'assets/sprites/sprite.svg#grid'"
+    [viewBox]="'0 0 24 24'"
+    [classes]="!isMenuToggle ? 'container_toggle active' : 'container_toggle'"
     (click)="switch()"
-  ></i-feather>
-  <i-feather
-    name="menu"
-    class="container_toggle"
-    [class.active]="isMenuToggle"
+  ></svg-icon-sprite>
+  <svg-icon-sprite
+    [src]="'assets/sprites/sprite.svg#list'"
+    [viewBox]="'0 0 24 24'"
+    [classes]="isMenuToggle ? 'container_toggle active' : 'container_toggle'"
     (click)="switch()"
-  ></i-feather>
+  ></svg-icon-sprite>
 </div>

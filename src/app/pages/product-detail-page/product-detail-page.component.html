@@ -8,7 +8,10 @@
         {{ description }}
       </p>
     </div>
-    <div class="description__feedback" *ngFor="let feedback of arrFeedback; trackBy: trackByFn">
+    <div
+      class="description__feedback"
+      *ngFor="let feedback of arrFeedback; trackBy: trackByFn"
+    >
       <app-feedback [feedback]="feedback"></app-feedback>
     </div>
   </div>

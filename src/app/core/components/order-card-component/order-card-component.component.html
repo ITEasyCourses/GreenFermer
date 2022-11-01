@@ -30,7 +30,10 @@
       <p class="card-direction__text">{{ ordersCards.cityToOder }}</p>
     </div>
   </header>
-  <main class="main" *ngFor="let product of ordersCards.orderAddedProducts; trackBy: trackByFn">
+  <main
+    class="main"
+    *ngFor="let product of ordersCards.orderAddedProducts; trackBy: trackByFn"
+  >
     <div class="main-name">
       <p class="main-name__text">{{ product.productName | titlecase }}</p>
     </div>
