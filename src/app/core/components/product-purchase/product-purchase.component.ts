@@ -5,6 +5,7 @@ import {
   OnInit
 } from '@angular/core';
 
+import { PRODUCT_PURCHASE } from '../../constants/product-purchase';
 import {
   ProductPurchase,
   ProductToolsPurchase
@@ -17,12 +18,7 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProductPurchaseComponent implements OnInit {
-  @Input() product: ProductPurchase = {
-    cost: 99,
-    wholesaleCost: 88,
-    wholesaleAmount: 10,
-    minAmount: 2
-  };
+  @Input() product: ProductPurchase = PRODUCT_PURCHASE;
 
   public productTools: ProductToolsPurchase = {
     amount: 0,

@@ -2,8 +2,9 @@ import {
   ChangeDetectionStrategy,
   Component,
   EventEmitter,
-  Input, OnInit,
-  Output
+  Input,
+  Output,
+  TrackByFunction
 } from '@angular/core';
 
 import { SelectOption } from '../../interfaces/delivery-type';
@@ -24,7 +25,9 @@ export class SelectDeliveryComponent {
 
   public openFlag = false;
 
-  public selectOption(option: SelectOption): void {
+  public trackByFn: TrackByFunction<SelectOption> = (index, item) => item.id;
+
+  public selectOption(option: any): void {
     this.selectedOption.emit(option);
   }
 

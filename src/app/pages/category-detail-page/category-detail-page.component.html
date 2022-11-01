@@ -5,7 +5,10 @@
         <app-breadcrumbs></app-breadcrumbs>
       </div>
       <div class="left-path__content">
-        <div *ngFor="let card of products" class="left-path_content_card">
+        <div
+          *ngFor="let card of products; trackBy: trackByFn"
+          class="left-path_content_card"
+        >
           <app-product-card [card]="card"> </app-product-card>
         </div>
       </div>

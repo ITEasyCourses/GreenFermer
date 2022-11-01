@@ -2,7 +2,8 @@ import {
   ChangeDetectionStrategy,
   Component,
   Input,
-  OnInit
+  OnInit,
+  TrackByFunction
 } from '@angular/core';
 
 import { PRODUCT_INFO_CARD } from '../../constants/product-info-component.constants';
@@ -22,6 +23,7 @@ export class ProductInfoComponent implements OnInit {
   public heart = false;
 
   private counter = 0;
+  public trackByFn: TrackByFunction<string> = (index, item) => item;
 
   public changeImage(img: string, idx: number): void {
     this.product.img.splice(idx, 1, this.mainImg);

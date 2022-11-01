@@ -1,4 +1,9 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  TrackByFunction
+} from '@angular/core';
 
 import { CategoryDetailConst } from '../../core/constants/category-detail-page.constants';
 import { sortMapOptions } from '../../core/constants/sort-map-options';
@@ -15,4 +20,6 @@ export class CategoryDetailPageComponent {
   @Input() products: IProductCard[] = CategoryDetailConst;
 
   public mockSortTypes: SortOption[] = sortMapOptions;
+
+  public trackByFn: TrackByFunction<IProductCard> = (index, item) => item.name;
 }

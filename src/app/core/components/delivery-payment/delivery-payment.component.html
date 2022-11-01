@@ -9,7 +9,7 @@
       <div class="delivery">
         <app-radio-button
           class="app"
-          *ngFor="let item of delivery"
+          *ngFor="let item of delivery; trackBy: trackByFn"
           [value]="item.value"
           ><p class="label">{{ item.label }}</p>
           <ng-container *ngIf="item.value === deliveryType">

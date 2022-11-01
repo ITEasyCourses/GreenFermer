@@ -1,9 +1,14 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  TrackByFunction
+} from '@angular/core';
 
 import { feedbackConstants } from '../../core/constants/feedback.constants';
 import { PRODUCT_ITEM } from '../../core/constants/product-detail-page-item.constants';
 import { PRODUCT_DESCRIPTION } from '../../core/constants/product-detail.constants';
 import { PRODUCT_INFO_CARD } from '../../core/constants/product-info-component.constants';
+import { PRODUCT_PURCHASE } from '../../core/constants/product-purchase';
 import { Feedback } from '../../core/interfaces/feedback-interface';
 import { IProductCard } from '../../core/interfaces/i-product-card';
 import { ProductInfo } from '../../core/interfaces/product-info-component-interface';
@@ -26,10 +31,6 @@ export class ProductDetailPageComponent {
 
   public productCard: ProductInfo = PRODUCT_INFO_CARD;
 
-  public productPurchase: ProductPurchase = {
-    cost: 99,
-    wholesaleCost: 88,
-    wholesaleAmount: 10,
-    minAmount: 2
-  };
+  public productPurchase: ProductPurchase = PRODUCT_PURCHASE;
+  public trackByFn: TrackByFunction<Feedback> = (index, item) => item.name;
 }
