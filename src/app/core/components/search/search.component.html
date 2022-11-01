@@ -6,7 +6,13 @@
       [formControl]="searchProducts"
     />
     <div (click)="productSearch()" class="search-input-imag">
-      <i-feather name="search"></i-feather>
+      <svg-icon-sprite
+        [src]="'assets/sprites/sprite.svg#search-icon'"
+        [viewBox]="'0 0 20px 20px'"
+        [width]="'20px'"
+        [height]="'20px'"
+        [classes]="'search-input-imag-icon'"
+      ></svg-icon-sprite>
     </div>
   </div>
   <div class="search-select">
@@ -35,10 +41,13 @@
       </option>
     </select>
     <div class="search-select-location">
-      <i-feather
-        class="search-select-location__icons"
-        name="map-pin"
-      ></i-feather>
+      <svg-icon-sprite
+        [viewBox]="'0 0 18 20'"
+        [width]="'18px'"
+        [height]="'20px'"
+        [src]="'assets/sprites/sprite.svg#location'"
+        [classes]="'search-select-location__icon'"
+      ></svg-icon-sprite>
     </div>
   </div>
   <div class="btn">

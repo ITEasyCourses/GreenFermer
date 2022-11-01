@@ -61,9 +61,15 @@
         justify-content: space-between;
         width: 95px;
 
-        &_tools{
+        svg-icon-sprite {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        ::ng-deep &_tools{
           cursor: pointer;
-          transition: all 0.2s;
+          color: transparent;
         }
       }
 
@@ -78,35 +84,54 @@
 
         margin-bottom: 16px;
         display: flex;
-        justify-content: space-around;
 
         &:last-child{
           margin-bottom: 0;
         }
 
         &_plus{
-          display: block;
+          @include font-base(16px, 600, 21px);
+
           cursor:pointer;
-          width: 15px;
+          width: 24px;
+          height: 24px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+
+          &:first-child {
+            margin-right: 10px;
+          }
 
           &.disable{
             color: $main-gray;
           }
+        }
 
-          &:last-child{
-            margin-right: 40px;
-          }
+        &_number {
+          margin-right: 10px;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
         }
       }
     }
   }
 
   &_button-block{
-    margin: 0 43.5px 0 36px;
+    max-width: 330px;
+    margin: 0 auto;
     display: flex;
     justify-content: space-between;
-    &_dialog{
-      margin-top: 10px;
+    align-items: center;
+
+    ::ng-deep &_dialog{
+      padding: 0 6px;
+      width: 36px;
+      height: 36px;
     }
   }
 }

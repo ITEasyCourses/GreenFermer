@@ -2,16 +2,24 @@
   <div class="left-container">
     <div class="big-container">
       <div class="arrows">
-        <i-feather
-          name="chevron-left"
-          class="arrows-left"
-          (click)="arrowClick(0)"
-        ></i-feather>
-        <i-feather
-          name="chevron-right"
-          class="arrows-right"
-          (click)="arrowClick(1)"
-        ></i-feather>
+        <div class="arrows__wrapper" (click)="arrowClick(0)">
+          <svg-icon-sprite
+            [src]="'assets/sprites/sprite-multicolor.svg#arrow-product-slider'"
+            [viewBox]="'0 0 7px 12px'"
+            [width]="'7px'"
+            [height]="'12px'"
+            [classes]="'arrows-left'"
+          ></svg-icon-sprite>
+        </div>
+        <div class="arrows__wrapper" (click)="arrowClick(1)">
+          <svg-icon-sprite
+            [src]="'assets/sprites/sprite-multicolor.svg#arrow-product-slider'"
+            [viewBox]="'0 0 7px 12px'"
+            [width]="'7px'"
+            [height]="'12px'"
+            [classes]="'arrows-right'"
+          ></svg-icon-sprite>
+        </div>
       </div>
       <img class="picture" [src]="mainImg" alt="img" />
     </div>
@@ -31,13 +39,15 @@
   </div>
   <div class="right-container">
     <div class="head">
-      <h3>{{ product.name }}</h3>
-      <i-feather
-        class="heart transparent"
-        [class.yellow]="heart"
+      <h3 class="head__title">{{ product.name }}</h3>
+      <svg-icon-sprite
+        [src]="'assets/sprites/sprite.svg#heart'"
+        [viewBox]="'0 0 28 24'"
+        [width]="'20px'"
+        [height]="'20px'"
+        [classes]="heart ? 'heart yellow' : 'heart'"
         (click)="like()"
-        name="heart"
-      ></i-feather>
+      ></svg-icon-sprite>
     </div>
     <p class="availability">{{ availability }}</p>
     <div class="inform">

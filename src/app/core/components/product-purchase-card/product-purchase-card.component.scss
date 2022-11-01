@@ -26,6 +26,9 @@ p {
         width: 100%;
         height: 100%;
         border-radius: 10px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
       }
     }
 
@@ -71,7 +74,7 @@ p {
       height: 30px;
       display: flex;
       justify-content: space-between;
-
+      align-items: center;
 
       &-window {
         width: 64px;
@@ -79,14 +82,27 @@ p {
         border: 1px solid $gray3;
         border-radius: 6px;
         text-align: center;
+        margin-right: 8px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
       }
 
-      & .icon {
-        width: 16px;
-        margin-top: 7px;
+      svg-icon-sprite {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 24px;
+        height: 24px;
         cursor: pointer;
+      }
+
+      & ::ng-deep .icon {
+        color: $main-black;
 
         &.minus {
+          margin-right: 8px;
+
           &.disabled {
             color: $main-gray;
             cursor: auto;
@@ -102,15 +118,26 @@ p {
       }
     }
 
-    & .icon-trash {
-      width: 20px;
+    svg-icon-sprite {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
       cursor: pointer;
+    }
+
+    & ::ng-deep .icon-trash {
+      color: $main-black;
     }
 
     &-price {
       width: 98px;
       height: 27px;
       text-align: right;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
     }
   }
 }

@@ -43,13 +43,17 @@ export const FOOTER_CONSTANTS: Record<string, FooterInterfaceConfig[]> = {
           href: '#',
           name: 'Android',
           srOnly: 'Додаток для Android',
-          imgSrc: './assets/images/footer/android.svg'
+          imgSrc: './assets/sprites/sprite-multicolor.svg#android',
+          width: '22px',
+          height: '22px'
         },
         {
           href: '#',
           name: 'Apple',
           srOnly: 'Додаток для Apple',
-          imgSrc: './assets/images/footer/apple.svg'
+          imgSrc: './assets/sprites/sprite-multicolor.svg#apple-footer',
+          width: '20px',
+          height: '26px'
         }
       ]
     },
@@ -60,19 +64,25 @@ export const FOOTER_CONSTANTS: Record<string, FooterInterfaceConfig[]> = {
           href: '#',
           name: 'Instagram',
           srOnly: 'Наш Instagram',
-          imgSrc: './assets/images/footer/inst.svg'
+          imgSrc: './assets/sprites/sprite-multicolor.svg#inst',
+          width: '22px',
+          height: '22px'
         },
         {
           href: '#',
           name: 'Twitter',
           srOnly: 'Наш Twitter',
-          imgSrc: './assets/images/footer/twitter.svg'
+          imgSrc: './assets/sprites/sprite-multicolor.svg#twitter',
+          width: '15px',
+          height: '24px'
         },
         {
           href: '#',
           name: 'Facebook',
           srOnly: 'Наш Facebook',
-          imgSrc: './assets/images/footer/facebook.svg'
+          imgSrc: './assets/sprites/sprite-multicolor.svg#facebook',
+          width: '15px',
+          height: '24px'
         }
       ]
     }

@@ -5,12 +5,11 @@
   <div class="container">
     <div class="header">
       <div class="header-left">
-        <div class="header-left-logo" (click)="goToHome()">
-          <img
-            [src]="checkRoutAndScrollOptions ? logo.transparent : logo.yellow"
-            alt="logo"
-          />
-        </div>
+        <svg-icon-sprite
+          [src]="checkRoutAndScrollOptions ? logo.transparent : logo.yellow"
+          [classes]="'header-left-logo'"
+          (click)="goToHome()"
+        ></svg-icon-sprite>
         <div class="header-left-select" (click)="goToCatalog()">
           <label class="header-left-select-label">{{
             labelForSelectCatalog
@@ -43,13 +42,20 @@
     ></app-language>
   </div>
   <div class="header-right-auth-comment">
-    <i-feather
-      class="header-right-auth-comment__size"
-      name="message-circle"
-    ></i-feather>
+    <svg-icon-sprite
+      [src]="'assets/sprites/sprite.svg#message'"
+      [viewBox]="'0 0 22 24'"
+      [classes]="'header-right-auth-comment__size'"
+    ></svg-icon-sprite>
   </div>
   <div class="header-right-auth-like">
-    <i-feather class="header-right-auth-like__size" name="heart"></i-feather>
+    <svg-icon-sprite
+      [src]="'assets/sprites/sprite.svg#heart'"
+      [viewBox]="'0 0 28 24'"
+      [width]="'20px'"
+      [height]="'20px'"
+      [classes]="'header-right-auth-like__size'"
+    ></svg-icon-sprite>
   </div>
   <div class="header-right-auth__basket">
     <app-cart

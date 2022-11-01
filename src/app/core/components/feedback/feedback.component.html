@@ -5,12 +5,18 @@
     <div class="feedback_wrapper_info">
       <div class="feedback_wrapper_info-heart">
         <h4 class="feedback_wrapper_info-name">{{ feedback.name }}</h4>
-        <i-feather
-          [ngClass]="heart ? 'yellow' : 'transparent'"
-          class="feedback_wrapper_info-like"
+        <svg-icon-sprite
+          [src]="'assets/sprites/sprite.svg#heart'"
+          [viewBox]="'0 0 28 24'"
+          [width]="'20px'"
+          [height]="'20px'"
+          [classes]="
+            heart
+              ? 'feedback_wrapper_info-like yellow'
+              : 'feedback_wrapper_info-like transparent'
+          "
           (click)="like()"
-          name="heart"
-        ></i-feather>
+        ></svg-icon-sprite>
       </div>
       <div class="feedback_wrapper_info-rating">
         <app-rating-component></app-rating-component>

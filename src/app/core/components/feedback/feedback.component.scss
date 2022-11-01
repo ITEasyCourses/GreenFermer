@@ -23,6 +23,11 @@
 
     &_info-heart {
       display: flex;
+
+      & svg-icon-sprite{
+        display: flex;
+        align-items: center;
+      }
     }
 
     &_info-name {
@@ -31,17 +36,20 @@
       margin-right: 22px;
     }
 
-    &_info-like {
+    ::ng-deep &_info-like {
       cursor: pointer;
+      color: transparent;
+      stroke: $main-black;
+      transition: stroke 0.2s, color 0.2s, transform 0.2s;
 
       &.yellow{
+        stroke: $light-yellow ;
         color: $light-yellow;
-        fill: $light-yellow;
       }
 
       &:hover {
         transform: scale(1.3);
-        color: $light-yellow ;
+        stroke: $light-yellow;
       }
     }
 
@@ -66,10 +74,7 @@
 
       &_first {
         margin-right: 10px;
-
       }
     }
   }
-
-
 }

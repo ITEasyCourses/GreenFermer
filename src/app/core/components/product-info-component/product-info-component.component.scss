@@ -10,6 +10,7 @@
   & .left-container {
     width: 400px;
     height: 100%;
+    margin-right: 20px;
 
     & .big-container {
       width: 100%;
@@ -18,29 +19,43 @@
 
       & .arrows {
         position: absolute;
-        top: 49%;
-        width: 400px;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 0;
+        right: 0;
         display: flex;
         justify-content: space-between;
 
-        & .arrows-left {
-          color: $white;
+        &__wrapper {
+          width: 30px;
+          height: 28px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
           cursor: pointer;
-          transition: all 0.1s;
 
-          &:hover {
-            transform: scale(1.4);
+          &:hover ::ng-deep .arrows-left {
+            scale: 1.4;
+          }
+
+          &:hover ::ng-deep .arrows-right {
+            scale: 1.4;
           }
         }
 
-        & .arrows-right {
-          color: $white;
-          cursor: pointer;
-          transition: all 0.1s;
+        svg-icon-sprite {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
 
-          &:hover {
-            transform: scale(1.4);
-          }
+        ::ng-deep & .arrows-left {
+          transition: scale 0.2s;
+        }
+
+        ::ng-deep & .arrows-right {
+          transform: rotate(180deg);
+          transition: scale 0.2s;
         }
       }
 
@@ -49,6 +64,9 @@
         width: 100%;
         height: 100%;
         border-radius: 10px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
       }
     }
 
@@ -62,6 +80,9 @@
         height: 85px;
         margin-top: 20px;
         cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
 
         & .pictures-small {
           object-fit: cover;
@@ -77,33 +98,41 @@
 
     & .head {
       display: flex;
-      justify-content: space-between;
+      align-items: center;
 
-      h3 {
+      &__title {
         @include font-base(21px, 600, 33px);
 
-        margin-left: 20px;
-      }
-
-      & .heart {
-        margin-top: 7px;
         margin-right: 50px;
-        height: 20px;
-        width: 20px;
-        cursor: pointer;
-
       }
 
-      & .yellow {
-        color: $main-yellow;
-        fill: $main-yellow;
+      svg-icon-sprite {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      ::ng-deep .heart {
+        stroke: $main-black;
+        color: transparent;
+        cursor: pointer;
+        transition: stroke 0.2s, color 0.2s, scale 0.2s;
+
+        &.yellow {
+          stroke: $light-yellow;
+          color: $light-yellow;
+        }
+
+        &:hover {
+          stroke: $light-yellow;
+          scale: 1.3;
+        }
       }
     }
 
     & .availability {
       @include font-base(17px, 600);
 
-      margin-left: 20px;
       margin-top: 10px;
       color: $green;
     }
@@ -111,7 +140,6 @@
     & .inform {
       height: 207px;
       width: 346px;
-      margin-left: 20px;
       margin-top: 10px;
       display: flex;
       justify-content: space-between;

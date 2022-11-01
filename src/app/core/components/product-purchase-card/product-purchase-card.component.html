@@ -19,30 +19,37 @@
   </div>
   <div class="interface-row">
     <div class="interface-row-counter">
-      <i-feather
-        class="icon minus"
-        [class.disabled]="counter === 1"
-        name="minus"
+      <svg-icon-sprite
+        [src]="'assets/sprites/sprite.svg#minus-product'"
+        [viewBox]="'0 0 16px 16px'"
+        [width]="'16px'"
+        [height]="'2px'"
+        [classes]="counter === 1 ? 'icon minus disabled' : 'icon minus'"
         (click)="countPrice(0)"
-      ></i-feather>
+      ></svg-icon-sprite>
 
       <div class="interface-row-counter-window">
         <p>{{ counter }} кг</p>
       </div>
 
-      <i-feather
-        class="icon plus"
-        [class.disabled]="counter >= 1000"
-        name="plus"
+      <svg-icon-sprite
+        [src]="'assets/sprites/sprite.svg#plus-product'"
+        [viewBox]="'0 0 16px 16px'"
+        [width]="'16px'"
+        [height]="'16px'"
+        [classes]="counter >= 1000 ? 'icon plus disabled' : 'icon plus'"
         (click)="countPrice(1)"
-      ></i-feather>
+      ></svg-icon-sprite>
     </div>
 
-    <i-feather
-      class="icon-trash"
-      name="trash"
+    <svg-icon-sprite
+      [src]="'assets/sprites/sprite.svg#delete-icon'"
+      [viewBox]="'0 0 18px 20px'"
+      [width]="'18px'"
+      [height]="'20px'"
+      [classes]="'icon-trash'"
       (click)="deleteCard()"
-    ></i-feather>
+    ></svg-icon-sprite>
 
     <div class="interface-row-price">
       <p>{{ totalPrice }} ₴</p>

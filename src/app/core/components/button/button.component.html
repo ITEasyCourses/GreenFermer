@@ -5,7 +5,13 @@
   [ngClass]="buttonColor"
 >
   <div class="btn-title">
-    <i-feather *ngIf="addIcon" class="icon" name="plus"></i-feather>
+     <svg-icon-sprite
+      *ngIf="addIcon"
+      [src]="'assets/sprites/sprite.svg#plus'"
+      [width]="'24px'"
+      [height]="'24px'"
+      [classes]="'btn__plus'"
+    ></svg-icon-sprite>
     {{ buttonText }}
   </div>
 </button>
