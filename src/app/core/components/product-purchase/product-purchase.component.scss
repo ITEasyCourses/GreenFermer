@@ -1,7 +1,6 @@
 @import "src/assets/styles/vars";
 @import "src/assets/styles/mixins";
 
-
 .price-card{
   width: 400px;
   height: 411px;
@@ -12,10 +11,10 @@
   &_main{
     display: flex;
     justify-content: space-between;
+    padding: 34px 22px 30px 30px;
+    position: relative;
 
     &_naming{
-      margin: 34px 0 0 30px;
-
       &_name{
         @include font-base(15px, 500, 24px);
 
@@ -40,9 +39,6 @@
     }
 
     &_number{
-      margin: 30px 22px 0 0;
-      padding-right:22px;
-
       &_name1{
         @include font-base(21px, 600, 33px);
 
@@ -71,26 +67,46 @@
         }
       }
 
+      &_bottom{
+        position: absolute;
+        bottom: 30px;
+        right: 22px;
+      }
+
       &_boldName{
         @include font-base(17px, 600, 27px);
-        
-        margin-bottom: 16px;
 
-        &_number{
-          margin: 0 10px;
+        margin-bottom: 16px;
+        display: flex;
+        justify-content: space-around;
+
+        &:last-child{
+          margin-bottom: 0;
         }
 
         &_plus{
+          display: block;
           cursor:pointer;
-          transition: all 1s;
+          width: 15px;
+
+          &.disable{
+            color: $main-gray;
+          }
+
+          &:last-child{
+            margin-right: 40px;
+          }
         }
       }
     }
   }
 
   &_button-block{
+    margin: 0 43.5px 0 36px;
     display: flex;
     justify-content: space-between;
-    margin: 30px 43.5px 0 30px;
+    &_dialog{
+      margin-top: 10px;
+    }
   }
 }

@@ -39,6 +39,10 @@
       letter-spacing: 0.005em;
     }
 
+    & .gray{
+      color: $gray1;
+    }
+
     & .price{
       font-weight: 600;
       font-size: 17px;
