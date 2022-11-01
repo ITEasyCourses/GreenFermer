@@ -11,7 +11,7 @@ import { IProductCardBucket } from '../../core/interfaces/product-card-bucket.in
 })
 export class CheckoutPageComponent implements OnInit {
   public state = false;
-  public label!: string;
+  public label = 'Картонне пакування';
   public options: SelectOption[] = [
     {
       viewValue: 'Картонне пакування',
@@ -22,8 +22,12 @@ export class CheckoutPageComponent implements OnInit {
   public totalPrice = 0;
   public data: IProductCardBucket[] = [];
 
+  static getTotalPrice(data: IProductCardBucket[]): number {
+    return data.reduce((acc, el) => (acc += +el.totalPrice), 0);
+  }
+
   public ngOnInit(): void {
-    this.getTotalPrice();
+    this.totalPrice = CheckoutPageComponent.getTotalPrice(this.data);
   }
 
   public changeState(state: boolean): void {
@@ -35,20 +39,15 @@ export class CheckoutPageComponent implements OnInit {
   }
 
   public onUpdateProductCard(card: IProductCardBucket): void {
-    this.data = this.data.map((el) => {
-      if (card.id === el.id) {
-        el = Object.assign({}, card);
+    this.data.forEach((el, idx) => {
+      if (el.id === card.id) {
+        this.data[idx] = card;
       }
-      return el;
     });
-    this.getTotalPrice();
+    this.totalPrice = CheckoutPageComponent.getTotalPrice(this.data);
   }
 
   public getCardId(index: number, name: any): number {
     return name.id;
-  }
-
-  private getTotalPrice(): void {
-    this.totalPrice = this.data.reduce((acc, el) => (acc += +el.totalPrice), 0);
   }
 }
