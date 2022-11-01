@@ -3,7 +3,7 @@
     <i-feather name="chevron-left"></i-feather>
   </button>
   <swiper [config]="config" class="slider_swiper">
-    <ng-container *ngFor="let category of categoriesList">
+    <ng-container *ngFor="let category of categoriesList; trackBy: trackByFn">
       <ng-template swiperSlide>
         <app-product-category-card
           [productCategoryCard]="category"
