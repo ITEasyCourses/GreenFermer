@@ -3,8 +3,11 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { feedbackConstants } from '../../core/constants/feedback.constants';
 import { PRODUCT_ITEM } from '../../core/constants/product-detail-page-item.constants';
 import { PRODUCT_DESCRIPTION } from '../../core/constants/product-detail.constants';
+import { PRODUCT_INFO_CARD } from '../../core/constants/product-info-component.constants';
 import { Feedback } from '../../core/interfaces/feedback-interface';
 import { IProductCard } from '../../core/interfaces/i-product-card';
+import { ProductInfo } from '../../core/interfaces/product-info-component-interface';
+import { ProductPurchase } from '../../core/interfaces/product-purchase.interface';
 import { SortOption } from '../../core/interfaces/sort-option';
 
 @Component({
@@ -20,4 +23,13 @@ export class ProductDetailPageComponent {
 
   public mockSortTypes!: SortOption[];
   public arrFeedback: Feedback[] = feedbackConstants;
+
+  public productCard: ProductInfo = PRODUCT_INFO_CARD;
+
+  public productPurchase: ProductPurchase = {
+    cost: 99,
+    wholesaleCost: 88,
+    wholesaleAmount: 10,
+    minAmount: 2
+  };
 }

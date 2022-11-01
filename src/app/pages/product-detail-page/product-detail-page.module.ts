@@ -8,6 +8,8 @@ import { ProductCardModule } from '../../core/components/product-card/product-ca
 import { SortSelectModule } from '../../core/components/sort-select/sort-select.module';
 
 import { ProductDetailPageComponent } from './product-detail-page.component';
+import { ProductInfoModule } from '../../core/components/product-info-component/product-info-component.module';
+import { ProductPurchaseModule } from '../../core/components/product-purchase/product-purchase.module';
 
 const routes: Routes = [
   {
@@ -27,7 +29,9 @@ const routes: Routes = [
     ProductCardModule,
     SortSelectModule,
     BreadcrumbsModule,
-    FeedbackModule
+    FeedbackModule,
+    ProductInfoModule,
+    ProductPurchaseModule
   ]
 })
 export class ProductDetailPageModule {}
