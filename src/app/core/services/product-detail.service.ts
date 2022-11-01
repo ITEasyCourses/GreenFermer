@@ -10,17 +10,13 @@ import { ProductDetail } from '../interfaces/product-detail';
 export class ProductDetailService {
   constructor(private angularFirestore: AngularFirestore) {}
 
-  public getProduct(
-    categoryId: string,
-    productId: string,
-    singleProductId: string
-  ): Observable<ProductDetail> {
+  public getProduct(categoryId: string, productId: string): any {
     return this.angularFirestore
       .collection('categories')
       .doc(categoryId)
-      .collection(productId)
-      .doc(singleProductId)
-      .valueChanges()
+      .collection('products')
+      .doc(productId)
+      .valueChanges({ idField: 'id' })
       .pipe(take(1)) as unknown as Observable<ProductDetail>;
   }
 }
