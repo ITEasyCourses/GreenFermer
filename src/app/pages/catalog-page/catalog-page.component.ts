@@ -3,7 +3,8 @@ import {
   ChangeDetectorRef,
   Component,
   OnInit,
-  Self
+  Self,
+  TrackByFunction
 } from '@angular/core';
 
 import { PopularProductsConst } from '../../core/constants/catalog-page.constants';
@@ -31,6 +32,12 @@ export class CatalogPageComponent implements OnInit {
     @Self() private unsubscribeService: UnsubscribeService,
     private cdr: ChangeDetectorRef
   ) {}
+
+  public trackByFn: TrackByFunction<IProductCategoryCard> = (index, item) =>
+    item.id;
+
+  public trackByCardsFn: TrackByFunction<IProductCard> = (index, item) =>
+    item.name;
 
   ngOnInit() {
     this.getProductCategoryCards();

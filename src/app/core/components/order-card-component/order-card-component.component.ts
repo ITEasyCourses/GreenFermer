@@ -3,10 +3,14 @@ import {
   Component,
   EventEmitter,
   Input,
-  Output
+  Output,
+  TrackByFunction
 } from '@angular/core';
 
-import { IOrderCardFields } from '../../interfaces/i-order-card-fields';
+import {
+  IOrderAddedProducts,
+  IOrderCardFields
+} from '../../interfaces/i-order-card-fields';
 
 @Component({
   selector: 'app-order-card-component',
@@ -26,6 +30,9 @@ export class OrderCardComponentComponent {
   @Output() deleteOrderEvent: EventEmitter<void> = new EventEmitter<void>();
   @Output() leftReviewEvent: EventEmitter<void> = new EventEmitter<void>();
   @Output() watchingDetailsEvent: EventEmitter<void> = new EventEmitter<void>();
+
+  public trackByFn: TrackByFunction<IOrderAddedProducts> = (index, item) =>
+    item.productName;
 
   public monitoringButton(): void {
     this.monitoringButtonEvent.emit();

@@ -2,7 +2,8 @@ import {
   ChangeDetectionStrategy,
   Component,
   EventEmitter,
-  Output
+  Output,
+  TrackByFunction
 } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { MatRadioChange } from '@angular/material/radio';
@@ -35,6 +36,11 @@ export class DeliveryPaymentComponent {
   public cityId!: number;
   public label!: string;
   public labelEndPoint!: string;
+
+  public trackByFn: TrackByFunction<DeliveryType> = (
+    index: number,
+    item: DeliveryType
+  ) => item.value;
 
   public city(objCity: SelectOption, item: DeliveryType): void {
     this.cityId = objCity.id;
