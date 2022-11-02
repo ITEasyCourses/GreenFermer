@@ -11,7 +11,7 @@
         [placeholder]="'Сортувати за'"
       ></app-sort-select>
     </div>
-    <div class="card-container" [class.scroll]="productCards.length > 3">
+    <div class="card-container" [class.scroll]="productCards.length > 2">
       <div
         class="purchase-modal-content__product-purchase"
         *ngFor="let productCard of productCards; trackBy: trackByFn"
