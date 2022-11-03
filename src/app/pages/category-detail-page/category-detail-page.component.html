@@ -9,7 +9,10 @@
           *ngFor="let card of products; trackBy: trackByFn"
           class="left-path_content_card"
         >
-          <app-product-card [card]="card"> </app-product-card>
+          <app-product-card
+            [card]="card"
+            [isCategoryPage]="isCategoryPage"
+          ></app-product-card>
         </div>
       </div>
     </div>

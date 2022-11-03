@@ -20,6 +20,7 @@ export class CategoryDetailPageComponent {
   @Input() products: IProductCard[] = CategoryDetailConst;
 
   public mockSortTypes: SortOption[] = sortMapOptions;
+  public isCategoryPage = true;
 
-  public trackByFn: TrackByFunction<IProductCard> = (index, item) => item.name;
+  public trackByFn: TrackByFunction<IProductCard> = (index, item) => item.id;
 }

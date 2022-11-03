@@ -4,7 +4,7 @@ import {
   TrackByFunction
 } from '@angular/core';
 
-import { ProductCardConstants } from '../../core/constants/product-card.constants';
+import { CategoryDetailConst } from '../../core/constants/category-detail-page.constants';
 import { IProductCard } from '../../core/interfaces/i-product-card';
 
 @Component({
@@ -15,7 +15,7 @@ import { IProductCard } from '../../core/interfaces/i-product-card';
 })
 export class CategoryPageComponent {
   public img = '../../../assets/images/category-page/fruits.png';
-  public allProduct: IProductCard[] = ProductCardConstants;
+  public allProduct: IProductCard[] = CategoryDetailConst;
 
-  public trackByFn: TrackByFunction<IProductCard> = (index, item) => item.name;
+  public trackByFn: TrackByFunction<IProductCard> = (index, item) => item.id;
 }

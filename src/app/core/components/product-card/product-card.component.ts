@@ -5,7 +5,9 @@ import {
   Input,
   Output
 } from '@angular/core';
+import { Router } from '@angular/router';
 
+import { ERoutes } from '../../enums/routes';
 import { IProductCard } from '../../interfaces/i-product-card';
 
 @Component({
@@ -19,13 +21,37 @@ export class ProductCardComponent {
     new EventEmitter<void>();
 
   @Input() card!: IProductCard;
+  @Input() public isCategoryPage = false;
   public heart = false;
 
-  public addToBasket(): void {
+  constructor(private router: Router) {}
+
+  public addToBasket(event: MouseEvent): void {
+    event.stopPropagation();
     this.addToBasketEvent.emit();
   }
 
-  public like(): void {
+  public like(event: MouseEvent): void {
+    event.stopPropagation();
     this.heart = !this.heart;
+  }
+
+  public roadToProductDetail(event: MouseEvent): void {
+    event.stopPropagation();
+    this.router.navigate([
+      ERoutes.CATALOG_PAGE,
+      ERoutes.CATEGORY,
+      ERoutes.CATEGORY_ID,
+      this.card.typeText
+    ]);
+  }
+
+  public roadToCategoryDetail(event: MouseEvent): void {
+    event.stopPropagation();
+    this.router.navigate([
+      ERoutes.CATALOG_PAGE,
+      ERoutes.CATEGORY,
+      this.card.id
+    ]);
   }
 }
