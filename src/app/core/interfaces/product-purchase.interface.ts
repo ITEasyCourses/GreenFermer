@@ -3,6 +3,9 @@ export interface ProductPurchase {
   wholesaleCost: number;
   wholesaleAmount: number;
   minAmount: number;
+}
+
+export interface ProductToolsPurchase {
   amount: number;
   sum: number;
 }

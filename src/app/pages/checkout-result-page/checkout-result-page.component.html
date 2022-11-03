@@ -34,10 +34,16 @@
   </div>
   <div class="container-buttons">
     <div>
-      <app-button [buttonText]="buttonTextContinue"></app-button>
+      <app-button
+        [buttonText]="buttonTextContinue"
+        (click)="goToHome()"
+      ></app-button>
     </div>
     <div>
-      <app-button [buttonText]="buttonTextOrder"></app-button>
+      <app-button
+        [buttonText]="buttonTextOrder"
+        (click)="goToOrders()"
+      ></app-button>
     </div>
   </div>
 </div>

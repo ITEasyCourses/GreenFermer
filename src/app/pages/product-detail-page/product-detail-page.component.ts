@@ -1,8 +1,15 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  TrackByFunction
+} from '@angular/core';
 
 import { feedbackConstants } from '../../core/constants/feedback.constants';
+import { PRODUCT_ITEM } from '../../core/constants/product-detail-page-item.constants';
 import { PRODUCT_DESCRIPTION } from '../../core/constants/product-detail.constants';
 import { Feedback } from '../../core/interfaces/feedback-interface';
+import { IProductCard } from '../../core/interfaces/i-product-card';
+import { SortOption } from '../../core/interfaces/sort-option';
 
 @Component({
   selector: 'app-product-detail-page',
@@ -12,5 +19,10 @@ import { Feedback } from '../../core/interfaces/feedback-interface';
 })
 export class ProductDetailPageComponent {
   public description = PRODUCT_DESCRIPTION;
+
+  public cards: IProductCard[] = PRODUCT_ITEM;
+
+  public mockSortTypes!: SortOption[];
   public arrFeedback: Feedback[] = feedbackConstants;
+  public trackByFn: TrackByFunction<Feedback> = (index, item) => item.name;
 }

@@ -11,7 +11,7 @@
 
   &-input {
     width: 46%;
-    height: 40px;
+    height: 42px;
     border: none;
     position: relative;
     cursor: pointer;
@@ -53,7 +53,7 @@
   &-select {
     position: relative;
     width: 59%;
-    height: 40px;
+    height: 42px;
 
     &__selected {
       @include font-base(15px, 600);
@@ -77,7 +77,7 @@
 
   & .btn {
     width: 120px;
-    margin-left: -5px;
+    margin-left: -7.5px;
     z-index: 0;
   }
 }
