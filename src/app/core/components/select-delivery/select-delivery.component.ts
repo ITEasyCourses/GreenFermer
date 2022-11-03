@@ -3,7 +3,8 @@ import {
   Component,
   EventEmitter,
   Input,
-  Output
+  Output,
+  TrackByFunction
 } from '@angular/core';
 
 import { SelectOption } from '../../interfaces/delivery-type';
@@ -23,6 +24,8 @@ export class SelectDeliveryComponent {
     new EventEmitter<SelectOption>();
 
   public openFlag = false;
+
+  public trackByFn: TrackByFunction<SelectOption> = (index, item) => item.id;
 
   public selectOption(option: SelectOption): void {
     this.selectedOption.emit(option);

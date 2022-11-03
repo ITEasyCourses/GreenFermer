@@ -3,7 +3,8 @@ import {
   Input,
   Output,
   EventEmitter,
-  ChangeDetectionStrategy
+  ChangeDetectionStrategy,
+  TrackByFunction
 } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
@@ -20,6 +21,8 @@ export class RadioGroupComponentComponent {
   @Input() positionHorizontal = false;
   @Output() radioGroupResult = new EventEmitter<string>();
   @Input() radioGroupControl: FormControl = new FormControl(``);
+
+  public trackByFn: TrackByFunction<SortOption> = (index, item) => item.value;
 
   public radioAnswer(): void {
     this.radioGroupResult.emit(this.radioGroupControl.value);

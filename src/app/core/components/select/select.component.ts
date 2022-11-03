@@ -3,7 +3,8 @@ import {
   Component,
   EventEmitter,
   Input,
-  Output
+  Output,
+  TrackByFunction
 } from '@angular/core';
 
 import { SortOption } from '../../interfaces/sort-option';
@@ -20,6 +21,8 @@ export class SelectComponent {
 
   @Output() public selectedOption: EventEmitter<string> =
     new EventEmitter<string>();
+
+  public trackByFn: TrackByFunction<SortOption> = (index, item) => item.value;
 
   public selectOption(option: string): void {
     this.selectedOption.emit(option);

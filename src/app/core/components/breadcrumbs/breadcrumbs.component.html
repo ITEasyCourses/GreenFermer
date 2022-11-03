@@ -1,5 +1,7 @@
 <ul>
-  <li *ngFor="let breadcrumb of breadcrumbs; last as isLast">
+  <li
+    *ngFor="let breadcrumb of breadcrumbs; trackBy: trackByFn; last as isLast"
+  >
     <a [routerLink]="breadcrumb.url" [ngClass]="{ disabled: isLast }">
       {{ breadcrumb.label }}
     </a>

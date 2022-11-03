@@ -6,7 +6,7 @@
 <mat-menu #menu="matMenu" yPosition="below">
   <button
     mat-menu-item
-    *ngFor="let option of options"
+    *ngFor="let option of options; trackBy: trackByFn"
     (click)="selectOption(option.value)"
     class="option"
   >

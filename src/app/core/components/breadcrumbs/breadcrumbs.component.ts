@@ -1,4 +1,9 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  OnInit,
+  TrackByFunction
+} from '@angular/core';
 import { ActivatedRouteSnapshot, Data, Router } from '@angular/router';
 import { Breadcrumb } from 'src/app/core/interfaces/IBreadCrumbs';
 
@@ -10,8 +15,9 @@ import { Breadcrumb } from 'src/app/core/interfaces/IBreadCrumbs';
 })
 export class BreadcrumbsComponent implements OnInit {
   public breadcrumbs: Breadcrumb[] = [];
-
   constructor(private router: Router) {}
+
+  public trackByFn: TrackByFunction<Breadcrumb> = (index, item) => item.label;
 
   public ngOnInit(): void {
     const root = this.router.routerState.snapshot.root;
