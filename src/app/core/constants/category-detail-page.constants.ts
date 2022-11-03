@@ -2,52 +2,52 @@ import { IProductCard } from '../interfaces/i-product-card';
 
 export const CategoryDetailConst: IProductCard[] = [
   {
-    title: 'Кукумбер',
+    title: 'Картопля',
     price: '7.5',
     images: '',
-    typeText: 'ovo4i',
+    typeText: 'овочі',
     id: ''
   },
   {
-    title: 'Кукумбер',
+    title: 'Цибудя',
     price: '7.5',
     images: '',
-    typeText: 'ovo4i',
+    typeText: 'овочі',
     id: ''
   },
   {
-    title: 'Кукумбер',
+    title: 'Часник',
     price: '7.5',
     images: '',
-    typeText: 'ovo4i',
+    typeText: 'овочі',
     id: ''
   },
   {
-    title: 'Кукумбер',
+    title: 'Вишня',
     price: '7.5',
     images: '',
-    typeText: 'ovo4i',
+    typeText: 'фрукт',
     id: ''
   },
   {
-    title: 'Кукумбер',
+    title: 'Мфлина',
     price: '7.5',
     images: '',
-    typeText: 'ovo4i',
+    typeText: 'ягоди',
     id: ''
   },
   {
-    title: 'Кукумбер',
+    title: 'Горіхи Мускатні',
     price: '7.5',
     images: '',
-    typeText: 'ovo4i',
+    typeText: 'горіхи',
     id: ''
   },
   {
-    title: 'Кукумбер',
+    title: 'Соняшник',
     price: '7.5',
     images: '',
-    typeText: 'ovo4i',
+    typeText: 'різне',
     id: ''
   }
 ];
