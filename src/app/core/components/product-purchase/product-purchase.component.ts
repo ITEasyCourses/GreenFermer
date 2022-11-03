@@ -18,7 +18,7 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProductPurchaseComponent implements OnInit {
-  @Input() product: ProductPurchase = PRODUCT_PURCHASE;
+  @Input() product!: ProductPurchase;
 
   public productTools: ProductToolsPurchase = {
     amount: 0,
