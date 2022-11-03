@@ -1,5 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 
+import { TotalPrice } from '../../core/abstracts/total-price';
+import { PackagingOptions } from '../../core/constants/packaging-options';
 import { SelectOption } from '../../core/interfaces/delivery-type';
 import { IProductCardBucket } from '../../core/interfaces/product-card-bucket.interface';
 
@@ -12,22 +14,34 @@ import { IProductCardBucket } from '../../core/interfaces/product-card-bucket.in
 export class CheckoutPageComponent implements OnInit {
   public state = false;
   public label = 'Картонне пакування';
-  public options: SelectOption[] = [
+  public options: SelectOption[] = PackagingOptions;
+
+  public totalPrice = 0;
+  public data: IProductCardBucket[] = [
     {
-      viewValue: 'Картонне пакування',
-      id: 1
+      id: 1,
+      productName: 'Apple',
+      img: '',
+      price: '10.00',
+      wholesalePrice: '10.00',
+      weight: 1,
+      startWholesaleByKg: 1,
+      totalPrice: '10.00'
+    },
+    {
+      id: 2,
+      productName: 'Orange',
+      img: '',
+      price: '15.00',
+      wholesalePrice: '15.00',
+      weight: 1,
+      startWholesaleByKg: 1,
+      totalPrice: '15.00'
     }
   ];
 
-  public totalPrice = 0;
-  public data: IProductCardBucket[] = [];
-
-  static getTotalPrice(data: IProductCardBucket[]): number {
-    return data.reduce((acc, el) => (acc += +el.totalPrice), 0);
-  }
-
   public ngOnInit(): void {
-    this.totalPrice = CheckoutPageComponent.getTotalPrice(this.data);
+    this.totalPrice = TotalPrice.getTotalPrice(this.data);
   }
 
   public changeState(state: boolean): void {
@@ -39,12 +53,12 @@ export class CheckoutPageComponent implements OnInit {
   }
 
   public onUpdateProductCard(card: IProductCardBucket): void {
-    this.data.forEach((el, idx) => {
+    this.data.find((el, idx) => {
       if (el.id === card.id) {
         this.data[idx] = card;
       }
     });
-    this.totalPrice = CheckoutPageComponent.getTotalPrice(this.data);
+    this.totalPrice = TotalPrice.getTotalPrice(this.data);
   }
 
   public getCardId(index: number, name: any): number {
