@@ -1,12 +1,14 @@
 <div class="card" (click)="roadToProductDetail($event)">
   <div class="card-wrap">
-    <img [src]="card.image" class="card-wrap-img" alt="product foto" />
+    <img [src]="card.images[0]" class="card-wrap-img" alt="product foto" />
     <div class="card-wrap-basket" (click)="addToBasket($event)">
       <i-feather name="shopping-cart" class="card-wrap-basket-bsk"></i-feather>
     </div>
     <div class="card-wrap-text">
       <div class="card-wrap-text-first">
-        <div class="card-wrap-text-first-name">{{ card.name | uppercase }}</div>
+        <div class="card-wrap-text-first-name">
+          {{ card.title | uppercase }}
+        </div>
         <i-feather
           [ngClass]="heart ? 'yellow' : 'transparent'"
           class="card-wrap-text-first-heart"
@@ -17,11 +19,11 @@
       <div class="card-wrap-bottom">
         <div class="card-wrap-bottom_price">{{ card.price }} ₴/кг</div>
         <div
-          *ngIf="isCategoryPage"
+          *ngIf="!isCategoryPage"
           class="card-wrap-bottom_link"
           (click)="roadToCategoryDetail($event)"
         >
-          {{ card.category }}
+          {{ card.typeText }}
         </div>
       </div>
     </div>

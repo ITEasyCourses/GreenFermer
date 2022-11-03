@@ -21,7 +21,7 @@ export class ProductCardComponent {
     new EventEmitter<void>();
 
   @Input() card!: IProductCard;
-  @Input() public isCategoryPage = true;
+  @Input() public isCategoryPage = false;
   public heart = false;
 
   constructor(private router: Router) {}
@@ -42,7 +42,7 @@ export class ProductCardComponent {
       ERoutes.CATALOG_PAGE,
       ERoutes.CATEGORY,
       ERoutes.CATEGORY_ID,
-      this.card.name
+      this.card.typeText
     ]);
   }
 
@@ -51,7 +51,7 @@ export class ProductCardComponent {
     this.router.navigate([
       ERoutes.CATALOG_PAGE,
       ERoutes.CATEGORY,
-      this.card.category
+      this.card.id
     ]);
   }
 }

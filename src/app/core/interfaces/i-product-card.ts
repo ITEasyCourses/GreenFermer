@@ -1,6 +1,7 @@
 export interface IProductCard {
-  name: string;
+  title: string;
   price: string;
-  image: string;
-  category: string;
+  images: string;
+  typeText: string;
+  id: string;
 }

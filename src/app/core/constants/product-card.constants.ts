@@ -2,51 +2,52 @@ import { IProductCard } from '../interfaces/i-product-card';
 
 export const ProductCardConstants: IProductCard[] = [
   {
-    name: 'Томат черрі',
-    price: '23.01',
-    image: '',
-    category: 'овочі'
+    title: 'Кукумбер',
+    price: '7.5',
+    images: '',
+    typeText: 'ovo4i',
+    id: ''
   },
   {
-    name: 'Черешня рання',
-    price: '23.01',
-    image: '',
-    category: 'овочі'
+    title: 'Кукумбер',
+    price: '7.5',
+    images: '',
+    typeText: 'ovo4i',
+    id: ''
   },
   {
-    name: 'Цибуля Марс',
-    price: '23.01',
-    image: '',
-    category: 'овочі'
+    title: 'Кукумбер',
+    price: '7.5',
+    images: '',
+    typeText: 'ovo4i',
+    id: ''
   },
   {
-    name: 'Морква мита',
-    price: '23.01',
-    image: '',
-    category: 'овочі'
+    title: 'Кукумбер',
+    price: '7.5',
+    images: '',
+    typeText: 'ovo4i',
+    id: ''
   },
   {
-    name: 'Слива Президент',
-    price: '23.01',
-    image: '',
-    category: 'овочі'
+    title: 'Кукумбер',
+    price: '7.5',
+    images: '',
+    typeText: 'ovo4i',
+    id: ''
   },
   {
-    name: 'Томат черрі',
-    price: '23.01',
-    image: '',
-    category: 'овочі'
+    title: 'Кукумбер',
+    price: '7.5',
+    images: '',
+    typeText: 'ovo4i',
+    id: ''
   },
   {
-    name: 'Черешня рання',
-    price: '23.01',
-    image: '',
-    category: 'овочі'
-  },
-  {
-    name: 'Цибуля Марс',
-    price: '23.01',
-    image: '',
-    category: 'овочі'
+    title: 'Кукумбер',
+    price: '7.5',
+    images: '',
+    typeText: 'ovo4i',
+    id: ''
   }
 ];
