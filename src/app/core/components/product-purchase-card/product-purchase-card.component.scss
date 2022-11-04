@@ -14,9 +14,6 @@ p {
   justify-content: space-between;
   align-items: flex-start;
 
-  & .left-content {
-    display: flex;
-    justify-content: space-between;
 
     & .product-img {
       width: 140px;
@@ -31,6 +28,13 @@ p {
         -ms-user-select: none;
       }
     }
+
+  & .interface-row {
+    width: 450px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
 
     &-description {
       width: 245px;
@@ -60,14 +64,6 @@ p {
         }
       }
     }
-  }
-
-  & .interface-row {
-    width: 450px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 20px;
 
     &-counter {
       width: 115px;
