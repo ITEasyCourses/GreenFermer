@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Observable, take } from 'rxjs';
+import { IProductCard } from '../interfaces/i-product-card';
 
-import { ProductDetail } from '../interfaces/product-detail';
+
 
 @Injectable({
   providedIn: 'root'
@@ -13,13 +14,13 @@ export class ProductDetailService {
   public getProduct(
     categoryId: string,
     productId: string
-  ): Observable<ProductDetail> {
+  ): Observable<IProductCard> {
     return this.angularFirestore
       .collection('categories')
       .doc(categoryId)
       .collection('products')
       .doc(productId)
       .valueChanges({ idField: 'id' })
-      .pipe(take(1)) as unknown as Observable<ProductDetail>;
+      .pipe(take(1)) as unknown as Observable<IProductCard>;
   }
 }

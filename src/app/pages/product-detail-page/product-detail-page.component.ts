@@ -20,7 +20,7 @@ import { SortOption } from '../../core/interfaces/sort-option';
 export class ProductDetailPageComponent {
   public description = PRODUCT_DESCRIPTION;
 
-  public cards: IProductCard[] = PRODUCT_ITEM;
+  public cards: any = PRODUCT_ITEM;
 
   public mockSortTypes!: SortOption[];
   public arrFeedback: Feedback[] = feedbackConstants;

@@ -1,5 +1,26 @@
 export interface IProductCard {
-  name: string;
+  description: string;
+  images: string[] | string;
+  isExist: boolean;
+  isLiked: boolean;
+  location: string;
+  minAmount: string;
+  optAmount: string;
+  optPrice: string;
+  owner: {
+    avatar: string;
+    description: string;
+    name: string;
+    rating: number;
+  };
+  periodGrow: string;
   price: string;
-  image: string;
+  rating: string;
+  size: string;
+  storageConditions: string;
+  taste: string;
+  timeStorage: string;
+  title: string;
+  typeId: string;
+  typeText: string;
 }

@@ -1,5 +1,6 @@
 import {
   ChangeDetectionStrategy,
+  ChangeDetectorRef,
   Component,
   OnInit,
   TrackByFunction
@@ -40,7 +41,7 @@ export class BreadcrumbsComponent implements OnInit {
         };
         this.breadcrumbs.push(breadcrumb);
       } else {
-        this.breadcrumbs = [];
+        this.breadcrumbs = [...this.breadcrumbs];
       }
       this.addBreadcrumb(
         <ActivatedRouteSnapshot>route.firstChild,
