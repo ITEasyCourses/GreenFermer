@@ -18,7 +18,7 @@ p {
     display: flex;
     justify-content: space-between;
 
-    &-img {
+    & .product-img {
       width: 140px;
       height: 140px;
 
@@ -74,7 +74,7 @@ p {
       height: 30px;
       display: flex;
       justify-content: space-between;
-      align-items: center;
+
 
       &-window {
         width: 64px;

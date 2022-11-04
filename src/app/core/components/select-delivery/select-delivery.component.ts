@@ -27,7 +27,7 @@ export class SelectDeliveryComponent {
 
   public trackByFn: TrackByFunction<SelectOption> = (index, item) => item.id;
 
-  public selectOption(option: any): void {
+  public selectOption(option: SelectOption): void {
     this.selectedOption.emit(option);
   }
 
