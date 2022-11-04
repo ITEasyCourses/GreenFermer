@@ -9,6 +9,7 @@ import { ERoutes } from '../enums/routes';
 })
 export class OrdersService {
   public isNextOrder = false;
+
   constructor(
     private angularFirestore: AngularFirestore,
     private router: Router
