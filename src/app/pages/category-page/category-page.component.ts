@@ -6,7 +6,6 @@ import {
   TrackByFunction
 } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { first } from 'rxjs';
 
 import { IProductCard } from '../../core/interfaces/i-product-card';
 import { CategoryService } from '../../core/services/category.service';
