@@ -20,7 +20,10 @@ const children: Routes = [
     loadChildren: () =>
       import('../category-page/category-page.module').then(
         (m) => m.CategoryPageModule
-      )
+      ),
+    data: {
+      breadcrumb: null
+    }
   }
 ];
 

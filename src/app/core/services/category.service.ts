@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Observable, take } from 'rxjs';
 
+import { IProductCard } from '../interfaces/i-product-card';
 import { IProductCategoryCard } from '../interfaces/product-category-card.interface';
 
 @Injectable({
@@ -15,5 +16,22 @@ export class CategoryService {
       .collection('categories')
       .valueChanges({ idField: 'id' })
       .pipe(take(1)) as unknown as Observable<IProductCategoryCard[]>;
+  }
+
+  public getCategoryInfo(categoryId: string): Observable<IProductCategoryCard> {
+    return this.fireStore
+      .collection('categories')
+      .doc(categoryId)
+      .valueChanges()
+      .pipe(take(1)) as unknown as Observable<IProductCategoryCard>;
+  }
+
+  public getCategoryProducts(categoryId: string): Observable<IProductCard[]> {
+    return this.fireStore
+      .collection('categories')
+      .doc(categoryId)
+      .collection('products')
+      .valueChanges()
+      .pipe(take(1)) as unknown as Observable<IProductCard[]>;
   }
 }
