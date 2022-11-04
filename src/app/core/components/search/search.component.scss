@@ -38,9 +38,22 @@
       width: 25px;
       height: 25px;
 
+      svg-icon-sprite {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      ::ng-deep &-icon {
+        color: $main-black;
+        transition: transform 0.2s, color 0.2s;
+      }
+
       &:hover {
-        transform: scale(1.2);
-        color: $main-yellow;
+        ::ng-deep .search-input-imag-icon {
+          transform: scale(1.2);
+          color: $main-yellow;
+        }
       }
     }
   }
@@ -67,11 +80,21 @@
     }
 
     &-location{
-      width: 24px;
-      height: 40px;
       position: absolute;
       left: 1.25%;
       top: 18.25%;
+
+      svg-icon-sprite {
+        width: 24px;
+        height: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      ::ng-deep &__icon {
+        color: $main-black;
+      }
     }
   }
 

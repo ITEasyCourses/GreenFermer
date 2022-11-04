@@ -16,11 +16,17 @@
       </label>
     </div>
     <div class="card-direction">
-      <i-feather class="card-direction__location" name="disc"></i-feather>
+      <svg-icon-sprite
+        [viewBox]="'0 0 20 20'"
+        [src]="'assets/sprites/sprite.svg#location'"
+        [classes]="'card-direction__location'"
+      ></svg-icon-sprite>
       <p class="card-direction__text">{{ ordersCards.cityFromOder }}</p>
-      <div class="card-direction__arrow">
-        <div></div>
-      </div>
+      <svg-icon-sprite
+        [viewBox]="'0 0 42 18'"
+        [src]="'assets/sprites/sprite.svg#arrow'"
+        [classes]="'card-direction__arrow'"
+      ></svg-icon-sprite>
       <p class="card-direction__text">{{ ordersCards.cityToOder }}</p>
     </div>
   </header>
