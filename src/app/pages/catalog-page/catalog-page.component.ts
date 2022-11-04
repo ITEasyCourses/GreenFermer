@@ -7,7 +7,6 @@ import {
   TrackByFunction
 } from '@angular/core';
 
-import { PopularProductsConst } from '../../core/constants/catalog-page.constants';
 import { sortTypes } from '../../core/constants/sort-card-types-constants';
 import { IProductCard } from '../../core/interfaces/i-product-card';
 import { IProductCategoryCard } from '../../core/interfaces/product-category-card.interface';
@@ -23,7 +22,7 @@ import { UnsubscribeService } from '../../core/services/unsubscribe.service';
   providers: [UnsubscribeService]
 })
 export class CatalogPageComponent implements OnInit {
-  public cardsArr: IProductCard[] = PopularProductsConst;
+  public cardsArr!: IProductCard[];
   public categoryList!: IProductCategoryCard[];
   public mockSortTypes: SortOption[] = sortTypes;
 
@@ -37,7 +36,7 @@ export class CatalogPageComponent implements OnInit {
     item.id;
 
   public trackByCardsFn: TrackByFunction<IProductCard> = (index, item) =>
-    item.name;
+    item.id;
 
   ngOnInit() {
     this.getProductCategoryCards();

@@ -5,7 +5,6 @@ import {
 } from '@angular/core';
 
 import { feedbackConstants } from '../../core/constants/feedback.constants';
-import { PRODUCT_ITEM } from '../../core/constants/product-detail-page-item.constants';
 import { PRODUCT_DESCRIPTION } from '../../core/constants/product-detail.constants';
 import { PRODUCT_INFO_CARD } from '../../core/constants/product-info-component.constants';
 import { PRODUCT_PURCHASE } from '../../core/constants/product-purchase';
@@ -24,7 +23,7 @@ import { SortOption } from '../../core/interfaces/sort-option';
 export class ProductDetailPageComponent {
   public description = PRODUCT_DESCRIPTION;
 
-  public cards: IProductCard[] = PRODUCT_ITEM;
+  public cards!: IProductCard[];
 
   public mockSortTypes!: SortOption[];
   public arrFeedback: Feedback[] = feedbackConstants;

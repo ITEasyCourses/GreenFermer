@@ -5,7 +5,6 @@ import {
   TrackByFunction
 } from '@angular/core';
 
-import { CategoryDetailConst } from '../../core/constants/category-detail-page.constants';
 import { sortMapOptions } from '../../core/constants/sort-map-options';
 import { IProductCard } from '../../core/interfaces/i-product-card';
 import { SortOption } from '../../core/interfaces/sort-option';
@@ -17,9 +16,9 @@ import { SortOption } from '../../core/interfaces/sort-option';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CategoryDetailPageComponent {
-  @Input() products: IProductCard[] = CategoryDetailConst;
+  @Input() products!: IProductCard[];
 
   public mockSortTypes: SortOption[] = sortMapOptions;
 
-  public trackByFn: TrackByFunction<IProductCard> = (index, item) => item.name;
+  public trackByFn: TrackByFunction<IProductCard> = (index, item) => item.id;
 }
