@@ -1,6 +1,6 @@
 export interface IProductCard {
   description: string;
-  images: string[] | string;
+  images: string[];
   isExist: boolean;
   isLiked: boolean;
   location: string;
@@ -23,4 +23,5 @@ export interface IProductCard {
   title: string;
   typeId: string;
   typeText: string;
+  id: string;
 }

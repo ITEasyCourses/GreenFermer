@@ -30,12 +30,12 @@ export class CategoryPageComponent implements OnInit {
     private activatedRoute: ActivatedRoute
   ) {}
 
-  public trackByFn: TrackByFunction<IProductCard> = (index, item) => item.title;
+  public trackByFn: TrackByFunction<IProductCard> = (index, item) => item.id;
 
   ngOnInit() {
     this.getCategoryId();
     this.getProductCategory();
-    this.gerProducts();
+    this.getProducts();
   }
 
   private getProductCategory(): void {
@@ -48,7 +48,7 @@ export class CategoryPageComponent implements OnInit {
       });
   }
 
-  private gerProducts(): void {
+  private getProducts(): void {
     this.categoryService
       .getCategoryProducts(this.id)
       .pipe(this.unsubscribeService.takeUntilDestroy)
@@ -59,8 +59,6 @@ export class CategoryPageComponent implements OnInit {
   }
 
   private getCategoryId(): void {
-    this.activatedRoute.params
-      .pipe(first())
-      .subscribe((data) => (this.id = data['categoryTypeId']));
+    this.id = this.activatedRoute.snapshot.params['categoryTypeId'];
   }
 }

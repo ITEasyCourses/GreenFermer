@@ -29,7 +29,7 @@ export class HomePageComponent implements OnInit {
     private cdr: ChangeDetectorRef
   ) {}
 
-  public trackByFn: TrackByFunction<IProductCard> = (index, item) => item.title;
+  public trackByFn: TrackByFunction<IProductCard> = (index, item) => item.id;
 
   public ngOnInit(): void {
     this.getProductCategoryCards();

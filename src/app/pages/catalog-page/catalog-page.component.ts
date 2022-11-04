@@ -36,7 +36,7 @@ export class CatalogPageComponent implements OnInit {
     item.id;
 
   public trackByCardsFn: TrackByFunction<IProductCard> = (index, item) =>
-    item.title;
+    item.id;
 
   ngOnInit() {
     this.getProductCategoryCards();

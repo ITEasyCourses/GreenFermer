@@ -20,5 +20,5 @@ export class CategoryDetailPageComponent {
 
   public mockSortTypes: SortOption[] = sortMapOptions;
 
-  public trackByFn: TrackByFunction<IProductCard> = (index, item) => item.title;
+  public trackByFn: TrackByFunction<IProductCard> = (index, item) => item.id;
 }

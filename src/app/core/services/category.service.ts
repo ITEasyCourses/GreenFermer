@@ -22,7 +22,7 @@ export class CategoryService {
     return this.fireStore
       .collection('categories')
       .doc(categoryId)
-      .valueChanges()
+      .valueChanges({ idField: 'id' })
       .pipe(take(1)) as unknown as Observable<IProductCategoryCard>;
   }
 
@@ -31,7 +31,7 @@ export class CategoryService {
       .collection('categories')
       .doc(categoryId)
       .collection('products')
-      .valueChanges()
+      .valueChanges({ idField: 'id' })
       .pipe(take(1)) as unknown as Observable<IProductCard[]>;
   }
 }

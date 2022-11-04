@@ -1,10 +1,6 @@
 <div class="card">
   <div class="card-wrap">
-    <img
-      [src]="card.images[0] === '' ? card.images[1] : card.images[0]"
-      class="card-wrap-img"
-      alt="product foto"
-    />
+    <img [src]="img" class="card-wrap-img" alt="product foto" />
     <div class="card-wrap-basket" (click)="addToBasket()">
       <i-feather name="shopping-cart" class="card-wrap-basket-bsk"></i-feather>
     </div>
