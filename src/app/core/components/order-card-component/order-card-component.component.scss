@@ -1,5 +1,6 @@
 @import "src/assets/styles/mixins";
 @import "src/assets/styles/vars";
+
 .wrapper {
   @include font-base(15px, 600, 24px);
 
@@ -67,8 +68,14 @@
       justify-content: right;
       align-items: center;
 
-      &__location {
-        color: $light-yellow;
+      svg-icon-sprite{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      ::ng-deep &__location {
+        color: $main-yellow;
         width: 18px;
         height: 18px;
         margin-right: 11px;
@@ -81,46 +88,11 @@
         margin-right: 8px;
       }
 
-      &__arrow {
-        cursor: pointer;
-        position: relative;
+      ::ng-deep &__arrow {
         width: 40px;
-        height: 21px;
+        height: 16px;
         margin-right: 8px;
-
-        & div {
-          position: relative;
-          top: 10px;
-          width: 40px;
-          height: 1px;
-          background-color: $light-black;
-          box-shadow: 0 3px 5px rgba(0, 0, 0, .2);
-          left:0;
-          display: block;
-
-          &::after {
-            content: '';
-            position: absolute;
-            width: 1.5px;
-            height: 8px;
-            top: 0;
-            right: 4px;
-            background-color: $light-black;
-            transform: rotate(45deg);
-          }
-
-          &::before {
-            content: '';
-            position: absolute;
-            width: 1.5px;
-            height: 8px;
-            top: -7px;
-            right: 4px;
-            background-color: $light-black;
-            box-shadow: 0 3px 5px rgba(0, 0, 0, .2);
-            transform: rotate(-45deg);
-          }
-        }
+        color: $main-black;
       }
 
       & :last-child {

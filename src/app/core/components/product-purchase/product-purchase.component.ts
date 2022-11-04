@@ -5,7 +5,6 @@ import {
   OnInit
 } from '@angular/core';
 
-import { PRODUCT_PURCHASE } from '../../constants/product-purchase';
 import {
   ProductPurchase,
   ProductToolsPurchase

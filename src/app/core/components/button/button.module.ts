@@ -1,17 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { FeatherModule } from 'angular-feather';
-import { Plus } from 'angular-feather/icons';
+import { IconSpriteModule } from 'ng-svg-icon-sprite';
 
 import { ButtonComponent } from './button.component';
 
-const icons = {
-  Plus
-};
-
 @NgModule({
   declarations: [ButtonComponent],
-  imports: [CommonModule, FeatherModule.pick(icons)],
+  imports: [CommonModule, IconSpriteModule],
   exports: [ButtonComponent]
 })
 export class ButtonModule {}

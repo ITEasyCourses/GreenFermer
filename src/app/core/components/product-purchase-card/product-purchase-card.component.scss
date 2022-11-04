@@ -14,16 +14,20 @@ p {
   justify-content: space-between;
   align-items: flex-start;
 
-  & .product-img {
-    width: 140px;
-    height: 140px;
 
-    & img {
-      width: 100%;
-      height: 100%;
-      border-radius: 10px;
+    & .product-img {
+      width: 140px;
+      height: 140px;
+
+      & img {
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+      }
     }
-  }
 
   & .interface-row {
     width: 450px;
@@ -31,6 +35,35 @@ p {
     justify-content: space-between;
     align-items: center;
     margin-top: 20px;
+
+    &-description {
+      width: 245px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      margin-left: 40px;
+
+      &-text {
+        @include font-base(17px, 400, 26.75px);
+
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+      }
+
+      &-wholesale {
+        @include font-base(15px, 400, 26.75px);
+
+        color: $main-gray;
+        border-top: 1px solid $gray3;
+
+        &.activate {
+          color: $main-black;
+        }
+      }
+    }
 
     &-counter {
       width: 115px;
@@ -45,14 +78,27 @@ p {
         border: 1px solid $gray3;
         border-radius: 6px;
         text-align: center;
+        margin-right: 8px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
       }
 
-      & .icon {
-        width: 16px;
-        margin-top: 7px;
+      svg-icon-sprite {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 24px;
+        height: 24px;
         cursor: pointer;
+      }
+
+      & ::ng-deep .icon {
+        color: $main-black;
 
         &.minus {
+          margin-right: 8px;
+
           &.disabled {
             color: $main-gray;
             cursor: auto;
@@ -68,15 +114,26 @@ p {
       }
     }
 
-    & .icon-trash {
-      width: 20px;
+    svg-icon-sprite {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
       cursor: pointer;
+    }
+
+    & ::ng-deep .icon-trash {
+      color: $main-black;
     }
 
     &-price {
       width: 98px;
       height: 27px;
       text-align: right;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
     }
   }
 }

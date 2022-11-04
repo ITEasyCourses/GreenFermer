@@ -8,5 +8,7 @@ interface BodyInterfaceConfig {
   routerLink?: string;
   href?: string;
   imgSrc?: string;
+  width?: string;
+  height?: string;
   srOnly?: string;
 }

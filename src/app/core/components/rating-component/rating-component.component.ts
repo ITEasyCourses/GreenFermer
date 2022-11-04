@@ -14,7 +14,7 @@ import {
 export class RatingComponentComponent implements OnInit {
   @Input() public ratingStar = 3.1;
 
-  ngOnInit() {
+  public ngOnInit(): void {
     this.sumAll();
   }
 

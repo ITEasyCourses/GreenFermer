@@ -4,17 +4,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSelectModule } from '@angular/material/select';
-import { FeatherModule } from 'angular-feather';
-import { Search, MapPin } from 'angular-feather/icons';
+import { IconSpriteModule } from 'ng-svg-icon-sprite';
 
 import { ButtonModule } from '../button/button.module';
 
 import { SearchComponent } from './search.component';
-
-const icons = {
-  Search,
-  MapPin
-};
 
 @NgModule({
   declarations: [SearchComponent],
@@ -22,11 +16,11 @@ const icons = {
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    FeatherModule.pick(icons),
     ButtonModule,
     MatMenuModule,
     MatFormFieldModule,
-    MatSelectModule
+    MatSelectModule,
+    IconSpriteModule
   ]
 })
 export class SearchModule {}

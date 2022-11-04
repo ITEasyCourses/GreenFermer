@@ -8,7 +8,6 @@
   align-items: center;
   width: 36px;
   height: 36px;
-  padding-top: 10px;
   cursor: pointer;
 
   &__counter {
@@ -40,8 +39,10 @@
   &__cart {
     width: 20px;
 
-    & .shopping-cart {
-      width: 100%;
+    ::ng-deep & .shopping-cart {
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
   }
 }
