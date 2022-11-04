@@ -17,28 +17,7 @@ export class CheckoutPageComponent implements OnInit {
   public options: SelectOption[] = PackagingOptions;
 
   public totalPrice = 0;
-  public data: IProductCardBucket[] = [
-    {
-      id: 1,
-      productName: 'Apple',
-      img: '',
-      price: '10.00',
-      wholesalePrice: '10.00',
-      weight: 1,
-      startWholesaleByKg: 1,
-      totalPrice: '10.00'
-    },
-    {
-      id: 2,
-      productName: 'Orange',
-      img: '',
-      price: '15.00',
-      wholesalePrice: '15.00',
-      weight: 1,
-      startWholesaleByKg: 1,
-      totalPrice: '15.00'
-    }
-  ];
+  public data: IProductCardBucket[] = [];
 
   public ngOnInit(): void {
     this.totalPrice = TotalPrice.getTotalPrice(this.data);
@@ -53,11 +32,7 @@ export class CheckoutPageComponent implements OnInit {
   }
 
   public onUpdateProductCard(card: IProductCardBucket): void {
-    this.data.find((el, idx) => {
-      if (el.id === card.id) {
-        this.data[idx] = card;
-      }
-    });
+    this.data = this.data.map((el) => (el.id === card.id ? card : el));
     this.totalPrice = TotalPrice.getTotalPrice(this.data);
   }
 
