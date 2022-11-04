@@ -5,8 +5,8 @@ import {
   OnInit,
   TrackByFunction
 } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { first, take } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
+import { first } from 'rxjs';
 
 import { IProductCard } from '../../core/interfaces/i-product-card';
 import { CategoryService } from '../../core/services/category.service';
@@ -23,16 +23,14 @@ export class CategoryPageComponent implements OnInit {
   public img = '';
   public allProduct!: IProductCard[];
   public id!: string;
-
-  public trackByFn: TrackByFunction<IProductCard> = (index, item) => item.title;
-
   constructor(
     private categoryService: CategoryService,
-    private router: Router,
     private cdr: ChangeDetectorRef,
     private unsubscribeService: UnsubscribeService,
     private activatedRoute: ActivatedRoute
   ) {}
+
+  public trackByFn: TrackByFunction<IProductCard> = (index, item) => item.title;
 
   ngOnInit() {
     this.getCategoryId();

@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Observable, take } from 'rxjs';
+
 import { IProductCard } from '../interfaces/i-product-card';
-
-
 
 @Injectable({
   providedIn: 'root'
