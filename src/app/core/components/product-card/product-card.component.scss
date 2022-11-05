@@ -19,28 +19,32 @@
       height: 48px;
       width: 48px;
       position: absolute;
+      background-color: $white;
+      top: 162px;
       right: 10px;
       bottom: 10px;
-      background: $white;
       left: 166px;
-      top: 162px;
       border-radius: 50%;
       display: flex;
       justify-content: center;
       align-items: center;
+      transition:transform 0.3s, background-color 0.3s ;
 
       &:hover {
         transform: scale(1.15);
-        background: $gray4;
+        background-color: $gray4;
       }
 
-      &-bsk{
-        height: 18.4px;
-        width: 16.5px;
-        left: 3.2px;
-        top: 1.8px;
+      svg-icon-sprite {
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
 
+      ::ng-deep &-bsk{
+        height: 20px;
+        width: 19px;
+      }
     }
 
     &-img{
@@ -48,50 +52,46 @@
       height: 220px;
       width: 224px;
       border-radius: 10px;
-      background: black;
+      margin-bottom: 20px;
     }
 
     &-text{
 
       &-first {
         display: flex;
-        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 24px 0 10px;
 
-        &-heart {
-          margin-right: 26px;
-          margin-top: 26px;
+        ::ng-deep &-heart {
           cursor: pointer;
+          color: transparent;
+          stroke: $main-black;
+          transition: color 0.2s, stroke 0.2s, transform 0.2s;
 
           &.yellow{
             color: $light-yellow;
-            fill: $light-yellow;
+            stroke: $light-yellow ;
           }
 
           &:hover {
             transform: scale(1.3);
-            color: $light-yellow ;
+            stroke: $light-yellow ;
           }
         }
 
         &-name {
-          @include font-base(15px, 600, 17px);
+          @include font-base(17px, 600, 27px);
 
-          height: 50px;
-          width: 156px;
-          margin-left: 10px;
-          margin-top: 10px;
-          margin-right: 12px;
-          display: flex;
-          align-items: center;
           letter-spacing: 0.0015em;
+          margin-bottom: 10px;
         }
       }
 
       &-price {
         @include font-base(15px, 500, 24px);
 
-        margin-left: 10px;
-        margin-bottom: 46px;
+        padding: 0 10px;
         letter-spacing: 0.001em;
       }
     }

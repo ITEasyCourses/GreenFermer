@@ -1,10 +1,54 @@
-<app-breadcrumbs></app-breadcrumbs>
-<div class="description">
-  <p class="description-title">Опис</p>
-  <p class="description-text">
-    {{ description }}
-  </p>
-</div>
-<div *ngFor="let feedback of arrFeedback">
-  <app-feedback [feedback]="feedback"></app-feedback>
-</div>
+<section class="breadcrumbs">
+  <div class="container">
+    <app-breadcrumbs></app-breadcrumbs>
+  </div>
+</section>
+
+<section class="product">
+  <div class="container">
+    <div class="product-wrapper">
+      <app-product-info-component
+        [product]="productCard"
+      ></app-product-info-component>
+      <app-product-purchase [product]="productPurchase"></app-product-purchase>
+    </div>
+  </div>
+</section>
+
+<section class="description">
+  <div class="container">
+    <div class="description__wrapper">
+      <p class="description-title">Опис</p>
+      <p class="description-text">
+        {{ description }}
+      </p>
+    </div>
+    <div
+      class="description__feedback"
+      *ngFor="let feedback of arrFeedback; trackBy: trackByFn"
+    >
+      <app-feedback [feedback]="feedback"></app-feedback>
+    </div>
+  </div>
+</section>
+
+<section class="popular-item">
+  <div class="container">
+    <div class="popular-item__third">
+      <div class="popular-item__third-head">
+        <h3 class="popular-item__title">Популярні товари продавця</h3>
+        <div class="third-head-select">
+          <app-sort-select
+            [placeholder]="'Сортувати за'"
+            [selectItems]="mockSortTypes"
+          ></app-sort-select>
+        </div>
+      </div>
+      <div class="popular-item__cards-wrapper">
+        <div class="popular-item__cards" *ngFor="let card of cards">
+          <app-product-card [card]="card"></app-product-card>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

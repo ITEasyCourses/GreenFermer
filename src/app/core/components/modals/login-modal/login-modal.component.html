@@ -1,6 +1,11 @@
 <div class="login-modal">
   <div class="login-modal-header">
-    <i-feather name="x-circle" class="close" (click)="closeModal()"></i-feather>
+    <svg-icon-sprite
+      [viewBox]="'0 0 22 22'"
+      [src]="'assets/sprites/sprite-multicolor.svg#close'"
+      [classes]="'close'"
+      (click)="closeModal()"
+    ></svg-icon-sprite>
   </div>
   <div class="login-modal-content">
     <div class="login-modal-content-left">
@@ -54,20 +59,18 @@
     <p class="separator">або</p>
     <div class="login-modal-content-right">
       <p class="login-modal-content-right-label">Увійти як користувач</p>
-      <div class="label-google" (click)="initWithGoogle()">
-        <img
-          class="google-img"
-          src="assets/images/icons/google%20logo.png"
-          alt="img"
-        />
+      <div class="label-google">
+        <svg-icon-sprite
+          [src]="'assets/sprites/sprite-multicolor.svg#google'"
+          [classes]="'google-img'"
+        ></svg-icon-sprite>
         <p>Google</p>
       </div>
       <div class="label-facebook">
-        <img
-          class="facebook-img"
-          src="assets/images/icons/Vector.png"
-          alt="img"
-        />
+        <svg-icon-sprite
+          [src]="'assets/sprites/sprite-multicolor.svg#facebook-blue'"
+          [classes]="'facebook-img'"
+        ></svg-icon-sprite>
         <p>Facebook</p>
       </div>
     </div>

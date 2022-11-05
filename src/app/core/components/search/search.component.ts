@@ -4,7 +4,8 @@ import {
   EventEmitter,
   Input,
   OnInit,
-  Output
+  Output,
+  TrackByFunction
 } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
@@ -38,6 +39,8 @@ export class SearchComponent implements OnInit {
     { value: 'chernovtsi', viewValue: 'Чернівці' },
     { value: 'rovno', viewValue: 'Рівне' }
   ];
+
+  public trackByFn: TrackByFunction<SearchCity> = (index, item) => item.value;
 
   public ngOnInit(): void {
     this.citySort.setValue(this.sortCity[0].viewValue);

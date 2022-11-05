@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { FeatherModule } from 'angular-feather';
-import { Heart, MessageCircle, LogOut } from 'angular-feather/icons';
+import { IconSpriteModule } from 'ng-svg-icon-sprite';
 
 import { ButtonModule } from '../button/button.module';
 import { CartModule } from '../cart/cart.module';
@@ -12,12 +11,6 @@ import { UserIconModule } from '../user-icon/user-icon.module';
 
 import { HeaderComponentComponent } from './header-component.component';
 
-const icons = {
-  MessageCircle,
-  Heart,
-  LogOut
-};
-
 @NgModule({
   declarations: [HeaderComponentComponent],
   exports: [HeaderComponentComponent],
@@ -25,10 +18,10 @@ const icons = {
     CommonModule,
     CartModule,
     ButtonModule,
-    FeatherModule.pick(icons),
     SelectModule,
     LanguageModule,
     RegistrationModalModule,
+    IconSpriteModule,
     UserIconModule
   ]
 })
