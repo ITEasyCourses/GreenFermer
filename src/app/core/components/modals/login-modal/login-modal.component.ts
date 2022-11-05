@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 import {
   FormBuilder,
   FormControl,
@@ -8,6 +9,7 @@ import {
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 
 import { EMAIL_PATTERN } from '../../../constants/reg-exp';
+import { AuthService } from '../../../services/auth.service';
 import { RegistrationModalComponent } from '../registration-modal/registration-modal.component';
 
 @Component({
@@ -22,18 +24,14 @@ export class LoginModalComponent implements OnInit {
   constructor(
     private dialogRef: MatDialogRef<LoginModalComponent>,
     private matDialog: MatDialog,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private authService: AuthService,
+    private afAuth: AngularFireAuth
   ) {}
 
   public ngOnInit(): void {
     this.dialogRef.addPanelClass('login-modal');
     this.initLoginGroup();
-  }
-
-  public loginForm(): void {
-    if (this.loginFormGroup.valid) {
-      /* Место для дальнейшей отправки данных*/
-    }
   }
 
   public initLoginGroup(): void {
@@ -47,6 +45,29 @@ export class LoginModalComponent implements OnInit {
     });
   }
 
+  public loginForm(): void {
+    if (this.loginFormGroup.valid) {
+      this.authService
+        .signIn(
+          this.loginFormGroup.value.email,
+          this.loginFormGroup.value.password
+        )
+        .toPromise()
+        .then(() => {
+          this.find();
+        });
+    }
+  }
+
+  public initWithGoogle(): void {
+    this.authService
+      .signWithGoogle()
+      .toPromise()
+      .then(() => {
+        this.find();
+      });
+  }
+
   public goToRegistration(): void {
     this.dialogRef.close();
     this.matDialog.open(RegistrationModalComponent);
@@ -54,5 +75,13 @@ export class LoginModalComponent implements OnInit {
 
   public closeModal(): void {
     this.dialogRef.close();
+  }
+
+  private find(): void {
+    this.afAuth.authState.subscribe((res) => {
+      if (res !== null) {
+        this.dialogRef.close();
+      }
+    });
   }
 }

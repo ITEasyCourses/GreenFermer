@@ -16,7 +16,7 @@
             labelForSelectCatalog
           }}</label>
         </div>
-        <div *ngIf="sessionUser?.isAuthentication" class="header-menu">
+        <div *ngIf="sessionOn" class="header-menu">
           <app-select
             [label]="labelForSelectMenu"
             [options]="mocListForOptionSelect"
@@ -26,7 +26,7 @@
       <div class="header-right">
         <ng-container
           [ngTemplateOutlet]="
-            sessionUser?.isAuthentication
+            sessionOn && sessionUser?.displayName
               ? activeAuthenticationSession
               : notAuthenticationSession
           "
@@ -59,11 +59,17 @@
   <div class="header-right-auth-avatar">
     <div class="header-right-auth-avatar-user">
       <img
+        *ngIf="sessionUser?.photoURL"
         class="header-right-auth-avatar-user__img"
-        [src]="sessionUser?.avatar"
+        [src]="sessionUser?.photoURL"
         alt="avatar"
       />
-      <p class="header-right-auth-avatar-user__text">{{ sessionUser?.name }}</p>
+      <ng-container *ngIf="!sessionUser?.photoURL && sessionUser?.displayName"
+        ><app-user-icon [userName]="sessionUser?.displayName"></app-user-icon
+      ></ng-container>
+      <p class="header-right-auth-avatar-user__text">
+        {{ sessionUser?.displayName }}
+      </p>
     </div>
     <div class="header-right-auth-avatar-button">
       <app-button
@@ -72,6 +78,9 @@
         [buttonColor]="checkRoutAndScrollOptions ? 'yellow' : 'white'"
         [addIcon]="true"
       ></app-button>
+    </div>
+    <div class="header-right-auth-avatar_exit" (click)="exit()">
+      <i-feather name="log-out"></i-feather>
     </div>
   </div>
 </ng-template>

@@ -1,19 +1,21 @@
 import {
   ChangeDetectionStrategy,
+  ChangeDetectorRef,
   Component,
   HostListener,
   Input,
   OnInit
 } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 
 import { HEADER_LOGO } from '../../constants/header.constants';
 import { CATEGORIES, LABEL_SELECT } from '../../constants/select.constants';
 import { ERoutes } from '../../enums/routes';
-import { IAuthenticationUser } from '../../interfaces/i-authentication-user';
 import { IHeaderBackground } from '../../interfaces/i-heder-background';
 import { SortOption } from '../../interfaces/sort-option';
+import { AuthService } from '../../services/auth.service';
 import { PurchaseModalComponent } from '../modals/purchase-modal/purchase-modal.component';
 import { RegistrationModalComponent } from '../modals/registration-modal/registration-modal.component';
 
@@ -26,7 +28,9 @@ import { RegistrationModalComponent } from '../modals/registration-modal/registr
 export class HeaderComponentComponent implements OnInit {
   @Input() isTransparent = false;
 
-  public sessionUser?: IAuthenticationUser;
+  public sessionUser?: any;
+
+  public sessionOn!: boolean;
 
   public logo!: IHeaderBackground;
 
@@ -37,8 +41,13 @@ export class HeaderComponentComponent implements OnInit {
   public labelForSelectMenu!: string;
   public catalog!: string;
   public optionCatalog!: SortOption[];
-
-  constructor(private router: Router, private matDialog: MatDialog) {
+  constructor(
+    private router: Router,
+    private matDialog: MatDialog,
+    private authService: AuthService,
+    private cdr: ChangeDetectorRef,
+    private afAuth: AngularFireAuth
+  ) {
     this.isBottom = false;
   }
 
@@ -61,6 +70,8 @@ export class HeaderComponentComponent implements OnInit {
     this.labelForSelectCatalog = LABEL_SELECT.CATALOG;
     this.labelForSelectMenu = LABEL_SELECT.MENU;
     this.mocListForOptionSelect = CATEGORIES;
+    this.useProfile();
+    this.cdr.detectChanges();
   }
 
   public openRegModal(): void {
@@ -78,5 +89,22 @@ export class HeaderComponentComponent implements OnInit {
 
   public goToCatalog(): void {
     this.router.navigate([ERoutes.CATALOG_PAGE]);
+  }
+
+  public exit(): void {
+    this.authService.signOut();
+    this.cdr.detectChanges();
+  }
+
+  public useProfile(): void {
+    this.afAuth.authState.subscribe((res) => {
+      if (res !== null) {
+        this.sessionUser = res;
+        this.sessionOn = true;
+      } else {
+        this.sessionOn = false;
+      }
+      this.cdr.detectChanges();
+    });
   }
 }

@@ -1,4 +1,10 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  OnInit
+} from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 import {
   FormBuilder,
   FormControl,
@@ -10,6 +16,7 @@ import {
   MatDialogConfig,
   MatDialogRef
 } from '@angular/material/dialog';
+import { take } from 'rxjs';
 
 import {
   patternValidators,
@@ -17,6 +24,7 @@ import {
   USER_TYPE
 } from '../../../constants/registration.constants';
 import { SortOption } from '../../../interfaces/sort-option';
+import { AuthService } from '../../../services/auth.service';
 import { LoginModalComponent } from '../login-modal/login-modal.component';
 
 @Component({
@@ -33,20 +41,14 @@ export class RegistrationModalComponent implements OnInit {
   constructor(
     private dialogRef: MatDialogRef<RegistrationModalComponent>,
     private matDialog: MatDialog,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private authService: AuthService,
+    private afAuth: AngularFireAuth,
+    private cdr: ChangeDetectorRef
   ) {}
 
   ngOnInit(): void {
     this.dialogRef.addPanelClass('registration-modal');
-    this.formValidation();
-  }
-
-  public close(): void {
-    this.dialogRef.close();
-  }
-
-  public setUserTypeControl(event: string) {
-    this.typeUserValue = event;
     this.formValidation();
   }
 
@@ -69,32 +71,60 @@ export class RegistrationModalComponent implements OnInit {
         Validators.required,
         Validators.pattern(patternValidators.EMAIL_PATTERN)
       ]),
-      userPassword: new FormControl('', [
-        Validators.required,
-        Validators.pattern(patternValidators.PASSWORD_PATTERN)
-      ])
+      userPassword: new FormControl('', [Validators.required])
     });
   }
 
-  public newUserRegistration(): void {
-    const payload = [
-      {
-        user: this.registrationFormGroup.value
-      }
-    ];
-    JSON.stringify(payload);
+  public setUserTypeControl(event: string) {
+    this.typeUserValue = event;
+    this.formValidation();
   }
 
   public registration(): void {
     if (this.registrationFormGroup.valid) {
-      this.newUserRegistration();
-      this.close();
+      this.authService
+        .signUp(this.registrationFormGroup.value)
+        .toPromise()
+        .then(() => {
+          this.findUser();
+        });
     }
+  }
+
+  initWithGoogle() {
+    this.authService
+      .signWithGoogle()
+      .toPromise()
+      .then(() => {
+        this.findUserToGoogle();
+      });
   }
 
   public goToLogin(): void {
     this.dialogRef.close();
     const loginDialogConfig = new MatDialogConfig();
     this.matDialog.open(LoginModalComponent, loginDialogConfig);
+  }
+
+  public close(): void {
+    this.dialogRef.close();
+  }
+
+  private findUserToGoogle(): void {
+    this.afAuth.authState.subscribe((res) => {
+      if (res !== null) {
+        this.dialogRef.close();
+      }
+    });
+  }
+
+  private findUser(): void {
+    this.afAuth.authState.pipe(take(1)).subscribe((res) => {
+      if (res !== null) {
+        this.goToLogin();
+        this.authService.signOut();
+        this.cdr.detectChanges();
+      }
+    });
   }
 }
