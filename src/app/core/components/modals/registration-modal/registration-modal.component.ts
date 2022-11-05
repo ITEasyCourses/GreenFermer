@@ -16,6 +16,7 @@ import {
   MatDialogConfig,
   MatDialogRef
 } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { take } from 'rxjs';
 
 import {
@@ -44,7 +45,8 @@ export class RegistrationModalComponent implements OnInit {
     private fb: FormBuilder,
     private authService: AuthService,
     private afAuth: AngularFireAuth,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
+    private snack: MatSnackBar
   ) {}
 
   ngOnInit(): void {
@@ -121,6 +123,10 @@ export class RegistrationModalComponent implements OnInit {
   private findUser(): void {
     this.afAuth.authState.pipe(take(1)).subscribe((res) => {
       if (res !== null) {
+        this.snack.open('Вітаю! ви зареестровані!', '', {
+          duration: 4000,
+          verticalPosition: 'top'
+        });
         this.goToLogin();
         this.authService.signOut();
         this.cdr.detectChanges();

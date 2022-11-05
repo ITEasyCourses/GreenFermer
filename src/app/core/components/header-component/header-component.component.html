@@ -25,7 +25,7 @@
       <div class="header-right">
         <ng-container
           [ngTemplateOutlet]="
-            sessionOn && sessionUser?.displayName
+            sessionOn && sessionUser
               ? activeAuthenticationSession
               : notAuthenticationSession
           "
@@ -70,7 +70,7 @@
         [src]="sessionUser?.photoURL"
         alt="avatar"
       />
-      <ng-container *ngIf="!sessionUser?.photoURL && sessionUser?.displayName"
+      <ng-container *ngIf="!sessionUser?.photoURL && sessionUser"
         ><app-user-icon [userName]="sessionUser?.displayName"></app-user-icon
       ></ng-container>
       <p class="header-right-auth-avatar-user__text">

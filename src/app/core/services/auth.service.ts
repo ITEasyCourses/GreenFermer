@@ -75,10 +75,6 @@ export class AuthService {
     return from(this.afAuth.signOut());
   }
 
-  public deleteUser(): void {
-    firebase.auth().currentUser?.delete();
-  }
-
   public updateName(name: string, serName: string): void {
     firebase
       .auth()
@@ -97,5 +93,13 @@ export class AuthService {
       phone: phone
     };
     return userRef.set(userData, { merge: true });
+  }
+
+  public deleteUser(userId: string): void {
+    firebase.auth().currentUser?.delete();
+    const userRef: AngularFirestoreDocument<any> = this.afs.doc(
+      `users/${userId}`
+    );
+    userRef.delete();
   }
 }
