@@ -22,12 +22,10 @@ export class OrdersService {
       .doc(userId)
       .collection('orders')
       .doc()
-      .set(order);
-    this.goToCheckoutResult();
-  }
-
-  public goToCheckoutResult(): void {
-    this.isNextOrder = true;
-    this.router.navigate([ERoutes.CHECKOUT_RESULT]);
+      .set(order)
+      .then(() => {
+        this.isNextOrder = true;
+        this.router.navigate([ERoutes.CHECKOUT_RESULT]);
+      });
   }
 }
