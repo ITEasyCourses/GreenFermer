@@ -6,6 +6,8 @@ import {
   OnInit
 } from '@angular/core';
 
+import { ICON_STYLE } from '../../constants/stylse-for-icon-user';
+
 @Component({
   selector: 'app-user-icon',
   templateUrl: './user-icon.component.html',
@@ -15,18 +17,8 @@ import {
 export class UserIconComponent implements OnInit {
   @Input() userName!: string;
   public iconColor!: string;
-  public text!: string;
-  public serName!: string;
-  public secText!: string;
   public abet!: string;
-  public colors: string[] = [
-    'green',
-    'blue',
-    'red',
-    'pink',
-    'violet',
-    'light-blue'
-  ];
+  public iconStyle = ICON_STYLE;
 
   constructor(private cdr: ChangeDetectorRef) {}
   public ngOnInit(): void {
@@ -36,15 +28,15 @@ export class UserIconComponent implements OnInit {
   }
 
   public generateColor(): void {
-    this.iconColor = this.colors[Math.floor(Math.random() * 6)];
+    this.iconColor = this.iconStyle[Math.floor(Math.random() * 6)];
     this.cdr.detectChanges();
   }
 
   public generateAbet(): void {
-    this.serName = this.userName.split(' ')[1];
-    this.text = this.userName.substr(0, 1);
-    this.secText = this.serName.substr(0, 1);
-    this.abet = this.text + this.secText;
+    const serName = this.userName.split(' ')[1];
+    const text = this.userName.substr(0, 1);
+    const secText = serName.substr(0, 1);
+    this.abet = text + secText;
     this.cdr.detectChanges();
   }
 }

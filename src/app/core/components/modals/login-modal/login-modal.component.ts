@@ -1,5 +1,4 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/compat/auth';
 import {
   FormBuilder,
   FormControl,
@@ -25,8 +24,7 @@ export class LoginModalComponent implements OnInit {
     private dialogRef: MatDialogRef<LoginModalComponent>,
     private matDialog: MatDialog,
     private fb: FormBuilder,
-    private authService: AuthService,
-    private afAuth: AngularFireAuth
+    private authService: AuthService
   ) {}
 
   public ngOnInit(): void {
@@ -47,25 +45,15 @@ export class LoginModalComponent implements OnInit {
 
   public loginForm(): void {
     if (this.loginFormGroup.valid) {
-      this.authService
-        .signIn(
-          this.loginFormGroup.value.email,
-          this.loginFormGroup.value.password
-        )
-        .toPromise()
-        .then(() => {
-          this.find();
-        });
+      this.authService.signIn(
+        this.loginFormGroup.value.email,
+        this.loginFormGroup.value.password
+      );
     }
   }
 
   public initWithGoogle(): void {
-    this.authService
-      .signWithGoogle()
-      .toPromise()
-      .then(() => {
-        this.find();
-      });
+    this.authService.signWithGoogle();
   }
 
   public goToRegistration(): void {
@@ -75,13 +63,5 @@ export class LoginModalComponent implements OnInit {
 
   public closeModal(): void {
     this.dialogRef.close();
-  }
-
-  private find(): void {
-    this.afAuth.authState.subscribe((res) => {
-      if (res !== null) {
-        this.dialogRef.close();
-      }
-    });
   }
 }

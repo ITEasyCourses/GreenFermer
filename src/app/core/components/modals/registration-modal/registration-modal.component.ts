@@ -1,10 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-  OnInit
-} from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import {
   FormBuilder,
   FormControl,
@@ -16,8 +10,6 @@ import {
   MatDialogConfig,
   MatDialogRef
 } from '@angular/material/dialog';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { take } from 'rxjs';
 
 import {
   patternValidators,
@@ -43,10 +35,7 @@ export class RegistrationModalComponent implements OnInit {
     private dialogRef: MatDialogRef<RegistrationModalComponent>,
     private matDialog: MatDialog,
     private fb: FormBuilder,
-    private authService: AuthService,
-    private afAuth: AngularFireAuth,
-    private cdr: ChangeDetectorRef,
-    private snack: MatSnackBar
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {
@@ -73,7 +62,10 @@ export class RegistrationModalComponent implements OnInit {
         Validators.required,
         Validators.pattern(patternValidators.EMAIL_PATTERN)
       ]),
-      userPassword: new FormControl('', [Validators.required])
+      userPassword: new FormControl('', [
+        Validators.required,
+        Validators.pattern(patternValidators.PASSWORD_PATTERN)
+      ])
     });
   }
 
@@ -84,22 +76,12 @@ export class RegistrationModalComponent implements OnInit {
 
   public registration(): void {
     if (this.registrationFormGroup.valid) {
-      this.authService
-        .signUp(this.registrationFormGroup.value)
-        .toPromise()
-        .then(() => {
-          this.findUser();
-        });
+      this.authService.signUp(this.registrationFormGroup.value);
     }
   }
 
   initWithGoogle() {
-    this.authService
-      .signWithGoogle()
-      .toPromise()
-      .then(() => {
-        this.findUserToGoogle();
-      });
+    this.authService.signWithGoogle();
   }
 
   public goToLogin(): void {
@@ -110,27 +92,5 @@ export class RegistrationModalComponent implements OnInit {
 
   public close(): void {
     this.dialogRef.close();
-  }
-
-  private findUserToGoogle(): void {
-    this.afAuth.authState.subscribe((res) => {
-      if (res !== null) {
-        this.dialogRef.close();
-      }
-    });
-  }
-
-  private findUser(): void {
-    this.afAuth.authState.pipe(take(1)).subscribe((res) => {
-      if (res !== null) {
-        this.snack.open('Вітаю! ви зареестровані!', '', {
-          duration: 4000,
-          verticalPosition: 'top'
-        });
-        this.goToLogin();
-        this.authService.signOut();
-        this.cdr.detectChanges();
-      }
-    });
   }
 }

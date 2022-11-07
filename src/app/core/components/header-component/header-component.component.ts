@@ -98,7 +98,7 @@ export class HeaderComponentComponent implements OnInit {
 
   public useProfile(): void {
     this.afAuth.authState.subscribe((res) => {
-      if (res !== null) {
+      if (res) {
         this.sessionUser = res;
         this.sessionOn = true;
       } else {
