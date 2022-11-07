@@ -11,7 +11,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ERoutes } from '../../enums/routes';
 import { IProductCard } from '../../interfaces/i-product-card';
 
-
 @Component({
   selector: 'app-product-card',
   templateUrl: './product-card.component.html',
