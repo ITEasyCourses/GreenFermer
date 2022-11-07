@@ -1,9 +1,10 @@
 <div class="modal-header">
-  <i-feather
+  <svg-icon-sprite
+    [viewBox]="'0 0 22 22'"
+    [src]="'assets/sprites/sprite-multicolor.svg#close'"
+    [classes]="'modal-header__icon'"
     (click)="close()"
-    name="x-circle"
-    class="modal-header__icon"
-  ></i-feather>
+  ></svg-icon-sprite>
 </div>
 <div class="section">
   <div class="section__left left">
@@ -90,19 +91,18 @@
     <p class="right__text">Увійти як користувач</p>
     <div class="right__inner">
       <a href="https://www.google.com/" class="right__btn">
-        <img
-          src="assets/images/icons/google%20logo.png"
-          alt="Google"
-          class="img__google"
-        />
+        <svg-icon-sprite
+          [src]="'assets/sprites/sprite-multicolor.svg#google'"
+          [classes]="'img__google'"
+        ></svg-icon-sprite>
         Google
       </a>
       <a href="https://uk-ua.facebook.com/" class="right__btn">
-        <img
-          src="/assets/images/icons/Vector.png"
-          alt="Google"
-          class="img__facebook"
-        />Facebook
+        <svg-icon-sprite
+          [src]="'assets/sprites/sprite-multicolor.svg#facebook-blue'"
+          [classes]="'img__facebook'"
+        ></svg-icon-sprite>
+        Facebook
       </a>
     </div>
   </div>

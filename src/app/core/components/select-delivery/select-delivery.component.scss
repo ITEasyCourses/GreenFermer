@@ -26,10 +26,10 @@
     background: $gray3;
   }
 
-  &-chevron {
-    width: 20px;
-    height: 20px;
+  ::ng-deep &-chevron {
     margin-top: 5px;
+    transform: translateY(13px);
+    transition: transform .2s linear;
   }
 
   &-option {
@@ -47,9 +47,9 @@
   }
 }
 
-.active {
-  transition: all .2s linear;
+::ng-deep .active {
   transform: rotateX(180deg);
+  transition: transform .2s linear;
 }
 
 .option-wrapper {

@@ -1,19 +1,29 @@
 <div [class.select-overlay]="openFlag" (click)="open()"></div>
 <button (click)="open()" class="select" [class.delivery]="deliveryStyle">
   {{ label }}
-  <i-feather
-    name="chevron-down"
-    [class.active]="openFlag"
-    class="select-chevron"
-  ></i-feather>
+  <svg-icon-sprite
+    [src]="'assets/sprites/sprite.svg#chevron-down'"
+    [width]="'20px'"
+    [height]="'20px'"
+    [classes]="openFlag ? 'select-chevron active' : 'select-chevron'"
+  ></svg-icon-sprite>
 
   <div
     class="option-wrapper"
     [class.open]="openFlag"
     [class.delivery-option]="deliveryStyle"
   >
-    <button *ngFor="let item of options" (click)="selectOption(item)">
-      {{ item.viewValue }}
-    </button>
+    <ng-container *ngIf="options?.length; else noOptions">
+      <button
+        *ngFor="let item of options; trackBy: trackByFn"
+        (click)="selectOption(item)"
+      >
+        {{ item.viewValue }}
+      </button>
+    </ng-container>
   </div>
 </button>
+
+<ng-template #noOptions>
+  <p>Оберіть населенний пункт</p>
+</ng-template>

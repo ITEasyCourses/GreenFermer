@@ -50,7 +50,7 @@
     max-width: 252px;
   }
 
-  &__logo{
+  ::ng-deep &__logo{
     display: block;
     margin-bottom: 40px;
     outline-color: transparent;
@@ -151,7 +151,12 @@
       left: 5px;
     }
 
-    & .footer__app-img{
+    & svg-icon-sprite {
+      display: flex;
+      align-items: center;
+    }
+
+    ::ng-deep & .footer__app-img{
       position: relative;
       z-index: 1;
     }

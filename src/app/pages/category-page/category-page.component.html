@@ -5,8 +5,12 @@
   </div>
 </div>
 <div class="category__content">
+  <app-breadcrumbs></app-breadcrumbs>
   <div class="category__content-wrapper">
-    <div class="card-wrapper" *ngFor="let product of allProduct">
+    <div
+      class="card-wrapper"
+      *ngFor="let product of allProduct; trackBy: trackByFn"
+    >
       <app-product-card [card]="product"></app-product-card>
     </div>
   </div>

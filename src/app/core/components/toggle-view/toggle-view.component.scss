@@ -2,16 +2,18 @@
 
 .container{
 
-  &_toggle{
+  ::ng-deep &_toggle{
     color: $gray2;
+    width: 24px;
+    height: 24px;
     cursor: pointer;
 
     &.active{
       color: $light-black;
     }
-  }
 
-  &_toggle:first-child{
-    margin-right: 12px;
+    &:first-child {
+      margin-right: 12px;
+    }
   }
 }

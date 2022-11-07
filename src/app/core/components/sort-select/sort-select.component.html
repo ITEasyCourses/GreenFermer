@@ -18,7 +18,7 @@
   </option>
   <option
     class="option"
-    *ngFor="let item of selectItems"
+    *ngFor="let item of selectItems; trackBy: trackByFn"
     [value]="[item.value || item.id]"
   >
     {{ item.viewValue || item.address }}

@@ -3,10 +3,10 @@ import {
   ChangeDetectorRef,
   Component,
   OnInit,
-  Self
+  Self,
+  TrackByFunction
 } from '@angular/core';
 
-import { ProductCardConstants } from '../../core/constants/product-card.constants';
 import { IProductCard } from '../../core/interfaces/i-product-card';
 import { IProductCategoryCard } from '../../core/interfaces/product-category-card.interface';
 import { CategoryService } from '../../core/services/category.service';
@@ -20,8 +20,8 @@ import { UnsubscribeService } from '../../core/services/unsubscribe.service';
   providers: [UnsubscribeService]
 })
 export class HomePageComponent implements OnInit {
-  productList: IProductCard[] = ProductCardConstants;
-  sliderList!: IProductCategoryCard[];
+  public productList!: IProductCard[];
+  public sliderList!: IProductCategoryCard[];
 
   constructor(
     private categoryService: CategoryService,
@@ -29,7 +29,9 @@ export class HomePageComponent implements OnInit {
     private cdr: ChangeDetectorRef
   ) {}
 
-  ngOnInit() {
+  public trackByFn: TrackByFunction<IProductCard> = (index, item) => item.id;
+
+  public ngOnInit(): void {
     this.getProductCategoryCards();
   }
 
