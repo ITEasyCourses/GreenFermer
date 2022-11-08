@@ -34,4 +34,16 @@ export class CategoryService {
       .valueChanges({ idField: 'id' })
       .pipe(take(1)) as unknown as Observable<IProductCard[]>;
   }
+
+  public getCategoryDetail(
+    categoryId: string,
+    typeId: string
+  ): Observable<IProductCard[]> {
+    return this.fireStore
+      .collection('categories')
+      .doc(categoryId)
+      .collection('products', (ref) => ref.where('typeId', '==', typeId))
+      .valueChanges({ idField: 'id' })
+      .pipe(take(1)) as unknown as Observable<IProductCard[]>;
+  }
 }

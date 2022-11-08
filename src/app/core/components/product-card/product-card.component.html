@@ -10,7 +10,7 @@
     </div>
     <div class="card-wrap-text">
       <div class="card-wrap-text-first">
-        <div class="card-wrap-text-first-name">{{ card.name }}</div>
+        <div class="card-wrap-text-first-name">{{ card.title }}</div>
         <svg-icon-sprite
           [src]="'assets/sprites/sprite.svg#heart'"
           [viewBox]="'0 0 28 24'"
@@ -24,7 +24,10 @@
           (click)="like()"
         ></svg-icon-sprite>
       </div>
-      <div class="card-wrap-text-price">{{ card.price }} ₴/кг</div>
+      <div class="bottom-wrapper">
+        <div class="card-wrap-text-price">{{ card.price }} ₴/кг</div>
+        <div class="category-title" (click)="goToCategoryDetails()">{{ card.typeText }}</div>
+      </div>
     </div>
   </div>
 </div>

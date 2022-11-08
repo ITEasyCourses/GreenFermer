@@ -1,4 +1,5 @@
 export interface IProductCard {
+  categoryId?: string;
   description: string;
   images: string[];
   isExist: boolean;
