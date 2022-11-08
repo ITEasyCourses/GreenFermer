@@ -27,12 +27,12 @@ export class UserIconComponent implements OnInit {
     this.cdr.detectChanges();
   }
 
-  public generateColor(): void {
+  private generateColor(): void {
     this.iconColor = this.iconStyle[Math.floor(Math.random() * 6)];
     this.cdr.detectChanges();
   }
 
-  public generateAbet(): void {
+  private generateAbet(): void {
     const serName = this.userName.split(' ')[1];
     const text = this.userName.substr(0, 1);
     const secText = serName.substr(0, 1);

@@ -80,7 +80,7 @@ export class RegistrationModalComponent implements OnInit {
     }
   }
 
-  initWithGoogle() {
+  public initWithGoogle(): void {
     this.authService.signWithGoogle();
   }
 

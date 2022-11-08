@@ -4,11 +4,7 @@ import {
   AngularFirestore,
   AngularFirestoreDocument
 } from '@angular/fire/compat/firestore';
-import {
-  MatDialog,
-  MatDialogConfig,
-  MatDialogRef
-} from '@angular/material/dialog';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import firebase from 'firebase/compat/app';
 import { from, Observable, of, take } from 'rxjs';
@@ -19,7 +15,6 @@ import 'firebase/compat/auth';
 
 import 'firebase/compat/firestore';
 import { LoginModalComponent } from '../components/modals/login-modal/login-modal.component';
-import { RegistrationModalComponent } from '../components/modals/registration-modal/registration-modal.component';
 import { IAuthenticationUser } from '../interfaces/i-authentication-user';
 import { RegistrationUserInterface } from '../interfaces/redistration-user.interface';
 
@@ -33,10 +28,6 @@ export class AuthService {
     private afs: AngularFirestore,
     private afAuth: AngularFireAuth,
     private snack: MatSnackBar,
-    private dialogRef: MatDialogRef<
-      LoginModalComponent,
-      RegistrationModalComponent
-    >,
     private matDialog: MatDialog
   ) {}
 
