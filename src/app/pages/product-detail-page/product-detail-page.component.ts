@@ -28,6 +28,7 @@ export class ProductDetailPageComponent implements OnInit {
   public mockSortTypes!: SortOption[];
 
   public productPurchase: ProductPurchase = PRODUCT_PURCHASE;
+
   constructor(
     private productDetailService: ProductDetailService,
     private activatedRoute: ActivatedRoute,

@@ -18,6 +18,7 @@ export class FeedbackComponent implements OnInit {
 
   public heart = false;
   public abet!: string;
+
   ngOnInit(): void {
     this.getAbet();
   }

@@ -22,9 +22,11 @@ export class ProductCardComponent implements OnInit {
     new EventEmitter<void>();
 
   @Input() card!: IProductCard;
+
   public heart = false;
   public img!: string | undefined;
   private categoryTypeId!: string;
+
   constructor(private router: Router, private activatedRoute: ActivatedRoute) {}
 
   ngOnInit(): void {
