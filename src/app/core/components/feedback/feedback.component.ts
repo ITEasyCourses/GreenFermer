@@ -26,7 +26,7 @@ export class FeedbackComponent implements OnInit {
     this.heart = !this.heart;
   }
 
-  public getAbet(): void {
+  private getAbet(): void {
     this.abet = this.feedback.name;
   }
 }

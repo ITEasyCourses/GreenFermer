@@ -50,7 +50,6 @@ export class ProductCardComponent implements OnInit {
 
   public goToProductDetail(): void {
     this.getCategoryTypeId();
-    console.log(this.card);
     this.router.navigate([
       ERoutes.CATALOG_PAGE,
       this.card.categoryId || this.categoryTypeId,
