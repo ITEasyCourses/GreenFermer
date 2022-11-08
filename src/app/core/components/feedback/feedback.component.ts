@@ -1,4 +1,9 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  OnInit
+} from '@angular/core';
 
 import { Feedback } from '../../interfaces/feedback-interface';
 
@@ -8,12 +13,20 @@ import { Feedback } from '../../interfaces/feedback-interface';
   styleUrls: ['./feedback.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class FeedbackComponent {
+export class FeedbackComponent implements OnInit {
   @Input() feedback!: Feedback;
 
   public heart = false;
+  public abet!: string;
+  ngOnInit(): void {
+    this.getAbet();
+  }
 
   public like(): void {
     this.heart = !this.heart;
+  }
+
+  public getAbet(): void {
+    this.abet = this.feedback.name;
   }
 }

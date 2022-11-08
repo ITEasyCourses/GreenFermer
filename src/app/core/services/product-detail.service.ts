@@ -22,4 +22,12 @@ export class ProductDetailService {
       .valueChanges({ idField: 'id' })
       .pipe(take(1)) as unknown as Observable<IProductCard>;
   }
+
+  public getProductFromPopular(productId: string): Observable<IProductCard> {
+    return this.angularFirestore
+      .collection('populars')
+      .doc(productId)
+      .valueChanges({ idField: 'id' })
+      .pipe(take(1)) as unknown as Observable<IProductCard>;
+  }
 }

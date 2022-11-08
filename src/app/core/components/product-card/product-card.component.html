@@ -1,6 +1,11 @@
 <div class="card">
   <div class="card-wrap">
-    <img [src]="img" class="card-wrap-img" alt="product foto" />
+    <img
+      [src]="img"
+      (click)="goToProductDetail()"
+      class="card-wrap-img"
+      alt="product foto"
+    />
     <div class="card-wrap-basket" (click)="addToBasket()">
       <svg-icon-sprite
         [src]="'assets/sprites/sprite.svg#cart'"
@@ -26,7 +31,9 @@
       </div>
       <div class="bottom-wrapper">
         <div class="card-wrap-text-price">{{ card.price }} ₴/кг</div>
-        <div class="category-title" (click)="goToCategoryDetails()">{{ card.typeText }}</div>
+        <div class="category-title" (click)="goToCategoryDetails()">
+          {{ card.typeText }}
+        </div>
       </div>
     </div>
   </div>

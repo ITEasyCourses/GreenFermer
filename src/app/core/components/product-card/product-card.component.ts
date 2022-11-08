@@ -24,6 +24,7 @@ export class ProductCardComponent implements OnInit {
   @Input() card!: IProductCard;
   public heart = false;
   public img!: string | undefined;
+  private categoryTypeId!: string;
   constructor(private router: Router, private activatedRoute: ActivatedRoute) {}
 
   ngOnInit(): void {
@@ -39,17 +40,30 @@ export class ProductCardComponent implements OnInit {
   }
 
   public goToCategoryDetails(): void {
-    const categoryTypeId =
-      this.activatedRoute.snapshot.params['categoryTypeId'];
-
+    this.getCategoryTypeId();
     this.router.navigate([
       ERoutes.CATALOG_PAGE,
-      this.card.categoryId || categoryTypeId,
+      this.card.categoryId || this.categoryTypeId,
       this.card.typeId
+    ]);
+  }
+
+  public goToProductDetail(): void {
+    this.getCategoryTypeId();
+    console.log(this.card);
+    this.router.navigate([
+      ERoutes.CATALOG_PAGE,
+      this.card.categoryId || this.categoryTypeId,
+      this.card.typeId,
+      this.card.id
     ]);
   }
 
   private findImg(): void {
     this.img = this.card.images.find((el) => el !== '');
+  }
+
+  private getCategoryTypeId(): void {
+    this.categoryTypeId = this.activatedRoute.snapshot.params['categoryTypeId'];
   }
 }

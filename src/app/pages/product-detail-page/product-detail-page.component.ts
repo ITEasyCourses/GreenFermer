@@ -1,35 +1,58 @@
 import {
   ChangeDetectionStrategy,
   Component,
+  OnInit,
   TrackByFunction
 } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Observable, take } from 'rxjs';
 
-import { feedbackConstants } from '../../core/constants/feedback.constants';
-import { PRODUCT_DESCRIPTION } from '../../core/constants/product-detail.constants';
-import { PRODUCT_INFO_CARD } from '../../core/constants/product-info-component.constants';
 import { PRODUCT_PURCHASE } from '../../core/constants/product-purchase';
 import { Feedback } from '../../core/interfaces/feedback-interface';
 import { IProductCard } from '../../core/interfaces/i-product-card';
-import { ProductInfo } from '../../core/interfaces/product-info-component-interface';
 import { ProductPurchase } from '../../core/interfaces/product-purchase.interface';
 import { SortOption } from '../../core/interfaces/sort-option';
+import { ProductDetailService } from '../../core/services/product-detail.service';
+import { UnsubscribeService } from '../../core/services/unsubscribe.service';
 
 @Component({
   selector: 'app-product-detail-page',
   templateUrl: './product-detail-page.component.html',
   styleUrls: ['./product-detail-page.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [UnsubscribeService]
 })
-export class ProductDetailPageComponent {
-  public description = PRODUCT_DESCRIPTION;
-
+export class ProductDetailPageComponent implements OnInit {
+  public product$!: Observable<IProductCard>;
   public cards!: IProductCard[];
-
   public mockSortTypes!: SortOption[];
-  public arrFeedback: Feedback[] = feedbackConstants;
-
-  public productCard: ProductInfo = PRODUCT_INFO_CARD;
 
   public productPurchase: ProductPurchase = PRODUCT_PURCHASE;
+  constructor(
+    private productDetailService: ProductDetailService,
+    private activatedRoute: ActivatedRoute,
+    private unsubscribeService: UnsubscribeService
+  ) {}
+
   public trackByFn: TrackByFunction<Feedback> = (index, item) => item.name;
+
+  ngOnInit() {
+    this.getProduct();
+  }
+
+  private getProduct(): void {
+    const categoryId = this.activatedRoute.snapshot.params['categoryTypeId'];
+    const productId = this.activatedRoute.snapshot.params['product-detail'];
+
+    this.product$ = this.productDetailService
+      .getProduct(categoryId, productId)
+      .pipe(this.unsubscribeService.takeUntilDestroy);
+    this.product$.pipe(take(1)).subscribe((data) => {
+      if (!data.title) {
+        this.product$ = this.productDetailService
+          .getProductFromPopular(productId)
+          .pipe(this.unsubscribeService.takeUntilDestroy);
+      }
+    });
+  }
 }
