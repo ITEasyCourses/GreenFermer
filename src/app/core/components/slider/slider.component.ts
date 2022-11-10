@@ -1,4 +1,9 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  TrackByFunction
+} from '@angular/core';
 import SwiperCore, { Navigation, A11y, Mousewheel } from 'swiper';
 
 import { IProductCategoryCard } from '../../interfaces/product-category-card.interface';
@@ -24,8 +29,11 @@ export class SliderComponent {
     mousewheel: {
       sensitivity: 3
     },
-    loop: true,
+    loop: false,
     speed: 500,
     slidesPerGroup: 2
   };
+
+  public trackByFn: TrackByFunction<IProductCategoryCard> = (index, item) =>
+    item.id;
 }
