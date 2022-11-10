@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ERoutes } from 'src/app/core/enums/routes';
 
+import { CheckoutResultGuard } from './core/guards/checkout-result.guard';
+
 const routes: Routes = [
   {
     path: ERoutes.HOME,
@@ -41,7 +43,8 @@ const routes: Routes = [
     loadChildren: () =>
       import('./pages/checkout-result-page/checkout-result-page.module').then(
         (m) => m.CheckoutResultPageModule
-      )
+      ),
+    canActivate: [CheckoutResultGuard]
   },
   {
     path: '**',
@@ -51,6 +54,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [CheckoutResultGuard]
 })
 export class AppRoutingModule {}

@@ -1,4 +1,19 @@
-<app-breadcrumbs></app-breadcrumbs>
+<section class="breadcrumbs">
+  <div class="container">
+    <app-breadcrumbs></app-breadcrumbs>
+  </div>
+</section>
+
+<section class="product">
+  <div class="container">
+    <div class="product-wrapper">
+      <app-product-info-component
+        [product]="productCard"
+      ></app-product-info-component>
+      <app-product-purchase [product]="productPurchase"></app-product-purchase>
+    </div>
+  </div>
+</section>
 
 <section class="description">
   <div class="container">
@@ -8,7 +23,10 @@
         {{ description }}
       </p>
     </div>
-    <div class="description__feedback" *ngFor="let feedback of arrFeedback; trackBy: trackByFn">
+    <div
+      class="description__feedback"
+      *ngFor="let feedback of arrFeedback; trackBy: trackByFn"
+    >
       <app-feedback [feedback]="feedback"></app-feedback>
     </div>
   </div>

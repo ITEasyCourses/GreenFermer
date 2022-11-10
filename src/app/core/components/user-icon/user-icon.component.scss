@@ -1,0 +1,43 @@
+@import "src/assets/styles/vars";
+@import "src/assets/styles/mixins";
+
+.container{
+  width: 32px;
+  height: 32px;
+  margin-right: 12px;
+  border-radius: 50%;
+  border: 2px solid $main-black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &_text{
+    @include font-base(16px, 600, 24px);
+
+    color: $white;
+  }
+
+  &.blue{
+    background: $blue;
+  }
+
+  &.green{
+    background: $green;
+  }
+
+  &.violet{
+    background: $violent;
+  }
+
+  &.pink{
+    background: $pink;
+  }
+
+  &.light-blue{
+    background: $light-blue;
+  }
+
+  &.red{
+    background: $red;
+  }
+}

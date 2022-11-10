@@ -34,4 +34,37 @@
       </div>
     </div>
   </div>
+  <div class="checkout_info">
+    <p>Замовлення №</p>
+    <p class="checkout_info_price">{{ totalPrice }} ₴</p>
+  </div>
+  <hr />
+  <div class="checkout_order">
+    <div
+      class="checkout_order_content"
+      *ngFor="let card of data; trackBy: getCardId"
+    >
+      <app-product-purchase-card
+        [productCard]="card"
+        (updateProductCard)="onUpdateProductCard($event)"
+      ></app-product-purchase-card>
+    </div>
+  </div>
+  <div class="checkout_package">
+    <p class="checkout_package_title">Додати еко-пакування?</p>
+    <p class="checkout_package_subtitle">
+      Ми пропонуємо різні види біорозкладних упакувань для вашого замовлення, ми
+      завжди шукаємо нові та інноваційні способи допомогти врятувати нашу
+      планету та зберегти продукти свіжими.
+    </p>
+    <div class="checkout_package_select">
+      <app-select-delivery
+        [label]="label"
+        [options]="options"
+        [deliveryStyle]="true"
+        (selectedOption)="selectedPackage($event)"
+      ></app-select-delivery>
+    </div>
+  </div>
+  <hr />
 </div>

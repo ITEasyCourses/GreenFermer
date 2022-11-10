@@ -37,6 +37,7 @@ ul {
 
       &.disabled {
         color: $light-black;
+        cursor: default;
       }
     }
 

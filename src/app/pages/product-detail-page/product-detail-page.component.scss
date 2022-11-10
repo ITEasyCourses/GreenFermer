@@ -1,5 +1,18 @@
 @import "src/assets/styles/mixins";
 
+.breadcrumbs {
+  margin: 100px 0 30px;
+}
+
+.product {
+  margin-bottom: 40px;
+
+  &-wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
 .description {
   margin-bottom: 40px;
 
