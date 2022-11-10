@@ -8,6 +8,7 @@ import {
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 
 import { EMAIL_PATTERN } from '../../../constants/reg-exp';
+import { AuthService } from '../../../services/auth.service';
 import { RegistrationModalComponent } from '../registration-modal/registration-modal.component';
 
 @Component({
@@ -22,18 +23,13 @@ export class LoginModalComponent implements OnInit {
   constructor(
     private dialogRef: MatDialogRef<LoginModalComponent>,
     private matDialog: MatDialog,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private authService: AuthService
   ) {}
 
   public ngOnInit(): void {
     this.dialogRef.addPanelClass('login-modal');
     this.initLoginGroup();
-  }
-
-  public loginForm(): void {
-    if (this.loginFormGroup.valid) {
-      /* Место для дальнейшей отправки данных*/
-    }
   }
 
   public initLoginGroup(): void {
@@ -45,6 +41,19 @@ export class LoginModalComponent implements OnInit {
       password: new FormControl('', [Validators.required]),
       rememberUser: new FormControl(false, [])
     });
+  }
+
+  public loginForm(): void {
+    if (this.loginFormGroup.valid) {
+      this.authService.signIn(
+        this.loginFormGroup.value.email,
+        this.loginFormGroup.value.password
+      );
+    }
+  }
+
+  public initWithGoogle(): void {
+    this.authService.signWithGoogle();
   }
 
   public goToRegistration(): void {

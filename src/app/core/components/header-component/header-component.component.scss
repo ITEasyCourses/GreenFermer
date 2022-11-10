@@ -158,17 +158,40 @@
             width: 311px;
             height: 40px;
 
-            &-button {
-              width: 168px;
-              height: 40px;
-              font-size: 15px;
-              margin: 0;
+            &::ng-deep app-button{
+              white-space: nowrap;
+              margin: 0 15px;
+            }
+
+            &_exit{
+              margin: 15px 0 0 30px;
+              width: 36px;
+              height: 36px;
+              cursor: pointer;
+
+              ::ng-deep &_svg{
+                width: 32px;
+                height: 32px;
+                color: $main-black;
+                transition: all .2s;
+
+                &:hover{
+                  color: $white;
+                }
+              }
+            }
+
+            &_exit:hover{
+              color: $main-white;
+              transition: all .2s linear;
             }
 
             &-user {
               display: flex;
               flex-direction: row;
               align-items: center;
+              position: relative;
+              cursor:pointer;
 
               &__img {
                 width: 32px;
@@ -178,9 +201,8 @@
               }
 
               &__text {
-                width: 87px;
+                white-space: nowrap;
                 height: 27px;
-                margin-right: 12px;
               }
             }
           }

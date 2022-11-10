@@ -17,6 +17,7 @@ import {
   USER_TYPE
 } from '../../../constants/registration.constants';
 import { SortOption } from '../../../interfaces/sort-option';
+import { AuthService } from '../../../services/auth.service';
 import { LoginModalComponent } from '../login-modal/login-modal.component';
 
 @Component({
@@ -33,20 +34,12 @@ export class RegistrationModalComponent implements OnInit {
   constructor(
     private dialogRef: MatDialogRef<RegistrationModalComponent>,
     private matDialog: MatDialog,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {
     this.dialogRef.addPanelClass('registration-modal');
-    this.formValidation();
-  }
-
-  public close(): void {
-    this.dialogRef.close();
-  }
-
-  public setUserTypeControl(event: string) {
-    this.typeUserValue = event;
     this.formValidation();
   }
 
@@ -76,25 +69,28 @@ export class RegistrationModalComponent implements OnInit {
     });
   }
 
-  public newUserRegistration(): void {
-    const payload = [
-      {
-        user: this.registrationFormGroup.value
-      }
-    ];
-    JSON.stringify(payload);
+  public setUserTypeControl(event: string) {
+    this.typeUserValue = event;
+    this.formValidation();
   }
 
   public registration(): void {
     if (this.registrationFormGroup.valid) {
-      this.newUserRegistration();
-      this.close();
+      this.authService.signUp(this.registrationFormGroup.value);
     }
+  }
+
+  public initWithGoogle(): void {
+    this.authService.signWithGoogle();
   }
 
   public goToLogin(): void {
     this.dialogRef.close();
     const loginDialogConfig = new MatDialogConfig();
     this.matDialog.open(LoginModalComponent, loginDialogConfig);
+  }
+
+  public close(): void {
+    this.dialogRef.close();
   }
 }

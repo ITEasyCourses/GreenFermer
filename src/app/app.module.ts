@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -22,7 +24,9 @@ import { PurchaseModalModule } from './core/components/modals/purchase-modal/pur
     LoginModalModule,
     HeaderComponentModule,
     FooterModule,
-    PurchaseModalModule
+    PurchaseModalModule,
+    AngularFireAuthModule,
+    MatSnackBarModule
   ],
   bootstrap: [AppComponent]
 })
