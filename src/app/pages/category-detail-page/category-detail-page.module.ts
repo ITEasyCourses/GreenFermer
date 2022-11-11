@@ -8,11 +8,15 @@ import { ProductCardModule } from '../../core/components/product-card/product-ca
 import { SortSelectModule } from '../../core/components/sort-select/sort-select.module';
 
 import { CategoryDetailPageComponent } from './category-detail-page.component';
+import { CategoryDetailResolver } from './category-detail.resolver';
 
 const routes: Routes = [
   {
     path: '',
-    component: CategoryDetailPageComponent
+    component: CategoryDetailPageComponent,
+    resolve: {
+      breadcrumb: CategoryDetailResolver
+    }
   }
 ];
 
@@ -25,6 +29,7 @@ const routes: Routes = [
     SortSelectModule,
     BreadcrumbsModule,
     ProductCardModule
-  ]
+  ],
+  providers: [CategoryDetailResolver]
 })
 export class CategoryDetailPageModule {}

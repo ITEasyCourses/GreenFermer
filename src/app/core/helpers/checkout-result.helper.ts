@@ -1,3 +1,6 @@
+import { Directive } from '@angular/core';
+import { Router } from '@angular/router';
+
 import {
   BUTTON_TEXT_CONTINUE,
   BUTTON_TEXT_ORDER,
@@ -16,7 +19,9 @@ import {
   USER_NAME,
   USER_PHONE
 } from '../constants/checkout-result.constants';
+import { ERoutes } from '../enums/routes';
 
+@Directive()
 export class CheckoutResultHelper {
   public order = ORDER;
   public deliveryDate = DELIVERY_DATE;
@@ -34,4 +39,14 @@ export class CheckoutResultHelper {
   public packingSum = PACKING_SUM;
   public deliverySum = DELIVERY_SUM;
   public finalSum = FINAL_SUM;
+
+  constructor(private router: Router) {}
+
+  public goToHome() {
+    this.router.navigate([ERoutes.HOME]);
+  }
+
+  public goToOrders() {
+    this.router.navigate([ERoutes.MY_ORDER_PAGE]);
+  }
 }

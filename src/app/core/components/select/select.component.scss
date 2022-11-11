@@ -6,10 +6,8 @@
   height: 27px;
   padding: 0;
 
-  &-chevron {
-    width: 20px;
-    height: 20px;
-    margin-top: 5px;
+  ::ng-deep &-chevron {
+    color: $main-black;
   }
 }
 

@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { FeatherModule } from 'angular-feather';
+import { IconSpriteModule } from 'ng-svg-icon-sprite';
 
 import { ButtonModule } from '../../button/button.module';
 import { ProductPurchaseCardModule } from '../../product-purchase-card/product-purchase-card.module';
@@ -13,11 +13,11 @@ import { PurchaseModalComponent } from './purchase-modal.component';
   declarations: [PurchaseModalComponent],
   imports: [
     CommonModule,
-    FeatherModule,
     SortSelectModule,
     ProductPurchaseModule,
     ProductPurchaseCardModule,
-    ButtonModule
+    ButtonModule,
+    IconSpriteModule
   ]
 })
 export class PurchaseModalModule {}

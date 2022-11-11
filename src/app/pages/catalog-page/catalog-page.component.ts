@@ -3,7 +3,8 @@ import {
   ChangeDetectorRef,
   Component,
   OnInit,
-  Self
+  Self,
+  TrackByFunction
 } from '@angular/core';
 
 import { sortTypes } from '../../core/constants/sort-card-types-constants';
@@ -32,6 +33,12 @@ export class CatalogPageComponent implements OnInit {
     private cdr: ChangeDetectorRef,
     private popularService: PopularService
   ) {}
+
+  public trackByFn: TrackByFunction<IProductCategoryCard> = (index, item) =>
+    item.id;
+
+  public trackByCardsFn: TrackByFunction<IProductCard> = (index, item) =>
+    item.id;
 
   ngOnInit() {
     this.getProductCategoryCards();

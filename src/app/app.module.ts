@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -25,6 +27,8 @@ import { CategoryPageModule } from './pages/category-page/category-page.module';
     HeaderComponentModule,
     FooterModule,
     PurchaseModalModule,
+    AngularFireAuthModule,
+    MatSnackBarModule,
     CategoryPageModule,
     RatingComponentModule
   ],

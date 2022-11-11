@@ -3,11 +3,11 @@
     <div class="footer__wrapper">
       <div class="footer__left">
         <a routerLink="/" class="footer__logo">
-          <img
-            class="footer__logo-img"
-            src="./assets/images/footer/logo.svg"
-            alt="logo"
-          />
+          <svg-icon-sprite
+            [src]="'assets/sprites/sprite-multicolor.svg#logo'"
+            [classes]="'footer__logo-img'"
+            [viewBox]="'0 0 252 43'"
+          ></svg-icon-sprite>
         </a>
         <h3 class="footer__title">Про нас</h3>
         <p class="footer__about">
@@ -15,7 +15,10 @@
         </p>
       </div>
       <div class="footer__link-wrapper">
-        <div class="footer__render" *ngFor="let obj of footerConfig">
+        <div
+          class="footer__render"
+          *ngFor="let obj of footerConfig; trackBy: trackByFn"
+        >
           <h3 class="footer__title">{{ obj.title }}</h3>
           <ul class="footer__list">
             <li class="footer__item" *ngFor="let objBody of obj.body">
@@ -27,17 +30,21 @@
         </div>
       </div>
       <div class="footer__app-wrapper">
-        <div class="footer__app-render" *ngFor="let obj of footerConfigApp">
+        <div
+          class="footer__app-render"
+          *ngFor="let obj of footerConfigApp; trackBy: trackByFn"
+        >
           <h3 class="footer__title">{{ obj.title }}</h3>
           <ul class="footer__app-list">
             <li class="footer__app-item" *ngFor="let objBody of obj.body">
               <a class="footer__app-link" [href]="objBody.href">
                 <span class="sr-only"> {{ objBody.srOnly }} </span>
-                <img
-                  class="footer__app-img"
-                  [src]="objBody.imgSrc"
-                  [alt]="objBody.name"
-                />
+                <svg-icon-sprite
+                  src="{{ objBody.imgSrc }}"
+                  [classes]="'footer__app-img'"
+                  width="{{ objBody.width }}"
+                  height="{{ objBody.height }}"
+                ></svg-icon-sprite>
               </a>
             </li>
           </ul>

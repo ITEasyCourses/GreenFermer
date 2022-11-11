@@ -47,19 +47,42 @@
     gap: 20px;
   }
 
-  & .cash {
+  & .payment__cash {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 14px;
+
+    &:nth-child(2){
+      margin-top: -2px;
+    }
   }
 
   & .credit-wallet {
     @include font-base(21px, 600);
 
+    display: flex;
+    align-items: center;
+    margin-top: -5px;
+
+    & svg-icon-sprite{
+      margin-right: 10px;
+      display: block;
+    }
   }
+}
+
+::ng-deep .icons {
+  color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 ::ng-deep .mat-radio-button {
   @include font-base(17px, 400);
+}
+
+::ng-deep .mat-radio-label{
+  align-items: center;
 }

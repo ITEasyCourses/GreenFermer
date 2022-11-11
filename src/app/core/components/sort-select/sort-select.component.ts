@@ -3,7 +3,8 @@ import {
   Component,
   EventEmitter,
   Input,
-  Output
+  Output,
+  TrackByFunction
 } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
@@ -26,6 +27,8 @@ export class SortSelectComponent {
 
   @Output() public sortViewValue: EventEmitter<string> =
     new EventEmitter<string>();
+
+  public trackByFn: TrackByFunction<SortOption> = (index, item) => item.value;
 
   public sendSortType(): void {
     this.sortString.emit(this.sortControl.value);

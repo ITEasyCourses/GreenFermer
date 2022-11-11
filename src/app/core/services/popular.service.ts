@@ -9,6 +9,7 @@ import { IProductCard } from '../interfaces/i-product-card';
 })
 export class PopularService {
   constructor(private fireStore: AngularFirestore) {}
+
   public getPopulars(): Observable<IProductCard[]> {
     return this.fireStore
       .collection('populars')

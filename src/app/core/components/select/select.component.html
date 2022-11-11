@@ -1,12 +1,17 @@
 <button mat-button [matMenuTriggerFor]="menu" class="select-btn">
   {{ label }}
-  <i-feather name="chevron-down" class="select-btn-chevron"></i-feather>
+  <svg-icon-sprite
+    [src]="'assets/sprites/sprite.svg#chevron-down'"
+    [width]="'12px'"
+    [height]="'8px'"
+    [classes]="'select-btn-chevron'"
+  ></svg-icon-sprite>
 </button>
 
 <mat-menu #menu="matMenu" yPosition="below">
   <button
     mat-menu-item
-    *ngFor="let option of options"
+    *ngFor="let option of options; trackBy: trackByFn"
     (click)="selectOption(option.value)"
     class="option"
   >

@@ -1,6 +1,7 @@
 export interface IAuthenticationUser {
-  name: string;
-  avatar: string;
-  isAuthentication: boolean;
-  id: number;
+  uid: string;
+  photoURL: string;
+  displayName: string;
+  email: string;
+  phone: string;
 }

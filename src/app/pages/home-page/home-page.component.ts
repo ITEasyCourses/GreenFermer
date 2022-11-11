@@ -3,8 +3,10 @@ import {
   ChangeDetectorRef,
   Component,
   OnInit,
-  Self
+  Self,
+  TrackByFunction
 } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 import { IProductCard } from '../../core/interfaces/i-product-card';
 import { IProductCategoryCard } from '../../core/interfaces/product-category-card.interface';
@@ -20,8 +22,9 @@ import { UnsubscribeService } from '../../core/services/unsubscribe.service';
   providers: [UnsubscribeService]
 })
 export class HomePageComponent implements OnInit {
-  productList!: IProductCard[];
-  sliderList!: IProductCategoryCard[];
+  public sliderList!: IProductCategoryCard[];
+  public popularSubj: BehaviorSubject<any> = new BehaviorSubject<any>([]);
+  public popProdSubj$ = this.popularSubj.asObservable();
 
   constructor(
     private categoryService: CategoryService,
@@ -30,7 +33,9 @@ export class HomePageComponent implements OnInit {
     private popularService: PopularService
   ) {}
 
-  ngOnInit() {
+  public trackByFn: TrackByFunction<IProductCard> = (index, item) => item.id;
+
+  public ngOnInit(): void {
     this.getProductCategoryCards();
     this.getPopularsCards();
   }
@@ -50,7 +55,7 @@ export class HomePageComponent implements OnInit {
       .getPopulars()
       .pipe(this.unsubscribeService.takeUntilDestroy)
       .subscribe((data: IProductCard[]) => {
-        this.productList = data;
+        this.popularSubj.next(data);
         this.cdr.detectChanges();
       });
   }

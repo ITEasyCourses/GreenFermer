@@ -6,7 +6,13 @@
       [formControl]="searchProducts"
     />
     <div (click)="productSearch()" class="search-input-imag">
-      <i-feather name="search"></i-feather>
+      <svg-icon-sprite
+        [src]="'assets/sprites/sprite.svg#search-icon'"
+        [viewBox]="'0 0 20 20'"
+        [width]="'20px'"
+        [height]="'20px'"
+        [classes]="'search-input-imag-icon'"
+      ></svg-icon-sprite>
     </div>
   </div>
   <div class="search-select">
@@ -28,17 +34,20 @@
       </option>
       <option
         class="my-option"
-        *ngFor="let searchCity of sortCity"
+        *ngFor="let searchCity of sortCity; trackBy: trackByFn"
         [value]="searchCity.viewValue"
       >
         {{ searchCity.viewValue }}
       </option>
     </select>
     <div class="search-select-location">
-      <i-feather
-        class="search-select-location__icons"
-        name="map-pin"
-      ></i-feather>
+      <svg-icon-sprite
+        [viewBox]="'0 0 18 20'"
+        [width]="'18px'"
+        [height]="'20px'"
+        [src]="'assets/sprites/sprite.svg#location'"
+        [classes]="'search-select-location__icon'"
+      ></svg-icon-sprite>
     </div>
   </div>
   <div class="btn">

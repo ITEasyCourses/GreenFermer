@@ -1,21 +1,20 @@
 @import "src/assets/styles/vars";
 @import "src/assets/styles/mixins";
 
-
 .price-card{
   width: 400px;
   height: 411px;
-  background-color:$gray5;
+  background-color: $white;
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
 
   &_main{
     display: flex;
     justify-content: space-between;
+    padding: 34px 22px 30px 30px;
+    position: relative;
 
     &_naming{
-      margin: 34px 0 0 30px;
-
       &_name{
         @include font-base(15px, 500, 24px);
 
@@ -40,9 +39,6 @@
     }
 
     &_number{
-      margin: 30px 22px 0 0;
-      padding-right:22px;
-
       &_name1{
         @include font-base(21px, 600, 33px);
 
@@ -65,32 +61,70 @@
         justify-content: space-between;
         width: 95px;
 
-        &_tools{
+        ::ng-deep &_tools{
           cursor: pointer;
-          transition: all 0.2s;
+          color: transparent;
         }
+      }
+
+      &_bottom{
+        position: absolute;
+        bottom: 30px;
+        right: 22px;
       }
 
       &_boldName{
         @include font-base(17px, 600, 27px);
-        
-        margin-bottom: 16px;
 
-        &_number{
-          margin: 0 10px;
+        margin-bottom: 16px;
+        display: flex;
+
+        &:last-child{
+          margin-bottom: 0;
         }
 
         &_plus{
+          @include font-base(16px, 600, 21px);
+
           cursor:pointer;
-          transition: all 1s;
+          width: 24px;
+          height: 24px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+
+          &:first-child {
+            margin-right: 10px;
+          }
+
+          &.disable{
+            color: $main-gray;
+          }
+        }
+
+        &_number {
+          margin-right: 10px;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
         }
       }
     }
   }
 
   &_button-block{
+    max-width: 330px;
+    margin: 0 auto;
     display: flex;
     justify-content: space-between;
-    margin: 30px 43.5px 0 30px;
+    align-items: center;
+
+    ::ng-deep &_dialog{
+      width: 21px;
+      height: 21px;
+    }
   }
 }

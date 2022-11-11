@@ -8,13 +8,12 @@
           [selectItems]="options"
         ></app-sort-select>
       </div>
-      <i-feather class="header-sort-icon" name="align-justify"></i-feather>
-      <i-feather class="header-sort-icon" name="grid"></i-feather>
+      <app-toggle-view></app-toggle-view>
     </div>
   </div>
   <div class="card-container">
     <app-order-card-component
-      *ngFor="let card of mocCads"
+      *ngFor="let card of mocCads; trackBy: trackByFn"
       [ordersCards]="card"
     ></app-order-card-component>
   </div>

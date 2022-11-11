@@ -1,4 +1,8 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  TrackByFunction
+} from '@angular/core';
 
 import { FOOTER_CONSTANTS } from '../../constants/footer.constants';
 import { FooterInterfaceConfig } from '../../interfaces/footer-interface';
@@ -15,4 +19,7 @@ export class FooterComponent {
 
   public footerConfigApp: FooterInterfaceConfig[] =
     FOOTER_CONSTANTS['footerConstAppArr'];
+
+  public trackByFn: TrackByFunction<FooterInterfaceConfig> = (index, item) =>
+    item.title;
 }

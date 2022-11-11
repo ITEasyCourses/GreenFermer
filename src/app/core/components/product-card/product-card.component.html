@@ -1,20 +1,43 @@
 <div class="card">
   <div class="card-wrap">
-    <img [src]="card.images[0]" class="card-wrap-img" alt="product foto" />
+    <div *ngIf="!card.images[0]" class="card-wrap-img_block">
+      <p class="card-wrap-img_block_text">Нажаль зображення відсутне =(</p>
+    </div>
+    <img
+      *ngIf="card.images[0]"
+      [src]="card.images[0]"
+      class="card-wrap-img"
+      alt="product foto"
+    />
     <div class="card-wrap-basket" (click)="addToBasket()">
-      <i-feather name="shopping-cart" class="card-wrap-basket-bsk"></i-feather>
+      <svg-icon-sprite
+        [src]="'assets/sprites/sprite.svg#cart'"
+        [viewBox]="'0 0 19 20'"
+        [classes]="'card-wrap-basket-bsk'"
+      ></svg-icon-sprite>
     </div>
     <div class="card-wrap-text">
       <div class="card-wrap-text-first">
         <div class="card-wrap-text-first-name">{{ card.title }}</div>
-        <i-feather
-          [ngClass]="heart ? 'yellow' : 'transparent'"
-          class="card-wrap-text-first-heart"
+        <svg-icon-sprite
+          [src]="'assets/sprites/sprite.svg#heart'"
+          [viewBox]="'0 0 28 24'"
+          [width]="'20px'"
+          [height]="'20px'"
+          [classes]="
+            heart
+              ? 'card-wrap-text-first-heart yellow'
+              : 'card-wrap-text-first-heart transparent'
+          "
           (click)="like()"
-          name="heart"
-        ></i-feather>
+        ></svg-icon-sprite>
       </div>
-      <div class="card-wrap-text-price">{{ card.price }} ₴/кг</div>
+      <div class="bottom-wrapper">
+        <div class="card-wrap-text-price">{{ card.price }} ₴/кг</div>
+        <div class="category-title" (click)="goToCategoryDetails()">
+          {{ card.typeText }}
+        </div>
+      </div>
     </div>
   </div>
 </div>
