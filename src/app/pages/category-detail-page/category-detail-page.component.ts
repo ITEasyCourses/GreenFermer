@@ -7,7 +7,6 @@ import {
   TrackByFunction
 } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { take, takeUntil } from 'rxjs';
 
 import { sortMapOptions } from '../../core/constants/sort-map-options';
 import { IProductCard } from '../../core/interfaces/i-product-card';

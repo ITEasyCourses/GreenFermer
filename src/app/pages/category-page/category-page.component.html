@@ -9,7 +9,7 @@
   <div class="category__content-wrapper">
     <div
       class="card-wrapper"
-      *ngFor="let product of allProduct; trackBy: trackByFn"
+      *ngFor="let product of popProdSubj$ | async; trackBy: trackByFn"
     >
       <app-product-card [card]="product"></app-product-card>
     </div>
