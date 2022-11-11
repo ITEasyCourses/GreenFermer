@@ -1,12 +1,14 @@
 import {
   ChangeDetectionStrategy,
+  ChangeDetectorRef,
   Component,
   EventEmitter,
   Input,
   OnInit,
   Output
 } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { filter } from 'rxjs';
 
 import { ERoutes } from '../../enums/routes';
 import { IProductCard } from '../../interfaces/i-product-card';
@@ -25,12 +27,18 @@ export class ProductCardComponent implements OnInit {
 
   public heart = false;
   public img!: string | undefined;
+  public isCategoryDetail = false;
   private categoryTypeId!: string;
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute) {}
+  constructor(
+    private router: Router,
+    private activatedRoute: ActivatedRoute,
+    private cdr: ChangeDetectorRef
+  ) {}
 
   ngOnInit(): void {
     this.findImg();
+    this.checkPage();
   }
 
   public addToBasket(): void {
@@ -66,5 +74,10 @@ export class ProductCardComponent implements OnInit {
 
   private getCategoryTypeId(): void {
     this.categoryTypeId = this.activatedRoute.snapshot.params['categoryTypeId'];
+  }
+
+  private checkPage(): boolean {
+    const typeId = this.activatedRoute.snapshot.params['categoryId'];
+    return (this.isCategoryDetail = typeId === this.card.typeId);
   }
 }

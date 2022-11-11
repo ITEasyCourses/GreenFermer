@@ -34,9 +34,11 @@
       </div>
       <div class="bottom-wrapper">
         <div class="card-wrap-text-price">{{ card.price }} ₴/кг</div>
-        <div class="category-title" (click)="goToCategoryDetails()">
-          {{ card.typeText }}
-        </div>
+        <ng-container *ngIf="!isCategoryDetail">
+          <div class="category-title" (click)="goToCategoryDetails()">
+            {{ card.typeText }}
+          </div>
+        </ng-container>
       </div>
     </div>
   </div>
