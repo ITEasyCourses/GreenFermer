@@ -3,7 +3,6 @@
 
 .product-container {
   width: 800px;
-  height: 505px;
   display: flex;
   justify-content: space-between;
 
@@ -176,5 +175,20 @@
         }
       }
     }
+  }
+}
+
+.no-img {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: $gray3;
+  border-radius: 10px;
+
+  & .title {
+    @include font-base(17px, 600, 24px);
+
+    color: $gray2;
   }
 }

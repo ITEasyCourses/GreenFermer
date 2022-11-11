@@ -5,7 +5,7 @@ import {
   TrackByFunction
 } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Observable, take } from 'rxjs';
+import { Observable } from 'rxjs';
 
 import { PRODUCT_PURCHASE } from '../../core/constants/product-purchase';
 import { Feedback } from '../../core/interfaces/feedback-interface';
@@ -48,12 +48,5 @@ export class ProductDetailPageComponent implements OnInit {
     this.product$ = this.productDetailService
       .getProduct(categoryId, productId)
       .pipe(this.unsubscribeService.takeUntilDestroy);
-    this.product$.pipe(take(1)).subscribe((data) => {
-      if (!data.title) {
-        this.product$ = this.productDetailService
-          .getProductFromPopular(productId)
-          .pipe(this.unsubscribeService.takeUntilDestroy);
-      }
-    });
   }
 }

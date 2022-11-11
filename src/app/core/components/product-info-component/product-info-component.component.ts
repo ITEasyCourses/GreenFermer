@@ -19,6 +19,7 @@ export class ProductInfoComponent implements OnInit {
   @Input() mainImg = '';
 
   public availability!: string;
+  public images!: string[];
   public heart = false;
   public rating = 0;
   private counter = 0;
@@ -26,7 +27,6 @@ export class ProductInfoComponent implements OnInit {
   public trackByFn: TrackByFunction<string> = (index, item) => item;
 
   ngOnInit(): void {
-    this.mainImg = this.product.images.splice(0, 1)[0];
     this.init();
   }
 
@@ -55,6 +55,8 @@ export class ProductInfoComponent implements OnInit {
   }
 
   private init(): void {
+    this.mainImg = this.product.images.find((el) => el !== '') || '';
+    this.images = this.product.images.filter((el) => el !== '');
     this.availability = this.product.isExist
       ? 'Є в наявності'
       : 'Немає в наявності';

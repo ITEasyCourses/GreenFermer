@@ -48,12 +48,26 @@
       }
     }
 
-    &-img{
+    &-img, &-no__img{
       display: flex;
       height: 220px;
       width: 224px;
       border-radius: 10px;
       margin-bottom: 20px;
+    }
+
+    &-no__img {
+
+
+      justify-content: center;
+      align-items: center;
+      background: $gray3;
+
+      & .title {
+        @include font-base(17px, 600, 24px);
+
+        color: $gray2;
+      }
     }
 
     &-text{

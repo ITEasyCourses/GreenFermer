@@ -1,42 +1,53 @@
 <div class="product-container">
   <div class="left-container">
     <div class="big-container">
-      <div class="arrows">
-        <div class="arrows__wrapper" (click)="arrowClick(0)">
-          <svg-icon-sprite
-            [src]="'assets/sprites/sprite-multicolor.svg#arrow-product-slider'"
-            [viewBox]="'0 0 7 12'"
-            [width]="'7px'"
-            [height]="'12px'"
-            [classes]="'arrows-left'"
-          ></svg-icon-sprite>
+      <ng-container *ngIf="images.length > 1">
+        <div class="arrows">
+          <div class="arrows__wrapper" (click)="arrowClick(0)">
+            <svg-icon-sprite
+              [src]="
+                'assets/sprites/sprite-multicolor.svg#arrow-product-slider'
+              "
+              [viewBox]="'0 0 7 12'"
+              [width]="'7px'"
+              [height]="'12px'"
+              [classes]="'arrows-left'"
+            ></svg-icon-sprite>
+          </div>
+          <div class="arrows__wrapper" (click)="arrowClick(1)">
+            <svg-icon-sprite
+              [src]="
+                'assets/sprites/sprite-multicolor.svg#arrow-product-slider'
+              "
+              [viewBox]="'0 0 7 12'"
+              [width]="'7px'"
+              [height]="'12px'"
+              [classes]="'arrows-right'"
+            ></svg-icon-sprite>
+          </div>
         </div>
-        <div class="arrows__wrapper" (click)="arrowClick(1)">
-          <svg-icon-sprite
-            [src]="'assets/sprites/sprite-multicolor.svg#arrow-product-slider'"
-            [viewBox]="'0 0 7 12'"
-            [width]="'7px'"
-            [height]="'12px'"
-            [classes]="'arrows-right'"
-          ></svg-icon-sprite>
+      </ng-container>
+      <ng-container *ngIf="mainImg !== ''; else noImg">
+        <img class="picture" [src]="mainImg" alt="img" />
+      </ng-container>
+    </div>
+    <ng-container *ngIf="images.length > 1">
+      <div class="small-container">
+        <div
+          class="small-image"
+          *ngFor="let img of images; trackBy: trackByFn; index as idx"
+        >
+          <img
+            class="pictures-small"
+            [src]="img"
+            alt="img"
+            (click)="changeImage(img, idx)"
+          />
         </div>
       </div>
-      <img class="picture" [src]="mainImg" alt="img" />
-    </div>
-    <div class="small-container">
-      <div
-        class="small-image"
-        *ngFor="let img of product.images; trackBy: trackByFn; index as idx"
-      >
-        <img
-          class="pictures-small"
-          [src]="img"
-          alt="img"
-          (click)="changeImage(img, idx)"
-        />
-      </div>
-    </div>
+    </ng-container>
   </div>
+
   <div class="right-container">
     <div class="head">
       <h3 class="head__title">{{ product.title }}</h3>
@@ -78,3 +89,9 @@
     </div>
   </div>
 </div>
+
+<ng-template #noImg>
+  <div class="no-img">
+    <p class="title">No Photo</p>
+  </div>
+</ng-template>

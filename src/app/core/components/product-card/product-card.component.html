@@ -1,11 +1,14 @@
 <div class="card">
   <div class="card-wrap">
-    <img
-      [src]="img"
-      (click)="goToProductDetail()"
-      class="card-wrap-img"
-      alt="product foto"
-    />
+    <ng-container *ngIf="img; else noImg">
+      <img
+        [src]="img"
+        (click)="goToProductDetail()"
+        class="card-wrap-img"
+        alt="product photo"
+      />
+    </ng-container>
+
     <div class="card-wrap-basket" (click)="addToBasket()">
       <svg-icon-sprite
         [src]="'assets/sprites/sprite.svg#cart'"
@@ -38,3 +41,9 @@
     </div>
   </div>
 </div>
+
+<ng-template #noImg>
+  <div (click)="goToProductDetail()" class="card-wrap-no__img">
+    <p class="title">No Photo</p>
+  </div>
+</ng-template>
