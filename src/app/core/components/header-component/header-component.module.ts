@@ -7,6 +7,7 @@ import { CartModule } from '../cart/cart.module';
 import { LanguageModule } from '../language/language.module';
 import { RegistrationModalModule } from '../modals/registration-modal/registration-modal.module';
 import { SelectModule } from '../select/select.module';
+import { UserIconModule } from '../user-icon/user-icon.module';
 
 import { HeaderComponentComponent } from './header-component.component';
 
@@ -20,7 +21,8 @@ import { HeaderComponentComponent } from './header-component.component';
     SelectModule,
     LanguageModule,
     RegistrationModalModule,
-    IconSpriteModule
+    IconSpriteModule,
+    UserIconModule
   ]
 })
 export class HeaderComponentModule {}

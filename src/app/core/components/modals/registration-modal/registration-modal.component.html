@@ -90,13 +90,13 @@
   <div class="right">
     <p class="right__text">Увійти як користувач</p>
     <div class="right__inner">
-      <a href="https://www.google.com/" class="right__btn">
+      <div class="right__btn" (click)="initWithGoogle()">
         <svg-icon-sprite
           [src]="'assets/sprites/sprite-multicolor.svg#google'"
           [classes]="'img__google'"
         ></svg-icon-sprite>
         Google
-      </a>
+      </div>
       <a href="https://uk-ua.facebook.com/" class="right__btn">
         <svg-icon-sprite
           [src]="'assets/sprites/sprite-multicolor.svg#facebook-blue'"
