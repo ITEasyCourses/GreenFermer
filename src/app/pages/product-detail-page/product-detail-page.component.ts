@@ -48,5 +48,6 @@ export class ProductDetailPageComponent implements OnInit {
     this.product$ = this.productDetailService
       .getProduct(categoryId, productId)
       .pipe(this.unsubscribeService.takeUntilDestroy);
+
   }
 }
