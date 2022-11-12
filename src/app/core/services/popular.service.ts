@@ -13,7 +13,7 @@ export class PopularService {
   public getPopulars(): Observable<IProductCard[]> {
     return this.fireStore
       .collection('populars')
-      .valueChanges({ idField: 'id' })
+      .valueChanges()
       .pipe(take(1)) as unknown as Observable<IProductCard[]>;
   }
 }

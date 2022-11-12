@@ -6,8 +6,7 @@ import {
   TrackByFunction
 } from '@angular/core';
 
-import { PRODUCT_INFO_CARD } from '../../constants/product-info-component.constants';
-import { ProductInfo } from '../../interfaces/product-info-component-interface';
+import { IProductCard } from '../../interfaces/i-product-card';
 
 @Component({
   selector: 'app-product-info-component',
@@ -16,49 +15,57 @@ import { ProductInfo } from '../../interfaces/product-info-component-interface';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProductInfoComponent implements OnInit {
-  @Input() product: ProductInfo = PRODUCT_INFO_CARD;
-  @Input() mainImg!: string;
+  @Input() product!: IProductCard;
+  @Input() mainImg = '';
 
   public availability!: string;
+  public images!: string[];
   public heart = false;
+  public rating = 0;
   public numberImg!: number;
 
-  private counter = 0;
   public trackByFn: TrackByFunction<string> = (index, item) => item;
 
-  public changeImage(idx: number): void {
-    this.mainImg = this.product.img[idx];
+  ngOnInit(): void {
+    this.init();
+    this.numberImg = 0;
   }
 
-  public ngOnInit() {
-    this.numberImg = 0;
-    this.mainImg = this.product.img[this.numberImg];
-    this.availability = this.product.availability
-      ? 'Немає в наявності'
-      : 'Є в наявності';
+  public changeImage(idx: number): void {
+    this.mainImg = this.product.images[idx];
   }
 
   public like(): void {
     this.heart = !this.heart;
   }
 
-  arrowClickPlus() {
-    if (this.numberImg < this.product.img.length - 1) {
+  public arrowClickPlus(): void {
+    if (this.numberImg < this.images.length - 1) {
       this.numberImg = this.numberImg + 1;
-      this.mainImg = this.product.img[this.numberImg];
+      this.mainImg = this.images[this.numberImg];
     } else {
       this.numberImg = 0;
-      this.mainImg = this.product.img[this.numberImg];
+      this.mainImg = this.images[this.numberImg];
     }
   }
 
-  arrowClickMinus() {
+  public arrowClickMinus(): void {
     if (this.numberImg > 0) {
       this.numberImg = this.numberImg - 1;
-      this.mainImg = this.product.img[this.numberImg];
+      this.mainImg = this.images[this.numberImg];
     } else {
-      this.numberImg = this.product.img.length - 1;
-      this.mainImg = this.product.img[this.numberImg];
+      this.numberImg = this.images.length - 1;
+      this.mainImg = this.images[this.numberImg];
     }
+  }
+
+  private init(): void {
+    this.mainImg = this.product.images.find((el) => el !== '') || '';
+    this.images = this.product.images.filter((el) => el !== '');
+    this.availability = this.product.isExist
+      ? 'Є в наявності'
+      : 'Немає в наявності';
+    this.rating = +this.product.rating;
+    this.heart = this.product.isLiked;
   }
 }

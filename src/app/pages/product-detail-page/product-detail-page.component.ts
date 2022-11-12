@@ -4,42 +4,47 @@ import {
   OnInit,
   TrackByFunction
 } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
 
-import { feedbackConstants } from '../../core/constants/feedback.constants';
-import { PRODUCT_DESCRIPTION } from '../../core/constants/product-detail.constants';
-import { PRODUCT_INFO_CARD } from '../../core/constants/product-info-component.constants';
 import { Feedback } from '../../core/interfaces/feedback-interface';
 import { IProductCard } from '../../core/interfaces/i-product-card';
-import { ProductInfo } from '../../core/interfaces/product-info-component-interface';
 import { SortOption } from '../../core/interfaces/sort-option';
-import { PopularService } from '../../core/services/popular.service';
+import { ProductDetailService } from '../../core/services/product-detail.service';
+import { UnsubscribeService } from '../../core/services/unsubscribe.service';
 
 @Component({
   selector: 'app-product-detail-page',
   templateUrl: './product-detail-page.component.html',
   styleUrls: ['./product-detail-page.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [UnsubscribeService]
 })
 export class ProductDetailPageComponent implements OnInit {
-  public productPurchase!: IProductCard;
-
-  public description = PRODUCT_DESCRIPTION;
-
+  public product$!: Observable<IProductCard>;
   public cards!: IProductCard[];
   public mockSortTypes!: SortOption[];
 
-  public arrFeedback: Feedback[] = feedbackConstants;
+  // public productPurchase: ProductPurchase = PRODUCT_PURCHASE;
 
-  public productCard: ProductInfo = PRODUCT_INFO_CARD;
-  constructor(private popular: PopularService) {}
+  constructor(
+    private productDetailService: ProductDetailService,
+    private activatedRoute: ActivatedRoute,
+    private unsubscribeService: UnsubscribeService
+  ) {}
+
   public trackByFn: TrackByFunction<Feedback> = (index, item) => item.name;
 
   ngOnInit() {
-    this.popular
-      .getPopulars()
-      .pipe()
-      .subscribe((res) => {
-        this.productPurchase = res[5];
-      });
+    this.getProduct();
+  }
+
+  private getProduct(): void {
+    const categoryId = this.activatedRoute.snapshot.params['categoryTypeId'];
+    const productId = this.activatedRoute.snapshot.params['product-detail'];
+
+    this.product$ = this.productDetailService
+      .getProduct(categoryId, productId)
+      .pipe(this.unsubscribeService.takeUntilDestroy);
   }
 }

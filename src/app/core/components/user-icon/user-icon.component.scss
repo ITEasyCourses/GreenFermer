@@ -2,18 +2,24 @@
 @import "src/assets/styles/mixins";
 
 .container{
-  width: 32px;
-  height: 32px;
-  margin-right: 12px;
-  border-radius: 50%;
-  border: 2px solid $main-black;
+  width: 100%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 
+  &.circle {
+    border-radius: 50%;
+  }
+
+  &.radius15 {
+    border-radius: 15px
+  }
+
   &_text{
     @include font-base(16px, 600, 24px);
 
+    text-align: center;
     color: $white;
   }
 

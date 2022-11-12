@@ -3,11 +3,11 @@ import {
   ChangeDetectorRef,
   Component,
   Input,
-  OnChanges,
   OnInit
 } from '@angular/core';
 
 import { IProductCard } from '../../interfaces/i-product-card';
+import { BucketService } from '../../services/bucket.service';
 
 @Component({
   selector: 'app-product-purchase',
@@ -15,26 +15,20 @@ import { IProductCard } from '../../interfaces/i-product-card';
   styleUrls: ['./product-purchase.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ProductPurchaseComponent implements OnInit, OnChanges {
+export class ProductPurchaseComponent implements OnInit {
   @Input() product!: IProductCard;
-  public amount = 0;
-  public sum = 0;
-
+  public amount!: number;
+  public sum!: number;
   public maxWeight = 1000;
-  public minWeight!: Number;
+  public minWeight!: number;
 
-  constructor(private cdr: ChangeDetectorRef) {}
+  constructor(private cdr: ChangeDetectorRef, private bucket: BucketService) {}
   ngOnInit() {
-    this.bla();
+    this.init();
     this.cdr.detectChanges();
   }
 
-  ngOnChanges() {
-    this.bla();
-    this.cdr.detectChanges();
-  }
-
-  public bla(): void {
+  public init(): void {
     this.amount = Number(this.product.minAmount);
     this.sum = this.amount * Number(this.product.price);
     this.minWeight = Number(this.product.minAmount);
@@ -54,14 +48,18 @@ export class ProductPurchaseComponent implements OnInit, OnChanges {
     }
   }
 
-  // public addToBucket(): void {
-  //   const product = {
-  //     title: this.product.title,
-  //     price: this.product.price,
-  //     amount: this.amount,
-  //     sum: this.sum
-  //   };
-  // }
+  public addToBucket(): void {
+    const product = {
+      title: this.product.title,
+      id: this.product.id,
+      optPrice: this.product.optPrice,
+      price: this.product.price,
+      amount: this.amount,
+      optAmount: this.product.optAmount,
+      sum: this.sum
+    };
+    this.bucket.setGoodsInLocalStorage(product);
+  }
 
   private wholesale(): void {
     if (this.amount < Number(this.product.optAmount)) {
