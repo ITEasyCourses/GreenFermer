@@ -21,17 +21,18 @@ export class ProductInfoComponent implements OnInit {
 
   public availability!: string;
   public heart = false;
+  public numberImg!: number;
 
   private counter = 0;
   public trackByFn: TrackByFunction<string> = (index, item) => item;
 
-  public changeImage(img: string, idx: number): void {
-    this.product.img.splice(idx, 1, this.mainImg);
-    [this.mainImg, this.counter] = [img, idx];
+  public changeImage(idx: number): void {
+    this.mainImg = this.product.img[idx];
   }
 
   public ngOnInit() {
-    this.mainImg = this.product.img.splice(0, 1)[0];
+    this.numberImg = 0;
+    this.mainImg = this.product.img[this.numberImg];
     this.availability = this.product.availability
       ? 'Немає в наявності'
       : 'Є в наявності';
@@ -41,18 +42,23 @@ export class ProductInfoComponent implements OnInit {
     this.heart = !this.heart;
   }
 
-  public arrowClick(direction: number) {
-    const containImg = this.mainImg;
-    if (!direction) {
-      if (this.counter === 0) {
-        this.counter = 3;
-      } else this.counter--;
+  arrowClickPlus() {
+    if (this.numberImg < this.product.img.length - 1) {
+      this.numberImg = this.numberImg + 1;
+      this.mainImg = this.product.img[this.numberImg];
     } else {
-      if (this.counter === 3) {
-        this.counter = 0;
-      } else this.counter++;
+      this.numberImg = 0;
+      this.mainImg = this.product.img[this.numberImg];
     }
-    this.mainImg = this.product.img[this.counter];
-    this.product.img.splice(this.counter, 1, containImg);
+  }
+
+  arrowClickMinus() {
+    if (this.numberImg > 0) {
+      this.numberImg = this.numberImg - 1;
+      this.mainImg = this.product.img[this.numberImg];
+    } else {
+      this.numberImg = this.product.img.length - 1;
+      this.mainImg = this.product.img[this.numberImg];
+    }
   }
 }

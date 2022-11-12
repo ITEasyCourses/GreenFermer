@@ -13,7 +13,6 @@ export const PRODUCT_INFO_CARD = {
     '../../../../assets/images/product-info-component/img1.jpg',
     '../../../../assets/images/product-info-component/img2.jpg',
     '../../../../assets/images/product-info-component/img3.jpg',
-    '../../../../assets/images/product-info-component/img4.jpg',
-    '../../../../assets/images/product-info-component/img5.jpg'
+    '../../../../assets/images/product-info-component/img4.jpg'
   ]
 };

@@ -1,6 +1,6 @@
 export const PRODUCT_PURCHASE = {
-  cost: 99,
-  wholesaleCost: 88,
-  wholesaleAmount: 10,
+  price: '99',
+  optPrice: '88',
+  optAmount: '10',
   minAmount: 2
 };

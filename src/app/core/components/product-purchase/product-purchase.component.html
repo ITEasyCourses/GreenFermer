@@ -10,9 +10,9 @@
     </div>
     <div class="price-card_main_number">
       <div class="price-card_main_number_top">
-        <h5 class="price-card_main_number_name1">{{ product.cost }} ₴/кг</h5>
+        <h5 class="price-card_main_number_name1">{{ product.price }} ₴/кг</h5>
         <h5 class="price-card_main_number_name2">
-          {{ product.wholesaleCost }} ₴/від {{ product.wholesaleAmount }} кг
+          {{ product.optPrice }} ₴/від {{ product.optAmount }} кг
         </h5>
         <h5 class="price-card_main_number_name">{{ product.minAmount }} кг</h5>
         <h5 class="price-card_main_number_boldName1">
@@ -34,17 +34,17 @@
         <div class="price-card_main_number_boldName">
           <span
             class="price-card_main_number_boldName_plus"
-            [class.disable]="productTools.amount === product.minAmount"
+            [class.disable]="amount === minWeight"
             (click)="minusProduct()"
           >
             -
           </span>
           <p class="price-card_main_number_boldName_number">
-            {{ productTools.amount }}
+            {{ amount }}
           </p>
           <span
             class="price-card_main_number_boldName_plus"
-            [class.disable]="productTools.amount === maxWeight"
+            [class.disable]="amount === maxWeight"
             (click)="plusProduct()"
           >
             +
@@ -53,13 +53,16 @@
       </div>
       <div class="price-card_main_number_bottom">
         <h5 class="price-card_main_number_boldName">
-          {{ productTools.sum }} ₴ / за {{ productTools.amount }} кг
+          {{ sum }} ₴ / за {{ amount }} кг
         </h5>
       </div>
     </div>
   </div>
   <div class="price-card_button-block">
-    <app-button [buttonText]="'Додати до кошика'"></app-button>
+    <app-button
+      [buttonText]="'Додати до кошика'"
+      (click)="addToBucket()"
+    ></app-button>
     <svg-icon-sprite
       [src]="'assets/sprites/sprite.svg#message'"
       [viewBox]="'0 0 24 24'"
