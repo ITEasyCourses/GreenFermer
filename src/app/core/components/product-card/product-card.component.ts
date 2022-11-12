@@ -7,8 +7,7 @@ import {
   OnInit,
   Output
 } from '@angular/core';
-import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
-import { filter } from 'rxjs';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { ERoutes } from '../../enums/routes';
 import { IProductCard } from '../../interfaces/i-product-card';

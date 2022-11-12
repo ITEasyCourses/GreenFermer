@@ -54,6 +54,22 @@
       width: 224px;
       border-radius: 10px;
       margin-bottom: 20px;
+
+      &_block{
+        background: $main-gray;
+        display: flex;
+        height: 220px;
+        width: 224px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        justify-content: center;
+        align-items: center;
+
+        &_text{
+          margin: 0 15px;
+          text-align: center;
+        }
+      }
     }
 
     &-no__img {
@@ -102,6 +118,10 @@
           @include font-base(15px, 600, 19px);
 
           letter-spacing: 0.0015em;
+          -webkit-line-clamp: 2;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
         }
       }
 
