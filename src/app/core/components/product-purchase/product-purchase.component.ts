@@ -23,7 +23,7 @@ export class ProductPurchaseComponent implements OnInit {
   public minWeight!: number;
 
   constructor(private cdr: ChangeDetectorRef, private bucket: BucketService) {}
-  ngOnInit() {
+  public ngOnInit(): void {
     this.init();
     this.cdr.detectChanges();
   }

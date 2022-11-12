@@ -22,11 +22,11 @@ export class ProductInfoComponent implements OnInit {
   public images!: string[];
   public heart = false;
   public rating = 0;
-  public numberImg!: number;
+  private numberImg!: number;
 
   public trackByFn: TrackByFunction<string> = (index, item) => item;
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.init();
     this.numberImg = 0;
   }

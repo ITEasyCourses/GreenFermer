@@ -24,9 +24,6 @@ export class ProductDetailPageComponent implements OnInit {
   public product$!: Observable<IProductCard>;
   public cards!: IProductCard[];
   public mockSortTypes!: SortOption[];
-
-  // public productPurchase: ProductPurchase = PRODUCT_PURCHASE;
-
   constructor(
     private productDetailService: ProductDetailService,
     private activatedRoute: ActivatedRoute,
