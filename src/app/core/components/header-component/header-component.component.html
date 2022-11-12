@@ -70,9 +70,11 @@
         [src]="sessionUser?.photoURL"
         alt="avatar"
       />
-      <ng-container *ngIf="!sessionUser?.photoURL && sessionUser"
-        ><app-user-icon [userName]="sessionUser?.displayName"></app-user-icon
-      ></ng-container>
+      <ng-container *ngIf="!sessionUser?.photoURL && sessionUser">
+        <div class="header-right-auth-avatar-user__icon">
+          <app-user-icon [userName]="sessionUser?.displayName"></app-user-icon>
+        </div>
+      </ng-container>
       <p class="header-right-auth-avatar-user__text">
         {{ sessionUser?.displayName }}
       </p>

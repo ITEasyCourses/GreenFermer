@@ -1,45 +1,56 @@
 <div class="product-container">
   <div class="left-container">
     <div class="big-container">
-      <div class="arrows">
-        <div class="arrows__wrapper" (click)="arrowClick(0)">
-          <svg-icon-sprite
-            [src]="'assets/sprites/sprite-multicolor.svg#arrow-product-slider'"
-            [viewBox]="'0 0 7 12'"
-            [width]="'7px'"
-            [height]="'12px'"
-            [classes]="'arrows-left'"
-          ></svg-icon-sprite>
+      <ng-container *ngIf="images.length > 1">
+        <div class="arrows">
+          <div class="arrows__wrapper" (click)="arrowClick(0)">
+            <svg-icon-sprite
+              [src]="
+                'assets/sprites/sprite-multicolor.svg#arrow-product-slider'
+              "
+              [viewBox]="'0 0 7 12'"
+              [width]="'7px'"
+              [height]="'12px'"
+              [classes]="'arrows-left'"
+            ></svg-icon-sprite>
+          </div>
+          <div class="arrows__wrapper" (click)="arrowClick(1)">
+            <svg-icon-sprite
+              [src]="
+                'assets/sprites/sprite-multicolor.svg#arrow-product-slider'
+              "
+              [viewBox]="'0 0 7 12'"
+              [width]="'7px'"
+              [height]="'12px'"
+              [classes]="'arrows-right'"
+            ></svg-icon-sprite>
+          </div>
         </div>
-        <div class="arrows__wrapper" (click)="arrowClick(1)">
-          <svg-icon-sprite
-            [src]="'assets/sprites/sprite-multicolor.svg#arrow-product-slider'"
-            [viewBox]="'0 0 7 12'"
-            [width]="'7px'"
-            [height]="'12px'"
-            [classes]="'arrows-right'"
-          ></svg-icon-sprite>
+      </ng-container>
+      <ng-container *ngIf="mainImg !== ''; else noImg">
+        <img class="picture" [src]="mainImg" alt="img" />
+      </ng-container>
+    </div>
+    <ng-container *ngIf="images.length > 1">
+      <div class="small-container">
+        <div
+          class="small-image"
+          *ngFor="let img of images; trackBy: trackByFn; index as idx"
+        >
+          <img
+            class="pictures-small"
+            [src]="img"
+            alt="img"
+            (click)="changeImage(img, idx)"
+          />
         </div>
       </div>
-      <img class="picture" [src]="mainImg" alt="img" />
-    </div>
-    <div class="small-container">
-      <div
-        class="small-image"
-        *ngFor="let img of product.img; trackBy: trackByFn; index as idx"
-      >
-        <img
-          class="pictures-small"
-          [src]="img"
-          alt="img"
-          (click)="changeImage(img, idx)"
-        />
-      </div>
-    </div>
+    </ng-container>
   </div>
+
   <div class="right-container">
     <div class="head">
-      <h3 class="head__title">{{ product.name }}</h3>
+      <h3 class="head__title">{{ product.title }}</h3>
       <svg-icon-sprite
         [src]="'assets/sprites/sprite.svg#heart'"
         [viewBox]="'0 0 28 24'"
@@ -62,19 +73,25 @@
       </div>
       <div class="inform_result">
         <div class="rating-info">
-          <app-rating-component
-            [ratingStar]="product.rating"
-          ></app-rating-component>
+          <app-rating-component [ratingStar]="rating"></app-rating-component>
         </div>
         <div class="inform_result_count">
           <p class="inform_result_count_data">{{ product.taste }}</p>
           <p class="inform_result_count_data">{{ product.size }}</p>
-          <p class="inform_result_count_data">{{ product.period }}</p>
+          <p class="inform_result_count_data">{{ product.periodGrow }}</p>
           <p class="inform_result_count_data">{{ product.location }}</p>
-          <p class="inform_result_count_data">{{ product.storage }}</p>
-          <p class="inform_result_count_data">{{ product.term }}</p>
+          <p class="inform_result_count_data">
+            {{ product.storageConditions }}
+          </p>
+          <p class="inform_result_count_data">{{ product.timeStorage }}</p>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+<ng-template #noImg>
+  <div class="no-img">
+    <p class="title">No Photo</p>
+  </div>
+</ng-template>
