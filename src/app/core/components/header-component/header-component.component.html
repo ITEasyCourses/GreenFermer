@@ -60,6 +60,7 @@
   <div class="header-right-auth__basket">
     <app-cart
       [color]="checkRoutAndScrollOptions ? 'yellow' : 'white'"
+      (click)="openPurchModal()"
     ></app-cart>
   </div>
   <div class="header-right-auth-avatar">

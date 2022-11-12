@@ -22,36 +22,41 @@ export class ProductInfoComponent implements OnInit {
   public images!: string[];
   public heart = false;
   public rating = 0;
-  private counter = 0;
+  private numberImg!: number;
 
   public trackByFn: TrackByFunction<string> = (index, item) => item;
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.init();
+    this.numberImg = 0;
   }
 
-  public changeImage(img: string, idx: number): void {
-    this.product.images.splice(idx, 1, this.mainImg);
-    [this.mainImg, this.counter] = [img, idx];
+  public changeImage(idx: number): void {
+    this.mainImg = this.product.images[idx];
   }
 
   public like(): void {
     this.heart = !this.heart;
   }
 
-  public arrowClick(direction: number) {
-    const containImg = this.mainImg;
-    if (!direction) {
-      if (this.counter === 0) {
-        this.counter = 3;
-      } else this.counter--;
+  public arrowClickPlus(): void {
+    if (this.numberImg < this.images.length - 1) {
+      this.numberImg = this.numberImg + 1;
+      this.mainImg = this.images[this.numberImg];
     } else {
-      if (this.counter === 3) {
-        this.counter = 0;
-      } else this.counter++;
+      this.numberImg = 0;
+      this.mainImg = this.images[this.numberImg];
     }
-    this.mainImg = this.product.images[this.counter];
-    this.product.images.splice(this.counter, 1, containImg);
+  }
+
+  public arrowClickMinus(): void {
+    if (this.numberImg > 0) {
+      this.numberImg = this.numberImg - 1;
+      this.mainImg = this.images[this.numberImg];
+    } else {
+      this.numberImg = this.images.length - 1;
+      this.mainImg = this.images[this.numberImg];
+    }
   }
 
   private init(): void {

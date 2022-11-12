@@ -3,7 +3,7 @@
     <div class="big-container">
       <ng-container *ngIf="images.length > 1">
         <div class="arrows">
-          <div class="arrows__wrapper" (click)="arrowClick(0)">
+          <div class="arrows__wrapper" (click)="arrowClickMinus()">
             <svg-icon-sprite
               [src]="
                 'assets/sprites/sprite-multicolor.svg#arrow-product-slider'
@@ -14,7 +14,7 @@
               [classes]="'arrows-left'"
             ></svg-icon-sprite>
           </div>
-          <div class="arrows__wrapper" (click)="arrowClick(1)">
+          <div class="arrows__wrapper" (click)="arrowClickPlus()">
             <svg-icon-sprite
               [src]="
                 'assets/sprites/sprite-multicolor.svg#arrow-product-slider'
@@ -41,7 +41,7 @@
             class="pictures-small"
             [src]="img"
             alt="img"
-            (click)="changeImage(img, idx)"
+            (click)="changeImage(idx)"
           />
         </div>
       </div>

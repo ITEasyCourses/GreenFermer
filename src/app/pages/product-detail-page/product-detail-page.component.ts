@@ -7,10 +7,8 @@ import {
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 
-import { PRODUCT_PURCHASE } from '../../core/constants/product-purchase';
 import { Feedback } from '../../core/interfaces/feedback-interface';
 import { IProductCard } from '../../core/interfaces/i-product-card';
-import { ProductPurchase } from '../../core/interfaces/product-purchase.interface';
 import { SortOption } from '../../core/interfaces/sort-option';
 import { ProductDetailService } from '../../core/services/product-detail.service';
 import { UnsubscribeService } from '../../core/services/unsubscribe.service';
@@ -26,9 +24,6 @@ export class ProductDetailPageComponent implements OnInit {
   public product$!: Observable<IProductCard>;
   public cards!: IProductCard[];
   public mockSortTypes!: SortOption[];
-
-  public productPurchase: ProductPurchase = PRODUCT_PURCHASE;
-
   constructor(
     private productDetailService: ProductDetailService,
     private activatedRoute: ActivatedRoute,
