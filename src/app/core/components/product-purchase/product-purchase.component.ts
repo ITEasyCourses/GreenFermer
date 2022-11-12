@@ -28,12 +28,6 @@ export class ProductPurchaseComponent implements OnInit {
     this.cdr.detectChanges();
   }
 
-  public init(): void {
-    this.amount = Number(this.product.minAmount);
-    this.sum = this.amount * Number(this.product.price);
-    this.minWeight = Number(this.product.minAmount);
-  }
-
   public minusProduct(): void {
     if (this.amount > Number(this.product.minAmount)) {
       this.amount = this.amount - 1;
@@ -59,6 +53,12 @@ export class ProductPurchaseComponent implements OnInit {
       sum: this.sum
     };
     this.bucket.setGoodsInLocalStorage(product);
+  }
+
+  private init(): void {
+    this.amount = Number(this.product.minAmount);
+    this.sum = this.amount * Number(this.product.price);
+    this.minWeight = Number(this.product.minAmount);
   }
 
   private wholesale(): void {
