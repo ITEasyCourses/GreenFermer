@@ -7,6 +7,7 @@ import {
 } from '@angular/core';
 
 import { IProductCard } from '../../interfaces/i-product-card';
+import { IProductCardBucket } from '../../interfaces/product-card-bucket.interface';
 import { BucketService } from '../../services/bucket.service';
 
 @Component({
@@ -17,12 +18,17 @@ import { BucketService } from '../../services/bucket.service';
 })
 export class ProductPurchaseComponent implements OnInit {
   @Input() product!: IProductCard;
+
   public amount!: number;
   public sum!: number;
   public maxWeight = 1000;
   public minWeight!: number;
 
-  constructor(private cdr: ChangeDetectorRef, private bucket: BucketService) {}
+  constructor(
+    private cdr: ChangeDetectorRef,
+    private bucketService: BucketService
+  ) {}
+
   public ngOnInit(): void {
     this.init();
     this.cdr.detectChanges();
@@ -43,16 +49,18 @@ export class ProductPurchaseComponent implements OnInit {
   }
 
   public addToBucket(): void {
-    const product = {
-      title: this.product.title,
+    const product: IProductCardBucket = {
+      productName: this.product.title,
+      img: this.product.images[0],
       id: this.product.id,
-      optPrice: this.product.optPrice,
-      price: this.product.price,
-      amount: this.amount,
-      optAmount: this.product.optAmount,
-      sum: this.sum
+      wholesalePrice: this.product.optPrice + '.00',
+      price: this.product.price + '.00',
+      weight: this.amount,
+      startWholesaleByKg: +this.product.optAmount,
+      totalPrice: String(this.sum) + '.00',
+      minAmount: this.product.minAmount
     };
-    this.bucket.setGoodsInLocalStorage(product);
+    this.bucketService.addToBasket(product);
   }
 
   private init(): void {

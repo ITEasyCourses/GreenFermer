@@ -8,6 +8,7 @@ import {
 } from '@angular/core';
 
 import { IProductCardBucket } from '../../interfaces/product-card-bucket.interface';
+import { BucketService } from '../../services/bucket.service';
 
 @Component({
   selector: 'app-product-purchase-card',
@@ -28,15 +29,19 @@ export class ProductPurchaseCardComponent implements OnInit {
   public totalPrice!: string;
   public cardPrice!: string;
   public wholesaleFlag = false;
+  public minWeight!: number;
+
+  constructor(private bucketService: BucketService) {}
 
   public ngOnInit(): void {
     this.initCard();
+    this.minWeight = Number(this.productCard.minAmount);
   }
 
   public countPrice(operator: number): void {
     if (this.productCard.price) {
       if (!operator) {
-        if (this.counter > 1) {
+        if (this.counter > Number(this.productCard.minAmount)) {
           this.counter--;
         }
       } else if (this.counter >= 1000) {
@@ -48,8 +53,10 @@ export class ProductPurchaseCardComponent implements OnInit {
     }
   }
 
-  public deleteCard(): void {
+  public deleteCard(card: IProductCardBucket): void {
     this.deleteCardEmitter.emit(this.productCard);
+    this.bucketService.removeFromBasket(card.id);
+    console.log(this.bucketService.isInBucket(card.id));
   }
 
   private sendPayloadData(): void {

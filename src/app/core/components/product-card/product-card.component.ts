@@ -2,15 +2,14 @@ import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
-  EventEmitter,
-  Input,
-  OnInit,
-  Output
+  Input, OnChanges,
+  OnInit
 } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { ERoutes } from '../../enums/routes';
 import { IProductCard } from '../../interfaces/i-product-card';
+import { BucketService } from '../../services/bucket.service';
 
 @Component({
   selector: 'app-product-card',
@@ -18,30 +17,40 @@ import { IProductCard } from '../../interfaces/i-product-card';
   styleUrls: ['./product-card.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ProductCardComponent implements OnInit {
-  @Output() public addToBasketEvent: EventEmitter<void> =
-    new EventEmitter<void>();
-
+export class ProductCardComponent implements OnInit, OnChanges {
   @Input() card!: IProductCard;
 
   public heart = false;
+  public basket = false;
   public img!: string | undefined;
   public isCategoryDetail = false;
+
   private categoryTypeId!: string;
 
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
+    private bucketService: BucketService
   ) {}
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.findImg();
     this.checkPage();
+    this.checkBucket(this.card.id);
+    this.test();
+    this.cdr.detectChanges();
+  }
+
+  public ngOnChanges(): void {
+
   }
 
   public addToBasket(): void {
-    this.addToBasketEvent.emit();
+    this.basket = !this.basket;
+    this.basket
+      ? this.bucketService.addCardFromPurchase(this.card)
+      : this.bucketService.removeFromBasket(this.card.id);
   }
 
   public like(): void {
@@ -78,5 +87,16 @@ export class ProductCardComponent implements OnInit {
   private checkPage(): boolean {
     const typeId = this.activatedRoute.snapshot.params['categoryId'];
     return (this.isCategoryDetail = typeId === this.card.typeId);
+  }
+
+  private checkBucket(cardId: string): void {
+    this.basket = this.bucketService.isInBucket(cardId);
+    this.bucketService.isInBucketTest(cardId);
+  }
+
+  private test(): void {
+    this.bucketService.testFlag().subscribe((data) => {
+      this.basket = data;
+    });
   }
 }

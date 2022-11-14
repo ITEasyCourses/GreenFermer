@@ -7,12 +7,13 @@ import {
 import { MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 
-import { ProductCardBucketConstants } from '../../../constants/product-card-bucket.constants';
 import { sortPurchaseOptions } from '../../../constants/sort-purchase-options';
 import { ERoutes } from '../../../enums/routes';
 import { IProductCardBucket } from '../../../interfaces/product-card-bucket.interface';
 import { SortOption } from '../../../interfaces/sort-option';
+import { BucketService } from '../../../services/bucket.service';
 import { BucketCardArgType } from '../../../types/application-types';
+import { IProductCard } from '../../../interfaces/i-product-card';
 
 @Component({
   selector: 'app-purchase-modal',
@@ -23,16 +24,19 @@ import { BucketCardArgType } from '../../../types/application-types';
 export class PurchaseModalComponent implements OnInit {
   @Input() totalWeight = 0;
 
+  public productCards: IProductCardBucket[] = [];
   public mockSortTypes: SortOption[] = sortPurchaseOptions;
   public totalPrice!: string;
-  public productCards: IProductCardBucket[] = ProductCardBucketConstants;
+
   constructor(
     private dialogRef: MatDialogRef<PurchaseModalComponent>,
-    private router: Router
+    private router: Router,
+    private bucketService: BucketService
   ) {}
 
   public ngOnInit(): void {
     this.dialogRef.addPanelClass('purchase-modal');
+    this.productCards = this.bucketService.getCurrentSessionBucket();
     this.initializeData();
   }
 
@@ -56,6 +60,7 @@ export class PurchaseModalComponent implements OnInit {
 
   public deleteCard(card: IProductCardBucket): void {
     this.productCards = this.productCards.filter((el) => el.id !== card.id);
+    // this.bucketService.removeFromBasket(card);
     this.getTotalPrice();
   }
 

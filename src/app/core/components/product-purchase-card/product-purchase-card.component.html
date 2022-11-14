@@ -23,7 +23,7 @@
         [src]="'assets/sprites/sprite.svg#minus-product'"
         [width]="'16px'"
         [height]="'2px'"
-        [classes]="counter === 1 ? 'icon minus disabled' : 'icon minus'"
+        [classes]="counter === minWeight ? 'icon minus disabled' : 'icon minus'"
         (click)="countPrice(0)"
       ></svg-icon-sprite>
       <div class="interface-row-counter-window">
@@ -46,7 +46,7 @@
       [width]="'18px'"
       [height]="'20px'"
       [classes]="'icon-trash'"
-      (click)="deleteCard()"
+      (click)="deleteCard(productCard)"
     ></svg-icon-sprite>
 
     <div class="interface-row-price">
