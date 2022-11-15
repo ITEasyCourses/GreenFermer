@@ -2,7 +2,7 @@ import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
-  Input, OnChanges,
+  Input,
   OnInit
 } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -17,7 +17,7 @@ import { BucketService } from '../../services/bucket.service';
   styleUrls: ['./product-card.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ProductCardComponent implements OnInit, OnChanges {
+export class ProductCardComponent implements OnInit {
   @Input() card!: IProductCard;
 
   public heart = false;
@@ -38,12 +38,7 @@ export class ProductCardComponent implements OnInit, OnChanges {
     this.findImg();
     this.checkPage();
     this.checkBucket(this.card.id);
-    this.test();
     this.cdr.detectChanges();
-  }
-
-  public ngOnChanges(): void {
-
   }
 
   public addToBasket(): void {
@@ -91,12 +86,5 @@ export class ProductCardComponent implements OnInit, OnChanges {
 
   private checkBucket(cardId: string): void {
     this.basket = this.bucketService.isInBucket(cardId);
-    this.bucketService.isInBucketTest(cardId);
-  }
-
-  private test(): void {
-    this.bucketService.testFlag().subscribe((data) => {
-      this.basket = data;
-    });
   }
 }

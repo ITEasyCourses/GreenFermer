@@ -18,6 +18,7 @@ import { BucketService } from '../../services/bucket.service';
 })
 export class ProductPurchaseComponent implements OnInit {
   @Input() product!: IProductCard;
+  public productBucket!: IProductCardBucket;
 
   public amount!: number;
   public sum!: number;
@@ -30,12 +31,20 @@ export class ProductPurchaseComponent implements OnInit {
   ) {}
 
   public ngOnInit(): void {
+    this.productBucket = this.bucketService.interfaceChange(this.product);
+    if (this.bucketService.isInBucket(this.productBucket.id)) {
+      this.productBucket = this.bucketService.getBucketItemForPurchase(
+        this.productBucket.id
+      );
+    }
+
     this.init();
+    this.wholesale();
     this.cdr.detectChanges();
   }
 
   public minusProduct(): void {
-    if (this.amount > Number(this.product.minAmount)) {
+    if (this.amount > Number(this.productBucket.minAmount)) {
       this.amount = this.amount - 1;
       this.wholesale();
     }
@@ -50,30 +59,36 @@ export class ProductPurchaseComponent implements OnInit {
 
   public addToBucket(): void {
     const product: IProductCardBucket = {
-      productName: this.product.title,
-      img: this.product.images[0],
-      id: this.product.id,
-      wholesalePrice: this.product.optPrice + '.00',
-      price: this.product.price + '.00',
+      productName: this.productBucket.productName,
+      img: this.productBucket.img,
+      id: this.productBucket.id,
+      wholesalePrice: this.productBucket.wholesalePrice,
+      price: this.productBucket.price,
       weight: this.amount,
-      startWholesaleByKg: +this.product.optAmount,
+      startWholesaleByKg: +this.productBucket.startWholesaleByKg,
       totalPrice: String(this.sum) + '.00',
-      minAmount: this.product.minAmount
+      minAmount: this.productBucket.minAmount
     };
-    this.bucketService.addToBasket(product);
+
+    if (this.bucketService.isInBucket(product.id)) {
+      this.bucketService.removeFromBasket(product.id);
+      this.bucketService.addToBasket(product);
+    } else {
+      this.bucketService.addToBasket(product);
+    }
   }
 
   private init(): void {
-    this.amount = Number(this.product.minAmount);
-    this.sum = this.amount * Number(this.product.price);
-    this.minWeight = Number(this.product.minAmount);
+    this.amount = Number(this.productBucket.weight);
+    this.sum = this.amount * Number(this.productBucket.price);
+    this.minWeight = Number(this.productBucket.minAmount);
   }
 
   private wholesale(): void {
-    if (this.amount < Number(this.product.optAmount)) {
-      this.sum = Number(this.product.price) * this.amount;
+    if (this.amount < Number(this.productBucket.startWholesaleByKg)) {
+      this.sum = Number(this.productBucket.price) * this.amount;
     } else {
-      this.sum = Number(this.product.optPrice) * this.amount;
+      this.sum = Number(this.productBucket.wholesalePrice) * this.amount;
     }
   }
 }

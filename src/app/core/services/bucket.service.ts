@@ -15,9 +15,6 @@ export class BucketService {
   private goodsCounterSubj: Subject<number> = new Subject<number>();
   private goodsCounter$ = this.goodsCounterSubj.asObservable();
 
-  private testSubj: Subject<boolean> = new Subject<boolean>();
-  private testFlag$ = this.testSubj.asObservable();
-
   public getGoodsCounter(): Observable<number> {
     return this.goodsCounter$;
   }
@@ -30,6 +27,11 @@ export class BucketService {
   }
 
   public addCardFromPurchase(card: IProductCard): void {
+    const cardForBucket = this.interfaceChange(card);
+    this.addToBasket(cardForBucket);
+  }
+
+  public interfaceChange(card: IProductCard): IProductCardBucket {
     const cardForBucket: any = {};
     cardForBucket.id = card.id;
     cardForBucket.productName = card.title;
@@ -46,37 +48,34 @@ export class BucketService {
     }
     cardForBucket.weight = Number(card.minAmount);
     cardForBucket.startWholesaleByKg = Number(card.optAmount);
-    cardForBucket.totalPrice = '00.00';
+
+    if (cardForBucket.weight < Number(cardForBucket.startWholesaleByKg)) {
+      cardForBucket.totalPrice =
+        Number(cardForBucket.price) * cardForBucket.weight + '.00';
+    } else {
+      cardForBucket.totalPrice =
+        Number(cardForBucket.wholesalePrice) * cardForBucket.weight + '.00';
+    }
+
     cardForBucket.minAmount = card.minAmount;
-    this.addToBasket(cardForBucket);
+
+    return cardForBucket;
   }
 
   public isInBucket(cardId: string) {
     return !!this.purchaseModalProductCards.find((el) => el.id === cardId);
   }
 
-  public isInBucketTest(cardId: string) {
-    const test = this.isInBucket(cardId);
-    this.testSubj.next(test);
-  }
-
-  public testFlag() {
-    return this.testFlag$;
+  public getBucketItemForPurchase(cardId: string): any {
+    this.purchaseModalProductCards = this.getCurrentSessionBucket();
+    return this.purchaseModalProductCards.find((el) => el.id === cardId);
   }
 
   public removeFromBasket(cardId: string): void {
     this.purchaseModalProductCards = this.purchaseModalProductCards.filter(
       (el) => el.id !== cardId
     );
-    this.removeGoodsFromLocalStorage();
-  }
-
-  public updateProductCards(prod: IProductCardBucket) {
-    this.purchaseModalProductCards.map((el: IProductCardBucket) => {
-      if (el.id === prod.id) {
-        el = prod;
-      }
-    });
+    this.updateGoodsInLocalStorage(this.purchaseModalProductCards);
   }
 
   public setValueInGoodsCounter(): void {
@@ -92,9 +91,8 @@ export class BucketService {
     this.setValueInGoodsCounter();
   }
 
-  public removeGoodsFromLocalStorage(): void {
-    // const setNewItemInBucket = [...this.purchaseModalProductCards];
-    const setNewItemInBucket = [...this.purchaseModalProductCards];
+  public updateGoodsInLocalStorage(items: any[]): void {
+    const setNewItemInBucket = [...items];
     localStorage.setItem(
       ELocalStorage.BUCKET,
       JSON.stringify(setNewItemInBucket)

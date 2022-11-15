@@ -7,5 +7,5 @@ export interface IProductCardBucket {
   weight: number;
   startWholesaleByKg: number;
   totalPrice: string;
-  minAmount?: string;
+  minAmount: string;
 }

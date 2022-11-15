@@ -13,7 +13,6 @@ import { IProductCardBucket } from '../../../interfaces/product-card-bucket.inte
 import { SortOption } from '../../../interfaces/sort-option';
 import { BucketService } from '../../../services/bucket.service';
 import { BucketCardArgType } from '../../../types/application-types';
-import { IProductCard } from '../../../interfaces/i-product-card';
 
 @Component({
   selector: 'app-purchase-modal',
@@ -46,6 +45,7 @@ export class PurchaseModalComponent implements OnInit {
 
   public countByDirection(receivedData: IProductCardBucket): void {
     this.setNewProductCards(receivedData);
+    this.bucketService.updateGoodsInLocalStorage(this.productCards);
     this.getTotalPrice();
   }
 
@@ -60,7 +60,6 @@ export class PurchaseModalComponent implements OnInit {
 
   public deleteCard(card: IProductCardBucket): void {
     this.productCards = this.productCards.filter((el) => el.id !== card.id);
-    // this.bucketService.removeFromBasket(card);
     this.getTotalPrice();
   }
 
