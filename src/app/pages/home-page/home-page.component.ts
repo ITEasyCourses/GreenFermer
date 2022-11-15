@@ -56,7 +56,6 @@ export class HomePageComponent implements OnInit {
       .pipe(this.unsubscribeService.takeUntilDestroy)
       .subscribe((data: IProductCard[]) => {
         this.popularSubj.next(data);
-        console.log('this.popProdSubj$', this.popProdSubj$);
         this.cdr.detectChanges();
       });
   }

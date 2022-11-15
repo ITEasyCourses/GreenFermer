@@ -62,7 +62,7 @@ export class BucketService {
     return cardForBucket;
   }
 
-  public isInBucket(cardId: string) {
+  public isInBucket(cardId: string): boolean {
     return !!this.purchaseModalProductCards.find((el) => el.id === cardId);
   }
 
@@ -71,7 +71,7 @@ export class BucketService {
     return this.purchaseModalProductCards.find((el) => el.id === cardId);
   }
 
-  public removeFromBasket(cardId: string): void {
+  public removeFromBucket(cardId: string): void {
     this.purchaseModalProductCards = this.purchaseModalProductCards.filter(
       (el) => el.id !== cardId
     );

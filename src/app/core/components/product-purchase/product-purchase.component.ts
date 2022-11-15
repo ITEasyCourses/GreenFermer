@@ -18,8 +18,8 @@ import { BucketService } from '../../services/bucket.service';
 })
 export class ProductPurchaseComponent implements OnInit {
   @Input() product!: IProductCard;
-  public productBucket!: IProductCardBucket;
 
+  public productBucket!: IProductCardBucket;
   public amount!: number;
   public sum!: number;
   public maxWeight = 1000;
@@ -32,6 +32,7 @@ export class ProductPurchaseComponent implements OnInit {
 
   public ngOnInit(): void {
     this.productBucket = this.bucketService.interfaceChange(this.product);
+
     if (this.bucketService.isInBucket(this.productBucket.id)) {
       this.productBucket = this.bucketService.getBucketItemForPurchase(
         this.productBucket.id
@@ -71,7 +72,7 @@ export class ProductPurchaseComponent implements OnInit {
     };
 
     if (this.bucketService.isInBucket(product.id)) {
-      this.bucketService.removeFromBasket(product.id);
+      this.bucketService.removeFromBucket(product.id);
       this.bucketService.addToBasket(product);
     } else {
       this.bucketService.addToBasket(product);

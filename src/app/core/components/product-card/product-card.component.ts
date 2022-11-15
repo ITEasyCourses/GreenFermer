@@ -45,7 +45,7 @@ export class ProductCardComponent implements OnInit {
     this.basket = !this.basket;
     this.basket
       ? this.bucketService.addCardFromPurchase(this.card)
-      : this.bucketService.removeFromBasket(this.card.id);
+      : this.bucketService.removeFromBucket(this.card.id);
   }
 
   public like(): void {

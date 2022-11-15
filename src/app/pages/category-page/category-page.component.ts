@@ -55,7 +55,6 @@ export class CategoryPageComponent implements OnInit {
       .pipe(this.unsubscribeService.takeUntilDestroy)
       .subscribe((data) => {
         this.popularSubj.next(data);
-        console.log('this.popProdSubj$', this.popProdSubj$);
         this.cdr.detectChanges();
       });
   }
