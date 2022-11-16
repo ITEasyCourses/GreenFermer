@@ -22,7 +22,7 @@ export class CartComponent implements OnInit {
 
   constructor(
     private bucketService: BucketService,
-    private ref: ChangeDetectorRef
+    private cdr: ChangeDetectorRef
   ) {}
 
   public ngOnInit(): void {
@@ -33,7 +33,7 @@ export class CartComponent implements OnInit {
   private updateCounterBySubscribe(): void {
     this.bucketService.getGoodsCounter().subscribe((num) => {
       this.counter = num;
-      this.ref.detectChanges();
+      this.cdr.detectChanges();
     });
   }
 }

@@ -3,19 +3,22 @@ import {
   ChangeDetectorRef,
   Component,
   Input,
-  OnInit
+  OnInit,
+  Self
 } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { ERoutes } from '../../enums/routes';
 import { IProductCard } from '../../interfaces/i-product-card';
 import { BucketService } from '../../services/bucket.service';
+import { UnsubscribeService } from '../../services/unsubscribe.service';
 
 @Component({
   selector: 'app-product-card',
   templateUrl: './product-card.component.html',
   styleUrls: ['./product-card.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [UnsubscribeService]
 })
 export class ProductCardComponent implements OnInit {
   @Input() card!: IProductCard;
@@ -28,6 +31,7 @@ export class ProductCardComponent implements OnInit {
   private categoryTypeId!: string;
 
   constructor(
+    @Self() private unsubscribeService: UnsubscribeService,
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private cdr: ChangeDetectorRef,
@@ -38,6 +42,7 @@ export class ProductCardComponent implements OnInit {
     this.findImg();
     this.checkPage();
     this.checkBucket(this.card.id);
+    this.reRenderBySubscribe();
   }
 
   public addToBasket(): void {
@@ -85,5 +90,15 @@ export class ProductCardComponent implements OnInit {
 
   private checkBucket(cardId: string): void {
     this.basket = this.bucketService.isInBucket(cardId);
+  }
+
+  private reRenderBySubscribe(): void {
+    this.bucketService
+      .reRender()
+      .pipe(this.unsubscribeService.takeUntilDestroy)
+      .subscribe(() => {
+        this.checkBucket(this.card.id);
+        this.cdr.detectChanges();
+      });
   }
 }

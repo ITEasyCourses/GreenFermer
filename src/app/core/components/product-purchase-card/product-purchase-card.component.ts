@@ -56,6 +56,7 @@ export class ProductPurchaseCardComponent implements OnInit {
   public deleteCard(card: IProductCardBucket): void {
     this.deleteCardEmitter.emit(this.productCard);
     this.bucketService.removeFromBucket(card.id);
+    this.bucketService.setReRender();
   }
 
   private sendPayloadData(): void {

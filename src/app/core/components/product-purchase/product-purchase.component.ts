@@ -3,22 +3,24 @@ import {
   ChangeDetectorRef,
   Component,
   Input,
-  OnInit
+  OnInit,
+  Self
 } from '@angular/core';
 
 import { IProductCard } from '../../interfaces/i-product-card';
 import { IProductCardBucket } from '../../interfaces/product-card-bucket.interface';
 import { BucketService } from '../../services/bucket.service';
+import { UnsubscribeService } from '../../services/unsubscribe.service';
 
 @Component({
   selector: 'app-product-purchase',
   templateUrl: './product-purchase.component.html',
   styleUrls: ['./product-purchase.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [UnsubscribeService]
 })
 export class ProductPurchaseComponent implements OnInit {
   @Input() product!: IProductCard;
-  @Input() test = false;
 
   public productBucket!: IProductCardBucket;
   public amount!: number;
@@ -27,9 +29,9 @@ export class ProductPurchaseComponent implements OnInit {
   public minWeight!: number;
 
   constructor(
+    @Self() private unsubscribeService: UnsubscribeService,
     private cdr: ChangeDetectorRef,
-    private bucketService: BucketService,
-    private ref: ChangeDetectorRef
+    private bucketService: BucketService
   ) {}
 
   public ngOnInit(): void {
@@ -98,11 +100,14 @@ export class ProductPurchaseComponent implements OnInit {
   }
 
   private reRenderBySubscribe(): void {
-    this.bucketService.reRender().subscribe(() => {
-      this.isInBucket();
-      this.init();
-      this.wholesale();
-      this.ref.detectChanges();
-    });
+    this.bucketService
+      .reRender()
+      .pipe(this.unsubscribeService.takeUntilDestroy)
+      .subscribe(() => {
+        this.isInBucket();
+        this.init();
+        this.wholesale();
+        this.cdr.detectChanges();
+      });
   }
 }
