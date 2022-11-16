@@ -18,6 +18,7 @@ import { BucketService } from '../../services/bucket.service';
 })
 export class ProductPurchaseComponent implements OnInit {
   @Input() product!: IProductCard;
+  @Input() test = false;
 
   public productBucket!: IProductCardBucket;
   public amount!: number;
@@ -27,20 +28,24 @@ export class ProductPurchaseComponent implements OnInit {
 
   constructor(
     private cdr: ChangeDetectorRef,
-    private bucketService: BucketService
+    private bucketService: BucketService,
+    private ref: ChangeDetectorRef
   ) {}
 
   public ngOnInit(): void {
     this.productBucket = this.bucketService.interfaceChange(this.product);
+    this.isInBucket();
+    this.init();
+    this.wholesale();
+    this.reRenderBySubscribe();
+  }
 
+  public isInBucket(): void {
     if (this.bucketService.isInBucket(this.productBucket.id)) {
       this.productBucket = this.bucketService.getBucketItemForPurchase(
         this.productBucket.id
       );
     }
-
-    this.init();
-    this.wholesale();
   }
 
   public minusProduct(): void {
@@ -90,5 +95,14 @@ export class ProductPurchaseComponent implements OnInit {
     } else {
       this.sum = Number(this.productBucket.wholesalePrice) * this.amount;
     }
+  }
+
+  private reRenderBySubscribe(): void {
+    this.bucketService.reRender().subscribe(() => {
+      this.isInBucket();
+      this.init();
+      this.wholesale();
+      this.ref.detectChanges();
+    });
   }
 }

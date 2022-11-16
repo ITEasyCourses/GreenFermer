@@ -65,6 +65,7 @@ export class ProductPurchaseCardComponent implements OnInit {
       weight: this.counter
     };
     this.updateProductCard.emit(this.productCard);
+    this.bucketService.setReRender();
   }
 
   private setTotalPriseAndCounterPrice(): void {

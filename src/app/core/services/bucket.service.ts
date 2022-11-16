@@ -13,9 +13,14 @@ export class BucketService {
     this.getCurrentSessionBucket();
 
   private goodsCounterSubj: Subject<number> = new Subject<number>();
+  private reRenderSubj: Subject<boolean> = new Subject<boolean>();
 
   public getGoodsCounter(): Observable<number> {
-    return this.goodsCounterSubj;
+    return this.goodsCounterSubj.asObservable();
+  }
+
+  public reRender(): Observable<boolean> {
+    return this.reRenderSubj.asObservable();
   }
 
   public addToBasket(card: IProductCardBucket): void {
@@ -81,6 +86,10 @@ export class BucketService {
 
   public setValueInGoodsCounter(): void {
     this.goodsCounterSubj.next(this.getCurrentSessionBucket().length);
+  }
+
+  public setReRender(): void {
+    this.reRenderSubj.next(true);
   }
 
   public setGoodsInLocalStorage(item: IProductCardBucket): void {
