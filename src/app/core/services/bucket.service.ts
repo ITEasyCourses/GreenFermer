@@ -13,10 +13,9 @@ export class BucketService {
     this.getCurrentSessionBucket();
 
   private goodsCounterSubj: Subject<number> = new Subject<number>();
-  private goodsCounter$ = this.goodsCounterSubj.asObservable();
 
   public getGoodsCounter(): Observable<number> {
-    return this.goodsCounter$;
+    return this.goodsCounterSubj;
   }
 
   public addToBasket(card: IProductCardBucket): void {
@@ -26,28 +25,33 @@ export class BucketService {
     }
   }
 
-  public addCardFromPurchase(card: IProductCard): void {
+  public addProductCard(card: IProductCard): void {
     const cardForBucket = this.interfaceChange(card);
+
     this.addToBasket(cardForBucket);
   }
 
   public interfaceChange(card: IProductCard): IProductCardBucket {
     const cardForBucket: any = {};
+
     cardForBucket.id = card.id;
     cardForBucket.productName = card.title;
     cardForBucket.img = card.images[0];
+    cardForBucket.weight = Number(card.minAmount);
+    cardForBucket.startWholesaleByKg = Number(card.optAmount);
+    cardForBucket.minAmount = card.minAmount;
+
     if ([...card.price].find((el) => el === '.')) {
       cardForBucket.price = card.price;
     } else {
       cardForBucket.price = card.price + '.00';
     }
+
     if ([...card.optPrice].find((el) => el === '.')) {
       cardForBucket.wholesalePrice = card.optPrice;
     } else {
       cardForBucket.wholesalePrice = card.optPrice + '.00';
     }
-    cardForBucket.weight = Number(card.minAmount);
-    cardForBucket.startWholesaleByKg = Number(card.optAmount);
 
     if (cardForBucket.weight < Number(cardForBucket.startWholesaleByKg)) {
       cardForBucket.totalPrice =
@@ -56,8 +60,6 @@ export class BucketService {
       cardForBucket.totalPrice =
         Number(cardForBucket.wholesalePrice) * cardForBucket.weight + '.00';
     }
-
-    cardForBucket.minAmount = card.minAmount;
 
     return cardForBucket;
   }

@@ -41,7 +41,6 @@ export class ProductPurchaseComponent implements OnInit {
 
     this.init();
     this.wholesale();
-    this.cdr.detectChanges();
   }
 
   public minusProduct(): void {

@@ -38,13 +38,12 @@ export class ProductCardComponent implements OnInit {
     this.findImg();
     this.checkPage();
     this.checkBucket(this.card.id);
-    this.cdr.detectChanges();
   }
 
   public addToBasket(): void {
     this.basket = !this.basket;
     this.basket
-      ? this.bucketService.addCardFromPurchase(this.card)
+      ? this.bucketService.addProductCard(this.card)
       : this.bucketService.removeFromBucket(this.card.id);
   }
 
