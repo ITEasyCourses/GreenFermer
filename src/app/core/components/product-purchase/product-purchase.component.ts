@@ -30,6 +30,7 @@ export class ProductPurchaseComponent implements OnInit {
 
   constructor(
     @Self() private unsubscribeService: UnsubscribeService,
+
     private cdr: ChangeDetectorRef,
     private bucketService: BucketService
   ) {}

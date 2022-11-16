@@ -32,6 +32,7 @@ export class ProductCardComponent implements OnInit {
 
   constructor(
     @Self() private unsubscribeService: UnsubscribeService,
+
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private cdr: ChangeDetectorRef,
