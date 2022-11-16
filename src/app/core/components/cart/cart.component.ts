@@ -18,7 +18,7 @@ import { CartColorsType } from '../../types/application-types';
 export class CartComponent implements OnInit {
   @Input() color: CartColorsType = 'yellow';
 
-  public counter = 0;
+  public counter!: number;
 
   constructor(
     private bucketService: BucketService,

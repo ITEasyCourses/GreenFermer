@@ -44,19 +44,16 @@ export class BucketService {
       startWholesaleByKg: Number(card.optAmount),
       minAmount: card.minAmount
     };
-
     if ([...card.price].find((el) => el === '.')) {
       cardForBucket.price = card.price;
     } else {
       cardForBucket.price = card.price + '.00';
     }
-
     if ([...card.optPrice].find((el) => el === '.')) {
       cardForBucket.wholesalePrice = card.optPrice;
     } else {
       cardForBucket.wholesalePrice = card.optPrice + '.00';
     }
-
     if (cardForBucket.weight < Number(cardForBucket.startWholesaleByKg)) {
       cardForBucket.totalPrice =
         Number(cardForBucket.price) * cardForBucket.weight + '.00';
@@ -64,7 +61,6 @@ export class BucketService {
       cardForBucket.totalPrice =
         Number(cardForBucket.wholesalePrice) * cardForBucket.weight + '.00';
     }
-
     return cardForBucket;
   }
 
