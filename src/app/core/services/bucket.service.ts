@@ -27,19 +27,18 @@ export class BucketService {
 
   public addProductCard(card: IProductCard): void {
     const cardForBucket = this.interfaceChange(card);
-
     this.addToBasket(cardForBucket);
   }
 
   public interfaceChange(card: IProductCard): IProductCardBucket {
-    const cardForBucket: any = {};
-
-    cardForBucket.id = card.id;
-    cardForBucket.productName = card.title;
-    cardForBucket.img = card.images[0];
-    cardForBucket.weight = Number(card.minAmount);
-    cardForBucket.startWholesaleByKg = Number(card.optAmount);
-    cardForBucket.minAmount = card.minAmount;
+    const cardForBucket: any = {
+      id: card.id,
+      productName: card.title,
+      img: card.images[0],
+      weight: Number(card.minAmount),
+      startWholesaleByKg: Number(card.optAmount),
+      minAmount: card.minAmount
+    };
 
     if ([...card.price].find((el) => el === '.')) {
       cardForBucket.price = card.price;
