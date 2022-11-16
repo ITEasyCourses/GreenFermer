@@ -10,6 +10,7 @@
   border-radius: 10px;
   background: $white;
   box-shadow: 0 5px 15px rgba(116, 116, 116, 0.15);
+  cursor: pointer;
 
   &-wrap{
     position: relative;
@@ -47,12 +48,40 @@
       }
     }
 
-    &-img{
+    &-img, &-no__img{
       display: flex;
       height: 220px;
       width: 224px;
       border-radius: 10px;
       margin-bottom: 20px;
+
+      &_block{
+        background: $main-gray;
+        display: flex;
+        height: 220px;
+        width: 224px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        justify-content: center;
+        align-items: center;
+
+        &_text{
+          margin: 0 15px;
+          text-align: center;
+        }
+      }
+    }
+
+    &-no__img {
+      justify-content: center;
+      align-items: center;
+      background: $gray3;
+
+      & .title {
+        @include font-base(17px, 600, 24px);
+
+        color: $gray2;
+      }
     }
 
     &-text{
@@ -89,6 +118,10 @@
           @include font-base(15px, 600, 19px);
 
           letter-spacing: 0.0015em;
+          -webkit-line-clamp: 2;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
         }
       }
 
@@ -109,4 +142,3 @@
     }
   }
 }
-

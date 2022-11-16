@@ -1,14 +1,13 @@
 import {
   ChangeDetectionStrategy,
+  ChangeDetectorRef,
   Component,
   Input,
   OnInit
 } from '@angular/core';
 
-import {
-  ProductPurchase,
-  ProductToolsPurchase
-} from '../../interfaces/product-purchase.interface';
+import { IProductCard } from '../../interfaces/i-product-card';
+import { BucketService } from '../../services/bucket.service';
 
 @Component({
   selector: 'app-product-purchase',
@@ -17,40 +16,56 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProductPurchaseComponent implements OnInit {
-  @Input() product!: ProductPurchase;
-
-  public productTools: ProductToolsPurchase = {
-    amount: 0,
-    sum: 0
-  };
-
+  @Input() product!: IProductCard;
+  public amount!: number;
+  public sum!: number;
   public maxWeight = 1000;
+  public minWeight!: number;
 
+  constructor(private cdr: ChangeDetectorRef, private bucket: BucketService) {}
   public ngOnInit(): void {
-    this.productTools.amount = this.product.minAmount;
-    this.productTools.sum = this.productTools.amount * this.product.cost;
+    this.init();
+    this.cdr.detectChanges();
   }
 
   public minusProduct(): void {
-    if (this.productTools.amount > this.product.minAmount) {
-      this.productTools.amount = this.productTools.amount - 1;
+    if (this.amount > Number(this.product.minAmount)) {
+      this.amount = this.amount - 1;
       this.wholesale();
     }
   }
 
   public plusProduct(): void {
-    if (this.productTools.amount < this.maxWeight) {
-      this.productTools.amount = this.productTools.amount + 1;
+    if (this.amount < this.maxWeight) {
+      this.amount = this.amount + 1;
       this.wholesale();
     }
   }
 
+  public addToBucket(): void {
+    const product = {
+      title: this.product.title,
+      id: this.product.id,
+      optPrice: this.product.optPrice,
+      price: this.product.price,
+      amount: this.amount,
+      optAmount: this.product.optAmount,
+      sum: this.sum
+    };
+    this.bucket.setGoodsInLocalStorage(product);
+  }
+
+  private init(): void {
+    this.amount = Number(this.product.minAmount);
+    this.sum = this.amount * Number(this.product.price);
+    this.minWeight = Number(this.product.minAmount);
+  }
+
   private wholesale(): void {
-    if (this.productTools.amount < this.product.wholesaleAmount) {
-      this.productTools.sum = this.product.cost * this.productTools.amount;
+    if (this.amount < Number(this.product.optAmount)) {
+      this.sum = Number(this.product.price) * this.amount;
     } else {
-      this.productTools.sum =
-        this.product.wholesaleCost * this.productTools.amount;
+      this.sum = Number(this.product.optPrice) * this.amount;
     }
   }
 }

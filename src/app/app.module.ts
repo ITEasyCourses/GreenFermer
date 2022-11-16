@@ -13,6 +13,8 @@ import { FooterModule } from './core/components/footer/footer.module';
 import { HeaderComponentModule } from './core/components/header-component/header-component.module';
 import { LoginModalModule } from './core/components/modals/login-modal/login-modal.module';
 import { PurchaseModalModule } from './core/components/modals/purchase-modal/purchase-modal.module';
+import { RatingComponentModule } from './core/components/rating-component/rating-component.module';
+import { CategoryPageModule } from './pages/category-page/category-page.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -26,7 +28,9 @@ import { PurchaseModalModule } from './core/components/modals/purchase-modal/pur
     FooterModule,
     PurchaseModalModule,
     AngularFireAuthModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    CategoryPageModule,
+    RatingComponentModule
   ],
   bootstrap: [AppComponent]
 })

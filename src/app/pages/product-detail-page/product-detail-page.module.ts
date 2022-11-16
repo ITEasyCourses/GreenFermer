@@ -10,13 +10,14 @@ import { ProductPurchaseModule } from '../../core/components/product-purchase/pr
 import { SortSelectModule } from '../../core/components/sort-select/sort-select.module';
 
 import { ProductDetailPageComponent } from './product-detail-page.component';
+import { ProductDetailResolver } from './product-detail.resolver';
 
 const routes: Routes = [
   {
     path: '',
     component: ProductDetailPageComponent,
-    data: {
-      breadcrumb: 'Product name'
+    resolve: {
+      breadcrumb: ProductDetailResolver
     }
   }
 ];
@@ -32,6 +33,7 @@ const routes: Routes = [
     FeedbackModule,
     ProductInfoModule,
     ProductPurchaseModule
-  ]
+  ],
+  providers: [ProductDetailResolver]
 })
 export class ProductDetailPageModule {}

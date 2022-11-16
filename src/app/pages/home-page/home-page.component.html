@@ -14,7 +14,7 @@
   <div class="product__wrap">
     <div
       class="product__wrap_carts"
-      *ngFor="let product of productList; trackBy: trackByFn"
+      *ngFor="let product of popProdSubj$ | async; trackBy: trackByFn"
     >
       <app-product-card [card]="product"></app-product-card>
     </div>

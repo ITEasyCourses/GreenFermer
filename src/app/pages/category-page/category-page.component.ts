@@ -6,6 +6,7 @@ import {
   TrackByFunction
 } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
 
 import { IProductCard } from '../../core/interfaces/i-product-card';
 import { CategoryService } from '../../core/services/category.service';
@@ -20,7 +21,8 @@ import { UnsubscribeService } from '../../core/services/unsubscribe.service';
 })
 export class CategoryPageComponent implements OnInit {
   public img = '';
-  public allProduct!: IProductCard[];
+  public popularSubj: BehaviorSubject<any> = new BehaviorSubject<any>([]);
+  public popProdSubj$ = this.popularSubj.asObservable();
   public id!: string;
   constructor(
     private categoryService: CategoryService,
@@ -52,7 +54,7 @@ export class CategoryPageComponent implements OnInit {
       .getCategoryProducts(this.id)
       .pipe(this.unsubscribeService.takeUntilDestroy)
       .subscribe((data) => {
-        this.allProduct = data;
+        this.popularSubj.next(data);
         this.cdr.detectChanges();
       });
   }

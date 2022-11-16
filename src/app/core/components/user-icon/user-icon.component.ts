@@ -16,6 +16,7 @@ import { ICON_STYLE } from '../../constants/stylse-for-icon-user';
 })
 export class UserIconComponent implements OnInit {
   @Input() userName!: string;
+  @Input() userShop!: string;
   public iconColor!: string;
   public abet!: string;
   public iconStyle = ICON_STYLE;
@@ -33,10 +34,15 @@ export class UserIconComponent implements OnInit {
   }
 
   private generateAbet(): void {
-    const serName = this.userName.split(' ')[1];
-    const text = this.userName.substr(0, 1);
-    const secText = serName.substr(0, 1);
-    this.abet = text + secText;
-    this.cdr.detectChanges();
+    if (this.userName) {
+      const serName = this.userName.split(' ')[1];
+      const text = this.userName.substr(0, 1);
+      const secText = serName.substr(0, 1);
+      this.abet = text + secText;
+      this.cdr.detectChanges();
+    } else {
+      this.abet = this.userShop;
+      this.cdr.detectChanges();
+    }
   }
 }
