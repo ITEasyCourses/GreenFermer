@@ -55,16 +55,14 @@
       }
     }
     & .card-container{
-      height: 333px;
+      min-height: 170px ;
+      max-height: 333px;
+      overflow-y: scroll;
 
     & .purchase-modal-content__product-purchase {
       margin-top: 20px;
       margin-bottom: 10px;
      }
-
-      &.scroll {
-        overflow-y: scroll;
-      }
     }
 
     &__footer {
