@@ -24,14 +24,32 @@
     </div>
   </div>
   <div class="button-wrapper">
-    <app-button
-      (click)="confirmOrder()"
-      [buttonText]="'Підтвердити замовлення'"
-    ></app-button>
-    <app-button
-      (click)="editOrder()"
-      [buttonText]="'Редагувати замовлення'"
-      [buttonColor]="'transparent'"
-    ></app-button>
+    <ng-container
+      *ngTemplateOutlet="btnEditOrder ? editBtn : defaultBtn"
+    ></ng-container>
   </div>
 </div>
+
+<ng-template #editBtn>
+  <app-button
+    (click)="confirmOrder()"
+    [buttonText]="'Підтвердити зміни'"
+  ></app-button>
+  <app-button
+    (click)="editOrder()"
+    [buttonText]="'Скасувати зміни'"
+    [buttonColor]="'transparent'"
+  ></app-button>
+</ng-template>
+
+<ng-template #defaultBtn>
+  <app-button
+    (click)="confirmOrder()"
+    [buttonText]="'Підтвердити замовлення'"
+  ></app-button>
+  <app-button
+    (click)="editOrder()"
+    [buttonText]="'Редагувати замовлення'"
+    [buttonColor]="'transparent'"
+  ></app-button>
+</ng-template>

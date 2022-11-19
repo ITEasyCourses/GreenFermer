@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="product-img">
+    <img src="{{ productCard.img }}" alt="product-img" />
+  </div>
+  <div class="interface-row">
+    <div class="interface-row-description">
+      <p class="interface-row-description-text">
+        {{ productCard.productName }}
+      </p>
+      <p class="interface-row-description-text">{{ cardPrice }} ₴ / кг</p>
+      <p
+        class="interface-row-description-wholesale"
+        [class.activate]="wholesaleFlag"
+      >
+        оптова ціна від <b>{{ productCard.startWholesaleByKg }}</b> кг
+        {{ productCard.wholesalePrice }} ₴ / кг
+      </p>
+    </div>
+  </div>
+  <div class="interface-row">
+    <div class="interface-row-counter">
+      <div class="interface-row-counter-window">
+        <p>{{ counter }} кг</p>
+      </div>
+    </div>
+
+    <div class="interface-row-price">
+      <p>{{ totalPrice }} ₴</p>
+    </div>
+  </div>
+</div>

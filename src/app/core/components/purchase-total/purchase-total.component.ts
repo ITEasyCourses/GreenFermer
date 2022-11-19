@@ -3,6 +3,7 @@ import {
   Component,
   EventEmitter,
   Input,
+  OnChanges,
   OnInit,
   Output
 } from '@angular/core';
@@ -13,7 +14,7 @@ import {
   styleUrls: ['./purchase-total.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class PurchaseTotalComponent implements OnInit {
+export class PurchaseTotalComponent implements OnInit, OnChanges {
   @Input() allProductPrice!: number;
   @Input() package!: number;
   @Input() delivery!: number;
@@ -24,17 +25,25 @@ export class PurchaseTotalComponent implements OnInit {
 
   public allPrice!: number;
   public totalProductText!: string;
+  public btnEditOrder!: boolean;
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
+    this.allSum();
+    this.wordProduct();
+  }
+
+  public ngOnChanges(): void {
     this.allSum();
     this.wordProduct();
   }
 
   public confirmOrder(): void {
+    this.btnEditOrder = false;
     this.addOrder.emit();
   }
 
   public editOrder(): void {
+    this.btnEditOrder = true;
     this.cancelOrder.emit();
   }
 
