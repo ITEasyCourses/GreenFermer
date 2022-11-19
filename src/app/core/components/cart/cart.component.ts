@@ -1,6 +1,5 @@
 import {
   ChangeDetectionStrategy,
-  ChangeDetectorRef,
   Component,
   Input,
   OnInit
@@ -18,22 +17,11 @@ import { CartColorsType } from '../../types/application-types';
 export class CartComponent implements OnInit {
   @Input() color: CartColorsType = 'yellow';
 
-  public counter!: number;
+  public counter = this.bucketService.getGoodsCounter();
 
-  constructor(
-    private bucketService: BucketService,
-    private cdr: ChangeDetectorRef
-  ) {}
+  constructor(private bucketService: BucketService) {}
 
   public ngOnInit(): void {
-    this.updateCounterBySubscribe();
     this.bucketService.setValueInGoodsCounter();
-  }
-
-  private updateCounterBySubscribe(): void {
-    this.bucketService.getGoodsCounter().subscribe((num) => {
-      this.counter = num;
-      this.cdr.detectChanges();
-    });
   }
 }

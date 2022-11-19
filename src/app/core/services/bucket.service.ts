@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 
 import { ELocalStorage } from '../enums/local-storage';
 import { IProductCard } from '../interfaces/i-product-card';
@@ -12,7 +12,9 @@ export class BucketService {
   private purchaseModalProductCards: IProductCardBucket[] =
     this.getCurrentSessionBucket();
 
-  private goodsCounterSubj: Subject<number> = new Subject<number>();
+  private goodsCounterSubj: BehaviorSubject<number> =
+    new BehaviorSubject<number>(0);
+
   private reRenderSubj: Subject<boolean> = new Subject<boolean>();
 
   public getGoodsCounter(): Observable<number> {

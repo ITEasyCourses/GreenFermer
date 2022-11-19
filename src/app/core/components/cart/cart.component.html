@@ -1,7 +1,11 @@
 <div class="component-container">
-  <div class="component-container__counter" [ngClass]="color" *ngIf="counter">
+  <div
+    class="component-container__counter"
+    [ngClass]="color"
+    *ngIf="counter | async"
+  >
     <div class="counter-number">
-      <p>{{ counter > 99 ? '99+' : counter }}</p>
+      <p>{{ (counter | async)! > 99 ? '99+' : (counter | async) }}</p>
     </div>
   </div>
   <div class="component-container__cart">
