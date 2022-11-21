@@ -27,7 +27,6 @@
   }
 
   ::ng-deep &-chevron {
-    margin-top: 5px;
     transform: translateY(13px);
     transition: transform .2s linear;
   }
@@ -47,7 +46,7 @@
   }
 }
 
-::ng-deep .active {
+::ng-deep .active-delivery-icon {
   transform: rotateX(180deg);
   transition: transform .2s linear;
 }
