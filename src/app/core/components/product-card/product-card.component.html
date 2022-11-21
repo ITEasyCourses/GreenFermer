@@ -9,7 +9,11 @@
       />
     </ng-container>
 
-    <div class="card-wrap-basket" (click)="addToBasket()">
+    <div
+      class="card-wrap-basket"
+      [class]="basket ? 'card-wrap-basket yellow' : 'card-wrap-basket default'"
+      (click)="addToBasket()"
+    >
       <svg-icon-sprite
         [src]="'assets/sprites/sprite.svg#cart'"
         [viewBox]="'0 0 19 20'"

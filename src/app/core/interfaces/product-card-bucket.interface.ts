@@ -1,5 +1,5 @@
 export interface IProductCardBucket {
-  id: number;
+  id: string;
   productName: string;
   img: string;
   price: string;
@@ -7,4 +7,5 @@ export interface IProductCardBucket {
   weight: number;
   startWholesaleByKg: number;
   totalPrice: string;
+  minAmount: string;
 }

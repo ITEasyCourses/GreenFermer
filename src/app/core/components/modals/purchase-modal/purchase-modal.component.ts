@@ -7,11 +7,11 @@ import {
 import { MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 
-import { ProductCardBucketConstants } from '../../../constants/product-card-bucket.constants';
 import { sortPurchaseOptions } from '../../../constants/sort-purchase-options';
 import { ERoutes } from '../../../enums/routes';
 import { IProductCardBucket } from '../../../interfaces/product-card-bucket.interface';
 import { SortOption } from '../../../interfaces/sort-option';
+import { BucketService } from '../../../services/bucket.service';
 import { BucketCardArgType } from '../../../types/application-types';
 
 @Component({
@@ -23,16 +23,19 @@ import { BucketCardArgType } from '../../../types/application-types';
 export class PurchaseModalComponent implements OnInit {
   @Input() totalWeight = 0;
 
+  public productCards: IProductCardBucket[] = [];
   public mockSortTypes: SortOption[] = sortPurchaseOptions;
   public totalPrice!: string;
-  public productCards: IProductCardBucket[] = ProductCardBucketConstants;
+
   constructor(
     private dialogRef: MatDialogRef<PurchaseModalComponent>,
-    private router: Router
+    private router: Router,
+    private bucketService: BucketService
   ) {}
 
   public ngOnInit(): void {
     this.dialogRef.addPanelClass('purchase-modal');
+    this.productCards = this.bucketService.getCurrentSessionBucket();
     this.initializeData();
   }
 
@@ -42,6 +45,7 @@ export class PurchaseModalComponent implements OnInit {
 
   public countByDirection(receivedData: IProductCardBucket): void {
     this.setNewProductCards(receivedData);
+    this.bucketService.updateGoodsInLocalStorage(this.productCards);
     this.getTotalPrice();
   }
 

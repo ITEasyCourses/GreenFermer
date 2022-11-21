@@ -36,6 +36,10 @@
         background-color: $gray4;
       }
 
+      &.yellow {
+        background: $main-yellow;
+      }
+
       svg-icon-sprite {
         display: flex;
         align-items: center;

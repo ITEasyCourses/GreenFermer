@@ -15,18 +15,13 @@ import { CartColorsType } from '../../types/application-types';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CartComponent implements OnInit {
-  @Input() counter = 0;
   @Input() color: CartColorsType = 'yellow';
+
+  public counter = this.bucketService.getGoodsCounter();
 
   constructor(private bucketService: BucketService) {}
 
   public ngOnInit(): void {
-    this.updateCounterBySubscribe();
-  }
-
-  private updateCounterBySubscribe(): void {
-    this.bucketService
-      .getGoodsCounter()
-      .subscribe((num) => (this.counter = num));
+    this.bucketService.setValueInGoodsCounter();
   }
 }

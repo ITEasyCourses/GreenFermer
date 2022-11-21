@@ -3,33 +3,56 @@ import {
   ChangeDetectorRef,
   Component,
   Input,
-  OnInit
+  OnInit,
+  Self
 } from '@angular/core';
 
 import { IProductCard } from '../../interfaces/i-product-card';
+import { IProductCardBucket } from '../../interfaces/product-card-bucket.interface';
 import { BucketService } from '../../services/bucket.service';
+import { UnsubscribeService } from '../../services/unsubscribe.service';
 
 @Component({
   selector: 'app-product-purchase',
   templateUrl: './product-purchase.component.html',
   styleUrls: ['./product-purchase.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [UnsubscribeService]
 })
 export class ProductPurchaseComponent implements OnInit {
   @Input() product!: IProductCard;
+
+  public productBucket!: IProductCardBucket;
   public amount!: number;
   public sum!: number;
   public maxWeight = 1000;
   public minWeight!: number;
 
-  constructor(private cdr: ChangeDetectorRef, private bucket: BucketService) {}
+  constructor(
+    @Self() private unsubscribeService: UnsubscribeService,
+
+    private cdr: ChangeDetectorRef,
+    private bucketService: BucketService
+  ) {}
+
   public ngOnInit(): void {
+    this.productBucket = this.bucketService.interfaceChange(this.product);
+    this.isInBucket();
     this.init();
-    this.cdr.detectChanges();
+    this.wholesale();
+    this.reRenderBySubscribe();
+  }
+
+  public isInBucket(): void {
+    if (this.bucketService.isInBucket(this.productBucket.id)) {
+      this.productBucket = this.bucketService.getBucketItemForPurchase(
+        this.productBucket.id
+      );
+    }
   }
 
   public minusProduct(): void {
-    if (this.amount > Number(this.product.minAmount)) {
+    if (this.amount > Number(this.productBucket.minAmount)) {
       this.amount = this.amount - 1;
       this.wholesale();
     }
@@ -43,29 +66,49 @@ export class ProductPurchaseComponent implements OnInit {
   }
 
   public addToBucket(): void {
-    const product = {
-      title: this.product.title,
-      id: this.product.id,
-      optPrice: this.product.optPrice,
-      price: this.product.price,
-      amount: this.amount,
-      optAmount: this.product.optAmount,
-      sum: this.sum
+    const product: IProductCardBucket = {
+      productName: this.productBucket.productName,
+      img: this.productBucket.img,
+      id: this.productBucket.id,
+      wholesalePrice: this.productBucket.wholesalePrice,
+      price: this.productBucket.price,
+      weight: this.amount,
+      startWholesaleByKg: +this.productBucket.startWholesaleByKg,
+      totalPrice: String(this.sum) + '.00',
+      minAmount: this.productBucket.minAmount
     };
-    this.bucket.setGoodsInLocalStorage(product);
+
+    if (this.bucketService.isInBucket(product.id)) {
+      this.bucketService.removeFromBucket(product.id);
+      this.bucketService.addToBasket(product);
+    } else {
+      this.bucketService.addToBasket(product);
+    }
   }
 
   private init(): void {
-    this.amount = Number(this.product.minAmount);
-    this.sum = this.amount * Number(this.product.price);
-    this.minWeight = Number(this.product.minAmount);
+    this.amount = Number(this.productBucket.weight);
+    this.sum = this.amount * Number(this.productBucket.price);
+    this.minWeight = Number(this.productBucket.minAmount);
   }
 
   private wholesale(): void {
-    if (this.amount < Number(this.product.optAmount)) {
-      this.sum = Number(this.product.price) * this.amount;
+    if (this.amount < Number(this.productBucket.startWholesaleByKg)) {
+      this.sum = Number(this.productBucket.price) * this.amount;
     } else {
-      this.sum = Number(this.product.optPrice) * this.amount;
+      this.sum = Number(this.productBucket.wholesalePrice) * this.amount;
     }
+  }
+
+  private reRenderBySubscribe(): void {
+    this.bucketService
+      .reRender()
+      .pipe(this.unsubscribeService.takeUntilDestroy)
+      .subscribe(() => {
+        this.isInBucket();
+        this.init();
+        this.wholesale();
+        this.cdr.detectChanges();
+      });
   }
 }
