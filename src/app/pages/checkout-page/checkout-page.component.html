@@ -36,35 +36,66 @@
   </div>
   <div class="checkout_info">
     <p>Замовлення №</p>
-    <p class="checkout_info_price">{{ totalPrice }} ₴</p>
+    <p class="checkout_info_price">{{ totalPrice || totalPriceStr }} ₴</p>
   </div>
   <hr />
   <div class="checkout_order">
-    <div
-      class="checkout_order_content"
-      *ngFor="let card of data; trackBy: getCardId"
-    >
-      <app-product-purchase-card
-        [productCard]="card"
-        (updateProductCard)="onUpdateProductCard($event)"
-      ></app-product-purchase-card>
+    <ng-container
+      *ngTemplateOutlet="statusEdit ? editCard : defaultCard"
+    ></ng-container>
+    <div class="checkout_package">
+      <p class="checkout_package_title">Додати еко-пакування?</p>
+      <p class="checkout_package_subtitle">
+        Ми пропонуємо різні види біорозкладних упакувань для вашого замовлення,
+        ми завжди шукаємо нові та інноваційні способи допомогти врятувати нашу
+        планету та зберегти продукти свіжими.
+      </p>
+      <div class="checkout_package_select">
+        <app-select-delivery
+          [label]="label"
+          [options]="options"
+          [deliveryStyle]="true"
+          (selectedOption)="selectedPackage($event)"
+        ></app-select-delivery>
+      </div>
     </div>
+    <hr />
   </div>
-  <div class="checkout_package">
-    <p class="checkout_package_title">Додати еко-пакування?</p>
-    <p class="checkout_package_subtitle">
-      Ми пропонуємо різні види біорозкладних упакувань для вашого замовлення, ми
-      завжди шукаємо нові та інноваційні способи допомогти врятувати нашу
-      планету та зберегти продукти свіжими.
-    </p>
-    <div class="checkout_package_select">
-      <app-select-delivery
-        [label]="label"
-        [options]="options"
-        [deliveryStyle]="true"
-        (selectedOption)="selectedPackage($event)"
-      ></app-select-delivery>
-    </div>
+  <div class="checkout__delivery">
+    <app-delivery-payment
+      (deliveryObj)="deliveryDetailObj($event)"
+    ></app-delivery-payment>
+    <app-purchase-total
+      [allProductPrice]="totalPrice"
+      [oldProductPrice]="totalPriceStr"
+      [package]="packageCost"
+      [delivery]="deliveryCost"
+      [totalProduct]="productQuantity"
+      (addOrder)="confirmOrder()"
+      (cancelOrder)="editOrder()"
+      (cancelChanges)="cancelChanges()"
+    ></app-purchase-total>
   </div>
-  <hr />
 </div>
+
+<ng-template #defaultCard>
+  <div
+    class="checkout_order_content"
+    *ngFor="let card of data; trackBy: getCardId"
+  >
+    <app-product-checkout-card [productCard]="card"></app-product-checkout-card>
+  </div>
+</ng-template>
+
+<ng-template #editCard>
+  <div
+    class="checkout_order_content"
+    *ngFor="let card of data; trackBy: getCardId"
+  >
+    <app-product-purchase-card
+      [productCard]="card"
+      (updateProductCard)="onUpdateProductCard($event)"
+      (deleteCardEmitter)="deleteCard($event)"
+    ></app-product-purchase-card>
+  </div>
+</ng-template>

@@ -48,7 +48,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-top: 20px;
+      margin: 20px 0 10px;
 
       h3 {
         @include font-base(21px, 600, 33px);
@@ -57,7 +57,8 @@
     & .card-container{
       min-height: 170px ;
       max-height: 333px;
-      overflow-y: scroll;
+      overflow-y: auto;
+      padding-right: 15px;
 
     & .purchase-modal-content__product-purchase {
       margin-top: 20px;

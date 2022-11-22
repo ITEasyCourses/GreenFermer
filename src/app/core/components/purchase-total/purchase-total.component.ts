@@ -16,12 +16,14 @@ import {
 })
 export class PurchaseTotalComponent implements OnInit, OnChanges {
   @Input() allProductPrice!: number;
+  @Input() oldProductPrice!: string;
   @Input() package!: number;
   @Input() delivery!: number;
   @Input() totalProduct!: number;
 
   @Output() addOrder: EventEmitter<any> = new EventEmitter<any>();
   @Output() cancelOrder: EventEmitter<any> = new EventEmitter<any>();
+  @Output() cancelChanges: EventEmitter<any> = new EventEmitter<any>();
 
   public allPrice!: number;
   public totalProductText!: string;
@@ -37,14 +39,21 @@ export class PurchaseTotalComponent implements OnInit, OnChanges {
     this.wordProduct();
   }
 
-  public confirmOrder(): void {
-    this.btnEditOrder = false;
-    this.addOrder.emit();
-  }
+  public confirmOrder(): void {}
 
   public editOrder(): void {
     this.btnEditOrder = true;
     this.cancelOrder.emit();
+  }
+
+  public confirmChanges(): void {
+    this.btnEditOrder = false;
+    this.addOrder.emit();
+  }
+
+  public cancelChange(): void {
+    this.btnEditOrder = false;
+    this.cancelChanges.emit();
   }
 
   private allSum(): void {
