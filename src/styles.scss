@@ -32,3 +32,20 @@ body { margin: 0; background: $gray5;}
 ::-webkit-scrollbar-thumb:hover {
   background: $light-yellow;
 }
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: $gray5;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $main-yellow;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: $light-yellow;
+}

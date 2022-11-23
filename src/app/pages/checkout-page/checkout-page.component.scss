@@ -97,4 +97,9 @@
       height: 40px;
     }
   }
+
+  &__delivery{
+    display: flex;
+    justify-content: space-between;
+  }
 }

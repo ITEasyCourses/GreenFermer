@@ -11,7 +11,7 @@ import {
 } from './city-options';
 
 export const deliverySelf: DeliveryType = {
-  label: 'Самовівоз',
+  label: 'Самовивіз',
   value: EDelivery.SELF,
   group: new FormGroup(
     {
@@ -55,7 +55,7 @@ export const deliveryUkrPost: DeliveryType = {
       cityID: new FormControl(null, [Validators.required]),
       cityPlace: new FormControl(null),
       cityPlaceID: new FormControl(null, [Validators.required]),
-      deliveryType: new FormControl(EDelivery.NEWPOST),
+      deliveryType: new FormControl(EDelivery.UKRPOST),
       payment: new FormControl(null)
     },
     [Validators.required]
@@ -73,7 +73,7 @@ export const deliveryCourier: DeliveryType = {
       cityID: new FormControl(null, [Validators.required]),
       cityPlace: new FormControl(null, [Validators.required]),
       cityPlaceID: new FormControl(null),
-      deliveryType: new FormControl(EDelivery.NEWPOST),
+      deliveryType: new FormControl(EDelivery.COURIER),
       payment: new FormControl(null)
     },
     [Validators.required]
